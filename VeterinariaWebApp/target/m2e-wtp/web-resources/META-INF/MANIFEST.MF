@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 Manifest-Version: 1.0
-Built-By: nagat
-Build-Jdk: 1.8.0_181
+Built-By: serge
+Build-Jdk: 12.0.1
 Created-By: Maven Integration for Eclipse
 
+=======
+Manifest-Version: 1.0
+Built-By: carlosbaron
+Build-Jdk: 1.8.0_221
+Created-By: Maven Integration for Eclipse
+
+>>>>>>> 81284c8167172b3d5ac14f68023128466e57c20b
