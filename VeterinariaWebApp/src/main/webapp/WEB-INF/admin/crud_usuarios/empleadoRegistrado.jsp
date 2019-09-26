@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,5 +9,7 @@
 </head>
 <body>
 	<h1>Empleado Registrado</h1>
+	
+	<label>Número de Empleado</label><s:property name="empleado.no_empleado"/>
 </body>
 </html>

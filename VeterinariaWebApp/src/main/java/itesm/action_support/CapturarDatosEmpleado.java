@@ -32,7 +32,7 @@ public class CapturarDatosEmpleado extends ActionSupport implements SessionAware
 				System.out.println(item.getNombre_completo());
 			}*/
 		//System.out.println("Empleado: " + empleado.getNombre_completo());
-		
+		System.out.println("Estado del empleado: " + empleado.getEstado());
 		buffer_empleados = new ArrayList<EmpleadoBean>();
 		buffer_empleados.add(empleado);
 		System.out.println("Empleado: " + empleado.getTelefono());

@@ -20,7 +20,7 @@
        <s:select label="Estado del Empleado" 
 		headerKey="-1" headerValue="Selecciona un estado"
 		list="estado" 
-		name="itemFruta" />
+		name="empleado.estado" />
 
 		<s:submit value="Enviar"/>
 	</s:form>
