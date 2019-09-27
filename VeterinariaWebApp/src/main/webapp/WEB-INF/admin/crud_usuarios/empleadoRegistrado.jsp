@@ -10,6 +10,19 @@
 <body>
 	<h1>Empleado Registrado</h1>
 	
-	<label>Número de Empleado</label><s:property name="empleado.no_empleado"/>
+	<label><b>Número de Empleado</b></label><br>
+	<s:property value="empleado.no_empleado"/><br>
+	<label><b>Nombre Completo</b></label><br>
+	<s:property value="empleado.nombre_completo"/><br>
+	<label><b>Dirección</b></label><br>
+	<s:property value="empleado.direccion"/><br>
+	<label><b>Teléfono</b></label><br>
+	<s:property value="empleado.telefono"/><br>
+	<label><b>Puesto</b></label><br>
+	<s:property value="empleado.puesto"/><br>
+	<label><b>Especialidad Médica</b></label><br>
+	<s:property value="empleado.especialidad"/><br>
+	<label><b>Estado</b></label><br>
+	<s:property value="empleado.estado"/><br>
 </body>
 </html>

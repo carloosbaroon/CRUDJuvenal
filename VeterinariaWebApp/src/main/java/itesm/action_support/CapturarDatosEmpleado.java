@@ -13,6 +13,7 @@ public class CapturarDatosEmpleado extends ActionSupport implements SessionAware
 	private EmpleadoBean empleado;
 	private Map<String, Object> session_empleado;
 	private ArrayList<EmpleadoBean> buffer_empleados;
+	private final String TABLA = "empleado";
 	
 	public EmpleadoBean getEmpleado() {
 		return empleado;
@@ -23,45 +24,22 @@ public class CapturarDatosEmpleado extends ActionSupport implements SessionAware
 	}
 
 	public String execute() throws Exception {
-		//Recuperamos los datos del empleado usando la variable de sesión
-		
-		/*if(buffer_empleados == null)
-			System.out.println("No hay datos");
-		else
-			for(EmpleadoBean item : buffer_empleados) {
-				System.out.println(item.getNombre_completo());
-			}*/
-		//System.out.println("Empleado: " + empleado.getNombre_completo());
-		System.out.println("Estado del empleado: " + empleado.getEstado());
-		buffer_empleados = new ArrayList<EmpleadoBean>();
-		buffer_empleados.add(empleado);
-		System.out.println("Empleado: " + empleado.getTelefono());
-		System.out.println("buufer_aempleados: " + buffer_empleados.get(0));
-		
-		if(buffer_empleados == null) {
-			System.out.println("Buffer Empleados esta vacio");
-		}else {
-			System.out.println("Contenido de Buffer Empleados");
-			System.out.println("No empleado: " + buffer_empleados.get(0).getNo_empleado());
-			System.out.println("Telefono: " + buffer_empleados.get(0).getTelefono());
-		}
+			//1. Obtenemos la tabla y los registros que se encuentran en la variable de sesión
+			buffer_empleados = (ArrayList<EmpleadoBean>)this.session_empleado.get(TABLA);
 			
-		this.session_empleado.put("empleado1", buffer_empleados);
-		System.out.println("Valores Map: " + session_empleado.values());
-		boolean existe = session_empleado.containsKey("empleado1");
-		
-		ArrayList<EmpleadoBean> buffer2 = new ArrayList<EmpleadoBean>();		
-		buffer2 = (ArrayList<EmpleadoBean>) this.session_empleado.get("empleado1");
-		System.out.println("Buffer2: " + buffer2);
-		System.out.println("No empleado(Buffer2): " + buffer2.get(0).getNo_empleado());
-		System.out.println("Telefono(Buffer 2): " + buffer2.get(0).getTelefono());
-		System.out.println("Sesion Empleado: " + session_empleado.get("empleado1"));
-		/*System.out.println("Valores Map: " + session_empleado.values());
-		System.out.println("Despues: " + buffer_empleados);*/
-		//buffer_empleados = (ArrayList<EmpleadoBean>)this.session_empleado.get("empleado");
-		/*for(EmpleadoBean item : buffer_empleados) {
-			System.out.println(item.getNombre_completo());
-		}*/
+			//En caso de que la variable de sesión no tenga el conjunto de datos solicitado
+			//se creara una instancia ArrayList que guardara los datos del Empleado
+			if(buffer_empleados == null) {
+				ArrayList<EmpleadoBean> buffer_empleados_aux = new ArrayList<EmpleadoBean>();
+				buffer_empleados_aux.add(empleado);
+				this.session_empleado.put("empleado", buffer_empleados_aux);
+			} else {
+				//2. Agregamos el objeto o datos del formulario obtenido a la cola del ArrayList
+				buffer_empleados.add(empleado);
+				//3. Actualizamos la variable de sesión con los nuevos datos
+				this.session_empleado.put("empleado", buffer_empleados);
+			}	
+			
 		return SUCCESS;
 	}
 
