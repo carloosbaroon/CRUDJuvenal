@@ -1,5 +1,9 @@
 package itesm.business;
 
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class UsuarioBean {
 	private String usuarioID;
 	private String password;
@@ -31,7 +35,11 @@ public class UsuarioBean {
 		return id_empleado_FK;
 	}
 	public void setId_empleado_FK(String id_empleado_FK) {
-		this.id_empleado_FK = id_empleado_FK;
+	    Pattern pattern = Pattern.compile("(\\d+)");
+	    Matcher match = pattern.matcher(id_empleado_FK);
+	    match.find();
+		
+		this.id_empleado_FK = match.group();
 	}
 	public int getGrupo() {
 		return grupo;

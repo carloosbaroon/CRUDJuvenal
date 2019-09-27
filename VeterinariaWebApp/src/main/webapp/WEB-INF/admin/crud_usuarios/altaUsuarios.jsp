@@ -15,7 +15,13 @@
 	<s:textfield name="usuario.usuarioID" label="Usuario"/>
 	<s:textfield name="usuario.password" label="Password"/>
 	<s:textfield name="usuario.confirmar_password" label="Confirmar Password"/>
-	<s:textfield name="usuario.id_empleado_FK" label="Id del Empleado FK"/>
+	<s:select label="Empleados Disponibles"
+	headerValue="Selecciona un empleado" 
+	headerKey="-1"
+	list="list_empleados_fk"
+	name="usuario.id_empleado_FK"
+	/>
+	
 	<s:textfield name="usuario.grupo" label="Grupo"/>
 	<s:textfield name="usuario.estado" label="Estado"/>
 	<s:submit value="enviar"/>

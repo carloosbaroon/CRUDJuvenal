@@ -8,7 +8,7 @@
     		<result>WEB-INF/admin/crud_usuarios/admin_usuarios.jsp</result><!-- Reedirige al jsp de administración de usuarios -->
     	</action>
     	
-		<action name="goto_alta_usuario_jsp">
+		<action name="goto_alta_usuario_jsp" class="itesm.action_support.ControlarFormUsuario">
     		<result>WEB-INF/admin/crud_usuarios/altaUsuarios.jsp</result>
     	</action>
     	
