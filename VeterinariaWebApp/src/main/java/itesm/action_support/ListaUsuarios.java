@@ -9,15 +9,13 @@ import com.opensymphony.xwork2.ActionSupport;
 import itesm.business.UsuarioBean;
 
 public class ListaUsuarios extends ActionSupport implements SessionAware {
+	private static final long serialVersionUID = 1L;
 	private Map<String, Object> session_usuarios;
-	private UsuarioBean usuario;
 	private ArrayList<UsuarioBean> buffer_usuarios;
-	private final String TABLA = "usuario";
 	
 	public String execute() {
 		//1. Obtener la tabla empleados con todos sus registros
-		this.buffer_usuarios = (ArrayList<UsuarioBean>)this.session_usuarios.get(TABLA);
-		System.err.println("Bufer users: "+ this.buffer_usuarios);
+		this.buffer_usuarios = (ArrayList<UsuarioBean>)this.session_usuarios.get(Tabla.TABLA_USUARIO);
 		
 		return SUCCESS;
 	}

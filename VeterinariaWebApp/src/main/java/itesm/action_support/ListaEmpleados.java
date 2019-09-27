@@ -10,14 +10,13 @@ import com.opensymphony.xwork2.ActionSupport;
 import itesm.business.EmpleadoBean;
 
 public class ListaEmpleados extends ActionSupport implements SessionAware{
+	private static final long serialVersionUID = 1L;
 	private Map<String, Object> session_empleados;
-	private EmpleadoBean empleado;
 	private ArrayList<EmpleadoBean> buffer_empleados;
-	private final String TABLA = "empleado";
 	
 	public String execute() {
 		//1. Obtener la tabla empleados con todos sus registros
-		this.buffer_empleados = (ArrayList<EmpleadoBean>)this.session_empleados.get(TABLA);
+		this.buffer_empleados = (ArrayList<EmpleadoBean>)this.session_empleados.get(Tabla.TABLA_EMPLEADO);
 		
 		return SUCCESS;
 	}

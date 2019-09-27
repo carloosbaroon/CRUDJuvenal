@@ -10,8 +10,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import itesm.business.EmpleadoBean;
 
 public class ControlarFormUsuario extends ActionSupport implements SessionAware{
+	private static final long serialVersionUID = 1L;
 	private ArrayList<String> list_empleados_fk;
-	private EmpleadoBean empleado;
 	private ArrayList<EmpleadoBean> buffer_empleado;
 	private Map<String, Object> session_empleados;//Servira para accesar a los registros de los empleados
 	

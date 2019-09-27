@@ -10,10 +10,10 @@ import com.opensymphony.xwork2.ActionSupport;
 import itesm.business.UsuarioBean;
 
 public class ValidarFormUsuario extends ActionSupport implements SessionAware{
+	private static final long serialVersionUID = 1L;
 	private UsuarioBean usuario;
 	private Map<String, Object> session_usuario;
 	private ArrayList<UsuarioBean> buffer_usuarios;
-	private String TABLA = "usuario";
 	
 	@Override
 	public void setSession(Map<String, Object> session) {
@@ -30,17 +30,17 @@ public class ValidarFormUsuario extends ActionSupport implements SessionAware{
 		System.out.println(usuario.getEstado());
 		
 		//1. Recuperamos el ArrayList de Usuarios obtenido de Map
-		this.buffer_usuarios = (ArrayList<UsuarioBean>)this.session_usuario.get(TABLA);
+		this.buffer_usuarios = (ArrayList<UsuarioBean>)this.session_usuario.get(Tabla.TABLA_USUARIO);
 		
 		if(this.buffer_usuarios == null) {
 			ArrayList<UsuarioBean> buffer_usuarios_aux = new ArrayList<UsuarioBean>();
 			buffer_usuarios_aux.add(usuario);
-			this.session_usuario.put(TABLA, buffer_usuarios_aux);
+			this.session_usuario.put(Tabla.TABLA_USUARIO, buffer_usuarios_aux);
 		}else {
 			//2. Agregamos el objeto/datos del formulario obtenido a la cola del ArrayList
 			buffer_usuarios.add(usuario);
 			//3. Actualizamos la variable de sesión con los nuevos datos
-			this.session_usuario.put(TABLA, buffer_usuarios);
+			this.session_usuario.put(Tabla.TABLA_USUARIO, buffer_usuarios);
 		}
 		
 		return SUCCESS;

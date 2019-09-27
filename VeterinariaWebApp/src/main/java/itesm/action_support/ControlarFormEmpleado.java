@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ControlarFormEmpleado extends ActionSupport{
+	private static final long serialVersionUID = 1L;
 	private ArrayList<String> estado;
 	
 	public String execute() throws Exception {
