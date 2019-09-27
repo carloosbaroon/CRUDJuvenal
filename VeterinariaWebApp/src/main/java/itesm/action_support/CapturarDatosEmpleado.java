@@ -37,7 +37,7 @@ public class CapturarDatosEmpleado extends ActionSupport implements SessionAware
 				//2. Agregamos el objeto o datos del formulario obtenido a la cola del ArrayList
 				buffer_empleados.add(empleado);
 				//3. Actualizamos la variable de sesión con los nuevos datos
-				this.session_empleado.put("empleado", buffer_empleados);
+				this.session_empleado.put(TABLA, buffer_empleados);
 			}	
 			
 		return SUCCESS;

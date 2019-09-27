@@ -12,8 +12,16 @@
     		<result>WEB-INF/admin/crud_usuarios/altaUsuarios.jsp</result>
     	</action>
     	
+    	<action name="goto_consulta_usuarios_jsp" class="itesm.action_support.ListaUsuarios">
+    		<result>WEB-INF/admin/crud_usuarios/listaUsuarios.jsp</result>
+    	</action>
+    	
+ 	    <action name="validar_campos_usuario" class="itesm.action_support.ValidarFormUsuario">
+    		<result name="success">WEB-INF/admin/crud_usuarios/usuarioRegistrado.jsp</result>
+    	</action>
+    	
     	<action name="goto_alta_empleado_jsp" class="itesm.action_support.ControlarFormEmpleado">
-    		<result>WEB-INF/admin/crud_usuarios/altaEmpleado.jsp</result>
+    		<result name="success">WEB-INF/admin/crud_usuarios/altaEmpleado.jsp</result>
     	</action>
     	
     	<action name="goto_consulta_empleado_jsp" class="itesm.action_support.ListaEmpleados">
