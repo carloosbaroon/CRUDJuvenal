@@ -8,10 +8,10 @@
 <title>Administración de usuarios</title>
 </head>
 <body>
-	<s:url action="goto_alta_jsp" var="alta_usuarios"/>
+	<s:url action="goto_alta_usuario_jsp" var="alta_usuarios"/>
 	<s:url action="goto_alta_empleado_jsp" var="alta_empleados"/>
 	<s:url action="goto_baja_jsp" var="baja_usuarios"/>
-	<s:url action="goto_cambios_jsp" var="cambios_usuarios"/>
+	<s:url action="goto_cambios_usuario_jsp" var="cambios_usuarios"/>
 	<s:url action="goto_bloqueo_desbloqueo_jsp" var="bloqueo_desbloqueo_usuarios"/>
 	
 	<p><a href="${alta_usuarios}">Alta de Usuarios</a></p>

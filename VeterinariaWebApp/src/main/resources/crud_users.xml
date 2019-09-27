@@ -8,11 +8,11 @@
     		<result>WEB-INF/admin/crud_usuarios/admin_usuarios.jsp</result><!-- Reedirige al jsp de administración de usuarios -->
     	</action>
     	
-		<action name="goto_alta_jsp">
+		<action name="goto_alta_usuario_jsp">
     		<result>WEB-INF/admin/crud_usuarios/altaUsuarios.jsp</result>
     	</action>
     	
-    	<action name="goto_consulta_usuarios_jsp" class="itesm.action_support.ListaUsuarios">
+    	<action name="goto_consulta_usuario_jsp" class="itesm.action_support.ListaUsuarios">
     		<result>WEB-INF/admin/crud_usuarios/listaUsuarios.jsp</result>
     	</action>
     	
@@ -28,7 +28,7 @@
     		<result>WEB-INF/admin/crud_usuarios/listaEmpleado.jsp</result>
     	</action>
     	
-    	<action name="capurar_datos_empleado" class="itesm.action_support.CapturarDatosEmpleado">
+    	<action name="validar_campos_empleado" class="itesm.action_support.CapturarDatosEmpleado">
     		<result name="success">WEB-INF/admin/crud_usuarios/empleadoRegistrado.jsp</result>
     	</action>
     	
@@ -36,7 +36,7 @@
     		<result>WEB-INF/admin/crud_usuarios/bajaUsuarios.jsp</result>
     	</action>
     	
-    	<action name="goto_cambios_jsp">
+    	<action name="goto_cambios_usuario_jsp">
     		<result>WEB-INF/admin/crud_usuarios/cambiosUsuarios.jsp</result>
     	</action>
     		

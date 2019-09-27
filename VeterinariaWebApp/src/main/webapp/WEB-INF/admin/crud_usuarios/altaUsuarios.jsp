@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>Lista de Usuarios</h1>
-<s:url action="goto_consulta_usuarios_jsp" var="consultar_usuarios"/>
+<s:url action="goto_consulta_usuario_jsp" var="consultar_usuarios"/>
 
 <s:form action="validar_campos_usuario">
 	<s:textfield name="usuario.usuarioID" label="Usuario"/>
