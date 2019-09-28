@@ -12,7 +12,6 @@
 	<s:url action="goto_consulta_empleado_jsp" var="consultar_empleados"/>
 	
 	<s:form action="validar_campos_empleado">
-		<s:textfield name="empleado.no_empleado" label="No de Empleado" />
 		<s:textfield name="empleado.nombre_completo" label="Nombre Completo" />
 		<s:textfield name="empleado.direccion" label="Dirección"/>
 		<s:textfield name="empleado.telefono" label="Teléfono"/>
