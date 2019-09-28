@@ -10,7 +10,7 @@
 <body>
 	<h1>Baja Usuarios</h1>
 	<s:form action="buscar_usuario_baja">
-		<s:textfield name="usuario.usuarioID" label="ID del usuario: " />
+		<s:textfield name="usuario.usuarioID" label="ID del usuario" />
 		<s:submit value="Enviar"/>
 	</s:form>
 </body>
