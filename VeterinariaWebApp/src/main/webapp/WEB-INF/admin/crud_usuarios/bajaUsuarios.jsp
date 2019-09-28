@@ -9,5 +9,9 @@
 </head>
 <body>
 	<h1>Baja Usuarios</h1>
+	<s:form action="buscar_usuario_baja">
+		<s:textfield name="empleado.no_empleado" label="No de Empleado" />
+		<s:submit value="Enviar"/>
+	</s:form>
 </body>
 </html>
