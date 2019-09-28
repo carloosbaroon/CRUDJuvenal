@@ -1,12 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+    <title>user/editarPaciente.jsp</title>
 </head>
+
 <body>
-	<h1>Modificar Paciente</h1>
+<s:form action="finalPaciente2">
+	<s:textfield name="paciente.id" label="ID" />
+    <s:textfield name="paciente.name" label="Nombre" />
+    <s:textfield name="paciente.categoria" label="Categoria" />
+    <s:textfield name="paciente.raza" label="Raza" /> 
+	<s:textfield name="paciente.edad" label="Edad" />
+    <s:submit value="Enviar" />
+</s:form>
 </body>
 </html>
