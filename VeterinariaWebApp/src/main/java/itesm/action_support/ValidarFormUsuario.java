@@ -16,13 +16,15 @@ public class ValidarFormUsuario extends ActionSupport implements SessionAware{
 	private Map<String, Object> session_var;
 	private ArrayList<UsuarioBean> buffer_usuarios;
 	private ArrayList<EmpleadoBean> buffer_empleados, buffer_empleados_aux;
+	private int usuarioCount;
 	
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session_var = session;
 	}
 	
-	public String execute() {		
+	public String execute() {
+		updateIdCounter(session_var, Tabla.USUARIO_COUNT, usuarioCount);
 		//1. Recuperamos el ArrayList de Usuarios y el de Empleados accediendo a Map
 		this.buffer_usuarios = (ArrayList<UsuarioBean>)this.session_var.get(Tabla.TABLA_USUARIO);
 		this.buffer_empleados = (ArrayList<EmpleadoBean>)this.session_var.get(Tabla.TABLA_EMPLEADO);
@@ -54,4 +56,17 @@ public class ValidarFormUsuario extends ActionSupport implements SessionAware{
 	public UsuarioBean getUsuario() {
 		return usuario;
 	}
+	
+	private void updateIdCounter(Map<String, Object> session_var,String idCounter, int contador_local) {
+		if(!session_var.containsKey(idCounter))
+			session_var.put(idCounter, contador_local);
+					
+		contador_local = (Integer) session_var.get(idCounter);
+		
+		contador_local++;
+		session_var.put(idCounter, contador_local);
+		this.usuario.setUsuarioID((((String.valueOf(contador_local)))));//Agregamos el id incremental al nuevo empleado
+	}
+	
+	
 }

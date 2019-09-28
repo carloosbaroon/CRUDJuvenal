@@ -24,8 +24,8 @@
 
 <s:iterator value="buffer_empleados" status="i">
 	<tr>
-		<!-- <s:property value="%{#i.index+1}"></s:property>-->
-		<td><s:property value="no_empleado"/></td>
+		<td><s:property value="%{#i.index+1}"></s:property></td>
+		<!-- <td><s:property value="no_empleado"/></td> -->
 		<td><s:property value="nombre_completo"/></td>
 		<td><s:property value="direccion"/></td>
 		<td><s:property value="telefono"/></td>

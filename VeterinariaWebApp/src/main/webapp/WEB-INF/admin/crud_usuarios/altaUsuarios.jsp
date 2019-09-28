@@ -12,7 +12,6 @@
 <s:url action="goto_consulta_usuario_jsp" var="consultar_usuarios"/>
 
 <s:form action="validar_campos_usuario">
-	<s:textfield name="usuario.usuarioID" label="Usuario"/>
 	<s:textfield name="usuario.password" label="Password"/>
 	<s:textfield name="usuario.confirmar_password" label="Confirmar Password"/>
 	<s:select label="Empleados Disponibles"
