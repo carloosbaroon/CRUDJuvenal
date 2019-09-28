@@ -36,6 +36,10 @@
     		<result>WEB-INF/admin/crud_usuarios/bajaUsuarios.jsp</result>
     	</action>
     	
+    	<action name="buscar_usuario_baja" class="itesm.action_support.BuscarDatosUsuario">
+    		<result name="success">WEB-INF/admin/crud_usuarios/datosBajaUsuario.jsp</result>
+    	</action>
+    	
     	<action name="goto_cambios_usuario_jsp">
     		<result>WEB-INF/admin/crud_usuarios/cambiosUsuarios.jsp</result>
     	</action>
