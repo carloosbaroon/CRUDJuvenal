@@ -18,6 +18,7 @@
     	
  	    <action name="validar_campos_usuario" class="itesm.action_support.ValidarFormUsuario">
     		<result name="success">WEB-INF/admin/crud_usuarios/usuarioRegistrado.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	
     	<action name="goto_alta_empleado_jsp" class="itesm.action_support.ControlarFormEmpleado">

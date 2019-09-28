@@ -10,7 +10,7 @@ public class UsuarioBean {
 	private String confirmar_password;
 	private String id_empleado_FK;
 	//Grupo al que pertenece el usuario y es el que indica los privilegios de acceso que tiene
-	private int grupo;
+	private String grupo;
 	private String estado;//Activo, Bloqueado, Inactivo
 	
 	public String getUsuarioID() {
@@ -41,16 +41,17 @@ public class UsuarioBean {
 		
 		this.id_empleado_FK = match.group();
 	}
-	public int getGrupo() {
-		return grupo;
-	}
-	public void setGrupo(int grupo) {
-		this.grupo = grupo;
-	}
+	
 	public String getEstado() {
 		return estado;
 	}
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+	public String getGrupo() {
+		return grupo;
+	}
+	public void setGrupo(String grupo) {
+		this.grupo = grupo;
 	}
 }

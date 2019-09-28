@@ -21,20 +21,26 @@
             </result> -->
         </action>
         
-        <action name="goto_crear_admin_jsp">
+        <action name="goto_crear_admin_jsp" class="itesm.action_support.ControlarFormUsuario">
         	<result>WEB-INF/admin/crearAdmin.jsp</result>
         </action>
         
-         <action name="admin_registrado_jsp" class="itesm.action_support.CapturarDatosAdmin">
-        	<result>WEB-INF/admin/adminRegistrado.jsp</result>
+        <action name="goto_consulta_usuario_jsp_global" class="itesm.action_support.ListaUsuarios">
+        	<result>WEB-INF/admin/listaUsuariosGlobal.jsp</result>
         </action>
-        
         <action name="goto_login_jsp">
         	<result>WEB-INF/admin/login.jsp</result>
         </action>
         
-        <action name="validar_usuario">
-        	<result>WEB-INF/admin/menu.jsp</result>
+         <action name="validar_campos_usuario_global" class="itesm.action_support.ValidarFormUsuario">
+    		<result name="success">WEB-INF/admin/usuarioRegistradoGlobal.jsp</result>
+    		<result name="error">WEB-INF/admin/errorGlobal.jsp</result>
+    	</action>
+        
+        <action name="validar_usuario" class="itesm.action_support.ValidarLogin">
+        	<result name="admin">WEB-INF/admin/menuAdmin.jsp</result>
+        	<result name="user">WEB-INF/admin/menuUser.jsp</result>
+        	<result name="error">WEB-INF/admin/errorLogin.jsp</result>
     	</action>
     	
     	
