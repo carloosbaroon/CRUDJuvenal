@@ -10,6 +10,6 @@
 <body>
 	<h1>Empleado Registrado</h1>
 	
-	<label>Número de Empleado</label><s:property name="empleado.no_empleado"/>
+	<label>Número de Empleado</label><s:property value="empleado.no_empleado"/>
 </body>
 </html>

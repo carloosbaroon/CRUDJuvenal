@@ -2,23 +2,40 @@
 <!DOCTYPE struts PUBLIC
         "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
         "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+
+
 <struts>
     <package name="crud_pacientes" namespace="/" extends="struts-default">
 		<action name="goto_admin_pacientes_jsp">
     		<result>WEB-INF/admin/crud_pacientes/adminPacientes.jsp</result>
     	</action>
     	
-    	<action name="goto_alta_owner_jsp">
-    		<result>WEB-INF/admin/crud_pacientes/altaOwner.jsp</result>
+    	<action name="goto_alta_owner_jsp" class="itesm.action_support.CapturarDatosDueño" method="init">
+    		<result name="success">WEB-INF/admin/crud_pacientes/altaOwner.jsp</result>
     	</action>
     	
-    	<action name="goto_alta_paciente_jsp">
+    	<action name="capurar_datos_owner" class="itesm.action_support.CapturarDatosDueño">
+    		<result name="success"> WEB-INF/admin/crud_pacientes/dueñoRegistrado.jsp</result>
+    	</action>
+    	
+    	<action name="validarIDPaciente" class="itesm.action_support.validarIDPaciente">
     		<result>WEB-INF/admin/crud_pacientes/altaPaciente.jsp</result>
     	</action>
-    	
-    	<action name="goto_modificar_owner_jsp">
-    		<result>WEB-INF/admin/crud_pacientes/modificarOwner.jsp</result>
+    	  
+		<action name="modificar" class="itesm.action_support.editarOwner" method="init">
+    		<result>WEB-INF/admin/crud_pacientes/validarID.jsp</result>
     	</action>
+    	
+    	<action name="modificarOwner" class="itesm.action_support.editarOwner">
+    		<result name="success">/WEB-INF/admin/crud_pacientes/modificarOwner.jsp</result>
+            <result name="error">/WEB-INF/admin/crud_pacientes/error.jsp</result>
+    	</action>
+    	
+    	<action name="finalOwner" class="itesm.action_support.editarOwner" method="show">
+    		<result name="success">WEB-INF/admin/crud_pacientes/finEditarOwner.jsp</result>
+    	</action>
+    	   	
     	
     	<action name="goto_modificar_paciente_jsp">
     		<result>WEB-INF/admin/crud_pacientes/modificarPaciente.jsp</result>
@@ -26,3 +43,4 @@
     	
     </package>
 </struts>
+

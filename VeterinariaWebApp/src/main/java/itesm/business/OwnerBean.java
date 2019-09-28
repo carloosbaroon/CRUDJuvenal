@@ -1,11 +1,19 @@
 package itesm.business;
 
-public class DuenoBean {
+public class OwnerBean {
+	public String id;
 	public String nombre;
 	public String direccion;
 	public int telefono;
 	public String rfc;
 	
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getNombre() {
 		return nombre;
 	}
