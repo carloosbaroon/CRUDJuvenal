@@ -25,6 +25,10 @@
         	<result>WEB-INF/admin/crearAdmin.jsp</result>
         </action>
         
+         <action name="admin_registrado_jsp" class="itesm.action_support.CapturarDatosAdmin">
+        	<result>WEB-INF/admin/adminRegistrado.jsp</result>
+        </action>
+        
         <action name="goto_login_jsp">
         	<result>WEB-INF/admin/login.jsp</result>
         </action>

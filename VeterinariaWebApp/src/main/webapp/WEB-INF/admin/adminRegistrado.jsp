@@ -8,10 +8,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<s:form action="admin_registrado_jsp">
-		<s:textfield name="admin.username" label="Usuario"/>
-		<s:textfield name="admin.password" label="Password"/>
-		<s:submit value="enviar"/>
-</s:form>
+	<h1>Empleado Registrado</h1>
+	
+
+	<label><b>Username</b></label><br>
+	<s:property value="admin.username"/><br>
+	<label><b>Password</b></label><br>
+	<s:property value="admin.password"/><br>
+
 </body>
 </html>
