@@ -9,17 +9,32 @@
 </head>
 <body>
 <h1>Listar Empleados</h1>
+
+<table border="1">
+	<tr>
+       <td><b>EmpleadoID</b></td>
+       <td><b>Nombre</b></td>
+       <td><b>Direccion</b></td>
+       <td><b>Telefono</b></td>
+       <td><b>Puesto</b></td>
+       <td><b>Especialidad</b></td>
+       <td><b>Turno</b></td>
+       <td><b>Estado</b></td>
+    </tr>
+
 <s:iterator value="buffer_empleados" status="i">
-	<s:property value="%{#i.index+1}"></s:property>
-	<s:property value="no_empleado"></s:property>
-	<s:property value="nombre_completo"></s:property>
-	<s:property value="direccion"></s:property>
-	<s:property value="telefono"></s:property>
-	<s:property value="puesto"></s:property>
-	<s:property value="especialidad"></s:property>
-	<s:property value="turno"></s:property>
-	<s:property value="estado"></s:property>
-<br>
+	<tr>
+		<!-- <s:property value="%{#i.index+1}"></s:property>-->
+		<td><s:property value="no_empleado"/></td>
+		<td><s:property value="nombre_completo"/></td>
+		<td><s:property value="direccion"/></td>
+		<td><s:property value="telefono"/></td>
+		<td><s:property value="puesto"/></td>
+		<td><s:property value="especialidad"/></td>
+		<td><s:property value="turno"/></td>
+		<td><s:property value="estado"/></td>
+	</tr>
 </s:iterator>
+</table>
 </body>
 </html>
