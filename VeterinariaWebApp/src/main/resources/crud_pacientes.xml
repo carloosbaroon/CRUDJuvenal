@@ -8,21 +8,76 @@
     		<result>WEB-INF/admin/crud_pacientes/adminPacientes.jsp</result>
     	</action>
     	
-    	<action name="goto_alta_owner_jsp">
-    		<result>WEB-INF/admin/crud_pacientes/altaOwner.jsp</result>
+    	<!-- Owner -->
+    	<action name="goto_alta_owner_jsp" class="itesm.action_support.CapturarDatosDueño" method="init">
+    		<result name="success">WEB-INF/admin/crud_pacientes/altaOwner.jsp</result>
     	</action>
     	
-    	<action name="goto_alta_paciente_jsp">
-    		<result>WEB-INF/admin/crud_pacientes/altaPaciente.jsp</result>
+    	<action name="capurar_datos_owner" class="itesm.action_support.CapturarDatosDueño">
+    		<result name="success"> WEB-INF/admin/crud_pacientes/dueñoRegistrado.jsp</result>
     	</action>
     	
-    	<action name="goto_modificar_owner_jsp">
-    		<result>WEB-INF/admin/crud_pacientes/modificarOwner.jsp</result>
+    	<action name="modificar" class="itesm.action_support.editarOwner" method="init">
+    		<result>WEB-INF/admin/crud_pacientes/validarID.jsp</result>
     	</action>
     	
-    	<action name="goto_modificar_paciente_jsp">
-    		<result>WEB-INF/admin/crud_pacientes/modificarPaciente.jsp</result>
+    	<action name="modificarOwner" class="itesm.action_support.editarOwner">
+    		<result name="success">/WEB-INF/admin/crud_pacientes/modificarOwner.jsp</result>
+            <result name="error">/WEB-INF/admin/crud_pacientes/error.jsp</result>
     	</action>
+    	
+    	<action name="finalOwner" class="itesm.action_support.editarOwner" method="show">
+    		<result name="success">WEB-INF/admin/crud_pacientes/finEditarOwner.jsp</result>
+    	</action>
+    	<!-- Owner -->
+    	
+    	
+    	<!-- Paciente -->
+    
+    	<action name="goto_alta_paciente_jsp" class="itesm.action_support.CapturarDatosPaciente" method="init">
+    		<result>WEB-INF/admin/crud_pacientes/validarIDPaciente.jsp</result>
+    	</action>
+    	
+    	<action name="capurar_datos_paciente" class="itesm.action_support.editarOwnerPaciente">
+    		<result name="success">/WEB-INF/admin/crud_pacientes/altaPaciente.jsp</result>
+            <result name="error">/WEB-INF/admin/crud_pacientes/error.jsp</result>
+    	</action>
+    	
+    	<action name="finalPaciente" class="itesm.action_support.CapturarDatosPaciente" method="show">
+    		<result name="success">WEB-INF/admin/crud_pacientes/pacienteRegistrado.jsp</result>
+    	</action>
+    	
+    	<action name="goto_modificar_paciente_jsp" class="itesm.action_support.ConsultaGeneralPaciente" method="init">
+    		<result>WEB-INF/admin/crud_pacientes/validarIDPacienteConsulta.jsp</result>
+    	</action>
+    	
+    	<action name="modificarPaciente1" class="itesm.action_support.editarPaciente" method="init">
+    		<result>WEB-INF/admin/crud_pacientes/validarIDPacienteCambio.jsp</result>
+    	</action>
+    	
+    	<action name="modificarPaciente2" class="itesm.action_support.editarPaciente">
+    		<result name="success">/WEB-INF/admin/crud_pacientes/modificarPaciente.jsp</result>
+            <result name="error">/WEB-INF/admin/crud_pacientes/error.jsp</result>
+    	</action>
+    	
+    	<action name="finalPaciente2" class="itesm.action_support.editarPaciente" method="show">
+    		<result name="success">WEB-INF/admin/crud_pacientes/finEditarPaciente.jsp</result>
+    	</action>
+    	
+    	<!-- Paciente -->
+		
+   		<!-- Consulta -->
+    	
+    	<action name="consultaGeneral1" class="itesm.action_support.editarOwner">
+    		<result name="success">/WEB-INF/admin/crud_pacientes/preConsultaGeneral.jsp</result>
+            <result name="error">/WEB-INF/admin/crud_pacientes/error.jsp</result>
+    	</action>
+    	
+    	<action name="consultaGeneral2" class="itesm.action_support.ConsultaGeneralPaciente" >
+    		<result name="success">WEB-INF/admin/crud_pacientes/finConsultaGeneral.jsp</result>
+    	</action>
+    	
+    	<!-- Consulta -->
     	
     </package>
 </struts>

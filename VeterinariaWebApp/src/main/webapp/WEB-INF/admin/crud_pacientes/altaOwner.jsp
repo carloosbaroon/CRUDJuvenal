@@ -1,12 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>altaDueño.jsp</title>
 </head>
 <body>
-	<h1>Alta Dueño</h1>
+	<h1>Alta Dueño Prueba</h1>
+	<s:form action="capurar_datos_owner">
+		<s:textfield name="owner.nombre" label="Nombre" />
+		<s:textfield name="owner.direccion" label="Direccion" />
+		<s:textfield name="owner.telefono" label="Telefono"/>
+		<s:textfield name="owner.rfc" label="RFC"/>
+
+
+		<s:submit value="Enviar"/>
+	</s:form>
+	
 </body>
 </html>
+
+
