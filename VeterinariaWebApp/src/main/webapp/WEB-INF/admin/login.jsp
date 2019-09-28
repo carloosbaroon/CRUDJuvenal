@@ -8,11 +8,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<s:url action="welcome" var="ir_login"/>
 	<h1>Login</h1>
 	<s:form action="validar_usuario">
-	    <s:textfield key="username"/>
-	    <s:password key="password" />
+	    <s:textfield key="username" name="usuario.usuarioID"/>
+	    <s:password key="password" name="usuario.password" />
     	<s:submit/>
 	</s:form>
+	<a href="${ir_login}">Regresar</a>
 </body>
 </html>

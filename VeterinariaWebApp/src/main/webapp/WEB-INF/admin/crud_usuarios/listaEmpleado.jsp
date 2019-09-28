@@ -9,6 +9,7 @@
 </head>
 <body>
 <h1>Listar Empleados</h1>
+<s:url action="goto_alta_empleado_jsp" var="regresar"/>
 
 <table border="1">
 	<tr>
@@ -36,5 +37,6 @@
 	</tr>
 </s:iterator>
 </table>
+<a href="${regresar}">Regresar</a>
 </body>
 </html>
