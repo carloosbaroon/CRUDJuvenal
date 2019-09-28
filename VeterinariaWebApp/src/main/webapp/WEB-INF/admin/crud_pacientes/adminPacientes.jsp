@@ -12,12 +12,11 @@
 	<s:url action="goto_alta_owner_jsp" var="alta_owner"/>
 	<s:url action="goto_alta_paciente_jsp" var="alta_paciente"/>
 	<s:url action="modificar" var="modificar_owner"/>
-	<s:url action="validarIDPaciente" var="modificar_paciente"/>
+	<s:url action="goto_modificar_paciente_jsp" var="consulta_paciente"/>
 	
 	<p><a href="${alta_owner}">Dar de Alta Dueño</a></p>	
 	<p><a href="${alta_paciente}">Dar de Alta Paciente</a></p>	
 	<p><a href="${modificar_owner}">Modificar Dueño</a></p>
-	<p><a href="${modificar_paciente}">Modificar Paciente</a></p>
+	<p><a href="${consulta_paciente}">Consulta Pacientes</a></p>
 </body>
 </html>
-

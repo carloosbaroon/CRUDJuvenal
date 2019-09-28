@@ -40,13 +40,13 @@ public class CapturarDatosDueño extends ActionSupport implements SessionAware {
 	}
 	
 	public String execute() {
-		if(!ownerSession.containsKey("userCount")){
-			ownerSession.put("userCount", ownerCount);
+		if(!ownerSession.containsKey("ownerCount")){
+			ownerSession.put("ownerCount", ownerCount);
 		}
-		ownerCount = (Integer) ownerSession.get("userCount");
+		ownerCount = (Integer) ownerSession.get("ownerCount");
 		
 		ownerCount ++;
-		ownerSession.put("userCount", ownerCount);
+		ownerSession.put("ownerCount", ownerCount);
 		
 		owner.setId((String.valueOf(ownerCount)));
 		ownerSession.put(owner.getId(), owner);	
