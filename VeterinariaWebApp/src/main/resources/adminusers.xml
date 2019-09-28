@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<!-- 
+  - This file is included by the struts.xml file as an example
+  - of how to break up the configuration file into multiple files.
+-->
+<struts>
+    <package name="users" namespace="/" extends="struts-default">
+		
+		<action name="alta" class="com.users.AltaUsersAction" method="init">
+            <result name="success">/WEB-INF/users/altaUser.jsp</result>
+        </action>
+        
+        <action name="altaUsuario" class="com.users.AltaUsersAction">
+            <result name="success">/WEB-INF/users/finUsuario.jsp</result>
+        </action>
+        
+   		<action name="baja" class="com.users.BajaUsersAction" method="init">
+            <result name="success">/WEB-INF/users/bajaUsuario.jsp</result>
+        </action>
+        
+        <action name="bajaUsuario" class="com.users.BajaUsersAction">
+            <result name="success">/WEB-INF/users/finBajaUsuario.jsp</result>
+            <result name="error">/WEB-INF/users/error.jsp</result>
+        </action>
+        
+        <action name="validarID" class="com.users.ValidarID" method="init">
+            <result name="success">/WEB-INF/users/validarID.jsp</result>
+        </action>
+        
+        <action name="validarIDconsulta" class="com.users.ValidarIDConsulta" method="init">
+            <result name="success">/WEB-INF/users/validarIDConsulta.jsp</result>
+            <result name="error">/WEB-INF/users/error.jsp</result>
+            
+        </action>
+        
+        <action name="editar" class="com.users.EditarUsersAction" method="init">
+            <result name="success">/WEB-INF/users/editarUsuario.jsp</result>
+        </action>
+        
+        <action name="consulta" class="com.users.EditarUsersAction" method="init">
+            <result name="success">/WEB-INF/users/consulta.jsp</result>
+        </action>
+        
+        <action name="consultaGeneral" class="com.users.ConsultaGeneralAction" method="init">
+            <result name="success">/WEB-INF/users/finConsultaGeneral.jsp</result>
+        </action>
+        
+        <action name="editarUsuarios" class="com.users.EditarUsersAction">
+            <result name="success">/WEB-INF/users/finEditarUsuario.jsp</result>
+            <result name="error">/WEB-INF/users/error.jsp</result>
+        </action>
+        
+  
+        <!-- Add additional "example" package actions here. -->
+
+    </package>
+</struts>

@@ -19,9 +19,6 @@
     		<result name="success"> WEB-INF/admin/crud_pacientes/dueñoRegistrado.jsp</result>
     	</action>
     	
-    	<action name="validarIDPaciente" class="itesm.action_support.validarIDPaciente">
-    		<result>WEB-INF/admin/crud_pacientes/altaPaciente.jsp</result>
-    	</action>
     	  
 		<action name="modificar" class="itesm.action_support.editarOwner" method="init">
     		<result>WEB-INF/admin/crud_pacientes/validarID.jsp</result>
