@@ -36,7 +36,13 @@ public class ValidarLogin extends ActionSupport implements SessionAware{
 					if(item.getGrupo().equals("Administrador"))
 						return "admin";
 					else
-						return "user";
+					{	
+						if(item.getEstado().equals("Activo"))
+							return "user";
+						else
+							return ERROR;
+							
+					}	
 				}
 			}
 		}
