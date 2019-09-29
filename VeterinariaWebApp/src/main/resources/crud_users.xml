@@ -55,8 +55,8 @@
     		<result name="error">WEB-INF/admin/crud_usuarios/error.jsp</result>
     	</action>
     	
-    	<action name="dar_baja_usuario" class="itesm.action_support.BajaUsuario">
-    		<result name="success">WEB-INF/admin/crud_usuarios/bajaUsuarios.jsp</result>
+    	<action name="actualizar_usuario" class="itesm.action_support.EditarUsuario">
+    		<result name="success">WEB-INF/admin/crud_usuarios/editarUsuario.jsp</result>
     	</action>
     		
     	<action name="goto_bloqueo_desbloqueo_jsp">
