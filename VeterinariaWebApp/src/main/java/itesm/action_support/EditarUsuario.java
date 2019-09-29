@@ -27,7 +27,7 @@ public class EditarUsuario extends ActionSupport implements SessionAware{
 		this.usuario_temp = usuario_temp;
 	}
 	
-	public UsuarioBean getUser() {
+	public UsuarioBean getUsuario() {
 		return usuario;
 	}
 	
@@ -56,10 +56,14 @@ public class EditarUsuario extends ActionSupport implements SessionAware{
 		this.session_map = session;	
 	}
 	
+	public String init() {
+		return SUCCESS;
+	}
+	
 	public String execute() {
 		//1. Recuperamos el ArrayList de Usuarios y el de Empleados accediendo a Map
-		this.usuario = (UsuarioBean)this.session_map.get("user_temp");
-		this.empleado = (EmpleadoBean)this.session_map.get("emp_temp");
+		this.usuario = getUsuario();
+		this.empleado = getEmpleado();
 		this.usuario_temp = (UsuarioBean)this.session_map.get("user_temp");
 		this.empleado_temp = (EmpleadoBean)this.session_map.get("emp_temp");
 		
@@ -71,8 +75,10 @@ public class EditarUsuario extends ActionSupport implements SessionAware{
 		this.buffer_empleados = (ArrayList<EmpleadoBean>)this.session_map.get(Tabla.TABLA_EMPLEADO);
 		for(UsuarioBean item : this.buffer_usuarios) 
 		{
-			if(item.getUsuarioID().equals(usuario.getUsuarioID())) //Si el usuario tiene asociada la clave del empleado
+			if(item.getUsuarioID().equals(usuario_temp.getUsuarioID())) //Si el usuario tiene asociada la clave del empleado
 			{
+				System.out.println("PASSWORD ANTERIOR: "+ usuario_temp.getPassword());
+				System.out.println("PASSWORD NUEVO: "+ usuario.getPassword());
 				buffer_usuarios.remove(usuario_temp);
 				buffer_usuarios.add(usuario);
 				this.session_map.put(Tabla.TABLA_USUARIO, buffer_usuarios);
@@ -83,6 +89,8 @@ public class EditarUsuario extends ActionSupport implements SessionAware{
 		{
 			if(emp.getNo_empleado().equals(empleado_temp.getNo_empleado()))
 			{
+				System.out.println("NOMBRE ANTERIOR: "+ empleado_temp.getNombre_completo());
+				System.out.println("NOMBRE NUEVO: "+ empleado.getNombre_completo());
 				buffer_empleados.remove(empleado_temp);
 				buffer_empleados.add(empleado);
 				this.session_map.put(Tabla.TABLA_EMPLEADO, buffer_empleados);
