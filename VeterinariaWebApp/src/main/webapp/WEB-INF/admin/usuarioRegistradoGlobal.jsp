@@ -8,8 +8,8 @@
 <title></title>
 </head>
 <body>
-<h1>Usuario Registrado</h1>
-	<s:url action="goto_alta_usuario_jsp" var="ir_atras"/>
+<h1>Usuario Registrado Global</h1>
+	<s:url action="goto_crear_admin_jsp" var="ir_atras"/>
 	
 	<b>Usuario: </b><s:property value="usuario.usuarioID"/><br>
 	<b>password: </b><s:property value="usuario.password"/><br>

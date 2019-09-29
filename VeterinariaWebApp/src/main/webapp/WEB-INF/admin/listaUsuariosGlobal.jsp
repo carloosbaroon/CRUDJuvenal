@@ -8,8 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Listar Usuarios</h1>
-<s:url action="goto_alta_usuario_jsp" var="regresar"/>
+<h1>Listar Usuarios Global</h1>
+<s:url action="goto_crear_admin_jsp" var="regresar"/>
 
 <table border="1">
 	<tr>

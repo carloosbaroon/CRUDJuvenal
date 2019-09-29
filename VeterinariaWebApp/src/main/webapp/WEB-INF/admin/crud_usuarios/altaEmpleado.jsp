@@ -10,7 +10,9 @@
 <body>
 	<h1>Alta empleado</h1>
 	<s:url action="goto_consulta_empleado_jsp" var="consultar_empleados"/>
+	<s:url action="goto_admin_usuarios_jsp" var="regresar"/>
 	
+	<a href="${consultar_empleados}">Consultar Empleados</a>
 	<s:form action="validar_campos_empleado">
 		<s:textfield name="empleado.nombre_completo" label="Nombre Completo" />
 		<s:textfield name="empleado.direccion" label="Dirección"/>
@@ -25,6 +27,6 @@
 
 		<s:submit value="Enviar"/>
 	</s:form>
-	<a href="${consultar_empleados}">Consultar Empleados</a>
+	<a href="${regresar}">Regresar</a>
 </body>
 </html>
