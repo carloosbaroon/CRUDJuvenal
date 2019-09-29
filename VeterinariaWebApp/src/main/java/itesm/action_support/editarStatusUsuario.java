@@ -1,5 +1,6 @@
 package itesm.action_support;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -11,7 +12,8 @@ import itesm.business.UsuarioBean;
 
 public class editarStatusUsuario extends ActionSupport implements SessionAware {
 	private UsuarioBean usuario;
-	private Map<String, Object> usuarioSession ;
+	private Map<String, Object> usuarioSession;
+	private ArrayList<UsuarioBean> buffer_usuarios;
 	private String message;
 	
 	public UsuarioBean getUsuario() {
@@ -36,13 +38,17 @@ public class editarStatusUsuario extends ActionSupport implements SessionAware {
 	}
 	
 	public String execute() {
-		usuario = (UsuarioBean)usuarioSession.get(usuario.getUsuarioID());
-		if(usuario == null)
-		{
+		this.buffer_usuarios = (ArrayList<UsuarioBean>)this.usuarioSession.get(Tabla.TABLA_USUARIO);
+		
+		for(UsuarioBean item: buffer_usuarios) {
+			if(item.getUsuarioID().equals(usuario.getUsuarioID())){
+				return SUCCESS;
+			}
+		}
 			message = "No existe el usuario requerido";
 			return ERROR;
-		}
-			return SUCCESS;
+		
+		
 	}
 	
 	public String show() {
