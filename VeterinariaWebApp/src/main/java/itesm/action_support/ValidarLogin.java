@@ -20,7 +20,7 @@ public class ValidarLogin extends ActionSupport implements SessionAware{
 	public void setUsuario(UsuarioBean usuario) {
 		this.usuario = usuario;
 	}
-	private String mensajeError = "El usuario no existe/Escribio mal usuario o password";
+	private String mensajeError = "El usuario no existe, escribio mal el password o no esta activo";
 	public String execute() {
 		//1. Recuperar Tablas de variables de sesion (Usuario y Admin)
 		this.buffer_usuarios = (ArrayList<UsuarioBean>)this.session_var.get(Tabla.TABLA_USUARIO);
@@ -31,7 +31,7 @@ public class ValidarLogin extends ActionSupport implements SessionAware{
 			for(UsuarioBean item: this.buffer_usuarios) {
 				System.out.println("Item: " + item.getUsuarioID());
 				System.out.println("Usuario: " + usuario.getUsuarioID());
-				if(item.getUsuarioID().equals(usuario.getUsuarioID()) && item.getPassword().equals(usuario.getPassword())) {
+				if(item.getUsuarioID().equals(usuario.getUsuarioID()) && item.getPassword().equals(usuario.getPassword()) && item.getEstado().equals("Activo")) {
 					//Decidimos a que jsp reeenviaremos depeniendo del rol
 					if(item.getGrupo().equals("Administrador"))
 						return "admin";
