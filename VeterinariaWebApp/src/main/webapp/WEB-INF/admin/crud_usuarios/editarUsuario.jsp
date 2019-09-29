@@ -8,8 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Baja Usuarios</h1>
-	<s:form action="buscar_usuario_baja">
+	<h1>Editar Usuarios</h1>
+	<s:form action="buscar_usuario_editar">
 		<s:textfield name="usuario.usuarioID" label="ID del usuario" />
 		<s:submit value="Buscar"/>
 	</s:form>
