@@ -31,18 +31,12 @@ public class ValidarLogin extends ActionSupport implements SessionAware{
 			for(UsuarioBean item: this.buffer_usuarios) {
 				System.out.println("Item: " + item.getUsuarioID());
 				System.out.println("Usuario: " + usuario.getUsuarioID());
-				if(item.getUsuarioID().equals(usuario.getUsuarioID()) && item.getPassword().equals(usuario.getPassword())) {
+				if(item.getUsuarioID().equals(usuario.getUsuarioID()) && item.getPassword().equals(usuario.getPassword()) && item.getEstado().equals("Activo")) {
 					//Decidimos a que jsp reeenviaremos depeniendo del rol
 					if(item.getGrupo().equals("Administrador"))
 						return "admin";
 					else
-					{	
-						if(item.getEstado().equals("Activo"))
-							return "user";
-						else
-							return ERROR;
-							
-					}	
+						return "user";
 				}
 			}
 		}
