@@ -30,6 +30,10 @@ public class BuscarDatosUsuario extends ActionSupport implements SessionAware{
 		return empleado;
 	}
 
+	public UsuarioBean getUsuario() {
+		return usuario;
+	}
+
 	public void setEmpleado(EmpleadoBean empleado) {
 		this.empleado = empleado;
 	}
