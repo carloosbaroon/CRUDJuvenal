@@ -41,6 +41,10 @@
     		<result name="error">WEB-INF/admin/crud_usuarios/error.jsp</result>
     	</action>
     	
+    	<action name="dar_baja_usuario" class="itesm.action_support.BajaUsuario">
+    		<result name="success">WEB-INF/admin/crud_usuarios/bajaUsuarios.jsp</result>
+    	</action>
+    	
     	<action name="goto_cambios_usuario_jsp">
     		<result>WEB-INF/admin/crud_usuarios/cambiosUsuarios.jsp</result>
     	</action>

@@ -16,7 +16,7 @@ public class BuscarDatosUsuario extends ActionSupport implements SessionAware{
 	private UsuarioBean usuario;
 	private Map<String, Object> session_map;
 	private ArrayList<UsuarioBean> buffer_usuarios;
-	private ArrayList<EmpleadoBean> buffer_empleados, buffer_empleados_aux;
+	private ArrayList<EmpleadoBean> buffer_empleados;
 	
 	public UsuarioBean getUser() {
 		return usuario;
@@ -24,6 +24,14 @@ public class BuscarDatosUsuario extends ActionSupport implements SessionAware{
 	
 	public void setUsuario(UsuarioBean usuario) {
 		this.usuario = usuario;
+	}
+	
+	public EmpleadoBean getEmpleado() {
+		return empleado;
+	}
+
+	public void setEmpleado(EmpleadoBean empleado) {
+		this.empleado = empleado;
 	}
 	
 	@Override
@@ -37,9 +45,9 @@ public class BuscarDatosUsuario extends ActionSupport implements SessionAware{
 	}
 	
 	public String execute() {
-		System.out.println(usuario.getUsuarioID());
-		usuario = (UsuarioBean)session_map.get(usuario.getUsuarioID());
-		System.out.println(usuario);
+		//System.out.println(usuario.getUsuarioID());
+		//usuario = (UsuarioBean)session_map.get(usuario.getUsuarioID());
+		//System.out.println(usuario);
 		
 		//1. Recuperamos el ArrayList de Usuarios y el de Empleados accediendo a Map
 		this.buffer_usuarios = (ArrayList<UsuarioBean>)this.session_map.get(Tabla.TABLA_USUARIO);
@@ -47,43 +55,33 @@ public class BuscarDatosUsuario extends ActionSupport implements SessionAware{
 		//Recorremos el buffer de empleados y filtramos(Nos quedamos con todos los empleados que no han sido elegidos)
 		//buffer_empleados_aux = new ArrayList<EmpleadoBean>();
 		for(UsuarioBean item : this.buffer_usuarios) {
-			if(item.getUsuarioID() == (usuario.getUsuarioID())) //Si el usuario tiene asociada la clave del empleado
+			/*System.out.println(usuario.getUsuarioID());
+			System.out.println(item.getUsuarioID());
+			System.out.println(item.getPassword());*/
+			if(item.getUsuarioID().equals(usuario.getUsuarioID())) //Si el usuario tiene asociada la clave del empleado
 			{
+				this.usuario = item;
+				System.out.println("ENCONTRADA");
 				
-					session_map.remove(usuario.getUsuarioID());
-					System.out.println("ENCONTRADA");
-					return SUCCESS;
-				}else
-					
+				for(EmpleadoBean emp : this.buffer_empleados)
 				{
-					//message = "No existe el usuario requerido";
-					System.out.println("NO ENCONTRADA");
-					return ERROR;
+					if(emp.getNo_empleado().equals(usuario.getId_empleado_FK()))
+					{
+						//System.out.println(emp.getNo_empleado());
+						//System.out.println(emp.getNombre_completo());
+						this.empleado = emp;
+						break;
+					}
 				}
+				//session_map.remove(usuario.getUsuarioID());
+				this.session_map.put("user_temp", usuario);
+				this.session_map.put("emp_temp", empleado);
+				return SUCCESS;
+			}
 			
-				//item.setElegido_por_usuario(true);//Activamos el flag para indicar que el empleado a sido elegido
 		}
+		System.out.println("NO ENCONTRADA");
 		return ERROR;
 	}
-		
-		
-		/*if(usuario != null)
-		{
-			session_map.remove(usuario.getUsuarioID());
-			System.out.println("ENCONTRADA");
-			return SUCCESS;
-		}else
-		{
-			//message = "No existe el usuario requerido";
-			System.out.println("NO ENCONTRADA");
-			return ERROR;
-		}
-			
-	}
-	
-	public String show() {
-		session_map.put(usuario.getUsuarioID(),usuario);
-		return SUCCESS;
-	}*/
 
 }

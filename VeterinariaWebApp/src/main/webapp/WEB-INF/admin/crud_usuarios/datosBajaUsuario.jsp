@@ -32,5 +32,12 @@
 	<s:property value="empleado.especialidad"/><br>
 	<label><b>Estado</b></label><br>
 	<s:property value="empleado.estado"/><br>
+	
+	<s:form action="dar_baja_usuario">
+	
+		<textarea rows="7" cols="80"></textarea>
+
+		<s:submit value="Enviar"/>
+	</s:form>
 </body>
 </html>
