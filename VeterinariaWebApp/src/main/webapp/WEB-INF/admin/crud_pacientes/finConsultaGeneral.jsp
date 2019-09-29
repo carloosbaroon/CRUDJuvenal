@@ -17,6 +17,8 @@
     <th>Raza</th>
 
     <th>Edad</th>
+     <th>OwnerID</th>
+     <th>Cambio</th>
 
 </tr>
 <s:iterator value="pacientes" status="i">
@@ -37,6 +39,13 @@
 	</td>
 	<td>
 <s:property value="edad"></s:property>
+   </td>
+   <td>
+<s:property value="owner.id"></s:property>
+   </td>
+   <td>
+<s:url action="modificarPaciente1" var="modPaciente"> <s:param name="owner.id" value="%{owner.id}" /></s:url>
+<p><a href="${modPaciente}">Modificar Paciente</a></p>	
    </td>
 <br>
 </tr>

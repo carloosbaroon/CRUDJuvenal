@@ -12,7 +12,8 @@
     <s:textfield name="paciente.categoria" label="Categoria" />
     <s:textfield name="paciente.raza" label="Raza" /> 
 	<s:textfield name="paciente.edad" label="Edad" />
-    <s:submit value="Enviar" />
+	<s:hidden name="owner.id"></s:hidden>
+    <s:submit value="Confirmar cambios" />
 </s:form>
 </body>
 </html>

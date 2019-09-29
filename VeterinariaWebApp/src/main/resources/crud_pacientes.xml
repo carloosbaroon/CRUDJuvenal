@@ -77,6 +77,9 @@
     		<result name="success">WEB-INF/admin/crud_pacientes/finConsultaGeneral.jsp</result>
     	</action>
     	
+    	<action name="regresar" >
+    		<result>WEB-INF/admin/crud_pacientes/adminPacientes.jsp</result>
+    	</action>
     	<!-- Consulta -->
     	
     </package>

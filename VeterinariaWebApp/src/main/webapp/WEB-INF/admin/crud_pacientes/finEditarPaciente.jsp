@@ -12,5 +12,9 @@
 <h2>Categoria: <s:property value="paciente.categoria"/></h2>
 <h2>Raza: <s:property value="paciente.raza"/></h2>
 <h2>Edad: <s:property value="paciente.edad"/></h2>
+
+<s:url action="regresar" var="regresar2"> </s:url>
+
+	<p><a href="${regresar2}"> Regresar </a></p>
 </body>
 </html>

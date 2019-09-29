@@ -7,6 +7,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 
 import itesm.business.PacienteBean;
+import itesm.business.OwnerBean;
 
 public class editarPaciente extends ActionSupport implements SessionAware {
 	/**
@@ -14,6 +15,15 @@ public class editarPaciente extends ActionSupport implements SessionAware {
 	 */
 	private static final long serialVersionUID = 1L;
 	private PacienteBean paciente;
+	private OwnerBean owner;
+	public OwnerBean getOwner() {
+		return owner;
+	}
+
+	public void setOwner(OwnerBean owner) {
+		this.owner = owner;
+	}
+
 	private Map<String, Object> pacienteSession ;
 	private String message;
 	
@@ -53,7 +63,10 @@ public class editarPaciente extends ActionSupport implements SessionAware {
 	}
 	
 	public String show() {
-		pacienteSession.put(paciente.getId(),paciente);
+		paciente.idOwner = owner.id;
+		
+		
+		pacienteSession.put(paciente.getId(), paciente);
 		return SUCCESS;
 	}
 }

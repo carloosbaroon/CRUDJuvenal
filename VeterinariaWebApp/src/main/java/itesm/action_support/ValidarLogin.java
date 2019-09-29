@@ -21,7 +21,7 @@ public class ValidarLogin extends ActionSupport implements SessionAware{
 	public void setUsuario(UsuarioBean usuario) {
 		this.usuario = usuario;
 	}
-	private String mensajeError = "El usuario no existe/Escribio mal usuario o password";
+	private String mensajeError = "El usuario no existe, escribio mal el password o no esta activo";
 	public String execute() {
 		//1. Recuperar Tablas de variables de sesion (Usuario y Admin)
 		this.buffer_usuarios = (ArrayList<UsuarioBean>)this.session_var.get(Tabla.TABLA_USUARIO);
@@ -57,6 +57,7 @@ public class ValidarLogin extends ActionSupport implements SessionAware{
 						else
 							return "user";
 					}
+
 					else
 					{
 						intentos = intentos + 1;
