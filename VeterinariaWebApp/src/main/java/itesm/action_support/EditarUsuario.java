@@ -79,6 +79,10 @@ public class EditarUsuario extends ActionSupport implements SessionAware{
 			{
 				System.out.println("PASSWORD ANTERIOR: "+ usuario_temp.getPassword());
 				System.out.println("PASSWORD NUEVO: "+ usuario.getPassword());
+				usuario.setUsuarioID(usuario_temp.getUsuarioID());
+				usuario.setGrupo(usuario_temp.getGrupo());
+				usuario.setEstado(usuario_temp.getEstado());
+				usuario.setId_empleado_FK(usuario_temp.getId_empleado_FK());
 				buffer_usuarios.remove(usuario_temp);
 				buffer_usuarios.add(usuario);
 				this.session_map.put(Tabla.TABLA_USUARIO, buffer_usuarios);
@@ -91,6 +95,9 @@ public class EditarUsuario extends ActionSupport implements SessionAware{
 			{
 				System.out.println("NOMBRE ANTERIOR: "+ empleado_temp.getNombre_completo());
 				System.out.println("NOMBRE NUEVO: "+ empleado.getNombre_completo());
+				empleado.setNo_empleado(empleado_temp.getNo_empleado());
+				empleado.setElegido_por_usuario(empleado_temp.isElegido_por_usuario());
+				empleado.setEstado(empleado_temp.getEstado());
 				buffer_empleados.remove(empleado_temp);
 				buffer_empleados.add(empleado);
 				this.session_map.put(Tabla.TABLA_EMPLEADO, buffer_empleados);
