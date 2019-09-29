@@ -32,16 +32,16 @@ public class ValidarLogin extends ActionSupport implements SessionAware{
 			for(UsuarioBean item: this.buffer_usuarios) {
 				System.out.println("Item: " + item.getUsuarioID());
 				System.out.println("Usuario: " + usuario.getUsuarioID());
-				if(item.getEstado().equals("Bloqueado"))
-				{
-					mensajeError = "USUARIO BLOQUEADO. Consulte a un administrador";
-					return ERROR;
-				}
+				
 				if(item.getUsuarioID().equals(usuario.getUsuarioID())){
-					
+					if(item.getEstado().equals("Bloqueado"))
+					{
+						mensajeError = "USUARIO BLOQUEADO. Consulte a un administrador";
+						return ERROR;
+					}
 					if(item.getIntentos() == null)
 					{
-						intentos = 3;
+						intentos = 0;
 					}
 					else
 					{
