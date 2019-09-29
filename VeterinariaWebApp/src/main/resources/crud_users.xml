@@ -46,9 +46,18 @@
     		<result>WEB-INF/admin/crud_usuarios/cambiosUsuarios.jsp</result>
     	</action>
     		
-    	<action name="goto_bloqueo_desbloqueo_jsp">
-    		<result>WEB-INF/admin/crud_usuarios/bloqueo_desbloqueo_Usuarios.jsp</result>
-    	</action>			
+    	<action name="goto_bloqueo_desbloqueo_jsp" class="itesm.action_support.editarStatusUsuario" method="init">
+    		<result>WEB-INF/admin/crud_usuarios/validarIDStatus.jsp</result>
+    	</action>
+    	
+    	<action name="modificarStatus" class="itesm.action_support.editarStatusUsuario">
+    		<result name="success">/WEB-INF/admin/crud_usuarios/modificarStatusUsuario.jsp</result>
+            <result name="error">/WEB-INF/admin/crud_usuarios/error.jsp</result>
+    	</action>	
+    	
+    	<action name="finalMoficarStatus" class="itesm.action_support.editarStatusUsuario" method="show">
+    		<result name="success">WEB-INF/admin/crud_usuarios/finEditarStatus.jsp</result>
+    	</action>		
 
     </package>
 </struts>
