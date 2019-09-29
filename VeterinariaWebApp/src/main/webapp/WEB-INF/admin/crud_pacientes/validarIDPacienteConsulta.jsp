@@ -6,8 +6,9 @@
 </head>
 
 <body>
-<s:form action="consultaGeneral1">
-    <s:textfield name="owner.id" label="Id Dueño" />
+<s:form action="modificarPaciente2">
+    <s:textfield name="paciente.id" label="Id Paciente" />
+    <s:hidden name="owner.id"></s:hidden>
     <s:submit value="Enviar" />
 </s:form>
 </body>
