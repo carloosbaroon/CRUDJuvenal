@@ -12,7 +12,14 @@ public class UsuarioBean {
 	//Grupo al que pertenece el usuario y es el que indica los privilegios de acceso que tiene
 	private String grupo;
 	private String estado;//Activo, Bloqueado, Inactivo
+	private String intentos;
 	
+	public String getIntentos() {
+		return intentos;
+	}
+	public void setIntentos(String intentos) {
+		this.intentos = intentos;
+	}
 	public String getUsuarioID() {
 		return usuarioID;
 	}
