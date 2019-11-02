@@ -15,10 +15,6 @@
 
         <action name="welcome" class="">
         	<result>WEB-INF/admin/welcome.jsp</result>
-            <!-- <result type="redirectAction">
-                <param name="actionName">HelloWorld</param>
-                <param name="namespace">/example</param>
-            </result> -->
         </action>
         
         <action name="goto_crear_admin_jsp" class="itesm.action_support.ControlarFormUsuario">
