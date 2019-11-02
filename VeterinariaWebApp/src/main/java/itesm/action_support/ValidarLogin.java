@@ -52,7 +52,7 @@ public class ValidarLogin extends ActionSupport implements SessionAware{
 					if(item.getPassword().equals(usuario.getPassword())) {
 						item.setIntentos("0");
 						//Decidimos a que jsp reeenviaremos depeniendo del rol
-						if(item.getGrupo().equals("Administrador"))
+						if(item.getPrivilegios().equals("Administrador"))
 							return "admin";
 						else
 							return "user";

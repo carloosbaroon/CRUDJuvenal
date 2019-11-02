@@ -14,13 +14,14 @@
 <a href="${consultar_usuarios}">Consultar Usuarios</a>
 
 <s:form action="validar_campos_usuario_global">
+	<s:textfield name="usuario.usuarioID" label="ID"/>
 	<s:textfield name="usuario.password" label="Password"/>
 	<s:textfield name="usuario.confirmar_password" label="Confirmar Password"/>
 	<s:select label="Grupo/Privilegios"
 	headerValue="Elige un grupo" 
 	headerKey="-1"
 	list="list_grupos_privilegios"
-	name="usuario.grupo"
+	name="usuario.privilegios"
 	/>
 	<s:select label="Estado"
 	headerValue="Elige un estado" 

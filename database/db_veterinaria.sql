@@ -1,6 +1,6 @@
 /*
 Created		26/10/2019
-Modified		26/10/2019
+Modified		03/11/2019
 Project		
 Model		
 Company		
@@ -9,8 +9,6 @@ Version
 Database		mySQL 5 
 */
 
-create database veterinaria;
-use veterinaria;
 
 drop table IF EXISTS Consultas;
 drop table IF EXISTS Sala;
@@ -22,13 +20,12 @@ drop table IF EXISTS Usuario;
 
 Create table Usuario (
 	id_usuario Int NOT NULL AUTO_INCREMENT,
-	id_empleado Int NOT NULL,
+	id_empleado Int,
 	password_user Varchar(30) NOT NULL,
 	confirmar_password Varchar(30) NOT NULL,
-	grupo Varchar(20) NOT NULL,
+	privilegios Varchar(20) NOT NULL,
 	estado Varchar(20) NOT NULL,
 	no_intentos Int,
-	rol Int NOT NULL,
  Primary Key (id_usuario)) ENGINE = MyISAM;
 
 Create table Empleado (
@@ -74,11 +71,11 @@ Create table Consultas (
 	hora_final Time NOT NULL) ENGINE = MyISAM;
 
 
-Alter table Usuario add Foreign Key (id_empleado) references Empleado (id_empleado) on delete  restrict on update  restrict;
-Alter table Consultas add Foreign Key (id_empleado) references Empleado (id_empleado) on delete  restrict on update  restrict;
-Alter table Paciente add Foreign Key (id_propietario) references Propietario (id_propietario) on delete  restrict on update  restrict;
-Alter table Consultas add Foreign Key (id_paciente) references Paciente (id_paciente) on delete  restrict on update  restrict;
-Alter table Consultas add Foreign Key (id_sala) references Sala (id_sala) on delete  restrict on update  restrict;
+Alter table Usuario add Foreign Key (id_empleado) references Empleado (id_empleado);
+Alter table Consultas add Foreign Key (id_empleado) references Empleado (id_empleado);
+Alter table Paciente add Foreign Key (id_propietario) references Propietario (id_propietario);
+Alter table Consultas add Foreign Key (id_paciente) references Paciente (id_paciente);
+Alter table Consultas add Foreign Key (id_sala) references Sala (id_sala);
 
 
 /* Users permissions */

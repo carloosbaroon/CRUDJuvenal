@@ -80,7 +80,7 @@ public class EditarUsuario extends ActionSupport implements SessionAware{
 				System.out.println("PASSWORD ANTERIOR: "+ usuario_temp.getPassword());
 				System.out.println("PASSWORD NUEVO: "+ usuario.getPassword());
 				usuario.setUsuarioID(usuario_temp.getUsuarioID());
-				usuario.setGrupo(usuario_temp.getGrupo());
+				usuario.setPrivilegios(usuario_temp.getPrivilegios());
 				usuario.setEstado(usuario_temp.getEstado());
 				usuario.setId_empleado_FK(usuario_temp.getId_empleado_FK());
 				buffer_usuarios.remove(usuario_temp);

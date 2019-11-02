@@ -1,2 +1,5 @@
-INSERT INTO usuario (nombre_completo, direccion, telefono, puesto, especialidad, turno, estado) 
-VALUES ("Paola", "CU", "987654321", "puesto de prueba 3", "no se 2", "3", "Activo");
+INSERT INTO usuario (id_usuario, password_user, confirmar_password, privilegios, estado, no_intentos) 
+VALUES (1111, "hola", "hola", "administrador", "activo", 5);
+
+INSERT INTO usuario (id_usuario, password_user, confirmar_password, privilegios, estado, no_intentos) 
+VALUES (2222, "cactus", "cactus", "usuario", "activo", 5);

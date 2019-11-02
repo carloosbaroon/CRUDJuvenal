@@ -9,6 +9,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import itesm.business.EmpleadoBean;
 import itesm.business.UsuarioBean;
+import itesm.database.DAOUsuario;
+import itesm.database.DAOUsuarioImpl;
 
 public class ValidarFormUsuario extends ActionSupport implements SessionAware{
 	private static final long serialVersionUID = 1L;
@@ -28,30 +30,12 @@ public class ValidarFormUsuario extends ActionSupport implements SessionAware{
 		
 		//Verificamos que el password y el password reeescrito sean iguales
 		if(usuario.getPassword().contentEquals(usuario.getConfirmar_password())){
-			updateIdCounter(session_var, Tabla.USUARIO_COUNT, usuarioCount);
-			//1. Recuperamos el ArrayList de Usuarios y el de Empleados accediendo a Map
-			this.buffer_usuarios = (ArrayList<UsuarioBean>)this.session_var.get(Tabla.TABLA_USUARIO);
-			this.buffer_empleados = (ArrayList<EmpleadoBean>)this.session_var.get(Tabla.TABLA_EMPLEADO);
-			if(this.buffer_empleados != null) {
-				//Recorremos el buffer de empleados y filtramos(Nos quedamos con todos los empleados que no han sido elegidos)
-				buffer_empleados_aux = new ArrayList<EmpleadoBean>();
-				for(EmpleadoBean item : this.buffer_empleados) {
-					if(item.getNo_empleado().equals(usuario.getId_empleado_FK()))//Si el usuario tiene asociada la clave del empleado
-						item.setElegido_por_usuario(true);//Activamos el flag para indicar que el empleado a sido elegido
-				}				
-			}
-			
-			if(this.buffer_usuarios == null) {
-				ArrayList<UsuarioBean> buffer_usuarios_aux = new ArrayList<UsuarioBean>();
-				buffer_usuarios_aux.add(usuario);//Agregamos los datos del usuario al buffer de usuarios
-				this.session_var.put(Tabla.TABLA_USUARIO, buffer_usuarios_aux);
-			}else {
-				//2. Agregamos el objeto/datos del formulario obtenido a la cola del ArrayList
-				buffer_usuarios.add(usuario);
-				//3. Actualizamos la variable de sesión con los nuevos datos
-				this.session_var.put(Tabla.TABLA_USUARIO, buffer_usuarios);
-			}
-			
+				DAOUsuario daoUsuario = new DAOUsuarioImpl();
+				try {
+					daoUsuario.insertarUsuario(usuario);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}			
 			return SUCCESS;
 		}else { 
 			return ERROR;
