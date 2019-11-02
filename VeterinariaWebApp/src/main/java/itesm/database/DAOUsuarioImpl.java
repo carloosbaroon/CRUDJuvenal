@@ -50,7 +50,7 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
 	      
 	    	 establishConnection();
 	         conn = getCon();
-	         String sql = "SELECT id_usuario, password_user FROM usuario WHERE";
+	         String sql = "SELECT id_usuario, privilegios FROM usuario WHERE";
 	         sql+=" id_usuario = ? AND password_user = ?";
 	         PreparedStatement ps = conn.prepareStatement(sql);
 	         ps.setString(1, usuario.getUsuarioID());
@@ -59,7 +59,11 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
 
 	         while (rs.next()) {
 	            usuario.setUsuarioID((rs.getString(1)));
-	            ret = "success";
+	            usuario.setPrivilegios(rs.getString(2));
+	            if(usuario.getPrivilegios().equals("Administrador"))
+	            	return "admin";
+            	else
+            		return "user";
 	         }
 
 	         if (conn != null) {
