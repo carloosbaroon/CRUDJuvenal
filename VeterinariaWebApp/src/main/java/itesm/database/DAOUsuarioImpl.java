@@ -42,4 +42,34 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
      
 		return "success";
 	}
+
+	@Override
+	public String consultarUsuario(UsuarioBean usuario) throws Exception {	
+		String ret = "error";
+	      Connection conn = null;
+	      
+	    	 establishConnection();
+	         conn = getCon();
+	         String sql = "SELECT id_usuario, password_user FROM usuario WHERE";
+	         sql+=" id_usuario = ? AND password_user = ?";
+	         PreparedStatement ps = conn.prepareStatement(sql);
+	         ps.setString(1, usuario.getUsuarioID());
+	         ps.setString(2, usuario.getPassword());
+	         ResultSet rs = ps.executeQuery();
+
+	         while (rs.next()) {
+	            usuario.setUsuarioID((rs.getString(1)));
+	            ret = "success";
+	         }
+
+	         if (conn != null) {
+	            try {
+	               closeConnection();
+	            } catch (Exception e) {
+					e.printStackTrace();
+	            }
+	         }
+	      
+	      return ret;
+	}
 }
