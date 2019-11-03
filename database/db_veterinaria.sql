@@ -26,6 +26,7 @@ Create table Usuario (
 	privilegios Varchar(20) NOT NULL,
 	estado Varchar(20) NOT NULL,
 	no_intentos Int,
+	UNIQUE (id_empleado),
  Primary Key (id_usuario)) ENGINE = MyISAM;
 
 Create table Empleado (
@@ -37,6 +38,7 @@ Create table Empleado (
 	especialidad Varchar(20) NOT NULL,
 	turno Varchar(20) NOT NULL,
 	estado Varchar(20) NOT NULL,
+	elegido Bool NOT NULL DEFAULT 0,
  Primary Key (id_empleado)) ENGINE = MyISAM;
 
 Create table Propietario (
@@ -71,11 +73,11 @@ Create table Consultas (
 	hora_final Time NOT NULL) ENGINE = MyISAM;
 
 
-Alter table Usuario add Foreign Key (id_empleado) references Empleado (id_empleado);
-Alter table Consultas add Foreign Key (id_empleado) references Empleado (id_empleado);
-Alter table Paciente add Foreign Key (id_propietario) references Propietario (id_propietario);
-Alter table Consultas add Foreign Key (id_paciente) references Paciente (id_paciente);
-Alter table Consultas add Foreign Key (id_sala) references Sala (id_sala);
+Alter table Usuario add Foreign Key (id_empleado) references Empleado (id_empleado) on delete  restrict on update  restrict;
+Alter table Consultas add Foreign Key (id_empleado) references Empleado (id_empleado) on delete  restrict on update  restrict;
+Alter table Paciente add Foreign Key (id_propietario) references Propietario (id_propietario) on delete  restrict on update  restrict;
+Alter table Consultas add Foreign Key (id_paciente) references Paciente (id_paciente) on delete  restrict on update  restrict;
+Alter table Consultas add Foreign Key (id_sala) references Sala (id_sala) on delete  restrict on update  restrict;
 
 
 /* Users permissions */

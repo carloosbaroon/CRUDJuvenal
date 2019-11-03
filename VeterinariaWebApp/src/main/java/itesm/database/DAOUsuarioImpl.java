@@ -24,6 +24,16 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
         conn = getCon();
         String sql = "INSERT INTO usuario (id_usuario, id_empleado,password_user, confirmar_password, privilegios, estado, no_intentos)";
         sql+="VALUES (?, ?, ?, ?, ?, ?, ?)";
+        
+        //If column 'empleado_id_fk' is not null, set the value 1 to the col 'elegido'
+        if(usuario.getId_empleado_FK() != null) {
+        	System.out.println("No esta vacio el campo 'empleado_id_fk'");
+        	String sqlUpdate = "UPDATE empleado SET elegido = 1 WHERE id_empleado = ?";
+        	PreparedStatement ps = conn.prepareStatement(sqlUpdate);
+        	ps.setString(1, usuario.getId_empleado_FK());
+        	ps.execute();
+        }
+        
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, usuario.getUsuarioID());
         ps.setString(2, usuario.getId_empleado_FK());

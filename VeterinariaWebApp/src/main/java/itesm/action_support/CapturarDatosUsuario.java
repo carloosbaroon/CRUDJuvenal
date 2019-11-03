@@ -15,20 +15,23 @@ import itesm.database.DAOUsuarioImpl;
 public class CapturarDatosUsuario extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private UsuarioBean usuario;
-	private String mensajeError = "Los passwords no coinciden";
+	private String mensajeError;
 	
 	public String execute() {
 		
-		//Verificamos que el password y el password reeescrito sean iguales
+		//Verificamos que el password y el password reescrito sean iguales
 		if(usuario.getPassword().contentEquals(usuario.getConfirmar_password())){
 				DAOUsuario daoUsuario = new DAOUsuarioImpl();
 				try {
 					daoUsuario.insertarUsuario(usuario);
 				} catch (Exception e) {
 					e.printStackTrace();
+					mensajeError = "Error al insertar el registro a la BD";
+					return ERROR;
 				}			
 			return SUCCESS;
 		}else { 
+			mensajeError = "Los passwords no coinciden";
 			return ERROR;
 		}
 	}

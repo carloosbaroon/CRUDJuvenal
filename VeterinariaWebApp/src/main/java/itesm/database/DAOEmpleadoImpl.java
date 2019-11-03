@@ -51,7 +51,8 @@ public class DAOEmpleadoImpl extends Conexion implements DAOEmpleado{
 	      
 	    	 establishConnection();
 	         conn = getCon();
-	         String sql = "SELECT id_empleado, nombre_completo, direccion, telefono, especialidad ,puesto, turno, estado FROM empleado";
+	         String sql = "SELECT id_empleado, nombre_completo, direccion, telefono, especialidad ,puesto, turno, estado FROM empleado ";
+	         sql += "WHERE elegido = 0";
 	         Statement statement = conn.createStatement();
 	         ResultSet rs = statement.executeQuery(sql);
 
