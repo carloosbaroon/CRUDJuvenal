@@ -29,7 +29,7 @@ public class ValidarLogin extends ActionSupport implements SessionAware{
 		//1. Recuperar Tablas de variables de sesion (Usuario y Admin)
 		DAOUsuario daoUsuario = new DAOUsuarioImpl();
 		try {
-			respuesta = daoUsuario.consultarUsuario(usuario);
+			respuesta = daoUsuario.verificarUsuario(usuario);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

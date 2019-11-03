@@ -3,6 +3,8 @@ package itesm.database;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import itesm.database.Conexion;
 import itesm.business.UsuarioBean;
@@ -44,7 +46,7 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
 	}
 
 	@Override
-	public String consultarUsuario(UsuarioBean usuario) throws Exception {	
+	public String verificarUsuario(UsuarioBean usuario) throws Exception {	
 		String ret = "error";
 	      Connection conn = null;
 	      
@@ -75,5 +77,40 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
 	         }
 	      
 	      return ret;
+	}
+
+	@Override
+	public ArrayList<UsuarioBean> consultarUsuarios() throws Exception {
+		String ret = "error";
+		ArrayList<UsuarioBean> buffer_usuarios = new ArrayList<UsuarioBean>();
+		
+	      Connection conn = null;
+	      
+	    	 establishConnection();
+	         conn = getCon();
+	         String sql = "SELECT id_usuario, password_user, id_empleado, privilegios, estado FROM usuario";
+	         Statement statement = conn.createStatement();
+	         ResultSet rs = statement.executeQuery(sql);
+
+	         while (rs.next()) {
+	        	UsuarioBean usuarioAux = new UsuarioBean();
+	        	usuarioAux.setUsuarioID((rs.getString(1)));
+	        	usuarioAux.setPassword(rs.getString(2));
+	        	usuarioAux.setId_empleado_FK(rs.getString(3));	            
+	        	usuarioAux.setPrivilegios(rs.getString(4));
+	        	usuarioAux.setEstado(rs.getString(5));
+	            
+	            buffer_usuarios.add(usuarioAux);
+	         }
+
+	         if (conn != null) {
+	            try {
+	               closeConnection();
+	            } catch (Exception e) {
+					e.printStackTrace();
+	            }
+	         }
+	      
+	      return buffer_usuarios;
 	}
 }

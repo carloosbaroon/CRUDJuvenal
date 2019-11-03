@@ -42,11 +42,7 @@ public class UsuarioBean {
 		return id_empleado_FK;
 	}
 	public void setId_empleado_FK(String id_empleado_FK) {
-	    Pattern pattern = Pattern.compile("(\\d+)");
-	    Matcher match = pattern.matcher(id_empleado_FK);
-	    match.find();
-		
-		this.id_empleado_FK = match.group();
+	   this.id_empleado_FK = id_empleado_FK;
 	}
 	
 	public String getEstado() {
