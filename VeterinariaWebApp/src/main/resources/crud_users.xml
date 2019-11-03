@@ -16,7 +16,7 @@
     		<result>WEB-INF/admin/crud_usuarios/listaUsuarios.jsp</result>
     	</action>
     	
- 	    <action name="validar_campos_usuario" class="itesm.action_support.ValidarFormUsuario">
+ 	    <action name="validar_campos_usuario" class="itesm.action_support.CapturarDatosUsuario">
     		<result name="success">WEB-INF/admin/crud_usuarios/usuarioRegistrado.jsp</result>
     		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
@@ -31,6 +31,7 @@
     	
     	<action name="validar_campos_empleado" class="itesm.action_support.CapturarDatosEmpleado">
     		<result name="success">WEB-INF/admin/crud_usuarios/empleadoRegistrado.jsp</result>
+    		<result name="error"></result>
     	</action>
     	
     	<action name="goto_baja_jsp" >

@@ -37,16 +37,6 @@ public class ControlarFormUsuario extends ActionSupport implements SessionAware{
 		//1. Recuperar el id del empleado(Opcional junto con su Nombre)
 		this.buffer_empleado = (ArrayList<EmpleadoBean>)this.session_empleados.get(Tabla.TABLA_EMPLEADO);		
 		
-		if(this.buffer_empleado == null) 
-			list_empleados_fk.add("Dummy Data");
-		else {
-			//2. Recorremos y Filtramos los datos del array de empleados y nos quedamos con los campos 'ID' y 'Nombre'
-			for(EmpleadoBean item : this.buffer_empleado) {
-				if(!item.isElegido_por_usuario())//Si el usuario no ha sido elegido lo mostramos en la lista
-					list_empleados_fk.add("ID: " + item.getNo_empleado() + " | Nombre: " + item.getNombre_completo());
-			}
-				
-		}
 		
 		//Agregar datos en el list 'grupo' del jsp 'alta usuarios'
 		this.list_grupos_privilegios = new ArrayList<String>();

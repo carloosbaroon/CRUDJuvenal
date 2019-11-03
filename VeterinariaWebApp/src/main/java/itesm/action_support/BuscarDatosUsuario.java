@@ -69,7 +69,7 @@ public class BuscarDatosUsuario extends ActionSupport implements SessionAware{
 				
 				for(EmpleadoBean emp : this.buffer_empleados)
 				{
-					if(emp.getNo_empleado().equals(usuario.getId_empleado_FK()))
+					if(emp.getId_empleado().equals(usuario.getId_empleado_FK()))
 					{
 						//System.out.println(emp.getNo_empleado());
 						//System.out.println(emp.getNombre_completo());

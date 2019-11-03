@@ -28,7 +28,7 @@
         	<result>WEB-INF/admin/login.jsp</result>
         </action>
         
-         <action name="validar_campos_usuario_global" class="itesm.action_support.ValidarFormUsuario">
+         <action name="validar_campos_usuario_global" class="itesm.action_support.CapturarDatosUsuario">
     		<result name="success">WEB-INF/admin/usuarioRegistradoGlobal.jsp</result>
     		<result name="error">WEB-INF/admin/errorGlobal.jsp</result>
     	</action>

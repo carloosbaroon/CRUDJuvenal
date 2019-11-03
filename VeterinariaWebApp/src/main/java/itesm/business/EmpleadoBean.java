@@ -1,7 +1,7 @@
 package itesm.business;
 
 public class EmpleadoBean {
-	private String no_empleado;
+	private String id_empleado;
 	private String nombre_completo;
 	private String direccion;
 	private String telefono;
@@ -9,7 +9,6 @@ public class EmpleadoBean {
 	private String especialidad;
 	private String turno;
 	private String estado;
-	private boolean elegido_por_usuario;
 	
 	public String getEstado() {
 		return estado;
@@ -54,16 +53,10 @@ public class EmpleadoBean {
 	public void setTurno(String turno) {
 		this.turno = turno;
 	}
-	public boolean isElegido_por_usuario() {
-		return elegido_por_usuario;
+	public String getId_empleado() {
+		return id_empleado;
 	}
-	public void setElegido_por_usuario(boolean elegido_por_usuario) {
-		this.elegido_por_usuario = elegido_por_usuario;
-	}
-	public String getNo_empleado() {
-		return no_empleado;
-	}
-	public void setNo_empleado(String no_empleado) {
-		this.no_empleado = no_empleado;
+	public void setId_empleado(String no_empleado) {
+		this.id_empleado = no_empleado;
 	}
 }

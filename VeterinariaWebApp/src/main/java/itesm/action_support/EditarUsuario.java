@@ -68,7 +68,7 @@ public class EditarUsuario extends ActionSupport implements SessionAware{
 		this.empleado_temp = (EmpleadoBean)this.session_map.get("emp_temp");
 		
 		System.out.println("ID USUARIO: "+ usuario.getUsuarioID());
-		System.out.println("ID EMPLEADO: "+ empleado.getNo_empleado());
+		System.out.println("ID EMPLEADO: "+ empleado.getId_empleado());
 		System.out.println("NOMBRE: "+ empleado.getNombre_completo());
 		//Recorremos el buffer de empleados y filtramos(Nos quedamos con todos los empleados que no han sido elegidos)
 		this.buffer_usuarios = (ArrayList<UsuarioBean>)this.session_map.get(Tabla.TABLA_USUARIO);
@@ -91,12 +91,11 @@ public class EditarUsuario extends ActionSupport implements SessionAware{
 		}
 		for(EmpleadoBean emp : this.buffer_empleados)
 		{
-			if(emp.getNo_empleado().equals(empleado_temp.getNo_empleado()))
+			if(emp.getId_empleado().equals(empleado_temp.getId_empleado()))
 			{
 				System.out.println("NOMBRE ANTERIOR: "+ empleado_temp.getNombre_completo());
 				System.out.println("NOMBRE NUEVO: "+ empleado.getNombre_completo());
-				empleado.setNo_empleado(empleado_temp.getNo_empleado());
-				empleado.setElegido_por_usuario(empleado_temp.isElegido_por_usuario());
+				empleado.setId_empleado(empleado_temp.getId_empleado());
 				empleado.setEstado(empleado_temp.getEstado());
 				buffer_empleados.remove(empleado_temp);
 				buffer_empleados.add(empleado);

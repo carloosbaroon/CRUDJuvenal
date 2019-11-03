@@ -46,7 +46,7 @@ public class BajaUsuario extends ActionSupport implements SessionAware{
 		this.empleado = (EmpleadoBean)this.session_map.get("emp_temp");
 		
 		System.out.println("ID USUARIO: "+ usuario.getUsuarioID());
-		System.out.println("ID EMPLEADO: "+ empleado.getNo_empleado());
+		System.out.println("ID EMPLEADO: "+ empleado.getId_empleado());
 		System.out.println("NOMBRE: "+ empleado.getNombre_completo());
 		//Recorremos el buffer de empleados y filtramos(Nos quedamos con todos los empleados que no han sido elegidos)
 		this.buffer_usuarios = (ArrayList<UsuarioBean>)this.session_map.get(Tabla.TABLA_USUARIO);
@@ -61,7 +61,7 @@ public class BajaUsuario extends ActionSupport implements SessionAware{
 		}
 		for(EmpleadoBean emp : this.buffer_empleados)
 		{
-			if(emp.getNo_empleado().equals(empleado.getNo_empleado()))
+			if(emp.getId_empleado().equals(empleado.getId_empleado()))
 			{
 				buffer_empleados.remove(empleado);
 				break;

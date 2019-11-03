@@ -14,6 +14,7 @@
 	
 	<a href="${consultar_empleados}">Consultar Empleados</a>
 	<s:form action="validar_campos_empleado">
+		<s:textfield name="empleado.id_empleado" label="No. Empleado" />
 		<s:textfield name="empleado.nombre_completo" label="Nombre Completo" />
 		<s:textfield name="empleado.direccion" label="Dirección"/>
 		<s:textfield name="empleado.telefono" label="Teléfono"/>

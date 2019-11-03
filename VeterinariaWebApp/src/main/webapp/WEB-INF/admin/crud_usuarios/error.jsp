@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1><s:property value="message"/></h1>
+<h1>Ocurrio Un error Inesperado</h1>
 </body>
 </html>
