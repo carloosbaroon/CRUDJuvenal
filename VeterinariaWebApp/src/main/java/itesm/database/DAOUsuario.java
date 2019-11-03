@@ -10,4 +10,5 @@ public interface DAOUsuario {
 	//indica a que menu principal se le tiene que reedirigr
 	public String verificarUsuario(UsuarioBean usuario) throws Exception;
 	public ArrayList<UsuarioBean> consultarUsuarios() throws Exception;
+	public void eliminarUsuario(UsuarioBean usuario) throws Exception;
 }

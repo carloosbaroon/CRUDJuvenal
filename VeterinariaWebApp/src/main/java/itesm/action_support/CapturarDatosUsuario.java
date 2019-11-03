@@ -35,6 +35,20 @@ public class CapturarDatosUsuario extends ActionSupport {
 			return ERROR;
 		}
 	}
+	
+	public String eliminarUsuario() {
+		//1. Verificamos que el usuario que nos estan pidiendo eliminar existe
+		DAOUsuario daoUsuario = new DAOUsuarioImpl();
+		try {
+			daoUsuario.eliminarUsuario(usuario);
+			return SUCCESS;
+		} catch (Exception e) {
+			e.printStackTrace();
+			//En caso de que no encuentre el registro que se va eliminar se reedirige
+			//a un jsp indicando al usuario el error
+			return ERROR;
+		}
+	}
 
 	public void setUsuario(UsuarioBean usuario) {
 		this.usuario = usuario;

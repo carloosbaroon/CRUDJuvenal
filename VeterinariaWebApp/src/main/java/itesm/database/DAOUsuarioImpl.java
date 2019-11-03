@@ -124,4 +124,26 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
 	      
 	      return buffer_usuarios;
 	}
+
+	@Override
+	public void eliminarUsuario(UsuarioBean usuario) throws Exception {
+		Connection conn = null;
+	      
+   	 	establishConnection();
+        conn = getCon();
+        String sql = "DELETE from usuario WHERE id_usuario = ?";
+                
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, usuario.getUsuarioID());
+        
+        ps.execute();
+
+        if (conn != null) {
+           try {
+              closeConnection();
+           } catch (Exception e) {
+				e.printStackTrace();
+           }
+        }		
+	}
 }

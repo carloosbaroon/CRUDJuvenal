@@ -10,7 +10,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import itesm.business.EmpleadoBean;
 import itesm.business.UsuarioBean;
 
-public class BuscarDatosUsuario extends ActionSupport implements SessionAware{
+public class BuscarDatosUsuario extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private EmpleadoBean empleado;
 	private UsuarioBean usuario;
@@ -38,21 +38,11 @@ public class BuscarDatosUsuario extends ActionSupport implements SessionAware{
 		this.empleado = empleado;
 	}
 	
-	@Override
-	public void setSession(Map<String, Object> session) {
-		this.session_map = session;	
-	}
-	//private String message;
-	
 	public String init() {
 		return SUCCESS;
 	}
 	
 	public String execute() {
-		//System.out.println(usuario.getUsuarioID());
-		//usuario = (UsuarioBean)session_map.get(usuario.getUsuarioID());
-		//System.out.println(usuario);
-		
 		//1. Recuperamos el ArrayList de Usuarios y el de Empleados accediendo a Map
 		this.buffer_usuarios = (ArrayList<UsuarioBean>)this.session_map.get(Tabla.TABLA_USUARIO);
 		this.buffer_empleados = (ArrayList<EmpleadoBean>)this.session_map.get(Tabla.TABLA_EMPLEADO);
