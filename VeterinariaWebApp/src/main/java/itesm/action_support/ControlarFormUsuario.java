@@ -59,7 +59,7 @@ public class ControlarFormUsuario extends ActionSupport{
 		
 		//1. Recuperar el id del empleado(Opcional junto con su Nombre)
 		DAOEmpleado daoEmpleado = new DAOEmpleadoImpl();
-		buffer_empleado= daoEmpleado.consultarEmpleados();
+		buffer_empleado= daoEmpleado.consultarEmpleados(false);
 		
 		this.lista_empleados_frontend = new ArrayList<String>();
 		for(EmpleadoBean item : buffer_empleado) {

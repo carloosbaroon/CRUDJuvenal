@@ -20,7 +20,7 @@ public class ListaEmpleados extends ActionSupport{
 		//1. Obtener la tabla empleados con todos sus registros
 		DAOEmpleado daoEmpleado = new DAOEmpleadoImpl();
 		try {
-			this.buffer_empleados = daoEmpleado.consultarEmpleados();
+			this.buffer_empleados = daoEmpleado.consultarEmpleados(false);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

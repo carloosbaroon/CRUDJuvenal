@@ -43,16 +43,23 @@ public class DAOEmpleadoImpl extends Conexion implements DAOEmpleado{
 	}
 
 	@Override
-	public ArrayList<EmpleadoBean> consultarEmpleados() throws Exception {
+	public ArrayList<EmpleadoBean> consultarEmpleados(boolean soloDisponibles) throws Exception {
 		String ret = "error";
 		ArrayList<EmpleadoBean> buffer_empleados = new ArrayList<EmpleadoBean>();
+		String sql = "";
 		
 	      Connection conn = null;
 	      
 	    	 establishConnection();
 	         conn = getCon();
-	         String sql = "SELECT id_empleado, nombre_completo, direccion, telefono, especialidad ,puesto, turno, estado FROM empleado ";
-	         sql += "WHERE elegido = 0";
+	         
+	         if(soloDisponibles) {
+	        	 sql = "SELECT id_empleado, nombre_completo, direccion, telefono, especialidad ,puesto, turno, estado FROM empleado ";
+	        	 sql += "WHERE elegido = 0";
+	         } else
+	        	 sql = "SELECT id_empleado, nombre_completo, direccion, telefono, especialidad ,puesto, turno, estado FROM empleado ";
+	         
+	         
 	         Statement statement = conn.createStatement();
 	         ResultSet rs = statement.executeQuery(sql);
 
