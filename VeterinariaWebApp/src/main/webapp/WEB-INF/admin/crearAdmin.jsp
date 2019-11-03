@@ -20,13 +20,13 @@
 	<s:select label="Grupo/Privilegios"
 	headerValue="Elige un grupo" 
 	headerKey="-1"
-	list="list_grupos_privilegios"
+	list="list_grupos_privilegios_frontend"
 	name="usuario.privilegios"
 	/>
 	<s:select label="Estado"
 	headerValue="Elige un estado" 
 	headerKey="-1"
-	list="list_estado"
+	list="list_estado_frontend"
 	name="usuario.estado"
 	/>
 	<s:submit value="enviar"/>

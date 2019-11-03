@@ -14,24 +14,25 @@
 <a href="${consultar_usuarios}">Consultar Usuarios</a>
 
 <s:form action="validar_campos_usuario">
+	<s:textfield name="usuario.usuarioID" label="ID"/>
 	<s:textfield name="usuario.password" label="Password"/>
 	<s:textfield name="usuario.confirmar_password" label="Confirmar Password"/>
 	<s:select label="Empleados Disponibles"
 	headerValue="Selecciona un empleado" 
 	headerKey="-1"
-	list="list_empleados_fk"
+	list="lista_empleados_frontend"
 	name="usuario.id_empleado_FK"
 	/>
 	<s:select label="Grupo/Privilegios"
 	headerValue="Elige un grupo" 
 	headerKey="-1"
-	list="list_grupos_privilegios"
-	name="usuario.grupo"
+	list="list_grupos_privilegios_frontend"
+	name="usuario.privilegios"
 	/>
 	<s:select label="Estado"
 	headerValue="Elige un estado" 
 	headerKey="-1"
-	list="list_estado"
+	list="list_estado_frontend"
 	name="usuario.estado"
 	/>
 	<s:submit value="enviar"/>

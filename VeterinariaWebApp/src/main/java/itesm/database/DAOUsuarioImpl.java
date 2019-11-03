@@ -22,15 +22,16 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
 	      
    	 	establishConnection();
         conn = getCon();
-        String sql = "INSERT INTO usuario (id_usuario, password_user, confirmar_password, privilegios, estado, no_intentos)";
-        sql+="VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO usuario (id_usuario, id_empleado,password_user, confirmar_password, privilegios, estado, no_intentos)";
+        sql+="VALUES (?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, usuario.getUsuarioID());
-        ps.setString(2, usuario.getPassword());
-        ps.setString(3, usuario.getConfirmar_password());
-        ps.setString(4, usuario.getPrivilegios());
-        ps.setString(5, usuario.getEstado());
-        ps.setString(6, usuario.getIntentos());
+        ps.setString(2, usuario.getId_empleado_FK());
+        ps.setString(3, usuario.getPassword());
+        ps.setString(4, usuario.getConfirmar_password());
+        ps.setString(5, usuario.getPrivilegios());
+        ps.setString(6, usuario.getEstado());
+        ps.setString(7, usuario.getIntentos());
         
         ps.execute();
 
