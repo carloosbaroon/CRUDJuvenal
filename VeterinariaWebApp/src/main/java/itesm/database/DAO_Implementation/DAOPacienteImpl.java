@@ -1,14 +1,17 @@
-package itesm.database;
+package itesm.database.DAO_Implementation;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
 
 import itesm.business.PacienteBean;
+import itesm.database.Conexion;
+import itesm.database.DAO_Interfaces.DAOPaciente;
 
 public class DAOPacienteImpl extends Conexion implements DAOPaciente{
 
 	@Override
-	public void insertarPaciente(PacienteBean paciente) throws Exception {
+	public void insertar(PacienteBean paciente) throws Exception {
 		Connection conn = null;
 	      
    	 	establishConnection();
@@ -36,6 +39,24 @@ public class DAOPacienteImpl extends Conexion implements DAOPaciente{
            }
         }
 		
+	}
+
+	@Override
+	public PacienteBean buscar(String id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void editar(PacienteBean entidad) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ArrayList<PacienteBean> consultar() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

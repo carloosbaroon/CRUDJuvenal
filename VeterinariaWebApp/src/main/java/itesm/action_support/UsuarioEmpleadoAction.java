@@ -4,10 +4,10 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import itesm.business.EmpleadoBean;
 import itesm.business.UsuarioBean;
-import itesm.database.DAOEmpleado;
-import itesm.database.DAOEmpleadoImpl;
-import itesm.database.DAOUsuario;
-import itesm.database.DAOUsuarioImpl;
+import itesm.database.DAO_Implementation.DAOEmpleadoImpl;
+import itesm.database.DAO_Implementation.DAOUsuarioImpl;
+import itesm.database.DAO_Interfaces.DAOEmpleado;
+import itesm.database.DAO_Interfaces.DAOUsuario;
 
 public class UsuarioEmpleadoAction extends ActionSupport{
 	private UsuarioBean usuario;
@@ -28,10 +28,8 @@ public class UsuarioEmpleadoAction extends ActionSupport{
 		EmpleadoBean empleadoAux = new EmpleadoBean();
 		
 		try {
-			this.usuario = daoUsuario.buscarUsuario(usuario);
-			//Get the 'empleado_id' and pass to the dao function 'buscarEmpleado()'
-			empleadoAux.setId_empleado(usuario.getId_empleado_FK());
-			this.setEmpleado(daoEmpleado.buscarEmpleado(empleadoAux));
+			this.usuario = daoUsuario.buscar(usuario.getUsuarioID());
+			this.setEmpleado(daoEmpleado.buscar(usuario.getId_empleado_FK()));
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -47,8 +45,8 @@ public class UsuarioEmpleadoAction extends ActionSupport{
 		System.out.println("Empleado: " + empleado.getId_empleado());
 		
 		try {
-			daoUsuario.editarUsuario(usuario);
-			daoEmpleado.editarEmpleado(empleado);
+			daoUsuario.editar(usuario);
+			daoEmpleado.editar(empleado);
 			
 			return SUCCESS;
 		} catch (Exception e) {

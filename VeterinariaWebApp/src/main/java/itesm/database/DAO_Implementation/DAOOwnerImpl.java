@@ -1,15 +1,18 @@
-package itesm.database;
+package itesm.database.DAO_Implementation;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import itesm.business.OwnerBean;
+import itesm.database.Conexion;
+import itesm.database.DAO_Interfaces.DAOOwner;
 
 public class DAOOwnerImpl extends Conexion implements DAOOwner{
 
 	@Override
-	public String insertarOwner(OwnerBean owner) throws Exception {
+	public void insertar(OwnerBean owner) throws Exception {
 		Connection conn = null;
 	      
    	 	establishConnection();
@@ -33,12 +36,10 @@ public class DAOOwnerImpl extends Conexion implements DAOOwner{
 				e.printStackTrace();
            }
         }
-     
-		return "success";
 	}
 
 	@Override
-	public OwnerBean buscarOwner(String id) throws Exception {
+	public OwnerBean buscar(String id) throws Exception {
 		Connection conn = null;
 	      
    	 	establishConnection();
@@ -69,6 +70,18 @@ public class DAOOwnerImpl extends Conexion implements DAOOwner{
         }
         
         return owner;
+	}
+
+	@Override
+	public void editar(OwnerBean entidad) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ArrayList<OwnerBean> consultar() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

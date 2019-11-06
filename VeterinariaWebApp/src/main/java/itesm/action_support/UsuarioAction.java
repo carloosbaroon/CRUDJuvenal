@@ -5,10 +5,10 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import itesm.business.EmpleadoBean;
 import itesm.business.UsuarioBean;
-import itesm.database.DAOEmpleado;
-import itesm.database.DAOEmpleadoImpl;
-import itesm.database.DAOUsuario;
-import itesm.database.DAOUsuarioImpl;
+import itesm.database.DAO_Implementation.DAOEmpleadoImpl;
+import itesm.database.DAO_Implementation.DAOUsuarioImpl;
+import itesm.database.DAO_Interfaces.DAOEmpleado;
+import itesm.database.DAO_Interfaces.DAOUsuario;
 
 public class UsuarioAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
@@ -65,7 +65,7 @@ public class UsuarioAction extends ActionSupport {
 		if(usuario.getPassword().contentEquals(usuario.getConfirmar_password())){
 				DAOUsuario daoUsuario = new DAOUsuarioImpl();
 				try {
-					daoUsuario.insertarUsuario(usuario);
+					daoUsuario.insertar(usuario);
 				} catch (Exception e) {
 					e.printStackTrace();
 					mensajeError = "Error al insertar el registro a la BD";
@@ -103,7 +103,7 @@ public class UsuarioAction extends ActionSupport {
 		DAOEmpleado daoEmpleado = new DAOEmpleadoImpl();
 		
 		try {
-			buffer_empleado= daoEmpleado.consultarEmpleados(true);
+			buffer_empleado= daoEmpleado.consultarEmpleadosDisponibles(true);
 			respuesta = SUCCESS;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -135,7 +135,7 @@ public class UsuarioAction extends ActionSupport {
 		//1. Obtener la tabla empleados con todos sus registros
 		DAOUsuario daoUsuario = new DAOUsuarioImpl();
 		try {
-			this.setBuffer_usuarios(daoUsuario.consultarUsuarios());
+			this.setBuffer_usuarios(daoUsuario.consultar());
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -147,7 +147,7 @@ public class UsuarioAction extends ActionSupport {
 	public String buscarUsuario() {
 		DAOUsuario daoUsuario = new DAOUsuarioImpl();
 		try {
-			this.usuario = daoUsuario.buscarUsuario(usuario);
+			this.usuario = daoUsuario.buscar(usuario.getUsuarioID());
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

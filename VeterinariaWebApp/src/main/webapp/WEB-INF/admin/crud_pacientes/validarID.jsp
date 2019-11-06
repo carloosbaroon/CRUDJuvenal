@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<s:form action="modificarOwner">
+<s:form action="detalle_editar_owner">
     <s:textfield name="owner.id" label="Id Dueño" />
     <s:submit value="Enviar" />
 </s:form>
