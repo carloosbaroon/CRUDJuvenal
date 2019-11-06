@@ -10,6 +10,8 @@
 <body>
 	<h1>Alta Paciente</h1>
 	<s:form action="finalPaciente">
+		<s:textfield name="paciente.idOwner" label="ID Dueño" value="%{owner.id}" readonly="true"/>
+		<s:textfield name="paciente.id" label="ID Paciente" />
 		<s:textfield name="paciente.name" label="Nombre" />
 		<s:textfield name="paciente.categoria" label="Categoria" />
 		<s:textfield name="paciente.raza" label="Raza"/>

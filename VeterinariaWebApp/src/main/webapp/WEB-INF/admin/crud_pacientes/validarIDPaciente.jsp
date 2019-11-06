@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<s:form action="capurar_datos_paciente">
+<s:form action="capturar_datos_paciente">
     <s:textfield name="owner.id" label="Id Dueño" />
     <s:submit value="Enviar" />
 </s:form>

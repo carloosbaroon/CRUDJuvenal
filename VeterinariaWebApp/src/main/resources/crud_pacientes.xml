@@ -9,11 +9,11 @@
     	</action>
     	
     	<!-- Owner -->
-    	<action name="goto_alta_owner_jsp" class="itesm.action_support.CapturarDatosDueño" method="init">
+    	<action name="goto_alta_owner_jsp">
     		<result name="success">WEB-INF/admin/crud_pacientes/altaOwner.jsp</result>
     	</action>
     	
-    	<action name="capurar_datos_owner" class="itesm.action_support.CapturarDatosDueño">
+    	<action name="capturar_datos_owner" class="itesm.action_support.OwnerAction" method="crearOwner">
     		<result name="success"> WEB-INF/admin/crud_pacientes/dueñoRegistrado.jsp</result>
     	</action>
     	
@@ -34,16 +34,16 @@
     	
     	<!-- Paciente -->
     
-    	<action name="goto_alta_paciente_jsp" class="itesm.action_support.CapturarDatosPaciente" method="init">
+    	<action name="goto_alta_paciente_jsp" class="itesm.action_support.OwnerAction">
     		<result>WEB-INF/admin/crud_pacientes/validarIDPaciente.jsp</result>
     	</action>
     	
-    	<action name="capurar_datos_paciente" class="itesm.action_support.editarOwnerPaciente">
+    	<action name="capturar_datos_paciente" class="itesm.action_support.OwnerAction" method="buscarOwner">
     		<result name="success">/WEB-INF/admin/crud_pacientes/altaPaciente.jsp</result>
             <result name="error">/WEB-INF/admin/crud_pacientes/error.jsp</result>
     	</action>
     	
-    	<action name="finalPaciente" class="itesm.action_support.CapturarDatosPaciente" method="show">
+    	<action name="finalPaciente" class="itesm.action_support.PacienteAction" method="crearPaciente">
     		<result name="success">WEB-INF/admin/crud_pacientes/pacienteRegistrado.jsp</result>
     	</action>
     	
