@@ -8,68 +8,71 @@
     		<result>WEB-INF/admin/crud_usuarios/admin_usuarios.jsp</result><!-- Reedirige al jsp de administración de usuarios -->
     	</action>
     	
-		<action name="goto_alta_usuario_jsp" class="itesm.action_support.ControlarFormUsuario">
-    		<result>WEB-INF/admin/crud_usuarios/altaUsuarios.jsp</result>
+		<action name="goto_alta_usuario_jsp" class="itesm.action_support.UsuarioAction" method="llenarDropDownLists">
+    		<result name="success">WEB-INF/admin/crud_usuarios/altaUsuarios.jsp</result>
     	</action>
     	
-    	<action name="goto_consulta_usuario_jsp" class="itesm.action_support.ListaUsuarios">
+    	<action name="goto_consulta_usuario_jsp" class="itesm.action_support.UsuarioAction" method="listarUsuarios">
     		<result>WEB-INF/admin/crud_usuarios/listaUsuarios.jsp</result>
     	</action>
     	
- 	    <action name="validar_campos_usuario" class="itesm.action_support.CapturarDatosUsuario">
+ 	    <action name="validar_campos_usuario" class="itesm.action_support.UsuarioAction" method="crearUsuario">
     		<result name="success">WEB-INF/admin/crud_usuarios/usuarioRegistrado.jsp</result>
     		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	
-    	<action name="goto_alta_empleado_jsp" class="itesm.action_support.ControlarFormEmpleado">
+    	<action name="goto_alta_empleado_jsp" class="itesm.action_support.EmpleadoAction" method="llenarDropDownLists">
     		<result name="success">WEB-INF/admin/crud_usuarios/altaEmpleado.jsp</result>
     	</action>
     	
-    	<action name="goto_consulta_empleado_jsp" class="itesm.action_support.ListaEmpleados">
-    		<result>WEB-INF/admin/crud_usuarios/listaEmpleado.jsp</result>
+    	<action name="goto_consulta_empleado_jsp" class="itesm.action_support.EmpleadoAction" method="listarEmpleados">
+    		<result name="success">WEB-INF/admin/crud_usuarios/listaEmpleado.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	
-    	<action name="validar_campos_empleado" class="itesm.action_support.CapturarDatosEmpleado">
+    	<action name="validar_campos_empleado" class="itesm.action_support.EmpleadoAction" method="registrarEmpleado">
     		<result name="success">WEB-INF/admin/crud_usuarios/empleadoRegistrado.jsp</result>
     		<result name="error"></result>
     	</action>
     	
     	<action name="goto_baja_jsp" >
-    		<result>WEB-INF/admin/crud_usuarios/bajaUsuarios.jsp</result>
+    		<result>WEB-INF/admin/crud_usuarios/buscarUsuarioBaja.jsp</result>
     	</action>
     	
-    	<action name="buscar_usuario_baja" class="itesm.action_support.CapturarDatosUsuario" method="eliminarUsuario">
+    	<action name="detalle_baja_usuario" class="itesm.action_support.UsuarioEmpleadoAction" method="buscarUsuario_Empleado">
     		<result name="success">WEB-INF/admin/crud_usuarios/datosBajaUsuario.jsp</result>
-    		<result name="error">WEB-INF/admin/crud_usuarios/error.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	
-    	<action name="dar_baja_usuario" class="itesm.action_support.BajaUsuario">
-    		<result name="success">WEB-INF/admin/crud_usuarios/bajaUsuarios.jsp</result>
+    	<action name="dar_baja_usuario" class="itesm.action_support.UsuarioAction" method="eliminarUsuario">
+    		<result name="success">WEB-INF/admin/crud_usuarios/usuarioEliminado.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	
-    	<action name="goto_editar_usuario_jsp">
-    		<result>WEB-INF/admin/crud_usuarios/editarUsuario.jsp</result>
+    	<action name="goto_editar">
+    		<result>WEB-INF/admin/crud_usuarios/buscarUsuarioEditar.jsp</result>
     	</action>
     	
-    	<action name="buscar_usuario_editar" class="itesm.action_support.BuscarDatosUsuario">
-    		<result name="success">WEB-INF/admin/crud_usuarios/datosEditarUsuario.jsp</result>
-    		<result name="error">WEB-INF/admin/crud_usuarios/error.jsp</result>
+   		<action name="detalle_editar_usuario" class="itesm.action_support.UsuarioEmpleadoAction" method="buscarUsuario_Empleado">
+ 			<result name="success">WEB-INF/admin/crud_usuarios/datosEditarUsuario.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	
-    	<action name="actualizar_usuario" class="itesm.action_support.EditarUsuario">
-    		<result name="success">WEB-INF/admin/crud_usuarios/editarUsuario.jsp</result>
-    	</action>
+    	<action name="actualizar_usuario" class="itesm.action_support.UsuarioEmpleadoAction" method="actualizarUsuarioEmpleado">
+    		<result name="success">WEB-INF/admin/borrar_success.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>    	
     		
-    	<action name="goto_bloqueo_desbloqueo_jsp" class="itesm.action_support.editarStatusUsuario" method="init">
-    		<result>WEB-INF/admin/crud_usuarios/validarIDStatus.jsp</result>
+    	<action name="goto_bloqueo_desbloqueo_jsp" class="itesm.action_support.UsuarioAction">
+    		<result>WEB-INF/admin/crud_usuarios/buscarUsuarioBloquear_Desbloquear.jsp</result>
     	</action>
     	
-    	<action name="modificarStatus" class="itesm.action_support.editarStatusUsuario">
-    		<result name="success">/WEB-INF/admin/crud_usuarios/modificarStatusUsuario.jsp</result>
-            <result name="error">/WEB-INF/admin/crud_usuarios/error.jsp</result>
+    	<action name="modificarEstado" class="itesm.action_support.UsuarioAction" method="llenarDropDownLists_Estado">
+    		<result name="success">/WEB-INF/admin/crud_usuarios/modificarEstadoUsuario.jsp</result>
+            <result name="error">/WEB-INF/admin/error.jsp</result>
     	</action>	
     	
-    	<action name="finalMoficarStatus" class="itesm.action_support.editarStatusUsuario" method="show">
+    	<action name="finalMoficarStatus" class="itesm.action_support.UsuarioAction" method="actualizarEstado">
     		<result name="success">WEB-INF/admin/crud_usuarios/finEditarStatus.jsp</result>
     	</action>		
 

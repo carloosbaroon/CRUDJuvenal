@@ -7,13 +7,14 @@
 
 <body>
 <s:form action="finalMoficarStatus">
+	<s:textfield name="usuario.usuarioID" value="%{usuario.usuarioID}" readonly="true" label="ID Usuario"/>
    <s:select label="Estado"
 	headerValue="Elige un estado" 
 	headerKey="-1"
-	list="list_estado"
+	list="list_estado_frontend"
 	name="usuario.estado"
 	/>
-    <s:submit value="Enviar" />
+    <s:submit value="Actualizar Estado" />
 </s:form>
 </body>
 </html>

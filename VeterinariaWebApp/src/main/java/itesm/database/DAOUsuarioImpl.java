@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import itesm.database.Conexion;
+import itesm.business.EmpleadoBean;
 import itesm.business.UsuarioBean;
 
 
@@ -145,5 +146,89 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
 				e.printStackTrace();
            }
         }		
+	}
+
+	@Override
+	public UsuarioBean buscarUsuario(UsuarioBean usuario) throws Exception {
+	      Connection conn = null;
+	      
+	    	 establishConnection();
+	         conn = getCon();
+	         String sql = "SELECT * FROM usuario WHERE";
+	         sql+=" id_usuario = ?";
+	         PreparedStatement ps = conn.prepareStatement(sql);
+	         ps.setString(1, usuario.getUsuarioID());
+	         ResultSet rs = ps.executeQuery();
+
+	         while (rs.next()) {
+	            usuario.setUsuarioID(rs.getString(1));
+	            usuario.setId_empleado_FK(rs.getString(2));
+	            usuario.setPassword(rs.getString(3));
+	            usuario.setConfirmar_password(rs.getString(4));
+	            usuario.setPrivilegios(rs.getString(5));
+	            usuario.setEstado(rs.getString(6));
+	            usuario.setIntentos(rs.getString(7));
+	         }
+
+	         if (conn != null) {
+	            try {
+	               closeConnection();
+	            } catch (Exception e) {
+					e.printStackTrace();
+	            }
+	         }
+	         
+	         return usuario;
+	}
+
+	@Override
+	public void editarUsuario(UsuarioBean usuario) throws Exception {
+		Connection conn = null;
+	      
+   	 	establishConnection();
+        conn = getCon();
+        String sql = "UPDATE usuario SET password_user = ?, confirmar_password = ? WHERE id_usuario = ?";
+                
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, usuario.getPassword());
+        ps.setString(2, usuario.getConfirmar_password());
+        ps.setString(3, usuario.getUsuarioID());
+        
+        ps.execute();
+
+        if (conn != null) {
+           try {
+              closeConnection();
+           } catch (Exception e) {
+				e.printStackTrace();
+           }
+        }			
+	}
+
+	@Override
+	public void actualizarEstado(UsuarioBean usuario) throws Exception {
+		Connection conn = null;
+	      
+   	 	establishConnection();
+        conn = getCon();
+        System.out.println("Usuario: " + usuario.getUsuarioID());
+        System.out.println("Estado: " + usuario.getEstado());
+        
+        String sql = "UPDATE usuario SET estado = ? WHERE id_usuario = ?";
+                
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, usuario.getEstado());
+        ps.setString(2, usuario.getUsuarioID());
+        
+        ps.execute();
+
+        if (conn != null) {
+           try {
+              closeConnection();
+           } catch (Exception e) {
+				e.printStackTrace();
+           }
+        }		
+		
 	}
 }

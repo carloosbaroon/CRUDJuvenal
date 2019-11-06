@@ -23,7 +23,7 @@
 		<s:textfield name="empleado.turno" label="Turno"/>
        <s:select label="Estado del Empleado" 
 		headerKey="-1" headerValue="Selecciona un estado"
-		list="estado"
+		list="list_estado_empleado"
 		name="empleado.estado"/>
 
 		<s:submit value="Enviar"/>

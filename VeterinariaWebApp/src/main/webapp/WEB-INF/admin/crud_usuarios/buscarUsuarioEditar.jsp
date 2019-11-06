@@ -8,10 +8,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Baja Usuarios</h1>
-	<s:form action="buscar_usuario_baja">
+
+<s:url action="goto_admin_usuarios_jsp" var="regresar"/>
+
+	<h1>Editar Usuarios</h1>
+	<s:form action="detalle_editar_usuario">
 		<s:textfield name="usuario.usuarioID" label="ID del usuario" />
 		<s:submit value="Buscar"/>
 	</s:form>
+	
+	<a href="${regresar}">Regresar</a>
 </body>
 </html>

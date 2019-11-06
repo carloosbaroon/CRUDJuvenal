@@ -11,4 +11,7 @@ public interface DAOUsuario {
 	public String verificarUsuario(UsuarioBean usuario) throws Exception;
 	public ArrayList<UsuarioBean> consultarUsuarios() throws Exception;
 	public void eliminarUsuario(UsuarioBean usuario) throws Exception;
+	public UsuarioBean buscarUsuario(UsuarioBean usuario) throws Exception;
+	public void editarUsuario(UsuarioBean usuario) throws Exception;
+	public void actualizarEstado(UsuarioBean usuario) throws Exception;
 }

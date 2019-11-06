@@ -7,12 +7,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import itesm.business.EmpleadoBean;
-import itesm.business.UsuarioBean;
 
 public class DAOEmpleadoImpl extends Conexion implements DAOEmpleado{
 
 	@Override
-	public String insertarEmpleado(EmpleadoBean empleado) throws Exception {
+	public void insertarEmpleado(EmpleadoBean empleado) throws Exception {
 		Connection conn = null;
 	      
    	 	establishConnection();
@@ -38,8 +37,6 @@ public class DAOEmpleadoImpl extends Conexion implements DAOEmpleado{
 				e.printStackTrace();
            }
         }
-     
-		return "success";
 	}
 
 	@Override
@@ -86,6 +83,69 @@ public class DAOEmpleadoImpl extends Conexion implements DAOEmpleado{
 	         }
 	      
 	      return buffer_empleados;
+	}
+
+	@Override
+	public EmpleadoBean buscarEmpleado(EmpleadoBean empleado) throws Exception {
+		Connection conn = null;
+	      
+   	 	establishConnection();
+        conn = getCon();
+        String sql = "SELECT * FROM empleado WHERE";
+        sql+=" id_empleado = ?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, empleado.getId_empleado());
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+           empleado.setId_empleado(rs.getString(1));
+           empleado.setNombre_completo(rs.getString(2));
+           empleado.setDireccion(rs.getString(3));
+           empleado.setTelefono(rs.getString(4));
+           empleado.setPuesto(rs.getString(5));
+           empleado.setEspecialidad(rs.getString(6));
+           empleado.setTurno(rs.getString(7));
+           empleado.setEstado(rs.getString(8));
+        }
+
+        if (conn != null) {
+           try {
+              closeConnection();
+           } catch (Exception e) {
+				e.printStackTrace();
+           }
+        }
+        
+        return empleado;
+	}
+
+	@Override
+	public void editarEmpleado(EmpleadoBean empleado) throws Exception {
+		Connection conn = null;
+	      
+   	 	establishConnection();
+        conn = getCon();
+        String sql = "UPDATE empleado SET nombre_completo = ?, direccion = ?, telefono = ?, puesto = ?, especialidad = ?, turno = ? WHERE id_empleado = ?";
+                
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, empleado.getNombre_completo());
+        ps.setString(2, empleado.getDireccion());
+        ps.setString(3, empleado.getTelefono());
+        ps.setString(4, empleado.getPuesto());
+        ps.setString(5, empleado.getEspecialidad());
+        ps.setString(6, empleado.getTurno());
+        ps.setString(7, empleado.getId_empleado());
+        
+        ps.execute();
+
+        if (conn != null) {
+           try {
+              closeConnection();
+           } catch (Exception e) {
+				e.printStackTrace();
+           }
+        }
+		
 	}
 
 }
