@@ -13,7 +13,7 @@
 	
 	<s:form action="actualizar_usuario">		
 		<s:textfield name="usuario.usuarioID" label="Usuario" value="%{usuario.usuarioID}" readonly="true"/>
-		<s:textfield name="empleado.id_empleado" label="No. de empleado" value="%{empleado.id_empleado}" readonly="true"/>
+		<s:textfield name="empleado.id_empleado" label="ID Empleado" value="%{empleado.id_empleado}" readonly="true"/>
 		<s:textfield name="usuario.password" label="Password" value="%{usuario.password}"/>
 		<s:textfield name="usuario.confirmar_password" label="Confirmar Password" value="%{usuario.confirmar_password}"/>
 		<s:textfield name="empleado.nombre_completo" label="Nombre Completo" value="%{empleado.nombre_completo}"/>

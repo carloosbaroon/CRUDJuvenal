@@ -20,7 +20,7 @@
 	<s:select label="Empleados Disponibles"
 	headerValue="Selecciona un empleado" 
 	headerKey="-1"
-	list="lista_empleados_frontend"
+	list="list_empleados_frontend"
 	name="usuario.id_empleado_FK"
 	/>
 	<s:select label="Grupo/Privilegios"
@@ -32,7 +32,7 @@
 	<s:select label="Estado"
 	headerValue="Elige un estado" 
 	headerKey="-1"
-	list="list_estado_frontend"
+	list="list_estado_usuario_frontend"
 	name="usuario.estado"
 	/>
 	<s:submit value="enviar"/>
