@@ -8,7 +8,7 @@
     		<result>WEB-INF/admin/crud_usuarios/admin_usuarios.jsp</result><!-- Reedirige al jsp de administración de usuarios -->
     	</action>
     	
-		<action name="goto_alta_usuario_jsp" class="itesm.action_support.UsuarioAction" method="llenarDropDownLists">
+		<action name="goto_alta_usuario_jsp" class="itesm.action_support.PopulateDropDownLists" method="fill">
     		<result name="success">WEB-INF/admin/crud_usuarios/altaUsuarios.jsp</result>
     	</action>
     	
@@ -21,7 +21,7 @@
     		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	
-    	<action name="goto_alta_empleado_jsp" class="itesm.action_support.EmpleadoAction" method="llenarDropDownLists">
+    	<action name="goto_alta_empleado_jsp" class="itesm.action_support.PopulateDropDownLists" method="fill">
     		<result name="success">WEB-INF/admin/crud_usuarios/altaEmpleado.jsp</result>
     	</action>
     	
@@ -53,7 +53,7 @@
     		<result>WEB-INF/admin/crud_usuarios/buscarUsuarioEditar.jsp</result>
     	</action>
     	
-   		<action name="detalle_editar_usuario" class="itesm.action_support.UsuarioEmpleadoAction" method="buscarUsuario_Empleado">
+   		<action name="detalle_editar_usuario" class="itesm.action_support.PopulateDropDownLists" method="buscarUsuario_Empleado">
  			<result name="success">WEB-INF/admin/crud_usuarios/datosEditarUsuario.jsp</result>
     		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
@@ -67,7 +67,7 @@
     		<result>WEB-INF/admin/crud_usuarios/buscarUsuarioBloquear_Desbloquear.jsp</result>
     	</action>
     	
-    	<action name="modificarEstado" class="itesm.action_support.UsuarioAction" method="llenarDropDownLists_Estado">
+    	<action name="modificarEstado" class="itesm.action_support.PopulateDropDownLists" method="fill">
     		<result name="success">/WEB-INF/admin/crud_usuarios/modificarEstadoUsuario.jsp</result>
             <result name="error">/WEB-INF/admin/error.jsp</result>
     	</action>	

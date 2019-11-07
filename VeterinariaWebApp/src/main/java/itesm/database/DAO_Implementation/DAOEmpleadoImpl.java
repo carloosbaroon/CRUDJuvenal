@@ -1,4 +1,4 @@
-package itesm.database;
+package itesm.database.DAO_Implementation;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,11 +7,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import itesm.business.EmpleadoBean;
+import itesm.database.Conexion;
+import itesm.database.DAO_Interfaces.DAOEmpleado;
 
 public class DAOEmpleadoImpl extends Conexion implements DAOEmpleado{
 
 	@Override
-	public void insertarEmpleado(EmpleadoBean empleado) throws Exception {
+	public void insertar(EmpleadoBean empleado) throws Exception {
 		Connection conn = null;
 	      
    	 	establishConnection();
@@ -40,7 +42,7 @@ public class DAOEmpleadoImpl extends Conexion implements DAOEmpleado{
 	}
 
 	@Override
-	public ArrayList<EmpleadoBean> consultarEmpleados(boolean soloDisponibles) throws Exception {
+	public ArrayList<EmpleadoBean> consultarEmpleadosDisponibles(boolean soloDisponibles) throws Exception {
 		String ret = "error";
 		ArrayList<EmpleadoBean> buffer_empleados = new ArrayList<EmpleadoBean>();
 		String sql = "";
@@ -86,7 +88,7 @@ public class DAOEmpleadoImpl extends Conexion implements DAOEmpleado{
 	}
 
 	@Override
-	public EmpleadoBean buscarEmpleado(EmpleadoBean empleado) throws Exception {
+	public EmpleadoBean buscar(String id) throws Exception {
 		Connection conn = null;
 	      
    	 	establishConnection();
@@ -94,10 +96,13 @@ public class DAOEmpleadoImpl extends Conexion implements DAOEmpleado{
         String sql = "SELECT * FROM empleado WHERE";
         sql+=" id_empleado = ?";
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, empleado.getId_empleado());
+        ps.setString(1, id);
         ResultSet rs = ps.executeQuery();
-
+        
+        EmpleadoBean empleado = null;
+        
         while (rs.next()) {
+        	empleado = new EmpleadoBean();
            empleado.setId_empleado(rs.getString(1));
            empleado.setNombre_completo(rs.getString(2));
            empleado.setDireccion(rs.getString(3));
@@ -120,7 +125,7 @@ public class DAOEmpleadoImpl extends Conexion implements DAOEmpleado{
 	}
 
 	@Override
-	public void editarEmpleado(EmpleadoBean empleado) throws Exception {
+	public void editar(EmpleadoBean empleado) throws Exception {
 		Connection conn = null;
 	      
    	 	establishConnection();
@@ -146,6 +151,12 @@ public class DAOEmpleadoImpl extends Conexion implements DAOEmpleado{
            }
         }
 		
+	}
+
+	@Override
+	public ArrayList<EmpleadoBean> consultar() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

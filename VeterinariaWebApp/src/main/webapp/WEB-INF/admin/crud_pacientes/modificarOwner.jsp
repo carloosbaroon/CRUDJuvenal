@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<s:form action="finalOwner">
+<s:form action="actualizar_owner">
 	<s:textfield name="owner.id" label="ID" />
     <s:textfield name="owner.nombre" label="Nombre" />
     <s:textfield name="owner.direccion" label="Direccion" />

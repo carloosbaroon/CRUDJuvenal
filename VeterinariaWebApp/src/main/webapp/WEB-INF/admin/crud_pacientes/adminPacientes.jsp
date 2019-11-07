@@ -11,7 +11,7 @@
 	
 	<s:url action="goto_alta_owner_jsp" var="alta_owner"/>
 	<s:url action="goto_alta_paciente_jsp" var="alta_paciente"/>
-	<s:url action="modificar" var="modificar_owner"/>
+	<s:url action="modificar_owner" var="modificar_owner"/>
 	<s:url action="goto_modificar_paciente_jsp" var="consulta_paciente"/>
 	
 	<p><a href="${alta_owner}">Dar de Alta Dueño</a></p>	
