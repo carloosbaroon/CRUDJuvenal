@@ -27,7 +27,7 @@
 <div class="header">
 	<div class="container">
 		 <div class="logo">
-		  	<a href="index.html"><img src="images/logo.png" alt="" ></a>
+		  	<a href="index.html"><img src="images/logof.jpeg" alt="" ></a>
 	  	 </div>
 	   <div class="head-right">
 	   	<div class="head-grid">
@@ -64,19 +64,80 @@
 		<div class="container">
 			<div class="banner-top">
 				<div class="col-sm-6 head-banner">
-					<h1>Lorem <span>&</span> Ipsum</h1>
-					<h4>It is a long established fact that a reader</h4>
+					<h1>Fidele <span>Veterinaria </span></h1>
+					<h4>Con más de 20 años de experiencia</h4>
 					
-					<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.Latin literature from 45 BC.</p>
+					<p>Estamos especializados en especies pequeñas. Contamos con los mejores especialistas y equipo de última generación.</p>
 				 </div>
-				<div class="col-sm-6 banner-head1">
-					<img src="images/dog1.png" class="img-responsive" alt="">
-				</div>
+				
 				<div class="clearfix"> </div>
 			</div>
 	</div>
 </div>
-<!--content--> 	<!--//footer-->
+<!--content-->
+<div class="content">
+
+	<!---->
+	
+		<div class="clearfix"> </div>
+	</div>
+	<!---->
+	<div class="events">
+		<div class="container">
+			<h2>Servicios</h2>
+			<div class="events-top">
+				<div class="col-sm-4 top-event">
+					<a href="single.html"><img src="images/ev.jpg" class="img-responsive" alt=""></a>
+					<h4><a href="single.html">Cirugía General</a></h4>
+					
+					<p>Manejamos técnicas de anestesia para un adecuado y mejor control del dolor, apoyándonos de personal capacitado y actualizado, con equipo de vanguardia y quirófanos equipados. </p>
+				</div>
+					<div class="col-sm-4 top-event">
+					<a href="single.html"><img src="images/ev1.jpg" class="img-responsive" alt=""></a>
+					<h4><a href="single.html">Consulta General</a></h4>
+				
+					<p>Contamos con personal médico comprometido en solucionar los problemas de tus mascotas. Siempre en continua capacitación para ofrecerles los más novedosos tratamientos y métodos de diagnóstico. </p>
+				</div>
+					<div class="col-sm-4 top-event">
+					<a href="single.html"><img src="images/ev2.jpg" class="img-responsive" alt=""></a>
+					<h4><a href="single.html">Laboratorio</a></h4>
+					
+					<p>Realizamos estudios de laboratorio como hemogramas, bioquímicas sanguíneas, urianalisis entre otros, con entregas de resultados en tiempos cortos, para mejorar la aproximación diagnostica de nuestros pacientes. </p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!---->
+</div>
+<!--footer-->
+ 	<div class="footer ">
+ 		<div class="footer-1"> </div>
+		<div class="container">
+		  <div class="footer_top">
+		  	<div class="col-md-3 footer-head">
+				<h4>Navegación</h4>
+				  <ul class="list1">
+				  	  <li class="active"><a href="${goto_welcome}">Inicio</a></li>
+					   	 <li><a href="${goto_crear_admin}">Crear Administrador</a></li>
+					   	 <li><a href="${goto_login}">Login</a></li>
+				  </ul>
+			</div>
+		  	
+		
+			<div class="col-md-3 footer-head1">
+			  	<h4>Ubicación</h4>
+             	<p>Avenida Eduardo Monroy Cárdenas 2000 San Antonio Buenavista, 50110 Toluca de Lerdo, Méx</p>
+              	
+			</div>
+			<div class="clearfix"> </div>
+		  
+		   <div class="footer-bottom">
+		<p> © 2015 Fidele. All rights reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a></p>
+    </div>
+	 </div>
+</div>
+ 	<!--//footer-->
 </body>
 	
 </html>

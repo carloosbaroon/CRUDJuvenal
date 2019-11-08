@@ -482,9 +482,9 @@ ul.socials li {
 /*--//footer--*/
 /*--about--*/
 .banner-head {
-  background: url(../images/5.jpg) no-repeat;
+  background: url(../images/vet_1.jpg) no-repeat;
   width: 100%;
-  min-height: 250px;
+  min-height: 300px;
   position: relative;
   background-size: cover;
 }
@@ -508,7 +508,7 @@ ul.socials li {
   	text-decoration: none;
 }
 .top-content h4 a:hover{
-	color:#ECC30A;
+	color:white;
 }
 .top-content p {
   	color: #A1A1A1;
@@ -678,8 +678,8 @@ a.read-more:hover{
 a.more{
 	text-decoration: none;
 	font-size: 1em;
-	color:#fff;
-	background: #ECC30A;
+	color:#986733;
+	background: white;
 	display: inline-block;
 	padding: 0.6em 1em;
 	text-align: center;
