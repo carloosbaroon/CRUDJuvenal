@@ -15,7 +15,7 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 	</head>
 	
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
   <div class="container">
     <a class="navbar-brand" href="#">Start Bootstrap</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,7 +67,7 @@
         </div>
       </div>
       <!-- Slide Three - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/O7fzqFEfLlo/1920x1080')">
+      <div class="carousel-item" style="background-image: url('https://perrosgatosonline.com/storage/2018/08/Bulldog-ingles9-1024x768.png')">
         <div class="carousel-caption d-none d-md-block">
           <h3 class="display-4">Third Slide</h3>
           <p class="lead">This is a description for the third slide.</p>
