@@ -89,6 +89,20 @@
     		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	
-
+    	<action name="goto_editar_salas_jsp" class="itesm.action_support.SalaAction" method="listarSalas">
+    		<result name="success">WEB-INF/admin/crud_salas_consulta/lista_salas.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+    	
+    	<action name="goto_detalles_sala" class="itesm.action_support.SalaAction" method="buscarSala">
+    		<result name="success">WEB-INF/admin/crud_salas_consulta/detalles_sala.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+    	
+    	<action name="actualizar_sala" class="itesm.action_support.SalaAction" method="actualizarSala">
+    		<result name="success">WEB-INF/admin/crud_salas_consulta/admin_salas.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+    	
     </package>
 </struts>
