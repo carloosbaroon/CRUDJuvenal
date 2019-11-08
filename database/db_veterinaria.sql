@@ -65,12 +65,16 @@ Create table Sala (
  Primary Key (id_sala)) ENGINE = MyISAM;
 
 Create table Consultas (
+	id_consulta Int NOT NULL AUTO_INCREMENT,
 	fecha Date NOT NULL,
+    hora_inicial Time NOT NULL,
+	hora_final Time NOT NULL,
 	id_empleado Int NOT NULL,
 	id_sala Int NOT NULL,
 	id_paciente Int NOT NULL,
-	hora_inicial Time NOT NULL,
-	hora_final Time NOT NULL) ENGINE = MyISAM;
+    observaciones VARCHAR (100),
+    estado VARCHAR (20) NOT NULL,
+Primary Key (id_consulta)) ENGINE = MyISAM;
 
 
 Alter table Usuario add Foreign Key (id_empleado) references Empleado (id_empleado) on delete  restrict on update  restrict;

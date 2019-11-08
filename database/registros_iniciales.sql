@@ -14,3 +14,12 @@ VALUES (1, "hola", "hola", "administrador", "activo", 5);
 
 INSERT INTO usuario (id_empleado, password_user, confirmar_password, privilegios, estado, no_intentos) 
 VALUES (2, "cactus", "cactus", "usuario", "activo", 5);
+
+INSERT INTO sala (nombre, disponibilidad) 
+VALUES ("Sala 1", "disponible");
+
+INSERT INTO sala (nombre, disponibilidad) 
+VALUES ("Sala 2", "no disponible");
+
+INSERT INTO sala (nombre, disponibilidad) 
+VALUES ("Sala 3", "disponible");
