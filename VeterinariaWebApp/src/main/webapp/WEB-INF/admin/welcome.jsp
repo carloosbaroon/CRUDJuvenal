@@ -6,91 +6,77 @@
    "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-	    <title>Bienvenida</title>
-		<link rel="stylesheet" href="styles/welcome.css">
-		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"> -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-		<!--  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">-->
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+		<title>Bienvenida</title>
+		<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery.min.js"></script>
+		<!-- Custom Theme files -->
+		<!--theme-style-->
+		<link href="styles/style.css" rel="stylesheet" type="text/css" media="all" />	
+		<!--//theme-style-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="Fidele Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!---->
+		<script src="js/menu_jquery.js"></script>
 	</head>
-	
-	<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="#">Start Bootstrap</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-        <s:url action="goto_crear_admin_jsp" var="goto_crear_admin"/>
-    
-          <a class="nav-link"href="${goto_crear_admin}">Crear Admin</a>
-                <span class="sr-only">(current)</span>
-            
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Services</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+	<body> 
+<!--header-->	
+<div class="header">
+	<div class="container">
+		 <div class="logo">
+		  	<a href="index.html"><img src="images/logo.png" alt="" ></a>
+	  	 </div>
+	   <div class="head-right">
+	   	<div class="head-grid">
+	</div> 	
+	   <div class="top-nav">
+			  <span class="menu"><img src="images/menu.png" alt=""> </span>
+					<ul>
+						<s:url action="goto_crear_admin_jsp" var="goto_crear_admin"/>
+						<s:url action="goto_login_jsp" var="goto_login"/>
+						<s:url action="welcome" var="goto_welcome"/>
+						 <li class="active"><a href="${goto_welcome}">Inicio</a></li>
+					   	 <li><a href="${goto_crear_admin}">Crear Administrador</a></li>
+					   	 <li><a href="${goto_login}">Login</a></li>
+					   	<!--   <li><a href="blog.html">Blog</a></li>
+					   	 <li><a href="codes.html">Short Codes</a></li>
+					   	 <li><a href="contact.html">Contact</a></li>-->
+					</ul>
 
-<header>
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-      <!-- Slide One - Set the background image for this slide in the line below -->
-      <div class="carousel-item active" style="background-image: url('https://source.unsplash.com/RCAhiGJsUUE/1920x1080')">
-        <div class="carousel-caption d-none d-md-block">
-          <h3 class="display-4">First Slide</h3>
-          <p class="lead">This is a description for the first slide.</p>
-        </div>
-      </div>
-      <!-- Slide Two - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1920x1080')">
-        <div class="carousel-caption d-none d-md-block">
-          <h3 class="display-4">Second Slide</h3>
-          <p class="lead">This is a description for the second slide.</p>
-        </div>
-      </div>
-      <!-- Slide Three - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('https://perrosgatosonline.com/storage/2018/08/Bulldog-ingles9-1024x768.png')">
-        <div class="carousel-caption d-none d-md-block">
-          <h3 class="display-4">Third Slide</h3>
-          <p class="lead">This is a description for the third slide.</p>
-        </div>
-      </div>
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-  </div>
-</header>
-
-<!-- Page Content -->
-<section class="py-5">
-  <div class="container">
-    <h1 class="font-weight-light">Half Page Image Slider</h1>
-    <p class="lead">The background images for the slider are set directly in the HTML using inline CSS. The images in this snippet are from <a href="https://unsplash.com">Unsplash</a>!</p>
-  </div>
-</section>
+					<!--script-->
+				<script>
+					$("span.menu").click(function(){
+						$(".top-nav ul").slideToggle(500, function(){
+						});
+					});
+			</script>
+		</div>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+</div>
+<!--//header-->
+<div class="banner">
+	<div class="banner-1"> </div>
+		<div class="container">
+			<div class="banner-top">
+				<div class="col-sm-6 head-banner">
+					<h1>Lorem <span>&</span> Ipsum</h1>
+					<h4>It is a long established fact that a reader</h4>
+					
+					<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.Latin literature from 45 BC.</p>
+				 </div>
+				<div class="col-sm-6 banner-head1">
+					<img src="images/dog1.png" class="img-responsive" alt="">
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+	</div>
+</div>
+<!--content--> 	<!--//footer-->
+</body>
 	
 </html>
