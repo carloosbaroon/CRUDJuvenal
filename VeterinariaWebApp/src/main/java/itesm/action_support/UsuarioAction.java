@@ -18,19 +18,12 @@ public class UsuarioAction extends ActionSupport {
 
 	private ArrayList<EmpleadoBean> buffer_empleado;
 	private ArrayList<UsuarioBean> buffer_usuarios;
-	private ArrayList<String> lista_empleados_frontend, list_grupos_privilegios_frontend, list_estado_frontend;
 	
 	public void setUsuario(UsuarioBean usuario) {this.usuario = usuario;}
 
 	public UsuarioBean getUsuario() {return usuario;}
 	
 	public EmpleadoBean getEmpleadoBean() {return empleadoBean;}
-	
-	public ArrayList<String> getLista_empleados_frontend() {return lista_empleados_frontend;}
-
-	public ArrayList<String> getList_grupos_privilegios_frontend() {return list_grupos_privilegios_frontend;}
-
-	public ArrayList<String> getList_estado_frontend() {return list_estado_frontend;}
 		
 	public ArrayList<UsuarioBean> getBuffer_usuarios() {return buffer_usuarios;}
 
@@ -95,42 +88,6 @@ public class UsuarioAction extends ActionSupport {
 		}
 	}
 	
-	public String llenarDropDownLists() {
-		String respuesta;
-		buffer_empleado = new ArrayList<EmpleadoBean>();
-		
-		//1. Recuperar el id del empleado(Opcional junto con su Nombre)
-		DAOEmpleado daoEmpleado = new DAOEmpleadoImpl();
-		
-		try {
-			buffer_empleado= daoEmpleado.consultarEmpleadosDisponibles(true);
-			respuesta = SUCCESS;
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			respuesta = ERROR;
-		}
-		
-		this.lista_empleados_frontend = new ArrayList<String>();
-		for(EmpleadoBean item : buffer_empleado) {
-			lista_empleados_frontend.add(item.getId_empleado());
-		}
-		
-		
-		//Agregar datos en el list 'grupo' del jsp 'alta usuarios'
-		this.list_grupos_privilegios_frontend = new ArrayList<String>();
-		this.list_grupos_privilegios_frontend.add("Administrador");
-		this.list_grupos_privilegios_frontend.add("Usuario");
-		//Agregar datos en el list 'estado' del jsp 'alta usuarios'
-		this.list_estado_frontend = new ArrayList<String>();
-		this.list_estado_frontend.add("Activo");
-		this.list_estado_frontend.add("Bloqueado");
-		this.list_estado_frontend.add("Inactivo");
-		
-		
-		return respuesta;
-	}
-	
 	public String listarUsuarios() {
 		//1. Obtener la tabla empleados con todos sus registros
 		DAOUsuario daoUsuario = new DAOUsuarioImpl();
@@ -166,16 +123,6 @@ public class UsuarioAction extends ActionSupport {
 			e.printStackTrace();
 			return ERROR;
 		}
-	}
-	
-	public String llenarDropDownLists_Estado() {
-		this.list_estado_frontend = new ArrayList<String>();	
-		
-		this.list_estado_frontend.add("Activo");
-		this.list_estado_frontend.add("Bloqueado");
-		this.list_estado_frontend.add("Inactivo");
-		
-		return SUCCESS;
 	}
 
 }

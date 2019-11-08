@@ -1,5 +1,7 @@
 package itesm.action_support;
 
+import java.util.ArrayList;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import itesm.business.EmpleadoBean;
@@ -25,11 +27,10 @@ public class UsuarioEmpleadoAction extends ActionSupport{
 		DAOUsuario daoUsuario = new DAOUsuarioImpl();
 		DAOEmpleado daoEmpleado = new DAOEmpleadoImpl();
 		
-		EmpleadoBean empleadoAux = new EmpleadoBean();
-		
 		try {
+			System.out.println("ID Usuario: " + usuario.getUsuarioID());
 			this.usuario = daoUsuario.buscar(usuario.getUsuarioID());
-			this.setEmpleado(daoEmpleado.buscar(usuario.getId_empleado_FK()));
+			this.empleado = daoEmpleado.buscar(usuario.getId_empleado_FK());
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -42,6 +43,7 @@ public class UsuarioEmpleadoAction extends ActionSupport{
 		DAOUsuario daoUsuario = new DAOUsuarioImpl();
 		
 		System.out.println("Usuario: " + usuario.getUsuarioID());
+		System.out.println("Password: " + usuario.getPassword());
 		System.out.println("Empleado: " + empleado.getId_empleado());
 		
 		try {
@@ -54,5 +56,7 @@ public class UsuarioEmpleadoAction extends ActionSupport{
 			return ERROR;
 		}	
 	}
+	
+	
 
 }
