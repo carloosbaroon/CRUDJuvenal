@@ -14,10 +14,7 @@
 	<s:form action="validar_campos_sala">
 		<s:textfield name="sala.id_sala" label="Id de la Sala" />
 		<s:textfield name="sala.nombre_sala" label="Nombre de la Sala" />
-       <s:select label="Estado de la Sala" 
-		headerKey="-1" headerValue="Selecciona un estado"
-		list="list_estado_sala"
-		name="sala.estado"/>
+		<s:textfield name="sala.estado_sala" label="Estado de la Sala" />
 
 		<s:submit value="Enviar"/>
 	</s:form>

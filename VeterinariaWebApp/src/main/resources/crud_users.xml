@@ -77,15 +77,15 @@
     	</action>
     	
     	<action name="goto_admin_salas_jsp">
-    		<result>WEB-INF/admin/crud_salas_consultas/admin_salas.jsp</result>
+    		<result>WEB-INF/admin/crud_salas_consulta/admin_salas.jsp</result>
     	</action>
     	
-    	<action name="goto_alta_sala_jsp" class="itesm.action_support.SalaAction" method="llenarDropDownLists">
-    		<result>WEB-INF/admin/crud_salas_consultas/altaSalaLugar.jsp</result>
+    	<action name="goto_alta_sala_jsp" class="itesm.action_support.SalaAction">
+    		<result>WEB-INF/admin/crud_salas_consulta/alta_SalaLugar.jsp</result>
     	</action>
     	
     	<action name="validar_campos_sala" class="itesm.action_support.SalaAction" method="registrarSala">
-    		<result name="success">WEB-INF/admin/crud_salas_consultas/admin_salas.jsp</result>
+    		<result name="success">WEB-INF/admin/crud_salas_consulta/admin_salas.jsp</result>
     		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	

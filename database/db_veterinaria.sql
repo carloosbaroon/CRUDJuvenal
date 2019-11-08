@@ -61,7 +61,7 @@ Create table Paciente (
 Create table Sala (
 	id_sala Int NOT NULL AUTO_INCREMENT,
 	nombre Varchar(20) NOT NULL,
-	disponibilidad Int NOT NULL,
+	disponibilidad Varchar(20) NOT NULL,
  Primary Key (id_sala)) ENGINE = MyISAM;
 
 Create table Consultas (

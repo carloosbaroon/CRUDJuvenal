@@ -20,7 +20,7 @@ public class editarOwner extends ActionSupport {
 	public void setOwner(OwnerBean owner) {this.owner = owner;}
 	
 	public String execute() {
-		owner = (OwnerBean)ownerSession.get(owner.getId());
+		//owner = (OwnerBean)ownerSession.get(owner.getId());
 		if(owner == null)
 		{
 			message = "No existe el usuario requerido";
