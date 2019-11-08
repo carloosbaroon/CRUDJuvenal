@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import com.opensymphony.xwork2.ActionSupport;
 
 import itesm.business.EmpleadoBean;
-import itesm.database.DAOEmpleado;
-import itesm.database.DAOEmpleadoImpl;
+import itesm.database.DAO_Implementation.DAOEmpleadoImpl;
+import itesm.database.DAO_Interfaces.DAOEmpleado;
 
 public class EmpleadoAction extends ActionSupport{
 	private static final long serialVersionUID = 1L;
@@ -25,7 +25,7 @@ public class EmpleadoAction extends ActionSupport{
 	public String registrarEmpleado() throws Exception {
 		DAOEmpleado daoEmpleado = new DAOEmpleadoImpl();
 		try {
-			daoEmpleado.insertarEmpleado(empleado);
+			daoEmpleado.insertar(empleado);
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -37,7 +37,7 @@ public class EmpleadoAction extends ActionSupport{
 		//1. Obtener la tabla empleados con todos sus registros
 		DAOEmpleado daoEmpleado = new DAOEmpleadoImpl();
 		try {
-			this.buffer_empleados = daoEmpleado.consultarEmpleados(false);
+			this.buffer_empleados = daoEmpleado.consultarEmpleadosDisponibles(false);
 			
 			System.out.println("Mostrar ID");
 			

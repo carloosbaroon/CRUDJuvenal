@@ -8,10 +8,10 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 
 import itesm.business.OwnerBean;
-import itesm.database.DAOEmpleado;
-import itesm.database.DAOEmpleadoImpl;
-import itesm.database.DAOOwner;
-import itesm.database.DAOOwnerImpl;
+import itesm.database.DAO_Implementation.DAOEmpleadoImpl;
+import itesm.database.DAO_Implementation.DAOOwnerImpl;
+import itesm.database.DAO_Interfaces.DAOEmpleado;
+import itesm.database.DAO_Interfaces.DAOOwner;
 
 public class OwnerAction extends ActionSupport {
 	private OwnerBean owner;
@@ -22,7 +22,7 @@ public class OwnerAction extends ActionSupport {
 	public String crearOwner() {
 		DAOOwner daoOwner= new DAOOwnerImpl();
 		try {
-			daoOwner.insertarOwner(owner);
+			daoOwner.insertar(owner);
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -33,7 +33,7 @@ public class OwnerAction extends ActionSupport {
 	public String buscarOwner() {
 		DAOOwner daoOwner = new DAOOwnerImpl();
 		try {
-			this.owner = daoOwner.buscarOwner(owner.getId());
+			this.owner = daoOwner.buscar(owner.getId());
 			if(this.owner == null)
 				return ERROR;
 			else

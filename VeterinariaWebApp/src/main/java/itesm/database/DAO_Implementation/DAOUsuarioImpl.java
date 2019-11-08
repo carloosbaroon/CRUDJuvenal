@@ -1,4 +1,4 @@
-package itesm.database;
+package itesm.database.DAO_Implementation;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import itesm.database.Conexion;
+import itesm.database.DAO_Interfaces.DAOUsuario;
 import itesm.business.EmpleadoBean;
 import itesm.business.UsuarioBean;
 
@@ -18,7 +19,7 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
 	 */
 
 	@Override
-	public String insertarUsuario(UsuarioBean usuario) throws Exception {
+	public void insertar(UsuarioBean usuario) throws Exception {
 		Connection conn = null;
 	      
    	 	establishConnection();
@@ -53,8 +54,6 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
 				e.printStackTrace();
            }
         }
-     
-		return "success";
 	}
 
 	@Override
@@ -92,7 +91,7 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
 	}
 
 	@Override
-	public ArrayList<UsuarioBean> consultarUsuarios() throws Exception {
+	public ArrayList<UsuarioBean> consultar() throws Exception {
 		String ret = "error";
 		ArrayList<UsuarioBean> buffer_usuarios = new ArrayList<UsuarioBean>();
 		
@@ -149,18 +148,21 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
 	}
 
 	@Override
-	public UsuarioBean buscarUsuario(UsuarioBean usuario) throws Exception {
-	      Connection conn = null;
+	public UsuarioBean buscar(String id) throws Exception {
+		Connection conn = null;
 	      
 	    	 establishConnection();
 	         conn = getCon();
 	         String sql = "SELECT * FROM usuario WHERE";
 	         sql+=" id_usuario = ?";
 	         PreparedStatement ps = conn.prepareStatement(sql);
-	         ps.setString(1, usuario.getUsuarioID());
+	         ps.setString(1, id);
 	         ResultSet rs = ps.executeQuery();
-
+	         
+	         UsuarioBean usuario = null;
+	         
 	         while (rs.next()) {
+	        	 usuario = new UsuarioBean();
 	            usuario.setUsuarioID(rs.getString(1));
 	            usuario.setId_empleado_FK(rs.getString(2));
 	            usuario.setPassword(rs.getString(3));
@@ -182,7 +184,7 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
 	}
 
 	@Override
-	public void editarUsuario(UsuarioBean usuario) throws Exception {
+	public void editar(UsuarioBean usuario) throws Exception {
 		Connection conn = null;
 	      
    	 	establishConnection();

@@ -8,10 +8,10 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import itesm.business.OwnerBean;
 import itesm.business.PacienteBean;
-import itesm.database.DAOEmpleado;
-import itesm.database.DAOEmpleadoImpl;
-import itesm.database.DAOPaciente;
-import itesm.database.DAOPacienteImpl;
+import itesm.database.DAO_Implementation.DAOEmpleadoImpl;
+import itesm.database.DAO_Implementation.DAOPacienteImpl;
+import itesm.database.DAO_Interfaces.DAOEmpleado;
+import itesm.database.DAO_Interfaces.DAOPaciente;
 
 public class PacienteAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
@@ -24,7 +24,7 @@ public class PacienteAction extends ActionSupport {
 	public String crearPaciente() {
 		DAOPaciente daoPaciente = new DAOPacienteImpl();
 		try {
-			daoPaciente.insertarPaciente(paciente);
+			daoPaciente.insertar(paciente);
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
