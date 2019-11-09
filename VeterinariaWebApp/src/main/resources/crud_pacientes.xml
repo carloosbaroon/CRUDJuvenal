@@ -17,6 +17,7 @@
 	    	
 	    	<action name="capturar_datos_owner" class="itesm.action_support.OwnerAction" method="crearOwner">
 	    		<result name="success"> WEB-INF/admin/crud_pacientes/dueñoRegistrado.jsp</result>
+	    		<result name="error"> WEB-INF/admin/error.jsp</result>
 	    	</action>
    			
  			<!-- Editar/Modificar -->
@@ -76,7 +77,10 @@
 	    	</action>
 	    	
 	    	<action name="confirmar_baja_paciente" class="itesm.action_support.PacienteAction" method="bajaPaciente">
-	    		<result name="success">WEB-INF/admin/crud_pacientes/validarIDPacienteConsulta.jsp</result>
+	    		<result name="success" type="redirectAction">
+	                <param name="actionName">buscar_pacientes</param>
+	                <param name="qs_id_propietario">${paciente.idOwner}</param>
+            	</result>
 	    	</action>
     	
     	<!-- Paciente -->
