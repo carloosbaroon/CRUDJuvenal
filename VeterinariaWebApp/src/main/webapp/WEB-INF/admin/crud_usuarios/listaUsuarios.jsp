@@ -1,10 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+
 <%@ taglib prefix="sb" uri="/struts-bootstrap-tags" %>
+
 <!DOCTYPE html>
 <html>
-	<head>
-	<title>Lista Usuario</title>
+<head>
+		<title>Lista Usuarios</title>
+		<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery.min.js"></script>
+		<!-- Custom Theme files -->
+		<!--theme-style-->
+		<link href="styles/style.css" rel="stylesheet" type="text/css" media="all" />	
+		<!--//theme-style-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!---->
+		<script src="js/menu_jquery.js"></script>
 	</head>
 	<body>
 		<div class="header">
@@ -65,7 +79,7 @@
 					       <td><b>UsuarioID</b></td>
 					       <td><b>Password</b></td>
 					       <td><b>FK empleado</b></td>
-					       <td><b>Grupo</b></td>
+					  
 					       <td><b>Estado</b></td>
 					    </tr>
 						<s:iterator value="buffer_usuarios" status="i">
@@ -73,12 +87,12 @@
 								<td><s:property value="usuarioID"/></td>
 								<td><s:property value="password"/></td>
 								<td><s:property value="id_empleado_FK"/></td>
-								<td><s:property value="grupo"/></td>
+								
 								<td><s:property value="estado"/></td>
 							</tr>
 						</s:iterator>
 					</table>
-					<a href="${regresar}">Regresar</a>
+					<h4><a href="${regresar}">Regresar</a></h4>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -116,27 +130,3 @@
 		
 	</body>
 </html>
-<!-- <h1>Lista Usuarios</h1>
-	<s:url action="goto_alta_usuario_jsp" var="regresar"/>
-	
-	<table border="1">
-		<tr>
-	      
-	       <td><b>UsuarioID</b></td>
-	       <td><b>Password</b></td>
-	       <td><b>FK empleado</b></td>
-	       <td><b>Grupo</b></td>
-	       <td><b>Estado</b></td>
-	    </tr>
-		<s:iterator value="buffer_usuarios" status="i">
-			<tr>
-				<td><s:property value="usuarioID"/></td>
-				<td><s:property value="password"/></td>
-				<td><s:property value="id_empleado_FK"/></td>
-				<td><s:property value="grupo"/></td>
-				<td><s:property value="estado"/></td>
-			</tr>
-		</s:iterator>
-	</table>
-	<a href="${regresar}">Regresar</a>
- -->

@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Administraci�n de usuarios</title>
+		<title>Administracion de usuarios</title>
 		<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
@@ -58,7 +58,7 @@
 	<div class="banner-1"> </div>
 		<div class="container">
 			<br>
-			<h1>Administraci�n Usuarios</h1>	
+			<h1>Administracion Usuarios</h1>	
 		</div>
 </div>
 <!--content-->
@@ -73,14 +73,14 @@
 					<s:url action="goto_alta_usuario_jsp" var="alta_usuarios"/>
 					<s:url action="goto_alta_empleado_jsp" var="alta_empleados"/>
 					<s:url action="goto_baja_jsp" var="baja_usuarios"/>
-					<s:url action="goto_editar" var="cambios_usuarios"/>
+					<s:url action="goto_editar_usuario" var="cambios_usuarios"/>
 					<s:url action="goto_bloqueo_desbloqueo_jsp" var="bloqueo_desbloqueo_usuarios"/>
 					
-					<p><a href="${alta_usuarios}">Alta de Usuarios</a></p>
-					<p><a href="${alta_empleados}">Alta de Empleados</a></p>		
-					<p><a href="${baja_usuarios}">Baja de Usuarios</a></p>	
-					<p><a href="${cambios_usuarios}">Editar Usuarios (Bloqueo/Desbloqueo)</a></p>
-					<p><a href="${bloqueo_desbloqueo_usuarios}">Bloquear/Desbloquear Usuarios</a></p>
+					<h4><a href="${alta_usuarios}">Alta de Usuarios</a></h4>
+					<h4><a href="${alta_empleados}">Alta de Empleados</a></h4>		
+					<h4><a href="${baja_usuarios}">Baja de Usuarios</a></h4>	
+					<h4><a href="${cambios_usuarios}">Editar Usuarios (Bloqueo/Desbloqueo)</a></h4>
+					<h4><a href="${bloqueo_desbloqueo_usuarios}">Bloquear/Desbloquear Usuarios</a></h4>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -96,7 +96,7 @@
 		<div class="container">
 		  <div class="footer_top">
 		  	<div class="col-md-3 footer-head">
-				<h4>Navegaci�n</h4>
+				<h4>Navegacion</h4>
 				  <ul class="list1">
 				  	  <li class="active"><a href="${goto_welcome}">Inicio</a></li>
 					   	 <li><a href="${goto_crear_admin}">Crear Administrador</a></li>
@@ -106,7 +106,7 @@
 		  	
 		
 			<div class="col-md-3 footer-head1">
-			  	<h4>Ubicaci�n</h4>
+			  	<h4>Ubicacion</h4>
              	<p>Avenida Eduardo Monroy C�rdenas 2000 San Antonio Buenavista, 50110 Toluca de Lerdo, M�x</p>
               	
 			</div>

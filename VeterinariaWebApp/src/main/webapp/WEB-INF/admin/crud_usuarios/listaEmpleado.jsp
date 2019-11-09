@@ -58,7 +58,7 @@
 	<div class="banner-1"> </div>
 		<div class="container">
 			<br>
-			<h1>Administración Usuarios</h1>	
+			<h1>Lista empleados</h1>	
 		</div>
 </div>
 <!--content-->
@@ -96,7 +96,7 @@
 						</tr>
 					</s:iterator>
 					</table>
-					<a href="${regresar}">Regresar</a> 
+					<h4><a href="${regresar}">Regresar</a> </h4>
 				</div>
 				<div class="clearfix"> </div>
 			</div>

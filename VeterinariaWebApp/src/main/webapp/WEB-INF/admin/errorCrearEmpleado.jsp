@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+
 <%@ taglib prefix="sb" uri="/struts-bootstrap-tags" %>
+
 <!DOCTYPE html>
 <html>
-	<head>
-	<title>Buscar ID baja</title>
-	<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<head>
+		<title>Bienvenida</title>
+		<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
 		<!-- Custom Theme files -->
@@ -14,12 +16,16 @@
 		<!--//theme-style-->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="Fidele Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!---->
 		<script src="js/menu_jquery.js"></script>
+		<title>Error</title>
 	</head>
-	<body>
-		<div class="header">
+<body> 
+<!--header-->	
+<div class="header">
 	<div class="container">
 		 <div class="logo">
 		  	<a href="index.html"><img src="images/logof.jpeg" alt="" ></a>
@@ -57,7 +63,7 @@
 <div class="banner-head">
 	<div class="banner-1"> </div>
 		<div class="container">
-			<h1>Baja Usuarios</h1>	
+			<h1>Error</h1>	
 		</div>
 </div>
 <!--content-->
@@ -69,22 +75,20 @@
 			<div class="why-top-top">
 			
 				<div class="col-sm-4 top-content">
+					
+					<h4><a align=center >Error</a> </h4>
+					
+					
 					<s:url action="goto_admin_usuarios_jsp" var="regresar"/>
-					<h1>Baja Usuarios</h1>
-					<s:form action="detalle_baja_usuario">
-						<s:textfield name="usuario.usuarioID" label="ID del usuario" />
-						<a class="more"> <s:submit value="Buscar"/> </a>
-					</s:form>
-					<h4> <a href="${regresar}">Regresar</a></h4>
+					<b><s:property value="mensajeError"/></b>
+					<h4><a href="${regresar}">Regresar</a></h4>
+				
 				</div>
 				<div class="clearfix"> </div>
 			</div>
 			
 		</div>
 	</div>
-	<!---->
-	
-</div>
 <!--footer-->
  	<div class="footer ">
  		<div class="footer-1"> </div>
@@ -106,8 +110,12 @@
               	
 			</div>
 			<div class="clearfix"> </div>
+		  
+		   <div class="footer-bottom">
+		<p> © 2015 Fidele. All rights reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a></p>
+    </div>
 	 </div>
 </div>
-</div>
-	</body>
+ 	<!--//footer-->
+</body>
 </html>
