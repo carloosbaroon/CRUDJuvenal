@@ -82,7 +82,6 @@
 						<s:textfield name="empleado.especialidad" label="Especialidad Médica"/>
 						<s:textfield name="empleado.turno" label="Turno"/>
 				       <s:select label="Estado del Empleado" 
-						headerKey="-1" headerValue="Selecciona un estado"
 						list="list_estado_empleado_frontend"
 						name="empleado.estado"/>
 				

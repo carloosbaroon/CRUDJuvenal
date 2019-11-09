@@ -96,12 +96,12 @@
 					<textarea rows="7" cols="80"></textarea>
 					
 					<s:url action="dar_baja_usuario" var="url_baja">
-			       		<s:param name = "qs_user_id">${usuario.usuarioID}</s:param>
+						<s:param name="empleado_id" value="%{empleado.id_empleado}"/>
+			       		<s:param name = "qs_user_id" value="%{usuario.usuarioID}"/>
+			       		
 			      	</s:url>
 			      	
-			      	<a href = '<s:property value = "#url_baja"/>'>
-			      		<s:property value = "#url_baja"/>
-			    	</a> 
+			      	<s:a href="%{url_baja}">Eliminar</s:a>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
