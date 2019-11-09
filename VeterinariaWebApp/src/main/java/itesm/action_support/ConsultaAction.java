@@ -24,8 +24,8 @@ public class ConsultaAction extends ActionSupport{
 	public ConsultaBean getConsulta() {return consulta;}
 	public void setConsulta(ConsultaBean consulta) {this.consulta = consulta;}
 	
-	public ArrayList<SalaBean> getBuffer_salas() {return buffer_salas_disponibles;}
-	public void setBuffer_salas(ArrayList<SalaBean> buffer_salas_disponibles) {this.buffer_salas_disponibles = buffer_salas_disponibles;}
+	public ArrayList<SalaBean> getBuffer_salas_disponibles() {return buffer_salas_disponibles;}
+	public void setBuffer_salas_disponibles(ArrayList<SalaBean> buffer_salas_disponibles) {this.buffer_salas_disponibles = buffer_salas_disponibles;}
 	
 	public String revisarDisponibilidad()
 	{
@@ -38,6 +38,7 @@ public class ConsultaAction extends ActionSupport{
 				for(SalaBean item: buffer_salas_disponibles) {
 					System.out.println(item.getId_sala());
 				}
+				
 				return SUCCESS;
 			}else
 			{
