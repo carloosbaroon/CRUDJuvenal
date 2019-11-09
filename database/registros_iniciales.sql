@@ -24,6 +24,12 @@ VALUES ("Sala 2", "no disponible");
 INSERT INTO sala (nombre, disponibilidad) 
 VALUES ("Sala 3", "disponible");
 
+INSERT INTO sala (nombre, disponibilidad) 
+VALUES ("Sala 4", "disponible");
+
+INSERT INTO sala (nombre, disponibilidad) 
+VALUES ("Sala 5", "no disponible");
+
 INSERT INTO propietario (nombre, direccion, telefono, rfc) 
 VALUES ("Juan Martinez", "Toluca", "7223535654", "MASJ4534343");
 
@@ -44,3 +50,18 @@ VALUES ('2019-11-05','13:00:00','15:00:00',1,2,1,'Cirugia','Programado');
 
 INSERT INTO consultas (fecha, hora_inicial, hora_final, id_empleado, id_sala, id_paciente, observaciones, estado) 
 VALUES ('2019-11-06','10:00:00','11:00:00',1,1,3,'Consulta','Programado');
+
+INSERT INTO consultas (fecha, hora_inicial, hora_final, id_empleado, id_sala, id_paciente, observaciones, estado) 
+VALUES ('2019-11-06','12:00:00','13:00:00',3,2,1,'Consulta','Programado');
+
+INSERT INTO consultas (fecha, hora_inicial, hora_final, id_empleado, id_sala, id_paciente, observaciones, estado) 
+VALUES ('2019-11-05','12:00:00','13:00:00',3,1,2,'Consulta','Programado');
+
+INSERT INTO consultas (fecha, hora_inicial, hora_final, id_empleado, id_sala, id_paciente, observaciones, estado) 
+VALUES ('2019-11-05','12:00:00','15:00:00',2,3,3,'Cirugia','Programado');
+
+INSERT INTO consultas (fecha, hora_inicial, hora_final, id_empleado, id_sala, id_paciente, observaciones, estado) 
+VALUES ('2019-11-06','10:00:00','13:00:00',2,2,2,'Cirugia','Programado');
+
+INSERT INTO consultas (fecha, hora_inicial, hora_final, id_empleado, id_sala, id_paciente, observaciones, estado) 
+VALUES ('2019-11-06','14:00:00','15:00:00',2,2,3,'Consulta','Programado');

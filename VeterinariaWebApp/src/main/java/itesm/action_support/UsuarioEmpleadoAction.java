@@ -42,10 +42,6 @@ public class UsuarioEmpleadoAction extends ActionSupport{
 		DAOEmpleado daoEmpleado = new DAOEmpleadoImpl();
 		DAOUsuario daoUsuario = new DAOUsuarioImpl();
 		
-		System.out.println("Usuario: " + usuario.getUsuarioID());
-		System.out.println("Password: " + usuario.getPassword());
-		System.out.println("Empleado: " + empleado.getId_empleado());
-		
 		try {
 			daoUsuario.editar(usuario);
 			daoEmpleado.editar(empleado);
@@ -56,7 +52,4 @@ public class UsuarioEmpleadoAction extends ActionSupport{
 			return ERROR;
 		}	
 	}
-	
-	
-
 }

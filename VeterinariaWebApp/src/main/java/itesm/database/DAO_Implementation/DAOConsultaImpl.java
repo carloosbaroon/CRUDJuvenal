@@ -63,9 +63,18 @@ public class DAOConsultaImpl extends Conexion implements DAOConsulta{
    	 	establishConnection();
         conn = getCon();
                 
-        String sql ="SELECT sala.id_sala, sala.nombre FROM consultas JOIN sala ";
-        Statement statement = conn.createStatement();
-        ResultSet rs = statement.executeQuery(sql);
+        String sql ="SELECT sala.id_sala, sala.nombre FROM sala left join ";
+        sql += "(SELECT * FROM consultas WHERE fecha = ? AND ((hora_inicial between ? and ?) OR (hora_final between ? and ?))) consultas";
+        sql += " ON sala.id_sala = consultas.id_sala WHERE sala.disponibilidad = 'disponible' AND consultas.id_sala IS NULL;";
+        
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, fecha);
+        ps.setString(2, hora_inicial);
+        ps.setString(3, hora_final);
+        ps.setString(4, hora_inicial);
+        ps.setString(5, hora_final);
+        
+        ResultSet rs = ps.executeQuery();
 
         while (rs.next()) {
         	SalaBean salaAux = new SalaBean();

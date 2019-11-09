@@ -33,9 +33,9 @@ public class ConsultaAction extends ActionSupport{
 		try {
 			this.buffer_salas_disponibles = daoConsulta.consultarDisponibles(consulta.getFecha_consulta(), consulta.getHora_inicial(), consulta.getHora_final());
 			
-			/*for(SalaBean item: buffer_salas) {
+			for(SalaBean item: buffer_salas_disponibles) {
 				System.out.println(item.getId_sala());
-			}*/
+			}
 			return SUCCESS;
 		}catch (Exception e)
 		{
