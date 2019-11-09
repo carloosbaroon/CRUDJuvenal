@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>Administración Pacientes</title>
+	<title>Administraciï¿½n Pacientes</title>
 	<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
@@ -58,7 +58,7 @@
 	<div class="banner-1"> </div>
 		<div class="container">
 			<br>
-			<h1>Administración Pacientes</h1>	
+			<h1>Administraciï¿½n Pacientes</h1>	
 		</div>
 </div>
 <!--content-->
@@ -75,9 +75,9 @@
 						<s:url action="goto_editar_owner" var="modificar_owner"/>
 						<s:url action="goto_editar_paciente_jsp" var="consulta_paciente"/>
 						
-						<h4><a href="${alta_owner}">Dar de Alta Dueño</a></h4>	
+						<h4><a href="${alta_owner}">Dar de Alta Dueï¿½o</a></h4>	
 						<h4><a href="${alta_paciente}">Dar de Alta Paciente</a></h4>	
-						<h4><a href="${modificar_owner}">Modificar Dueño</a></h4>
+						<h4><a href="${modificar_owner}">Modificar Dueï¿½o</a></h4>
 						<h4><a href="${consulta_paciente}">Modificar Paciente</a></h4>
 				</div>
 				<div class="clearfix"> </div>
@@ -94,7 +94,7 @@
 		<div class="container">
 		  <div class="footer_top">
 		  	<div class="col-md-3 footer-head">
-				<h4>Navegación</h4>
+				<h4>Navegaciï¿½n</h4>
 				  <ul class="list1">
 				  	  <li class="active"><a href="${goto_welcome}">Inicio</a></li>
 					   	 <li><a href="${goto_crear_admin}">Crear Administrador</a></li>
@@ -104,8 +104,8 @@
 		  	
 		
 			<div class="col-md-3 footer-head1">
-			  	<h4>Ubicación</h4>
-             	<p>Avenida Eduardo Monroy Cárdenas 2000 San Antonio Buenavista, 50110 Toluca de Lerdo, Méx</p>
+			  	<h4>Ubicaciï¿½n</h4>
+             	<p>Avenida Eduardo Monroy Cï¿½rdenas 2000 San Antonio Buenavista, 50110 Toluca de Lerdo, Mï¿½x</p>
               	
 			</div>
 			<div class="clearfix"> </div>

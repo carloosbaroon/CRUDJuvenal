@@ -42,7 +42,19 @@ public class PopulateDropDownLists extends ActionSupport{
 		this.list_grupos_privilegios_frontend.add("Administrador");
 		this.list_grupos_privilegios_frontend.add("Usuario");
 		
-		llenarListadeEmpleadosDisponibles();
+		DAOEmpleado daoEmpleado = new DAOEmpleadoImpl();
+		
+		try {
+			this.buffer_empleado = daoEmpleado.consultarEmpleadosDisponibles();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		this.list_empleados_frontend = new ArrayList<String>();
+		for(EmpleadoBean item : buffer_empleado) {
+			list_empleados_frontend.add(item.getId_empleado());
+		}
 		
 		return SUCCESS;
 	}
@@ -55,27 +67,23 @@ public class PopulateDropDownLists extends ActionSupport{
 			System.out.println("ID Usuario: " + usuario.getUsuarioID());
 			this.usuario = daoUsuario.buscar(usuario.getUsuarioID());
 			this.empleado = daoEmpleado.buscar(usuario.getId_empleado_FK());
-			llenarListadeEmpleadosDisponibles();
+			
+			try {
+				this.buffer_empleado = daoEmpleado.consultarEmpleadosDisponibles();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			this.list_empleados_frontend = new ArrayList<String>();
+			for(EmpleadoBean item : buffer_empleado) {
+				list_empleados_frontend.add(item.getId_empleado());
+			}
+			
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ERROR;
-		}
-	}
-	
-	private void llenarListadeEmpleadosDisponibles() {
-		DAOEmpleado daoEmpleado = new DAOEmpleadoImpl();
-		
-		try {
-			this.buffer_empleado = daoEmpleado.consultarEmpleadosDisponibles(true);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		this.list_empleados_frontend = new ArrayList<String>();
-		for(EmpleadoBean item : buffer_empleado) {
-			list_empleados_frontend.add(item.getId_empleado());
 		}
 	}
 }

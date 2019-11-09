@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Administración de usuarios</title>
+		<title>Administraciï¿½n de usuarios</title>
 		<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
@@ -58,7 +58,7 @@
 	<div class="banner-1"> </div>
 		<div class="container">
 			<br>
-			<h1>Administración Usuarios</h1>	
+			<h1>Administraciï¿½n Usuarios</h1>	
 		</div>
 </div>
 <!--content-->
@@ -96,7 +96,7 @@
 		<div class="container">
 		  <div class="footer_top">
 		  	<div class="col-md-3 footer-head">
-				<h4>Navegación</h4>
+				<h4>Navegaciï¿½n</h4>
 				  <ul class="list1">
 				  	  <li class="active"><a href="${goto_welcome}">Inicio</a></li>
 					   	 <li><a href="${goto_crear_admin}">Crear Administrador</a></li>
@@ -106,8 +106,8 @@
 		  	
 		
 			<div class="col-md-3 footer-head1">
-			  	<h4>Ubicación</h4>
-             	<p>Avenida Eduardo Monroy Cárdenas 2000 San Antonio Buenavista, 50110 Toluca de Lerdo, Méx</p>
+			  	<h4>Ubicaciï¿½n</h4>
+             	<p>Avenida Eduardo Monroy Cï¿½rdenas 2000 San Antonio Buenavista, 50110 Toluca de Lerdo, Mï¿½x</p>
               	
 			</div>
 			<div class="clearfix"> </div>

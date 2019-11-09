@@ -49,7 +49,7 @@
     		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	
-    	<action name="goto_editar">
+    	<action name="goto_editar_usuario">
     		<result>WEB-INF/admin/crud_usuarios/buscarUsuarioEditar.jsp</result>
     	</action>
     	
@@ -110,6 +110,7 @@
     	
     	<action name="revisar_disponibilidad" class="itesm.action_support.ConsultaAction" method="revisarDisponibilidad">
     		<result name="success">WEB-INF/admin/crud_salas_consulta/salas_disponibles.jsp</result>
+    		<result name="none">WEB-INF/admin/crud_salas_consulta/no_salas_disponibles.jsp</result>
     		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	

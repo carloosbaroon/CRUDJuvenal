@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h1>Reservar Sala</h1>
-	<s:url action="goto_admin_salas" var="regresar"/>
+	<s:url action="goto_admin_salas_jsp" var="regresar"/>
 	
 	<s:form action="terminar_reservacion">
 		<s:textfield name="consulta.fecha_consulta" label="Fecha (YYYY/MM/DD)" value="%{consulta.fecha_consulta}"/>

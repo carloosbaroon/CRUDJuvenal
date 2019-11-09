@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>Lista de salas</h1>
-<s:url action="goto_admin_salas" var="regresar"/>
+<s:url action="goto_admin_salas_jsp" var="regresar"/>
  
 <s:form action="goto_detalles_sala">
 		<s:textfield name="sala.id_sala" label="ID de la sala" />

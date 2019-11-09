@@ -20,14 +20,12 @@
 	<tr>
        <td><b>ID Sala</b></td>
        <td><b>Nombre de la sala</b></td>
-       <td><b>Estado de la sala</b></td>
     </tr>
 
-<s:iterator value="buffer_salas" status="i">
+<s:iterator value="buffer_salas_disponibles" status="i">
 	<tr>
-		<td><s:property value="id_sala"/></td>
-		<td><s:property value="nombre_sala"/></td>
-		<td><s:property value="estado_sala"/></td>
+		<td><s:property value="sala.id_sala"/></td>
+		<td><s:property value="sala.nombre_sala"/></td>
 	</tr>
 </s:iterator>
 </table>
