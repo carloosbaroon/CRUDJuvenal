@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="crud_users" namespace="/" extends="struts-default">
+    	<action name="goto_admin_usuarios_jsp">
+    		<result>WEB-INF/admin/crud_usuarios/admin_usuarios.jsp</result><!-- Reedirige al jsp de administración de usuarios -->
+    	</action>
+    	
+		<action name="goto_alta_usuario_jsp" class="itesm.action_support.PopulateDropDownLists" method="fill">
+    		<result name="success">WEB-INF/admin/crud_usuarios/altaUsuarios.jsp</result>
+    	</action>
+    	
+    	<action name="goto_consulta_usuario_jsp" class="itesm.action_support.UsuarioAction" method="listarUsuarios">
+    		<result>WEB-INF/admin/crud_usuarios/listaUsuarios.jsp</result>
+    	</action>
+    	
+ 	    <action name="validar_campos_usuario" class="itesm.action_support.UsuarioAction" method="crearUsuario">
+    		<result name="success">WEB-INF/admin/crud_usuarios/usuarioRegistrado.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+    	
+    	<action name="goto_alta_empleado_jsp" class="itesm.action_support.PopulateDropDownLists" method="fill">
+    		<result name="success">WEB-INF/admin/crud_usuarios/altaEmpleado.jsp</result>
+    	</action>
+    	
+    	<action name="goto_consulta_empleado_jsp" class="itesm.action_support.EmpleadoAction" method="listarEmpleados">
+    		<result name="success">WEB-INF/admin/crud_usuarios/listaEmpleado.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+    	
+    	<action name="validar_campos_empleado" class="itesm.action_support.EmpleadoAction" method="registrarEmpleado">
+    		<result name="success">WEB-INF/admin/crud_usuarios/empleadoRegistrado.jsp</result>
+    		<result name="error"></result>
+    	</action>
+    	
+    	<action name="goto_baja_jsp" >
+    		<result>WEB-INF/admin/crud_usuarios/buscarUsuarioBaja.jsp</result>
+    	</action>
+    	
+    	<action name="detalle_baja_usuario" class="itesm.action_support.UsuarioEmpleadoAction" method="buscarUsuario_Empleado">
+    		<result name="success">WEB-INF/admin/crud_usuarios/datosBajaUsuario.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+    	
+    	<action name="dar_baja_usuario" class="itesm.action_support.UsuarioAction" method="eliminarUsuario">
+    		<result name="success">WEB-INF/admin/crud_usuarios/usuarioEliminado.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+    	
+    	<action name="goto_editar_usuario">
+    		<result>WEB-INF/admin/crud_usuarios/buscarUsuarioEditar.jsp</result>
+    	</action>
+    	
+   		<action name="detalle_editar_usuario" class="itesm.action_support.PopulateDropDownLists" method="buscarUsuario_Empleado">
+ 			<result name="success">WEB-INF/admin/crud_usuarios/datosEditarUsuario.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+    	
+    	<action name="actualizar_usuario" class="itesm.action_support.UsuarioEmpleadoAction" method="actualizarUsuarioEmpleado">
+    		<result name="success">WEB-INF/admin/borrar_success.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>    	
+    		
+    	<action name="goto_bloqueo_desbloqueo_jsp" class="itesm.action_support.UsuarioAction">
+    		<result>WEB-INF/admin/crud_usuarios/buscarUsuarioBloquear_Desbloquear.jsp</result>
+    	</action>
+    	
+    	<action name="modificarEstado" class="itesm.action_support.PopulateDropDownLists" method="fill">
+    		<result name="success">/WEB-INF/admin/crud_usuarios/modificarEstadoUsuario.jsp</result>
+            <result name="error">/WEB-INF/admin/error.jsp</result>
+    	</action>	
+    	
+    	<action name="finalMoficarStatus" class="itesm.action_support.UsuarioAction" method="actualizarEstado">
+    		<result name="success">WEB-INF/admin/crud_usuarios/finEditarStatus.jsp</result>
+    	</action>
+    	
+    	<action name="goto_admin_salas_jsp">
+    		<result>WEB-INF/admin/crud_salas_consulta/admin_salas.jsp</result>
+    	</action>
+    	
+    	<action name="goto_alta_sala_jsp" class="itesm.action_support.SalaAction">
+    		<result>WEB-INF/admin/crud_salas_consulta/alta_SalaLugar.jsp</result>
+    	</action>
+    	
+    	<action name="validar_campos_sala" class="itesm.action_support.SalaAction" method="registrarSala">
+    		<result name="success">WEB-INF/admin/crud_salas_consulta/admin_salas.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+    	
+    	<action name="goto_editar_salas_jsp" class="itesm.action_support.SalaAction" method="listarSalas">
+    		<result name="success">WEB-INF/admin/crud_salas_consulta/lista_salas.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+    	
+    	<action name="goto_detalles_sala" class="itesm.action_support.SalaAction" method="buscarSala">
+    		<result name="success">WEB-INF/admin/crud_salas_consulta/detalles_sala.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+    	
+    	<action name="actualizar_sala" class="itesm.action_support.SalaAction" method="actualizarSala">
+    		<result name="success">WEB-INF/admin/crud_salas_consulta/admin_salas.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+    	
+    	<action name="goto_programar_consulta_jsp" class="itesm.action_support.ConsultaAction">
+    		<result>WEB-INF/admin/crud_salas_consulta/programar_consulta.jsp</result>
+    	</action>
+    	
+    	<action name="revisar_disponibilidad" class="itesm.action_support.ConsultaAction" method="revisarDisponibilidad">
+    		<result name="success">WEB-INF/admin/crud_salas_consulta/salas_disponibles.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+    	
+    	<action name="goto_reservar_sala" class="itesm.action_support.ConsultaAction" method="interReservar">
+    		<result name="success">WEB-INF/admin/crud_salas_consulta/reservar_sala.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+    	
+    	<action name="terminar_reservacion" class="itesm.action_support.ConsultaAction" method="reservarSala">
+    		<result name="success">WEB-INF/admin/crud_salas_consulta/admin_salas.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+    	
+    	<!-- 
+    	<action name="revisar_disponibilidad" class="itesm.action_support.ConsultaAction">
+    		<result>WEB-INF/admin/crud_salas_consulta/reservar_sala.jsp</result>
+    	</action>
+    	
+    	<action name="terminar_reservacion" class="itesm.action_support.ConsultaAction" method="reservarSala">
+    		<result name="success">WEB-INF/admin/crud_salas_consulta/admin_salas.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+    	-->
+    </package>
+</struts>

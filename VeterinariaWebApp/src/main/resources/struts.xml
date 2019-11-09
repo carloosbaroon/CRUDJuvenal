@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+    <constant name="struts.devMode" value="true"/>
+    <constant name="struts.ui.theme" value="bootstrap" />
+
+   	<include file="crud_users.xml"/>
+    <include file="crud_pacientes.xml"/>
+
+    <package name="default" namespace="/" extends="struts-default">
+
+        <default-action-ref name="welcome"/>
+
+        <action name="welcome" class="">
+        	<result>WEB-INF/admin/welcome.jsp</result>
+        </action>
+        
+        <action name="goto_crear_admin_jsp" class="itesm.action_support.PopulateDropDownLists" method="fill">
+        	<result name="success">WEB-INF/admin/crearAdmin.jsp</result>
+        </action>
+        
+        <action name="goto_consulta_usuario_jsp_global" class="itesm.action_support.UsuarioAction" method="listarUsuarios">
+        	<result name="success">WEB-INF/admin/crud_usuarios/listaUsuarios.jsp</result>
+        </action>
+        <action name="goto_login_jsp">
+        	<result>WEB-INF/admin/login.jsp</result>
+        </action>
+        
+         <action name="validar_campos_usuario_global" class="itesm.action_support.UsuarioAction" method="crearUsuario">
+    		<result name="success">WEB-INF/admin/usuarioRegistradoGlobal.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+        
+        <action name="validar_usuario" class="itesm.action_support.UsuarioAction" method="validarLogin">
+        	<result name="admin">WEB-INF/admin/menuAdmin.jsp</result>
+        	<result name="user">WEB-INF/admin/menuUser.jsp</result>
+        	<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+    	
+    	
+    </package>    
+	
+    <!-- Add addition packages and configuration here. -->
+</struts>
