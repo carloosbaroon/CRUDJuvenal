@@ -85,14 +85,10 @@
 						name="usuario.id_empleado_FK"
 						/>
 						<s:select label="Grupo/Privilegios"
-						headerValue="Elige un grupo" 
-						headerKey="-1"
 						list="list_grupos_privilegios_frontend"
 						name="usuario.privilegios"
 						/>
 						<s:select label="Estado"
-						headerValue="Elige un estado" 
-						headerKey="-1"
 						list="list_estado_usuario_frontend"
 						name="usuario.estado"
 						/>

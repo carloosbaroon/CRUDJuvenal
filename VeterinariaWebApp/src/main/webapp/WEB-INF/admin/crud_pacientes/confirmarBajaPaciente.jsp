@@ -79,6 +79,7 @@
 					
 					
 						<s:form action="confirmar_baja_paciente">
+						<s:textfield name="paciente.idOwner" value="%{paciente.idOwner}" readonly="true"/>
 						<s:textfield name="paciente.id" value="%{paciente.id}" readonly="true"/>
 						<s:textfield name="paciente.name" value="%{paciente.name}" readonly="true"/>
 						<s:textfield name="paciente.categoria" value="%{paciente.categoria}" readonly="true"/>

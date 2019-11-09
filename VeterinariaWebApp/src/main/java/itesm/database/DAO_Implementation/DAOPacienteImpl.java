@@ -47,7 +47,7 @@ public class DAOPacienteImpl extends Conexion implements DAOPaciente{
 	      
    	 	establishConnection();
         conn = getCon();
-        String sql = "SELECT id_paciente, nombre, categoria, raza, edad FROM paciente WHERE";
+        String sql = "SELECT id_paciente, nombre, categoria, raza, edad, id_propietario FROM paciente WHERE";
         sql+=" id_paciente = ?";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, id);
@@ -62,6 +62,7 @@ public class DAOPacienteImpl extends Conexion implements DAOPaciente{
            paciente.setCategoria(rs.getString(3));
            paciente.setRaza(rs.getString(4));
            paciente.setEdad(Integer.parseInt(rs.getString(5)));
+           paciente.setIdOwner(rs.getString(6));
         }
 
         if (conn != null) {
