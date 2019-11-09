@@ -24,28 +24,43 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
 	      
    	 	establishConnection();
         conn = getCon();
-        String sql = "INSERT INTO usuario (id_usuario, id_empleado,password_user, confirmar_password, privilegios, estado, no_intentos)";
-        sql+="VALUES (?, ?, ?, ?, ?, ?, ?)";
         
+        String sql;
+        
+        if(Integer.parseInt(usuario.getId_empleado_FK()) == -1) {
+        	sql = "INSERT INTO usuario (id_usuario, password_user, confirmar_password, privilegios, estado, no_intentos)";
+            sql+="VALUES (?, ?, ?, ?, ?, ?)";
+            
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, usuario.getUsuarioID());            	
+            ps.setString(2, usuario.getPassword());
+            ps.setString(3, usuario.getConfirmar_password());
+            ps.setString(4, usuario.getPrivilegios());
+            ps.setString(5, usuario.getEstado());
+            ps.setString(6, Integer.toString(4));
+            ps.execute();
+        }else {
+        	sql = "INSERT INTO usuario (id_usuario, id_empleado,password_user, confirmar_password, privilegios, estado, no_intentos)";
+            sql+="VALUES (?, ?, ?, ?, ?, ?, ?)";
+            
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, usuario.getUsuarioID());
+            	
+            ps.setString(2, usuario.getId_empleado_FK());
+            ps.setString(3, usuario.getPassword());
+            ps.setString(4, usuario.getConfirmar_password());
+            ps.setString(5, usuario.getPrivilegios());
+            ps.setString(6, usuario.getEstado());
+            ps.setString(7, Integer.toString(4));
+            ps.execute();
+        }
         //If column 'empleado_id_fk' is not null, set the value 1 to the col 'elegido'
         if(usuario.getId_empleado_FK() != null) {
-        	System.out.println("No esta vacio el campo 'empleado_id_fk'");
         	String sqlUpdate = "UPDATE empleado SET elegido = 1 WHERE id_empleado = ?";
         	PreparedStatement ps = conn.prepareStatement(sqlUpdate);
         	ps.setString(1, usuario.getId_empleado_FK());
         	ps.execute();
         }
-        
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, usuario.getUsuarioID());
-        ps.setString(2, usuario.getId_empleado_FK());
-        ps.setString(3, usuario.getPassword());
-        ps.setString(4, usuario.getConfirmar_password());
-        ps.setString(5, usuario.getPrivilegios());
-        ps.setString(6, usuario.getEstado());
-        ps.setString(7, usuario.getIntentos());
-        
-        ps.execute();
 
         if (conn != null) {
            try {
@@ -57,26 +72,25 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
 	}
 
 	@Override
-	public String verificarUsuario(UsuarioBean usuario) throws Exception {	
-		String ret = "error";
+	public UsuarioBean verificarUsuario(UsuarioBean usuario) throws Exception {	
 	      Connection conn = null;
 	      
 	    	 establishConnection();
 	         conn = getCon();
-	         String sql = "SELECT id_usuario, privilegios FROM usuario WHERE";
+	         String sql = "SELECT id_usuario, privilegios, no_intentos, estado FROM usuario WHERE";
 	         sql+=" id_usuario = ? AND password_user = ?";
 	         PreparedStatement ps = conn.prepareStatement(sql);
 	         ps.setString(1, usuario.getUsuarioID());
 	         ps.setString(2, usuario.getPassword());
 	         ResultSet rs = ps.executeQuery();
-
+         	
+	         UsuarioBean usuarioAux = null;
 	         while (rs.next()) {
-	            usuario.setUsuarioID((rs.getString(1)));
-	            usuario.setPrivilegios(rs.getString(2));
-	            if(usuario.getPrivilegios().equals("Administrador"))
-	            	return "admin";
-            	else
-            		return "user";
+	        	 usuarioAux = new UsuarioBean();
+	            usuarioAux.setUsuarioID(rs.getString(1));
+	            usuarioAux.setPrivilegios(rs.getString(2));
+	            usuarioAux.setIntentos(rs.getString(3));
+	            usuarioAux.setEstado(rs.getString(4));
 	         }
 
 	         if (conn != null) {
@@ -87,7 +101,7 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
 	            }
 	         }
 	      
-	      return ret;
+	      return usuarioAux;
 	}
 
 	@Override
@@ -213,8 +227,6 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
 	      
    	 	establishConnection();
         conn = getCon();
-        System.out.println("Usuario: " + usuario.getUsuarioID());
-        System.out.println("Estado: " + usuario.getEstado());
         
         String sql = "UPDATE usuario SET estado = ? WHERE id_usuario = ?";
                 
@@ -232,5 +244,59 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
            }
         }		
 		
+	}
+
+	@Override
+	public void actualizarIntentos(UsuarioBean usuario) throws Exception {
+		Connection conn = null;
+	      
+   	 	establishConnection();
+        conn = getCon();
+        
+        String sql = "UPDATE usuario SET no_intentos = ? WHERE id_usuario = ?";
+                
+        PreparedStatement ps = conn.prepareStatement(sql);
+        
+        int intentosRestantes = Integer.parseInt(usuario.getIntentos()) - 1;
+        ps.setString(1, Integer.toString(intentosRestantes));
+        ps.setString(2, usuario.getUsuarioID());
+        
+        ps.execute();
+
+        if (conn != null) {
+           try {
+              closeConnection();
+           } catch (Exception e) {
+				e.printStackTrace();
+           }
+        }		
+	}
+
+	@Override
+	public boolean confirmarExistenciaID(String id) throws Exception {
+		Connection conn = null;
+	      
+   	 	establishConnection();
+        conn = getCon();
+        String sql = "SELECT * FROM usuario WHERE";
+        sql+=" id_usuario = ?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, id);
+        ResultSet rs = ps.executeQuery();
+        
+        UsuarioBean usuario = null;
+        
+        while (rs.next()) {
+        	return true;
+        }
+
+        if (conn != null) {
+           try {
+              closeConnection();
+           } catch (Exception e) {
+				e.printStackTrace();
+           }
+        }
+		return false;
 	}
 }

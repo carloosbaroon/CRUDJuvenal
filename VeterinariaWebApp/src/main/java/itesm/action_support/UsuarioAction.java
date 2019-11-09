@@ -34,22 +34,60 @@ public class UsuarioAction extends ActionSupport {
 	public void setQs_user_id(String qs_user_id) {this.qs_user_id = qs_user_id;}
 	
 	
-	
 	public String validarLogin() {
 		String respuesta;
 		//1. Recuperar Tablas de variables de sesion (Usuario y Admin)
 		DAOUsuario daoUsuario = new DAOUsuarioImpl();
 		try {
-			respuesta = daoUsuario.verificarUsuario(usuario);
-			if(respuesta == ERROR)
-				mensajeError = "Usuario o Password Incorrectos";
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			respuesta = ERROR;
-		}
+			//1. Verificamos que el usuario que quiera autenticarse exista
+			boolean idExiste = daoUsuario.confirmarExistenciaID(usuario.getUsuarioID());		
+			//2. En caso de que el usuario exista y empiece a autenticarse con un password incorrecto, restaremos sus intentos
+			if(idExiste) 
+			{
+				UsuarioBean usuarioAux;
+				usuarioAux = daoUsuario.verificarUsuario(usuario);
+				//En caso de que no se reciba un usuario por que el password es incorrecto, restamos un intento a ese usuario
+				if(usuarioAux  == null) 
+				{
+					//Buscamos el numero de intentos del usuario y actualizamos su numero de intentos
+					this.usuario = daoUsuario.buscar(usuario.getUsuarioID());
+					if(Integer.parseInt(this.usuario.getIntentos()) > 0) {//Si el número de intentos del usuario es mayor a cero se puede seguir restando intentos al usuario 
+						daoUsuario.actualizarIntentos(this.usuario);						
+						if(Integer.parseInt(this.usuario.getIntentos()) == 1) {//Aqui se bloquea al usuario
+							mensajeError = "Usuario Bloqueado";
+							this.usuario.setEstado("Bloqueado");
+							daoUsuario.actualizarEstado(this.usuario);
+						}
+					}
+					else
+						mensajeError = "Acude con un admiministrador para que pueda darte acceso a tu cuenta";
+					return ERROR;
+				}else {
+					if(usuarioAux.getEstado().equals("Bloqueado")) {
+						mensajeError = "Acude con un admiministrador para que pueda darte acceso a tu cuenta";
+						return ERROR;
+					} else {
+						//En caso de que el usuario haya ingresado correctamente su password tras varios intentos fallidos(Máximo 4)
+						//El contador de número de intentos se establece a 4
+						usuarioAux.setIntentos(Integer.toString(5));//Aqui hay algo raro, tengo que ponerle 5 para que el no_intentos se establezca en 4
+						daoUsuario.actualizarIntentos(usuarioAux);
+						return usuarioAux.getPrivilegios();
+					}
+				}				
+			}else {
+				UsuarioBean usuarioAux;
+				usuarioAux = daoUsuario.verificarUsuario(usuario);
+				if(usuarioAux == null) {
+					mensajeError = "Usuario o Password Incorrectos";
+					return ERROR;
+				} else
+					return usuarioAux.getPrivilegios();
+			}
 		
-		return respuesta;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ERROR;
+		}
 	}
 
 	public String crearUsuario() {
@@ -117,7 +155,11 @@ public class UsuarioAction extends ActionSupport {
 		DAOUsuario daoUsuario = new DAOUsuarioImpl();
 		
 		try {
-			daoUsuario.actualizarEstado(usuario);
+			if(usuario.getEstado().equals("Activo")) {
+				daoUsuario.actualizarEstado(usuario);
+				usuario.setIntentos(Integer.toString(5));
+				daoUsuario.actualizarIntentos(usuario);
+			}
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
