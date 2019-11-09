@@ -85,7 +85,7 @@
 					
 				
 				<s:form action="buscar_pacientes">
-	   			 <s:textfield name="owner.id" label="ID Dueño" />
+	   			 <s:textfield name="qs_id_propietario" label="ID Dueño" />
 	   			  <a class="more"> <s:submit value="Buscar pacientes"/> </a>
 				</s:form>
 					

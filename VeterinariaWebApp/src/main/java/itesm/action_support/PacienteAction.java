@@ -25,7 +25,7 @@ public class PacienteAction extends ActionSupport {
 	private PacienteBean paciente;
 	private ArrayList<PacienteBean> buffer_pacientes;
 	private String mensajeError;
-	private String qs_paciente_id;
+	private String qs_paciente_id, qs_id_propietario;
 
 	
 	public OwnerBean getOwner() {return owner;}
@@ -41,6 +41,10 @@ public class PacienteAction extends ActionSupport {
 	
 	public String getQs_paciente_id() {return qs_paciente_id;}
 	public void setQs_paciente_id(String qs_paciente_id) {this.qs_paciente_id = qs_paciente_id;}
+	
+	public String getQs_id_propietario() {return qs_id_propietario;}
+	public void setQs_id_propietario(String qs_id_propietario) {this.qs_id_propietario = qs_id_propietario;}
+	
 	public String crearPaciente() {
 		DAOPaciente daoPaciente = new DAOPacienteImpl();
 		try {
@@ -56,7 +60,7 @@ public class PacienteAction extends ActionSupport {
 		//1. Obtener la tabla empleados con todos sus registros
 		DAOPaciente daoPaciente = new DAOPacienteImpl();
 		try {
-			this.buffer_pacientes = daoPaciente.consultarPacientesDelPropietario(owner.getId());
+			this.buffer_pacientes = daoPaciente.consultarPacientesDelPropietario(qs_id_propietario);
 			
 			return SUCCESS;
 		} catch (Exception e) {
