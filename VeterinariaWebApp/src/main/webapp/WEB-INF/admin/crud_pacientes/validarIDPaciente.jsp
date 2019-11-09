@@ -1,10 +1,13 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+
 <%@ taglib prefix="sb" uri="/struts-bootstrap-tags" %>
+
+<!DOCTYPE html>
 <html>
-	<head>
-	    <title>Validar ID paciente</title>
-	    <link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<head>
+		<title>Validar dueño</title>
+		<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
 		<!-- Custom Theme files -->
@@ -17,8 +20,8 @@
 		<!---->
 		<script src="js/menu_jquery.js"></script>
 	</head>
-	<body>
-						<!--header-->	
+<body> 
+<!--header-->	
 <div class="header">
 	<div class="container">
 		 <div class="logo">
@@ -57,7 +60,7 @@
 <div class="banner-head">
 	<div class="banner-1"> </div>
 		<div class="container">
-			<h1>Validar ID dueÃ±o</h1>	
+			<h1>Validar Dueño</h1>	
 		</div>
 </div>
 <!--content-->
@@ -70,9 +73,16 @@
 			
 				<div class="col-sm-4 top-content">
 					<s:form action="capturar_datos_paciente">
-	   					<s:textfield name="owner.id" label="Id DueÃ±o" />
-	   					<s:submit value="Enviar" />
-					</s:form> 
+   						 <s:textfield name="owner.id" label="Id Dueño" />
+				   		<a class="more"> <s:submit value="Enviar"/> </a>
+					</s:form>
+								
+					
+				
+
+
+						
+					
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -88,7 +98,7 @@
 		<div class="container">
 		  <div class="footer_top">
 		  	<div class="col-md-3 footer-head">
-				<h4>NavegaciÃ³n</h4>
+				<h4>Navegación</h4>
 				  <ul class="list1">
 				  	  <li class="active"><a href="${goto_welcome}">Inicio</a></li>
 					   	 <li><a href="${goto_crear_admin}">Crear Administrador</a></li>
@@ -98,18 +108,14 @@
 		  	
 		
 			<div class="col-md-3 footer-head1">
-			  	<h4>UbicaciÃ³n</h4>
-             	<p>Avenida Eduardo Monroy CÃ¡rdenas 2000 San Antonio Buenavista, 50110 Toluca de Lerdo, MÃ©x</p>
+			  	<h4>Ubicación</h4>
+             	<p>Avenida Eduardo Monroy Cárdenas 2000 San Antonio Buenavista, 50110 Toluca de Lerdo, Méx</p>
               	
 			</div>
 			<div class="clearfix"> </div>
 	 </div>
 </div>
 </div>
-		
-	</body>
+ 	<!--//footer-->
+</body>
 </html>
-<!-- <s:form action="capturar_datos_paciente">
-	    <s:textfield name="owner.id" label="Id DueÃ±o" />
-	    <s:submit value="Enviar" />
-	</s:form> -->

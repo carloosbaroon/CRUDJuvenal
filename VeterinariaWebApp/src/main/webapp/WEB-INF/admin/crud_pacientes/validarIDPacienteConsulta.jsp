@@ -1,10 +1,23 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+
 <%@ taglib prefix="sb" uri="/struts-bootstrap-tags" %>
+
+<!DOCTYPE html>
 <html>
-	<head>
-	    <title>Validar ID Paciente</title>
-	    <link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<head>
+		<title>user/validarIDPaciente.jsp</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    
+	    function onButtonClick(){       
+	        var owner_id = $('#owner_id').val();
+	        $('#anchor_id_owner').val();
+	        alert("Owner ID "+owner_id);           
+	    }
+
+	</script>
+		<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
 		<!-- Custom Theme files -->
@@ -17,8 +30,9 @@
 		<!---->
 		<script src="js/menu_jquery.js"></script>
 	</head>
-	<body>
-		<div class="header">
+<body> 
+<!--header-->	
+<div class="header">
 	<div class="container">
 		 <div class="logo">
 		  	<a href="index.html"><img src="images/logof.jpeg" alt="" ></a>
@@ -56,7 +70,7 @@
 <div class="banner-head">
 	<div class="banner-1"> </div>
 		<div class="container">
-			<h1>Validar ID Paciente</h1>	
+			<h1>Validar Dueño</h1>	
 		</div>
 </div>
 <!--content-->
@@ -68,11 +82,18 @@
 			<div class="why-top-top">
 			
 				<div class="col-sm-4 top-content">
-					<s:form action="modificarPaciente2">
-	    				<s:textfield name="paciente.id" label="Id Paciente" />
-	    				<s:hidden name="owner.id"></s:hidden>
-	   					<s:submit value="Enviar" />
-					</s:form> 
+					
+				
+				<s:form action="buscar_pacientes">
+	   			 <s:textfield name="owner.id" label="ID Dueño" />
+	   			  <a class="more"> <s:submit value="Buscar pacientes"/> </a>
+				</s:form>
+					
+				
+
+
+						
+					
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -88,7 +109,7 @@
 		<div class="container">
 		  <div class="footer_top">
 		  	<div class="col-md-3 footer-head">
-				<h4>NavegaciÃ³n</h4>
+				<h4>Navegación</h4>
 				  <ul class="list1">
 				  	  <li class="active"><a href="${goto_welcome}">Inicio</a></li>
 					   	 <li><a href="${goto_crear_admin}">Crear Administrador</a></li>
@@ -98,18 +119,14 @@
 		  	
 		
 			<div class="col-md-3 footer-head1">
-			  	<h4>UbicaciÃ³n</h4>
-             	<p>Avenida Eduardo Monroy CÃ¡rdenas 2000 San Antonio Buenavista, 50110 Toluca de Lerdo, MÃ©x</p>
+			  	<h4>Ubicación</h4>
+             	<p>Avenida Eduardo Monroy Cárdenas 2000 San Antonio Buenavista, 50110 Toluca de Lerdo, Méx</p>
               	
 			</div>
 			<div class="clearfix"> </div>
 	 </div>
 </div>
 </div>
-	</body>
+ 	<!--//footer-->
+</body>
 </html>
-<!-- <s:form action="modificarPaciente2">
-	    <s:textfield name="paciente.id" label="Id Paciente" />
-	    <s:hidden name="owner.id"></s:hidden>
-	    <s:submit value="Enviar" />
-	</s:form> -->
