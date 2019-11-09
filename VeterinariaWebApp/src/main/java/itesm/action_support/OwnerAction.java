@@ -10,8 +10,10 @@ import com.opensymphony.xwork2.ActionSupport;
 import itesm.business.OwnerBean;
 import itesm.database.DAO_Implementation.DAOEmpleadoImpl;
 import itesm.database.DAO_Implementation.DAOOwnerImpl;
+import itesm.database.DAO_Implementation.DAOUsuarioImpl;
 import itesm.database.DAO_Interfaces.DAOEmpleado;
 import itesm.database.DAO_Interfaces.DAOOwner;
+import itesm.database.DAO_Interfaces.DAOUsuario;
 
 public class OwnerAction extends ActionSupport {
 	private OwnerBean owner;
@@ -44,7 +46,17 @@ public class OwnerAction extends ActionSupport {
 		}
 	}
 	
-
+	public String actualizarOwner() {
+		DAOOwner daoOwner = new DAOOwnerImpl();
+		
+		try {
+			daoOwner.editar(owner);			
+			return SUCCESS;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ERROR;
+		}	
+	}
 }
 
 

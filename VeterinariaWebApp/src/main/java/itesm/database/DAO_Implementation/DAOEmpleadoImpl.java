@@ -3,7 +3,6 @@ package itesm.database.DAO_Implementation;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 import itesm.business.EmpleadoBean;
@@ -42,8 +41,7 @@ public class DAOEmpleadoImpl extends Conexion implements DAOEmpleado{
 	}
 
 	@Override
-	public ArrayList<EmpleadoBean> consultarEmpleadosDisponibles(boolean soloDisponibles) throws Exception {
-		String ret = "error";
+	public ArrayList<EmpleadoBean> consultarEmpleadosDisponibles() throws Exception {
 		ArrayList<EmpleadoBean> buffer_empleados = new ArrayList<EmpleadoBean>();
 		String sql = "";
 		
@@ -51,16 +49,12 @@ public class DAOEmpleadoImpl extends Conexion implements DAOEmpleado{
 	      
 	    	 establishConnection();
 	         conn = getCon();
+	        
+        	 sql = "SELECT id_empleado, nombre_completo, direccion, telefono, especialidad ,puesto, turno, estado FROM empleado ";
+        	 sql += "WHERE elegido = 0";         
 	         
-	         if(soloDisponibles) {
-	        	 sql = "SELECT id_empleado, nombre_completo, direccion, telefono, especialidad ,puesto, turno, estado FROM empleado ";
-	        	 sql += "WHERE elegido = 0";
-	         } else
-	        	 sql = "SELECT id_empleado, nombre_completo, direccion, telefono, especialidad ,puesto, turno, estado FROM empleado ";
-	         
-	         
-	         Statement statement = conn.createStatement();
-	         ResultSet rs = statement.executeQuery(sql);
+	         PreparedStatement ps = conn.prepareStatement(sql);
+	         ResultSet rs = ps.executeQuery(sql);
 
 	         while (rs.next()) {
 	        	EmpleadoBean empleado = new EmpleadoBean();

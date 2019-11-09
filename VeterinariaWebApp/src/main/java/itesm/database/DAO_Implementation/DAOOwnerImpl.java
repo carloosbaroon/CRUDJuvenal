@@ -74,7 +74,28 @@ public class DAOOwnerImpl extends Conexion implements DAOOwner{
 
 	@Override
 	public void editar(OwnerBean entidad) throws Exception {
-		// TODO Auto-generated method stub
+		Connection conn = null;
+	      
+   	 	establishConnection();
+        conn = getCon();
+        String sql = "UPDATE propietario SET nombre = ?, direccion = ?, telefono = ?, rfc = ? WHERE id_propietario = ?";
+                
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, entidad.getNombre());
+        ps.setString(2, entidad.getDireccion());
+        ps.setString(3, Integer.toString(entidad.getTelefono()));
+        ps.setString(4, entidad.getRfc());
+        ps.setString(5, entidad.getId());
+        
+        ps.execute();
+
+        if (conn != null) {
+           try {
+              closeConnection();
+           } catch (Exception e) {
+				e.printStackTrace();
+           }
+        }
 		
 	}
 

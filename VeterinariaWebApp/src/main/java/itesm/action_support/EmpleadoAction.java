@@ -37,7 +37,7 @@ public class EmpleadoAction extends ActionSupport{
 		//1. Obtener la tabla empleados con todos sus registros
 		DAOEmpleado daoEmpleado = new DAOEmpleadoImpl();
 		try {
-			this.buffer_empleados = daoEmpleado.consultarEmpleadosDisponibles(false);
+			this.buffer_empleados = daoEmpleado.consultarEmpleadosDisponibles();
 			
 			System.out.println("Mostrar ID");
 			
