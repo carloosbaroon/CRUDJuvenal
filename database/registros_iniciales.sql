@@ -10,10 +10,10 @@ INSERT INTO empleado (nombre_completo, direccion, telefono, puesto, especialidad
 VALUES ("Paola", "CU", "987654321", "puesto de prueba 3", "no se 2", "3", "Activo");
 
 INSERT INTO usuario (id_empleado, password_user, confirmar_password, privilegios, estado, no_intentos) 
-VALUES (1, "hola", "hola", "administrador", "activo", 5);
+VALUES (1, "hola", "hola", "Administrador", "activo", 5);
 
 INSERT INTO usuario (id_empleado, password_user, confirmar_password, privilegios, estado, no_intentos) 
-VALUES (2, "cactus", "cactus", "usuario", "activo", 5);
+VALUES (2, "cactus", "cactus", "Usuario", "activo", 5);
 
 INSERT INTO sala (nombre, disponibilidad) 
 VALUES ("Sala 1", "disponible");

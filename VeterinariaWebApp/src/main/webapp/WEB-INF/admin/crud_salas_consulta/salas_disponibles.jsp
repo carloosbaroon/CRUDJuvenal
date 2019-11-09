@@ -78,6 +78,9 @@
 	<s:url action="goto_programar_consulta" var="regresar"/>
  
 <s:form action="goto_reservar_sala">
+		<s:hidden name="consulta.fecha_consulta" value="%{consulta.fecha_consulta}" />
+		<s:hidden name="consulta.hora_inicial" value="%{consulta.hora_inicial}" />
+		<s:hidden name="consulta.hora_final" value="%{consulta.hora_final}" />
 		<s:textfield name="consulta.id_sala" label="ID de la sala" />
 		<a class="more"><s:submit value="Seleccionar"/></a>
 	</s:form>
@@ -90,8 +93,8 @@
 
 <s:iterator value="buffer_salas_disponibles" status="i">
 	<tr>
-		<td><s:property value="sala.id_sala"/></td>
-		<td><s:property value="sala.nombre_sala"/></td>
+		<td><s:property value="id_sala"/></td>
+		<td><s:property value="nombre_sala"/></td>
 	</tr>
 </s:iterator>
 </table>

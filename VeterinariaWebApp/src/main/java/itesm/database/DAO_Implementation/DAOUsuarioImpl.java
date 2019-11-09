@@ -24,9 +24,36 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
 	      
    	 	establishConnection();
         conn = getCon();
-        String sql = "INSERT INTO usuario (id_usuario, id_empleado,password_user, confirmar_password, privilegios, estado, no_intentos)";
-        sql+="VALUES (?, ?, ?, ?, ?, ?, ?)";
         
+        String sql;
+        
+        if(Integer.parseInt(usuario.getId_empleado_FK()) == -1) {
+        	sql = "INSERT INTO usuario (id_usuario, password_user, confirmar_password, privilegios, estado, no_intentos)";
+            sql+="VALUES (?, ?, ?, ?, ?, ?)";
+            
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, usuario.getUsuarioID());            	
+            ps.setString(2, usuario.getPassword());
+            ps.setString(3, usuario.getConfirmar_password());
+            ps.setString(4, usuario.getPrivilegios());
+            ps.setString(5, usuario.getEstado());
+            ps.setString(6, Integer.toString(4));
+            ps.execute();
+        }else {
+        	sql = "INSERT INTO usuario (id_usuario, id_empleado,password_user, confirmar_password, privilegios, estado, no_intentos)";
+            sql+="VALUES (?, ?, ?, ?, ?, ?, ?)";
+            
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, usuario.getUsuarioID());
+            	
+            ps.setString(2, usuario.getId_empleado_FK());
+            ps.setString(3, usuario.getPassword());
+            ps.setString(4, usuario.getConfirmar_password());
+            ps.setString(5, usuario.getPrivilegios());
+            ps.setString(6, usuario.getEstado());
+            ps.setString(7, Integer.toString(4));
+            ps.execute();
+        }
         //If column 'empleado_id_fk' is not null, set the value 1 to the col 'elegido'
         if(usuario.getId_empleado_FK() != null) {
         	String sqlUpdate = "UPDATE empleado SET elegido = 1 WHERE id_empleado = ?";
@@ -34,17 +61,6 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
         	ps.setString(1, usuario.getId_empleado_FK());
         	ps.execute();
         }
-        
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, usuario.getUsuarioID());
-        ps.setString(2, usuario.getId_empleado_FK());
-        ps.setString(3, usuario.getPassword());
-        ps.setString(4, usuario.getConfirmar_password());
-        ps.setString(5, usuario.getPrivilegios());
-        ps.setString(6, usuario.getEstado());
-        ps.setString(7, Integer.toString(4));
-        
-        ps.execute();
 
         if (conn != null) {
            try {
