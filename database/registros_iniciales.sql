@@ -19,7 +19,7 @@ INSERT INTO sala (nombre, disponibilidad)
 VALUES ("Sala 1", "disponible");
 
 INSERT INTO sala (nombre, disponibilidad) 
-VALUES ("Sala 2", "no disponible");
+VALUES ("Sala 2", "disponible");
 
 INSERT INTO sala (nombre, disponibilidad) 
 VALUES ("Sala 3", "disponible");
