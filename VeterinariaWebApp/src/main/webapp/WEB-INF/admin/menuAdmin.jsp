@@ -19,7 +19,7 @@
 		<script src="js/menu_jquery.js"></script>
 	</head>
 	<body>
-		<div class="header">
+	<div class="header">
 	<div class="container">
 		 <div class="logo">
 		  	<a href="index.html"><img src="images/logof.jpeg" alt="" ></a>
