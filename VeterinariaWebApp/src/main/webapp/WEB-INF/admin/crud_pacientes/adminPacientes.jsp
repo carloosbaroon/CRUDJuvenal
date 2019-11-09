@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Administración de pacientes</title>
-		<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<title>Administración Pacientes</title>
+	<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
 		<!-- Custom Theme files -->
@@ -57,7 +58,7 @@
 	<div class="banner-1"> </div>
 		<div class="container">
 			<br>
-			<h1>Administración pacientes</h1>	
+			<h1>Administración Pacientes</h1>	
 		</div>
 </div>
 <!--content-->
@@ -69,15 +70,15 @@
 			<div class="why-top-top">
 			
 				<div class="col-sm-4 top-content">
-					<s:url action="goto_alta_owner_jsp" var="alta_owner"/>
-					<s:url action="goto_alta_paciente_jsp" var="alta_paciente"/>
-					<s:url action="modificar_owner" var="modificar_owner"/>
-					<s:url action="goto_modificar_paciente_jsp" var="consulta_paciente"/>
-		
-					<p><a href="${alta_owner}">Dar de Alta Dueño</a></p>	
-					<p><a href="${alta_paciente}">Dar de Alta Paciente</a></p>	
-					<p><a href="${modificar_owner}">Modificar Dueño</a></p>
-					<p><a href="${consulta_paciente}">Consulta Pacientes</a></p> 
+						<s:url action="goto_alta_owner_jsp" var="alta_owner"/>
+						<s:url action="goto_alta_paciente_jsp" var="alta_paciente"/>
+						<s:url action="goto_editar_owner" var="modificar_owner"/>
+						<s:url action="goto_editar_paciente_jsp" var="consulta_paciente"/>
+						
+						<h4><a href="${alta_owner}">Dar de Alta Dueño</a></h4>	
+						<h4><a href="${alta_paciente}">Dar de Alta Paciente</a></h4>	
+						<h4><a href="${modificar_owner}">Modificar Dueño</a></h4>
+						<h4><a href="${consulta_paciente}">Modificar Paciente</a></h4>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -111,18 +112,5 @@
 	 	</div>
 		</div>
 </div>
- 	<!--//footer-->
 	</body>
 </html>
-
-<!-- <h1>Administración de Pacientes</h1>
-		
-		<s:url action="goto_alta_owner_jsp" var="alta_owner"/>
-		<s:url action="goto_alta_paciente_jsp" var="alta_paciente"/>
-		<s:url action="modificar_owner" var="modificar_owner"/>
-		<s:url action="goto_modificar_paciente_jsp" var="consulta_paciente"/>
-		
-		<p><a href="${alta_owner}">Dar de Alta Dueño</a></p>	
-		<p><a href="${alta_paciente}">Dar de Alta Paciente</a></p>	
-		<p><a href="${modificar_owner}">Modificar Dueño</a></p>
-		<p><a href="${consulta_paciente}">Consulta Pacientes</a></p> -->

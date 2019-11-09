@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+
 <%@ taglib prefix="sb" uri="/struts-bootstrap-tags" %>
+
 <!DOCTYPE html>
 <html>
-	<head>
-	<title>Alta Dueño</title>
+<head>
+		<title>Alta Dueño</title>
 		<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
@@ -18,8 +20,8 @@
 		<!---->
 		<script src="js/menu_jquery.js"></script>
 	</head>
-	<body>
-				<!--header-->	
+<body> 
+<!--header-->	
 <div class="header">
 	<div class="container">
 		 <div class="logo">
@@ -76,7 +78,9 @@
 						<s:textfield name="owner.direccion" label="Direccion" />
 						<s:textfield name="owner.telefono" label="Telefono"/>
 						<s:textfield name="owner.rfc" label="RFC"/>
-						<s:submit value="Enviar"/>
+
+
+						<a class="more"> <s:submit value="Enviar"/> </a>
 					</s:form>
 				</div>
 				<div class="clearfix"> </div>
@@ -111,18 +115,6 @@
 	 </div>
 </div>
 </div>
-		
-	</body>
+ 	<!--//footer-->
+</body>
 </html>
-<!-- <h1>Alta Dueño Prueba</h1>
-		<s:form action="capturar_datos_owner">
-		<s:textfield name="owner.id" label="ID" />
-			<s:textfield name="owner.nombre" label="Nombre" />
-			<s:textfield name="owner.direccion" label="Direccion" />
-			<s:textfield name="owner.telefono" label="Telefono"/>
-			<s:textfield name="owner.rfc" label="RFC"/>
-	
-	
-			<s:submit value="Enviar"/>
-		</s:form> -->
-
