@@ -111,11 +111,10 @@
 </div>
 </div>
 
- 	<!--//footer-->
-<!-- 		
+ 	<!--//footer-->		
 	</body>
 </html>
-
+<!--  
 <s:url action="welcome" var="ir_login"/>
 		<h1>Login</h1>
 		<s:form action="validar_usuario">
