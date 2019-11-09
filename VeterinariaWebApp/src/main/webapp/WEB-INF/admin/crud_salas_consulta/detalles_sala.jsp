@@ -21,6 +21,7 @@
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!---->
 		<script src="js/menu_jquery.js"></script>
+		
 	</head>
 <body> 
 <!--header-->	
@@ -78,9 +79,13 @@
 	<s:form action="actualizar_sala">		
 		<s:textfield name="sala.id_sala" label="ID sala" value="%{sala.id_sala}" readonly="true"/>
 		<s:textfield name="sala.nombre_sala" label="Nombre sala" value="%{sala.nombre_sala}"/>
-		<s:textfield name="sala.estado_sala" label="Estado sala" value="%{sala.estado_sala}"/>
+		<s:textfield name="sala.estado_sala" label="Estado sala" value="%{sala.estado_sala}" readonly="true"/>
+		
+		
 		<a class="more"> <s:submit value="Enviar"/> </a>
 	</s:form>
+	
+	
 				
 				</div>
 				<div class="clearfix"> </div>
@@ -88,6 +93,7 @@
 			
 		</div>
 	</div>
+	
 <!--footer-->
  	<div class="footer ">
  		<div class="footer-1"> </div>
