@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<<<<<<< HEAD:VeterinariaWebApp/src/main/webapp/WEB-INF/admin/crud_pacientes/datosEditarOwner.jsp
 
 <%@ taglib prefix="sb" uri="/struts-bootstrap-tags" %>
 
@@ -121,3 +122,17 @@
 </body>
 </html>
 
+=======
+<html>
+<head>
+    <title>user/validarIDPaciente.jsp</title>
+</head>
+
+<body>
+<s:form action="modificarPaciente2">
+    <s:textfield name="paciente.id" label="Id Paciente" />
+    <s:submit value="Enviar" />
+</s:form>
+</body>
+</html>
+>>>>>>> parent of 5a2f6a1... Style Change to...:VeterinariaWebApp/src/main/webapp/WEB-INF/admin/crud_pacientes/validarIDPacienteCambio.jsp

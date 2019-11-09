@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<<<<<<< HEAD
 
 <%@ taglib prefix="sb" uri="/struts-bootstrap-tags" %>
 
@@ -125,3 +126,17 @@
 
 
 
+=======
+<html>
+<head>
+    <title>user/validarIDPaciente.jsp</title>
+</head>
+
+<body>
+<s:form action="capturar_datos_paciente">
+    <s:textfield name="owner.id" label="Id Dueño" />
+    <s:submit value="Enviar" />
+</s:form>
+</body>
+</html>
+>>>>>>> parent of 5a2f6a1... Style Change to...
