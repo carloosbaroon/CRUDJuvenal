@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<s:form action="finalPaciente2">
+<s:form action="">
 	<s:textfield name="paciente.id" label="ID" />
     <s:textfield name="paciente.name" label="Nombre" />
     <s:textfield name="paciente.categoria" label="Categoria" />

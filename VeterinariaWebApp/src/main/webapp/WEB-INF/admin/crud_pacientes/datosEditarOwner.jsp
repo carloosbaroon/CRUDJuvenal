@@ -7,7 +7,7 @@
 
 <body>
 <s:form action="actualizar_owner">
-	<s:textfield name="owner.id" label="ID" />
+	<s:textfield name="owner.id" label="ID" readonly="true"/>
     <s:textfield name="owner.nombre" label="Nombre" />
     <s:textfield name="owner.direccion" label="Direccion" />
     <s:textfield name="owner.telefono" label="Telefono" /> 
