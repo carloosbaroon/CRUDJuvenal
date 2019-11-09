@@ -79,7 +79,6 @@
 					<h4><a align=center >Usuario Registrado</a> </h4>
 					
 					
-					<s:url action="goto_crear_admin_jsp" var="ir_atras"/>
 	
 					<b>Usuario: </b><s:property value="usuario.usuarioID"/><br>
 					<b>Password: </b><s:property value="usuario.password"/><br>
@@ -87,7 +86,7 @@
 					<b>ID_empleado_FK: </b> <s:property value="usuario.id_empleado_FK"/><br>
 					<b>Grupo: </b><s:property value="usuario.grupo"/><br>
 					<b>Estado: </b><s:property value="usuario.estado"/><br>
-					<h4><a href="${ir_atras}">Regresar</a> </h4>
+					<h4><a href="${regresar}">Regresar</a> </h4>
 				
 				</div>
 				<div class="clearfix"> </div>

@@ -75,12 +75,15 @@
 			
 				<div class="col-sm-4 top-content">
 					<h4><a align=center >Dueño Registrado</a> </h4>
+					<s:url action="goto_admin_pacientes_jsp" var="regresar"/>
 					
 					<b>ID: </b><s:property value="owner.id"/><br>
 					<b>Nombre: </b><s:property value="owner.nombre"/><br>
 					<b>Direccion: </b><s:property value="owner.direccion"/><br>
 					<b>Telefeno: </b><s:property value="owner.telefono"/><br>
 					<b>RFC: </b><s:property value="owner.rfc"/>
+					
+					<h4><a href="${regresar}">Regresar</a> </h4>
 					
 					
 				

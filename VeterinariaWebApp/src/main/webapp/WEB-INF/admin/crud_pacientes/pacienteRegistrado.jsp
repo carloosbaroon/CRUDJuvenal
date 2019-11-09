@@ -78,7 +78,7 @@
 					<h4><a align=center >Paciente Registrado</a> </h4>
 					
 					
-				
+				<s:url action="goto_admin_pacientes_jsp" var="regresar"/>
 	
 					<b>ID: </b><s:property value="paciente.id"/><br>
 					<b>Nombre: </b><s:property value="paciente.name"/><br>
@@ -86,6 +86,7 @@
 					<b>Raza: </b><s:property value="paciente.raza"/><br>
 					<b>Edad: </b><s:property value="paciente.edad"/><br>
 					<b>ID Dueño: </b><s:property value="paciente.idOwner"/>
+					<h4><a href="${regresar}">Regresar</a> </h4>
 				
 				</div>
 				<div class="clearfix"> </div>
