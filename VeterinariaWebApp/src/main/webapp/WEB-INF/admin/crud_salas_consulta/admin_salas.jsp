@@ -74,9 +74,9 @@
 					<s:url action="goto_editar_salas_jsp" var="editar_sala"/>
 					<s:url action="goto_programar_consulta_jsp" var="reservar_sala"/>
 					
-					<p><a href="${alta_sala}">Alta de Salas</a></p>
-					<p><a href="${editar_sala}">Editar Salas</a></p>		
-					<p><a href="${reservar_sala}">Reservar Salas</a></p>
+					<h4><a href="${alta_sala}">Alta de Salas</a></h4>
+					<h4><a href="${editar_sala}">Editar Salas</a></h4>		
+					<h4><a href="${reservar_sala}">Reservar Salas</a></h4>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -113,10 +113,3 @@
 	</body>
 </html>
 
-<!-- <s:url action="goto_alta_sala_jsp" var="alta_sala"/>
-		<s:url action="goto_editar_salas_jsp" var="editar_sala"/>
-		<s:url action="goto_programar_consulta_jsp" var="reservar_sala"/>
-		
-		<p><a href="${alta_sala}">Alta de Salas</a></p>
-		<p><a href="${editar_sala}">Editar Salas</a></p>		
-		<p><a href="${reservar_sala}">Reservar Salas</a></p> -->

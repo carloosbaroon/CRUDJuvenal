@@ -87,20 +87,20 @@
 			<h2>Servicios</h2>
 			<div class="events-top">
 				<div class="col-sm-4 top-event">
-					<a href="single.html"><img src="images/ev.jpg" class="img-responsive" alt=""></a>
-					<h4><a href="single.html">Cirugía General</a></h4>
+					<a ><img src="images/ev.jpg" class="img-responsive" alt=""></a>
+					<h4><a >Cirugía General</a></h4>
 					
 					<p>Manejamos técnicas de anestesia para un adecuado y mejor control del dolor, apoyándonos de personal capacitado y actualizado, con equipo de vanguardia y quirófanos equipados. </p>
 				</div>
 					<div class="col-sm-4 top-event">
-					<a href="single.html"><img src="images/ev1.jpg" class="img-responsive" alt=""></a>
-					<h4><a href="single.html">Consulta General</a></h4>
+					<a ><img src="images/ev1.jpg" class="img-responsive" alt=""></a>
+					<h4><a >Consulta General</a></h4>
 				
 					<p>Contamos con personal médico comprometido en solucionar los problemas de tus mascotas. Siempre en continua capacitación para ofrecerles los más novedosos tratamientos y métodos de diagnóstico. </p>
 				</div>
 					<div class="col-sm-4 top-event">
-					<a href="single.html"><img src="images/ev2.jpg" class="img-responsive" alt=""></a>
-					<h4><a href="single.html">Laboratorio</a></h4>
+					<a ><img src="images/ev2.jpg" class="img-responsive" alt=""></a>
+					<h4><a >Laboratorio</a></h4>
 					
 					<p>Realizamos estudios de laboratorio como hemogramas, bioquímicas sanguíneas, urianalisis entre otros, con entregas de resultados en tiempos cortos, para mejorar la aproximación diagnostica de nuestros pacientes. </p>
 				</div>

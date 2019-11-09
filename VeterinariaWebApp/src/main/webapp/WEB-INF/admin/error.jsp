@@ -63,7 +63,7 @@
 <div class="banner-head">
 	<div class="banner-1"> </div>
 		<div class="container">
-			<h1>Crear administrador</h1>	
+			<h1>Error</h1>	
 		</div>
 </div>
 <!--content-->
