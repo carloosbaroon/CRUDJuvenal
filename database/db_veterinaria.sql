@@ -10,13 +10,8 @@ Database		mySQL 5
 */
 
 
-drop table IF EXISTS Consultas;
-drop table IF EXISTS Sala;
-drop table IF EXISTS Paciente;
-drop table IF EXISTS Propietario;
-drop table IF EXISTS Empleado;
-drop table IF EXISTS Usuario;
-
+create database veterinaria;
+use veterinaria;
 
 Create table Usuario (
 	id_usuario Int NOT NULL AUTO_INCREMENT,
@@ -77,11 +72,11 @@ Create table Consultas (
 Primary Key (id_consulta)) ENGINE = MyISAM;
 
 
-Alter table Usuario add Foreign Key (id_empleado) references Empleado (id_empleado) on delete  restrict on update  restrict;
-Alter table Consultas add Foreign Key (id_empleado) references Empleado (id_empleado) on delete  restrict on update  restrict;
-Alter table Paciente add Foreign Key (id_propietario) references Propietario (id_propietario) on delete  restrict on update  restrict;
-Alter table Consultas add Foreign Key (id_paciente) references Paciente (id_paciente) on delete  restrict on update  restrict;
-Alter table Consultas add Foreign Key (id_sala) references Sala (id_sala) on delete  restrict on update  restrict;
+Alter table Usuario add Foreign Key (id_empleado) references Empleado (id_empleado);
+Alter table Consultas add Foreign Key (id_empleado) references Empleado (id_empleado);
+Alter table Paciente add Foreign Key (id_propietario) references Propietario (id_propietario);
+Alter table Consultas add Foreign Key (id_paciente) references Paciente (id_paciente);
+Alter table Consultas add Foreign Key (id_sala) references Sala (id_sala);
 
 
 /* Users permissions */
