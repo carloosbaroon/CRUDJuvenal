@@ -74,7 +74,6 @@
 				<div class="col-sm-4 top-content">
 					<s:url action="goto_consulta_usuario_jsp_global" var="consultar_usuarios"/>
 					<s:url action="welcome" var="regresar"/>
-					<h4><a href="${consultar_usuarios}">Consultar Usuarios</a> </h4>
 					
 					
 					<s:form action="validar_campos_usuario_global">
