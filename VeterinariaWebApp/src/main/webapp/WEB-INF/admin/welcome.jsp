@@ -131,10 +131,6 @@
               	
 			</div>
 			<div class="clearfix"> </div>
-		  
-		   <div class="footer-bottom">
-		<p> © 2015 Fidele. All rights reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a></p>
-    </div>
 	 </div>
 </div>
  	<!--//footer-->
