@@ -74,7 +74,7 @@
 					   <s:select label="Estado"
 						headerValue="Elige un estado" 
 						headerKey="-1"
-						list="list_estado_frontend"
+						list="list_estado_usuario_frontend"
 						name="usuario.estado"
 						/>
 					    <s:submit value="Actualizar Estado" />
