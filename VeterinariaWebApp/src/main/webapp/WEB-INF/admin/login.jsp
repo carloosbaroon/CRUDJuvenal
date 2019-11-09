@@ -72,11 +72,12 @@
 				<div class="col-sm-4 top-content">
 					<s:url action="welcome" var="regresar"/>
 					<s:form action="validar_usuario">
-		    			<s:textfield label="username" name="usuario.usuarioID"/>
-		   		 		<s:password label="password" name="usuario.password" />
-	    				<s:submit/>
+		    			<s:textfield label="Username" name="usuario.usuarioID"/>
+		   		 		<s:password label="Password" name="usuario.password" />
+	    				<a class="more"> <s:submit value="Ingresar"/> </a>
 					</s:form>
-					<a href="${ir_login}">Regresar</a>
+					<h4><a href="${regresar}">Regresar</a> </h4>
+					
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -112,15 +113,3 @@
 </div>
 
  	<!--//footer-->
-<!-- 		
-	</body>
-</html>
-
-<s:url action="welcome" var="ir_login"/>
-		<h1>Login</h1>
-		<s:form action="validar_usuario">
-		    <s:textfield label="username" name="usuario.usuarioID"/>
-		    <s:password label="password" name="usuario.password" />
-	    	<s:submit/>
-		</s:form>
-		<a href="${ir_login}">Regresar</a> -->
