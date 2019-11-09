@@ -34,8 +34,8 @@
     	</action>
         
         <action name="validar_usuario" class="itesm.action_support.UsuarioAction" method="validarLogin">
-        	<result name="admin">WEB-INF/admin/menuAdmin.jsp</result>
-        	<result name="user">WEB-INF/admin/menuUser.jsp</result>
+        	<result name="Administrador">WEB-INF/admin/menuAdmin.jsp</result>
+        	<result name="Usuario">WEB-INF/admin/menuUser.jsp</result>
         	<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	
