@@ -27,7 +27,7 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
         
         String sql;
         
-        if(Integer.parseInt(usuario.getId_empleado_FK()) == -1) {
+        if(usuario.getId_empleado_FK() == null || Integer.parseInt(usuario.getId_empleado_FK()) == -1) {
         	sql = "INSERT INTO usuario (id_usuario, password_user, confirmar_password, privilegios, estado, no_intentos)";
             sql+="VALUES (?, ?, ?, ?, ?, ?)";
             

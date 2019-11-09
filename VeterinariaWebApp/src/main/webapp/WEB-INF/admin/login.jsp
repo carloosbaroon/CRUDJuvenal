@@ -114,12 +114,3 @@
  	<!--//footer-->		
 	</body>
 </html>
-<!--  
-<s:url action="welcome" var="ir_login"/>
-		<h1>Login</h1>
-		<s:form action="validar_usuario">
-		    <s:textfield label="username" name="usuario.usuarioID"/>
-		    <s:password label="password" name="usuario.password" />
-	    	<s:submit/>
-		</s:form>
-		<a href="${ir_login}">Regresar</a> -->
