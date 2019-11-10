@@ -68,6 +68,39 @@ public class PopulateDropDownLists extends ActionSupport{
 		return SUCCESS;
 	}
 	
+	public String fill2() {
+		//Estado Usuario
+		this.list_estado_usuario_frontend = new ArrayList<String>();
+		this.list_estado_usuario_frontend.add("Activo");
+		this.list_estado_usuario_frontend.add("Bloqueado");
+		this.list_estado_usuario_frontend.add("Inactivo");	
+		
+		//Estado Empleado
+		this.list_estado_empleado_frontend = new ArrayList<String>();
+		this.list_estado_empleado_frontend.add("Activo");
+		this.list_estado_empleado_frontend.add("Baja");
+		//Privilegios o Grupo
+		this.list_grupos_privilegios_frontend = new ArrayList<String>();
+		this.list_grupos_privilegios_frontend.add("Administrador");
+		this.list_grupos_privilegios_frontend.add("Usuario");
+		
+		DAOEmpleado daoEmpleado = new DAOEmpleadoImpl();
+		
+		try {
+			this.buffer_empleado = daoEmpleado.consultarEmpleadosDisponibles();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		this.list_empleados_frontend = new ArrayList<String>();
+		for(EmpleadoBean item : buffer_empleado) {
+			list_empleados_frontend.add(item.getId_empleado());
+		}
+		
+		return SUCCESS;
+	}
+	
 	public String buscarUsuario_Empleado() {
 		DAOUsuario daoUsuario = new DAOUsuarioImpl();
 		DAOEmpleado daoEmpleado = new DAOEmpleadoImpl();

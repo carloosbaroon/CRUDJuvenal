@@ -70,7 +70,7 @@
     	   	
 	    	<action name="actualizar_paciente" class="itesm.action_support.PacienteAction" method="modificarPaciente">
 	    		<result name="success" type="redirectAction">
-	                <param name="actionName">buscar_pacientes</param>
+	                <param name="actionName">goto_editar_paciente_jsp</param>
 	                <param name="qs_id_propietario">${paciente.idOwner}</param>
             	</result>
 	            <result name="error">/WEB-INF/admin/crud_pacientes/error.jsp</result>
