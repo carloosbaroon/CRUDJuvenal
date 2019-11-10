@@ -3,7 +3,7 @@
 <%@ taglib prefix="sb" uri="/struts-bootstrap-tags" %>
 <html>
 	<head>
-	    <title>Buscar ID blo/desc</title>
+	    <title>Validar ID Status</title>
 	    <link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
@@ -18,8 +18,7 @@
 		<script src="js/menu_jquery.js"></script>
 	</head>
 	<body>
-		<!--header-->	
-<div class="header">
+		<div class="header">
 	<div class="container">
 		 <div class="logo">
 		  	<a href="index.html"><img src="images/logof.jpeg" alt="" ></a>
@@ -57,7 +56,8 @@
 <div class="banner-head">
 	<div class="banner-1"> </div>
 		<div class="container">
-			<h1>Bloqueo/Desbloqueo Usuario</h1>	
+			<br>
+			<h1>Administración Usuarios</h1>	
 		</div>
 </div>
 <!--content-->
@@ -69,13 +69,14 @@
 			<div class="why-top-top">
 			
 				<div class="col-sm-4 top-content">
-					<s:url action="goto_admin_usuarios_jsp" var="regresar"/>
-					<s:form action="detalle_usuario_bloquear_desbloquear">
-					    <s:textfield name="qs_user_id" label="Id Usuario"/>
-					    <s:submit value="Enviar" />
-					</s:form>
-					
-					<a href="${regresar}">Regresar</a> 
+					<s:form action="finalMoficarStatus">
+					<s:textfield name="usuario.usuarioID" value="%{qs_user_id}" readonly="true" label="ID Usuario"/>
+					   <s:select label="Estado"
+						list="list_estado_usuario_frontend"
+						name="usuario.estado"
+						/>
+					    <s:submit value="Actualizar Estado" />
+					</s:form>			
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -106,17 +107,19 @@
               	
 			</div>
 			<div class="clearfix"> </div>
-	 </div>
-</div>
+	 	</div>
+		</div>
 </div>
 	</body>
 </html>
-<!-- 
-<s:url action="goto_admin_usuarios_jsp" var="regresar"/>
 
-<s:form action="modificarEstado">
-    <s:textfield name="usuario.usuarioID" label="Id Usuario"><s:param name="id_usuario" value="usuario.usuarioID"/></s:textfield>
-    <s:submit value="Enviar" />
-</s:form>
-
-<a href="${regresar}">Regresar</a> -->
+<!-- <s:form action="finalMoficarStatus">
+	<s:textfield name="usuario.usuarioID" value="%{usuario.usuarioID}" readonly="true" label="ID Usuario"/>
+   <s:select label="Estado"
+	headerValue="Elige un estado" 
+	headerKey="-1"
+	list="list_estado_usuario_frontend"
+	name="usuario.estado"
+	/>
+    <s:submit value="Actualizar Estado" />
+</s:form> -->

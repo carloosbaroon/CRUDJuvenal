@@ -66,6 +66,19 @@
     		
     	<action name="goto_bloqueo_desbloqueo_jsp" class="itesm.action_support.UsuarioAction">
     		<result>WEB-INF/admin/crud_usuarios/buscarUsuarioBloquear_Desbloquear.jsp</result>
+    	</action>    	
+    	
+    	<action name="detalle_usuario_bloquear_desbloquear" class="itesm.action_support.UsuarioAction" method="buscarUsuario">
+    		<result>WEB-INF/admin/crud_usuarios/datosBloquear_DesbloquearUsuario.jsp</result>
+    		<result name="error">/WEB-INF/admin/error.jsp</result>
+    	</action>
+    	
+    	<action name="bloquear" class="itesm.action_support.PopulateDropDownLists" method="fill">
+    		<result>WEB-INF/admin/crud_usuarios/modificarEstadoA_Bloqueado.jsp</result>
+    	</action>
+    	
+    	<action name="desbloquear" class="itesm.action_support.PopulateDropDownLists" method="fill">
+    		<result>WEB-INF/admin/crud_usuarios/modificarEstadoA_Activo.jsp</result>
     	</action>
     	
     	<action name="modificarEstado" class="itesm.action_support.UsuarioAction" method="buscarUsuario">
@@ -75,6 +88,7 @@
     	
     	<action name="finalMoficarStatus" class="itesm.action_support.UsuarioAction" method="actualizarEstado">
     		<result name="success">WEB-INF/admin/crud_usuarios/finEditarStatus.jsp</result>
+    		<result name="error">/WEB-INF/admin/error.jsp</result>
     	</action>
     	
     	<action name="goto_admin_salas_jsp">
