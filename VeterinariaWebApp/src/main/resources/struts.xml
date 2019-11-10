@@ -18,7 +18,7 @@
         	<result>WEB-INF/admin/welcome.jsp</result>
         </action>
         
-        <action name="goto_crear_admin_jsp" class="itesm.action_support.PopulateDropDownLists" method="fill">
+        <action name="goto_crear_admin_jsp" class="itesm.action_support.PopulateDropDownLists" method="fill2">
         	<result name="success">WEB-INF/admin/crearAdmin.jsp</result>
         </action>
         

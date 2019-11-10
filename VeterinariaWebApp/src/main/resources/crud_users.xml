@@ -8,7 +8,7 @@
     		<result>WEB-INF/admin/crud_usuarios/admin_usuarios.jsp</result><!-- Reedirige al jsp de administración de usuarios -->
     	</action>
     	
-		<action name="goto_alta_usuario_jsp" class="itesm.action_support.PopulateDropDownLists" method="fill">
+		<action name="goto_alta_usuario_jsp" class="itesm.action_support.PopulateDropDownLists" method="fill2">
     		<result name="success">WEB-INF/admin/crud_usuarios/altaUsuarios.jsp</result>
     	</action>
     	
@@ -21,7 +21,7 @@
     		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	
-    	<action name="goto_alta_empleado_jsp" class="itesm.action_support.PopulateDropDownLists" method="fill">
+    	<action name="goto_alta_empleado_jsp" class="itesm.action_support.PopulateDropDownLists" method="fill2">
     		<result name="success">WEB-INF/admin/crud_usuarios/altaEmpleado.jsp</result>
     	</action>
     	
