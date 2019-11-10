@@ -6,7 +6,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<title>Bienvenida</title>
 		<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
@@ -80,9 +79,9 @@
 					<h4><a align=center >Error</a> </h4>
 					
 					
-					<s:url action="goto_alta_usuario_jsp" var="regresar"/>
+					<s:url action="welcome" var="goto_welcome"/>
 					<b><s:property value="mensajeError"/></b>
-					<h4><a href="${regresar}">Regresar</a></h4>
+					<!-- <h4><a href="${regresar}">Regresar</a></h4> -->
 				
 				</div>
 				<div class="clearfix"> </div>

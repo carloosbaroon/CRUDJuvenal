@@ -56,7 +56,7 @@
     	
    		<action name="detalle_editar_usuario" class="itesm.action_support.PopulateDropDownLists" method="buscarUsuario_Empleado">
  			<result name="success">WEB-INF/admin/crud_usuarios/datosEditarUsuario.jsp</result>
-    		<result name="error">WEB-INF/admin/errorCrearEmepleado.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	
     	<action name="actualizar_usuario" class="itesm.action_support.UsuarioEmpleadoAction" method="actualizarUsuarioEmpleado">
