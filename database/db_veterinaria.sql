@@ -8,6 +8,11 @@ Author
 Version		
 Database		mySQL 5 
 */
+/*
+Para acceder a la BD, el usuario debe ser root y sin password.
+En caso contrario, modificar la BD ó editar el archivo Conexion.java los parametros necesarios.
+src/main/java/itesm/database/Conexion.java.
+*/
 
 
 create database veterinaria;
