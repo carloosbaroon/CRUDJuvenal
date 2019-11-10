@@ -14,6 +14,7 @@ import itesm.database.DAO_Interfaces.DAOUsuario;
 public class UsuarioEmpleadoAction extends ActionSupport{
 	private UsuarioBean usuario;
 	private EmpleadoBean empleado;
+	
 	private String mensajeError;
 	
 	public String getMensajeError() {return mensajeError;}
@@ -37,6 +38,7 @@ public class UsuarioEmpleadoAction extends ActionSupport{
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
+			mensajeError = "Error al mostrar la lista de Empleados";
 			return ERROR;
 		}
 	}
@@ -58,6 +60,7 @@ public class UsuarioEmpleadoAction extends ActionSupport{
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			mensajeError = "Error al actualizar usuario";
 			return ERROR;
 		}	
 	}

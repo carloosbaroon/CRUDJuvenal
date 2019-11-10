@@ -16,7 +16,14 @@ public class SalaAction extends ActionSupport {
 	private ArrayList<String> list_estado_sala;
 	private ArrayList<SalaBean> buffer_salas;
 	private String mensajeError;
+	private String qs_sala_id;
 	
+	public String getQs_sala_id() {
+		return qs_sala_id;
+	}
+	public void setQs_sala_id(String qs_sala_id) {
+		this.qs_sala_id = qs_sala_id;
+	}
 	public SalaBean getSala() {return sala;}
 	public void setSala(SalaBean sala) {this.sala = sala;}
 	public ArrayList<SalaBean> getBuffer_salas() {return buffer_salas;}
@@ -52,10 +59,23 @@ public class SalaAction extends ActionSupport {
 		}
 	}
 	
-	public String buscarSala() {
+	/*public String buscarSala() {
 		DAOSalas daoSala = new DAOSalasImpl();
 		try {
 			this.sala = daoSala.buscar(sala.getId_sala());
+			return SUCCESS;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			mensajeError = "Sala no encontrado";
+			return ERROR;
+		}
+	}*/
+	public String buscarSala() {
+		DAOSalas daoSala = new DAOSalasImpl();
+		try {
+			System.out.println(this.qs_sala_id);
+			this.sala = daoSala.buscar(this.qs_sala_id);
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
