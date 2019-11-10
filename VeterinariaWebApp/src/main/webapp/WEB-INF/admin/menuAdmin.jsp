@@ -75,9 +75,9 @@
 					<s:url action="goto_admin_pacientes_jsp" var="admin_pacientes"/>
 					<s:url action="goto_admin_salas_jsp" var="admin_sala"/>
 					
-					<p><a href="${admin_usuarios}">Administración de Usuarios</a></p>
-					<p><a href="${admin_pacientes}">Administración de Pacientes</a></p>
-					<p><a href="${admin_sala}">Administración de Salas</a></p> 
+					<h4><a href="${admin_usuarios}">Administración de Usuarios</a></h4>
+					<h4><a href="${admin_pacientes}">Administración de Pacientes</a></h4>
+					<h4><a href="${admin_sala}">Administración de Salas</a></h4> 
 				</div>
 				<div class="clearfix"> </div>
 			</div>

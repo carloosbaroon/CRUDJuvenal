@@ -51,6 +51,7 @@
     	
     	<action name="goto_editar_usuario">
     		<result>WEB-INF/admin/crud_usuarios/buscarUsuarioEditar.jsp</result>
+    		<result name="error">WEB-INF/admin/errorCrearEmpleado.jsp</result>
     	</action>
     	
    		<action name="detalle_editar_usuario" class="itesm.action_support.PopulateDropDownLists" method="buscarUsuario_Empleado">

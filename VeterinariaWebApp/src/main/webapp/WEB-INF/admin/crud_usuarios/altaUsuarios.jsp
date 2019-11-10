@@ -72,7 +72,7 @@
 				<div class="col-sm-4 top-content">
 					<s:url action="goto_consulta_usuario_jsp" var="consultar_usuarios"/>
 					<s:url action="goto_admin_usuarios_jsp" var="regresar"/>
-					<a href="${consultar_usuarios}">Consultar Usuarios</a>
+					<h4><a href="${consultar_usuarios}">Consultar Usuarios</a></h4>
 					
 					<s:form action="validar_campos_usuario">
 						<s:textfield name="usuario.usuarioID" label="ID"/>
@@ -92,9 +92,9 @@
 						list="list_estado_usuario_frontend"
 						name="usuario.estado"
 						/>
-						<s:submit value="enviar"/>
+						<a class="more"> <s:submit value="Enviar"/> </a>
 					</s:form>
-					<a href="${regresar}">Regresar</a>
+					<h4><a href="${regresar}">Regresar</a></h4>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -131,33 +131,3 @@
 		
 	</body>
 </html>
-<!-- <h1>Alta de Usuarios</h1>
-	<s:url action="goto_consulta_usuario_jsp" var="consultar_usuarios"/>
-	<s:url action="goto_admin_usuarios_jsp" var="regresar"/>
-	<a href="${consultar_usuarios}">Consultar Usuarios</a>
-	
-	<s:form action="validar_campos_usuario">
-		<s:textfield name="usuario.usuarioID" label="ID"/>
-		<s:textfield name="usuario.password" label="Password"/>
-		<s:textfield name="usuario.confirmar_password" label="Confirmar Password"/>
-		<s:select label="Empleados Disponibles"
-		headerValue="Selecciona un empleado" 
-		headerKey="-1"
-		list="list_empleados_frontend"
-		name="usuario.id_empleado_FK"
-		/>
-		<s:select label="Grupo/Privilegios"
-		headerValue="Elige un grupo" 
-		headerKey="-1"
-		list="list_grupos_privilegios_frontend"
-		name="usuario.privilegios"
-		/>
-		<s:select label="Estado"
-		headerValue="Elige un estado" 
-		headerKey="-1"
-		list="list_estado_usuario_frontend"
-		name="usuario.estado"
-		/>
-		<s:submit value="enviar"/>
-	</s:form>
-	<a href="${regresar}">Regresar</a> -->

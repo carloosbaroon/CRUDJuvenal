@@ -70,14 +70,14 @@
 			
 				<div class="col-sm-4 top-content">
 					<s:url action="goto_alta_empleado_jsp" var="regresar"/>
-					<b>Numero de Empleado: </b> <s:property value="empleado.no_empleado"/><br>
+					<b>Numero de Empleado: </b> <s:property value="empleado.id_empleado"/><br>
 					<b>Nombre Completo: </b> <s:property value="empleado.nombre_completo"/><br>
 					<b>Direccion: </b> <s:property value="empleado.direccion"/><br>
 					<b>Telefono: </b> <s:property value="empleado.telefono"/><br>
 					<b>Puesto: </b> <s:property value="empleado.puesto"/><br>
 					<b>Especialidad Medica: </b> <s:property value="empleado.especialidad"/><br>
 					<b>Estado: </b> <s:property value="empleado.estado"/><br>
-					<a href="${regresar}">Regresar</a>							
+					<h4><a href="${regresar}">Regresar</a></h4>					
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -115,14 +115,3 @@
 	</body>
 </html>
 
-<!-- <h1>Empleado Registrado</h1>
-	<s:url action="goto_alta_empleado_jsp" var="regresar"/>
-
-	<b>Numero de Empleado: </b> <s:property value="empleado.no_empleado"/><br>
-	<b>Nombre Completo: </b> <s:property value="empleado.nombre_completo"/><br>
-	<b>Direccion: </b> <s:property value="empleado.direccion"/><br>
-	<b>Telefono: </b> <s:property value="empleado.telefono"/><br>
-	<b>Puesto: </b> <s:property value="empleado.puesto"/><br>
-	<b>Especialidad Medica: </b> <s:property value="empleado.especialidad"/><br>
-	<b>Estado: </b> <s:property value="empleado.estado"/><br>
-	<a href="${regresar}">Regresar</a> -->

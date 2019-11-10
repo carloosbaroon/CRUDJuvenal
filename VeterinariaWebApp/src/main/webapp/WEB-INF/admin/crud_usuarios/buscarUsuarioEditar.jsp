@@ -72,10 +72,10 @@
 					<s:url action="goto_admin_usuarios_jsp" var="regresar"/>
 					<s:form action="detalle_editar_usuario">
 						<s:textfield name="usuario.usuarioID" label="ID del usuario" />
-						<s:submit value="Buscar"/>
+						<a class="more"> <s:submit value="Buscar"/> </a>
 					</s:form>
 					
-					<a href="${regresar}">Regresar</a>
+					<h4><a href="${regresar}">Regresar</a></h4>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
