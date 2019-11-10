@@ -75,11 +75,11 @@
 					<s:url action="goto_admin_salas_jsp" var="regresar"/>
 	
 	<s:form action="terminar_reservacion">
-		<s:textfield name="consulta.fecha_consulta" label="Fecha (YYYY/MM/DD)" value="%{consulta.fecha_consulta}"/>
-		<s:textfield name="consulta.hora_inicial" label="Hora inicial (hh:mm)" value="%{consulta.hora_inicial}"/>
-		<s:textfield name="consulta.hora_final" label="Hora final (hh:mm)" value="%{consulta.hora_final}"/>
+		<s:textfield name="consulta.fecha_consulta" label="Fecha (YYYY/MM/DD)" value="%{consulta.fecha_consulta}" readonly="true"/>
+		<s:textfield name="consulta.hora_inicial" label="Hora inicial (hh:mm)" value="%{consulta.hora_inicial}" readonly="true"/>
+		<s:textfield name="consulta.hora_final" label="Hora final (hh:mm)" value="%{consulta.hora_final}" readonly="true"/>
 		<s:textfield name="consulta.id_empleado" label="Id del empleado" />
-		<s:textfield name="consulta.id_sala" label="Id de la sala"/>
+		<s:textfield name="consulta.id_sala" label="Id de la sala" value="%{consulta.id_sala}" readonly="true"/>
 		<s:textfield name="consulta.id_paciente" label="Id del paciente" />
 		<s:textfield name="consulta.observaciones" label="Observaciones" />
 		<s:textfield name="consulta.estado_consulta" label="Estado" value="Programado"/>

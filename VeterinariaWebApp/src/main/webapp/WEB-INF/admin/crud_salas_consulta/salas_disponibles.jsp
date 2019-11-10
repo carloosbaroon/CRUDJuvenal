@@ -81,20 +81,26 @@
 		<s:hidden name="consulta.fecha_consulta" value="%{consulta.fecha_consulta}" />
 		<s:hidden name="consulta.hora_inicial" value="%{consulta.hora_inicial}" />
 		<s:hidden name="consulta.hora_final" value="%{consulta.hora_final}" />
-		<s:textfield name="consulta.id_sala" label="ID de la sala" />
-		<a class="more"><s:submit value="Seleccionar"/></a>
+		
 	</s:form>
 
 <table border="1">
 	<tr>
        <td><b>ID Sala</b></td>
        <td><b>Nombre de la sala</b></td>
+       <td><b>Seleccionar</b></td>
     </tr>
 
 <s:iterator value="buffer_salas_disponibles" status="i">
 	<tr>
 		<td><s:property value="id_sala"/></td>
 		<td><s:property value="nombre_sala"/></td>
+		<td>
+			<s:url action="goto_reservar_sala" var="url_modificar_sala">
+       			<s:param name = "qs_sala_id">${id_sala}</s:param>
+			</s:url>
+			<a class="more" href="${url_modificar_sala}">Seleccionar</a>
+		</td>
 	</tr>
 </s:iterator>
 </table>

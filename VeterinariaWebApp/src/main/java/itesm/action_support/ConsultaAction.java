@@ -18,6 +18,14 @@ public class ConsultaAction extends ActionSupport{
 	
 	private ArrayList<SalaBean> buffer_salas_disponibles;
 	private String mensajeError;
+	private String qs_sala_id;
+	
+	public String getQs_sala_id() {
+		return qs_sala_id;
+	}
+	public void setQs_sala_id(String qs_sala_id) {
+		this.qs_sala_id = qs_sala_id;
+	}
 	
 	public SalaBean getSala() {return sala;}
 	public void setSala(SalaBean sala) {this.sala = sala;}	
@@ -54,6 +62,8 @@ public class ConsultaAction extends ActionSupport{
 	}
 	
 	public String interReservar() {
+		System.out.println(this.qs_sala_id);
+		consulta.setId_sala(this.qs_sala_id);
 		/*DAOSalas daoSala = new DAOSalasImpl();
 		try {
 			this.sala = daoSala.buscar(sala.getId_sala());

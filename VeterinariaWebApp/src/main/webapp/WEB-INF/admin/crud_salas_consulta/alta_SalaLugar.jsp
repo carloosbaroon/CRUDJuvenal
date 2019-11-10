@@ -75,7 +75,7 @@
 					<s:url action="goto_admin_salas" var="regresar"/>
 					
 					<s:form action="validar_campos_sala">
-						<s:textfield name="sala.id_sala" label="Id de la Sala" />
+						
 						<s:textfield name="sala.nombre_sala" label="Nombre de la Sala" />
 						<s:textfield name="sala.estado_sala" label="Estado de la Sala" />
 				
