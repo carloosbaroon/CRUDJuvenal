@@ -18,7 +18,11 @@ public class UsuarioAction extends ActionSupport {
 	private UsuarioBean usuario;
 	private EmpleadoBean empleadoBean;
 	private String mensajeError, qs_user_id, empleado_id;//Query String to get the url from the previous action
+	private ArrayList<String> list_estado_usuario_frontend;
 	
+	public ArrayList<String> getList_estado_usuario_frontend() {return list_estado_usuario_frontend;}
+	public void setList_estado_usuario_frontend(ArrayList<String> list_estado_usuario_frontend) {this.list_estado_usuario_frontend = list_estado_usuario_frontend;}
+
 	public String getEmpleado_id() {return empleado_id;}
 
 	public void setEmpleado_id(String empleado_id) {this.empleado_id = empleado_id;}
@@ -99,7 +103,7 @@ public class UsuarioAction extends ActionSupport {
 	public String crearUsuario() {
 		
 		//Verificamos que el password y el password reescrito sean iguales
-		if(usuario.getPassword().contentEquals(usuario.getConfirmar_password())){
+		if(usuario.getPassword().contentEquals(usuario.getConfirmar_password()) && (!usuario.getPassword().equals("") || !usuario.getConfirmar_password().equals(""))){
 				DAOUsuario daoUsuario = new DAOUsuarioImpl();
 				try {
 					daoUsuario.insertar(usuario);
@@ -109,7 +113,11 @@ public class UsuarioAction extends ActionSupport {
 					return ERROR;
 				}			
 			return SUCCESS;
-		}else { 
+		}else if(usuario.getPassword().equals("") || usuario.getConfirmar_password().equals("")) {
+			mensajeError = "Llena todos los campos";
+			return ERROR;
+		}
+		else { 
 			mensajeError = "Los passwords no coinciden";
 			return ERROR;
 		}
@@ -130,6 +138,7 @@ public class UsuarioAction extends ActionSupport {
 			e.printStackTrace();
 			//En caso de que no encuentre el registro que se va eliminar se reedirige
 			//a un jsp indicando al usuario el error
+			mensajeError = "Error al eliminar usuario";
 			return ERROR;
 		}
 	}
@@ -142,15 +151,26 @@ public class UsuarioAction extends ActionSupport {
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
+			mensajeError = "Error al listar usuarios";
 			return ERROR;
 		}
 	}
 	
 	public String buscarUsuario() {
 		DAOUsuario daoUsuario = new DAOUsuarioImpl();
+		//Implemenatación Pesima pero ya no habia tiempo
+		this.list_estado_usuario_frontend = new ArrayList<String>();		
+		this.list_estado_usuario_frontend.add("Activo");
+		this.list_estado_usuario_frontend.add("Bloqueado");
+		this.list_estado_usuario_frontend.add("Inactivo");
+		//************//
+		
 		try {
-			this.usuario = daoUsuario.buscar(usuario.getUsuarioID());
-			return SUCCESS;
+			UsuarioBean usuarioAux = daoUsuario.buscar(usuario.getUsuarioID());
+			if(usuarioAux != null)
+				return SUCCESS;
+			else
+				return ERROR;
 		} catch (Exception e) {
 			e.printStackTrace();
 			mensajeError = "Usuario no encontrado";
@@ -169,6 +189,7 @@ public class UsuarioAction extends ActionSupport {
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
+			mensajeError = "Error al actualizar estado";
 			return ERROR;
 		}
 	}

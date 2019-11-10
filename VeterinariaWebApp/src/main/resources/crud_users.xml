@@ -68,7 +68,7 @@
     		<result>WEB-INF/admin/crud_usuarios/buscarUsuarioBloquear_Desbloquear.jsp</result>
     	</action>
     	
-    	<action name="modificarEstado" class="itesm.action_support.PopulateDropDownLists" method="fill">
+    	<action name="modificarEstado" class="itesm.action_support.UsuarioAction" method="buscarUsuario">
     		<result name="success">/WEB-INF/admin/crud_usuarios/modificarEstadoUsuario.jsp</result>
             <result name="error">/WEB-INF/admin/error.jsp</result>
     	</action>	

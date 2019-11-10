@@ -17,7 +17,7 @@ import itesm.database.DAO_Interfaces.DAOUsuario;
 
 public class OwnerAction extends ActionSupport {
 	private OwnerBean owner;
-
+	private String mensajeError;
 	public OwnerBean getOwner() {return owner;}
 	public void setOwner(OwnerBean owner) {this.owner = owner;}
 	
@@ -28,6 +28,7 @@ public class OwnerAction extends ActionSupport {
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
+			mensajeError = "Error al crear Dueño";
 			return ERROR;
 		}
 	}
@@ -36,8 +37,10 @@ public class OwnerAction extends ActionSupport {
 		DAOOwner daoOwner = new DAOOwnerImpl();
 		try {
 			this.owner = daoOwner.buscar(owner.getId());
-			if(this.owner == null)
+			if(this.owner == null) {
+				mensajeError = "Error al buscar dueño";
 				return ERROR;
+			}
 			else
 				return SUCCESS;
 		} catch (Exception e) {
@@ -54,6 +57,7 @@ public class OwnerAction extends ActionSupport {
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
+			mensajeError = "Error al editar dueño";
 			return ERROR;
 		}	
 	}
