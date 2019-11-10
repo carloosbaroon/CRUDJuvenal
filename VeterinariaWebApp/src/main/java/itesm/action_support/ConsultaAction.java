@@ -5,16 +5,24 @@ import java.util.ArrayList;
 import com.opensymphony.xwork2.ActionSupport;
 
 import itesm.business.ConsultaBean;
+import itesm.business.EmpleadoBean;
+import itesm.business.PacienteBean;
 import itesm.business.SalaBean;
 import itesm.database.DAO_Implementation.DAOConsultaImpl;
+import itesm.database.DAO_Implementation.DAOEmpleadoImpl;
+import itesm.database.DAO_Implementation.DAOPacienteImpl;
 import itesm.database.DAO_Implementation.DAOSalasImpl;
 import itesm.database.DAO_Interfaces.DAOConsulta;
+import itesm.database.DAO_Interfaces.DAOEmpleado;
+import itesm.database.DAO_Interfaces.DAOPaciente;
 import itesm.database.DAO_Interfaces.DAOSalas;
 
 public class ConsultaAction extends ActionSupport{
 	private static final long serialVersionUID = 1L;
 	private ConsultaBean consulta;
 	private SalaBean sala;
+	private PacienteBean paciente;
+	private EmpleadoBean empleado;
 	
 	private ArrayList<SalaBean> buffer_salas_disponibles;
 	private String mensajeError;
@@ -32,6 +40,18 @@ public class ConsultaAction extends ActionSupport{
 	public ConsultaBean getConsulta() {return consulta;}
 	public void setConsulta(ConsultaBean consulta) {this.consulta = consulta;}
 	
+	public PacienteBean getPaciente() {
+		return paciente;
+	}
+	public void setPaciente(PacienteBean paciente) {
+		this.paciente = paciente;
+	}
+	public EmpleadoBean getEmpleado() {
+		return empleado;
+	}
+	public void setEmpleado(EmpleadoBean empleado) {
+		this.empleado = empleado;
+	}
 	public ArrayList<SalaBean> getBuffer_salas_disponibles() {return buffer_salas_disponibles;}
 	public void setBuffer_salas_disponibles(ArrayList<SalaBean> buffer_salas_disponibles) {this.buffer_salas_disponibles = buffer_salas_disponibles;}
 	
@@ -62,25 +82,27 @@ public class ConsultaAction extends ActionSupport{
 	}
 	
 	public String interReservar() {
-		System.out.println(this.qs_sala_id);
-		consulta.setId_sala(this.qs_sala_id);
-		/*DAOSalas daoSala = new DAOSalasImpl();
-		try {
-			this.sala = daoSala.buscar(sala.getId_sala());
-			return SUCCESS;
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			mensajeError = "Sala no encontrado";
-			return ERROR;
-		}*/
+		System.out.println(this.consulta.getId_sala());
 		return SUCCESS;
 	}
 	
 	public String reservarSala() throws Exception {
-		
+		//String resp = "";
+		DAOPaciente daoPaciente = new DAOPacienteImpl();
 		DAOConsulta daoConsulta = new DAOConsultaImpl();
+		DAOEmpleado daoEmpleado = new DAOEmpleadoImpl();
 		try {
+			this.setPaciente(daoPaciente.buscar(consulta.getId_paciente()));
+			if(paciente == null) {
+				mensajeError = "Paciente NO valido";
+				return ERROR;
+			};
+			this.setEmpleado(daoEmpleado.buscar(consulta.getId_empleado()));
+			if(empleado == null) {
+				mensajeError = "Empleado NO valido";
+				return ERROR;
+			};
+			//return SUCCESS;
 			daoConsulta.insertar(consulta);
 			return SUCCESS;
 		} catch (Exception e) {

@@ -77,18 +77,12 @@
 					
 	<s:url action="goto_programar_consulta" var="regresar"/>
  
-<s:form action="goto_reservar_sala">
-		<s:hidden name="consulta.fecha_consulta" value="%{consulta.fecha_consulta}" />
-		<s:hidden name="consulta.hora_inicial" value="%{consulta.hora_inicial}" />
-		<s:hidden name="consulta.hora_final" value="%{consulta.hora_final}" />
-		
-	</s:form>
+
 
 <table border="1">
 	<tr>
        <td><b>ID Sala</b></td>
        <td><b>Nombre de la sala</b></td>
-       <td><b>Seleccionar</b></td>
     </tr>
 
 <s:iterator value="buffer_salas_disponibles" status="i">
@@ -97,7 +91,10 @@
 		<td><s:property value="nombre_sala"/></td>
 		<td>
 			<s:url action="goto_reservar_sala" var="url_modificar_sala">
-       			<s:param name = "qs_sala_id">${id_sala}</s:param>
+       			<s:param name = "consulta.fecha_consulta">${consulta.fecha_consulta}</s:param>
+       			<s:param name = "consulta.hora_inicial">${consulta.hora_inicial}</s:param>
+       			<s:param name = "consulta.hora_final">${consulta.hora_final}</s:param>
+       			<s:param name = "consulta.id_sala">${id_sala}</s:param>
 			</s:url>
 			<a class="more" href="${url_modificar_sala}">Seleccionar</a>
 		</td>
