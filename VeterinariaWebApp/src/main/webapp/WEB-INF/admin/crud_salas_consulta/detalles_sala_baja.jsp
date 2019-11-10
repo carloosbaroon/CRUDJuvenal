@@ -1,4 +1,4 @@
-[9:59, 9/11/2019] Luz Catzoli : <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
 <%@ taglib prefix="sb" uri="/struts-bootstrap-tags" %>
@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<title>Lista Salas</title>
+		<title>Datos Sala</title>
 		<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
@@ -21,6 +21,7 @@
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!---->
 		<script src="js/menu_jquery.js"></script>
+		
 	</head>
 <body> 
 <!--header-->	
@@ -62,7 +63,7 @@
 <div class="banner-head">
 	<div class="banner-1"> </div>
 		<div class="container">
-			<h1>Lista Salas</h1>	
+			<h1>Datos Sala</h1>	
 		</div>
 </div>
 <!--content-->
@@ -74,45 +75,17 @@
 			<div class="why-top-top">
 			
 				<div class="col-sm-4 top-content">
-					<s:url action="goto_admin_salas_jsp" var="regresar"/>
- 
-					<s:form action="goto_detalles_sala">
-							<s:textfield name="sala.id_sala" label="ID de la sala" />
-							<a class="more"><s:submit value="Buscar"/> </a>
-							<br> <br>
-						</s:form>
 					
-					<table border="1">
-						<tr>
-					       <td><b>ID Sala</b></td>
-					       <td><b>Nombre de la sala</b></td>
-					       <td><b>Estado de la sala</b></td>
-					       <td><b>Editar solo nombre</b></td>
-					       <td><b>Editar estado</b></td>
-					    </tr>
-					
-					<s:iterator value="buffer_salas" status="i">
-						<tr>
-							<td><s:property value="id_sala"/></td>
-							<td><s:property value="nombre_sala"/></td>
-							<td><s:property value="estado_sala"/></td>
-						
-							<td>
-								<s:url action="goto_detalles_sala" var="url_modificar_sala">
-					       			<s:param name = "qs_sala_id">${id_sala}</s:param>
-								</s:url>
-								<a class="more" href="${url_modificar_sala}">Editar</a>
-							</td>
-							<td>
-								<s:url action="dar_baja_sala" var="url_baja_sala">
-					       			<s:param name = "qs_sala_id">${id_sala}</s:param>
-								</s:url>		
-								<a class="more" href="${url_baja_sala}">Baja</a>
-							</td>
-						</tr>
-					</s:iterator>
-					</table>
-					<h4><a href="${regresar}">Regresar</a></h4>
+	<s:form action="actualizar_sala">		
+		<s:textfield name="sala.id_sala" label="ID sala" value="%{sala.id_sala}" readonly="true"/>
+		<s:textfield name="sala.nombre_sala" label="Nombre sala" value="%{sala.nombre_sala}"/>
+		<s:textfield name="sala.estado_sala" label="Estado sala" value="%{sala.estado_sala}"/>
+		
+		
+		<a class="more"> <s:submit value="Enviar"/> </a>
+	</s:form>
+	
+	
 				
 				</div>
 				<div class="clearfix"> </div>
@@ -120,6 +93,7 @@
 			
 		</div>
 	</div>
+	
 <!--footer-->
  	<div class="footer ">
  		<div class="footer-1"> </div>
