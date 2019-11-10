@@ -52,6 +52,7 @@
 	    	
 	    	<action name="finalPaciente" class="itesm.action_support.PacienteAction" method="crearPaciente">
 	    		<result name="success">WEB-INF/admin/crud_pacientes/pacienteRegistrado.jsp</result>
+	    		<result name="error">/WEB-INF/admin/crud_pacientes/error.jsp</result>
 	    	</action>    	
     	
     		<!-- Editar -->
@@ -68,12 +69,16 @@
 	    	</action>
     	   	
 	    	<action name="actualizar_paciente" class="itesm.action_support.PacienteAction" method="modificarPaciente">
-	    		<result name="success">/WEB-INF/admin/crud_pacientes/modificarPaciente.jsp</result>
+	    		<result name="success" type="redirectAction">
+	                <param name="actionName">buscar_pacientes</param>
+	                <param name="qs_id_propietario">${paciente.idOwner}</param>
+            	</result>
 	            <result name="error">/WEB-INF/admin/crud_pacientes/error.jsp</result>
 	    	</action>  
 	    	  	
 	    	<action name="dar_baja_paciente" class="itesm.action_support.PacienteAction" method="buscarPaciente">
 	    		<result name="success">WEB-INF/admin/crud_pacientes/confirmarBajaPaciente.jsp</result>
+	    		<result name="error">/WEB-INF/admin/crud_pacientes/error.jsp</result>
 	    	</action>
 	    	
 	    	<action name="confirmar_baja_paciente" class="itesm.action_support.PacienteAction" method="bajaPaciente">
@@ -81,6 +86,7 @@
 	                <param name="actionName">buscar_pacientes</param>
 	                <param name="qs_id_propietario">${paciente.idOwner}</param>
             	</result>
+            	<result name="error">/WEB-INF/admin/crud_pacientes/error.jsp</result>
 	    	</action>
     	
     	<!-- Paciente -->

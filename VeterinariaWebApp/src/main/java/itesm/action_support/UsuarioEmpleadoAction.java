@@ -14,7 +14,10 @@ import itesm.database.DAO_Interfaces.DAOUsuario;
 public class UsuarioEmpleadoAction extends ActionSupport{
 	private UsuarioBean usuario;
 	private EmpleadoBean empleado;
+	private String mensajeError;
 	
+	public String getMensajeError() {return mensajeError;}
+	public void setMensajeError(String mensajeError) {this.mensajeError = mensajeError;}
 	public UsuarioBean getUsuario() {return usuario;}
 	public void setUsuario(UsuarioBean usuario) {this.usuario = usuario;}
 	
@@ -43,10 +46,16 @@ public class UsuarioEmpleadoAction extends ActionSupport{
 		DAOUsuario daoUsuario = new DAOUsuarioImpl();
 		
 		try {
-			daoUsuario.editar(usuario);
-			daoEmpleado.editar(empleado);
+			if(usuario.getPassword().equals(usuario.getConfirmar_password()) && (!usuario.getPassword().equals("") || !usuario.getConfirmar_password().equals(""))) {
+				daoUsuario.editar(usuario);
+				daoEmpleado.editar(empleado);
+				return SUCCESS;
+			}else {
+				mensajeError = "Los Campos de Password no coinciden";
+				return ERROR;
+			}
 			
-			return SUCCESS;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ERROR;

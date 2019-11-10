@@ -167,23 +167,22 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
 	      
 	    	 establishConnection();
 	         conn = getCon();
-	         String sql = "SELECT * FROM usuario WHERE";
-	         sql+=" id_usuario = ?";
-	         PreparedStatement ps = conn.prepareStatement(sql);
-	         ps.setString(1, id);
-	         ResultSet rs = ps.executeQuery();
+	         System.out.println("ID: " + id);
+	         String sql = "SELECT * FROM usuario WHERE id_usuario = " + id;
+	         Statement ps = conn.createStatement();
+	         ResultSet rs = ps.executeQuery(sql);
 	         
-	         UsuarioBean usuario = null;
+	         UsuarioBean usuarioAux = null;
 	         
-	         while (rs.next()) {
-	        	 usuario = new UsuarioBean();
-	            usuario.setUsuarioID(rs.getString(1));
-	            usuario.setId_empleado_FK(rs.getString(2));
-	            usuario.setPassword(rs.getString(3));
-	            usuario.setConfirmar_password(rs.getString(4));
-	            usuario.setPrivilegios(rs.getString(5));
-	            usuario.setEstado(rs.getString(6));
-	            usuario.setIntentos(rs.getString(7));
+	         if(rs.next()) {
+	        	 usuarioAux = new UsuarioBean();
+	            usuarioAux.setUsuarioID(rs.getString(1));
+	            usuarioAux.setId_empleado_FK(rs.getString(2));
+	            usuarioAux.setPassword(rs.getString(3));
+	            usuarioAux.setConfirmar_password(rs.getString(4));
+	            usuarioAux.setPrivilegios(rs.getString(5));
+	            usuarioAux.setEstado(rs.getString(6));
+	            usuarioAux.setIntentos(rs.getString(7));
 	         }
 
 	         if (conn != null) {
@@ -194,7 +193,7 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario{
 	            }
 	         }
 	         
-	         return usuario;
+	         return usuarioAux;
 	}
 
 	@Override
