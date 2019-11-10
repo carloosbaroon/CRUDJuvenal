@@ -9,6 +9,7 @@ public class EmpleadoBean {
 	private String especialidad;
 	private String turno;
 	private String estado;
+	private String elegido;
 	
 	public String getEstado() {
 		return estado;
@@ -58,5 +59,11 @@ public class EmpleadoBean {
 	}
 	public void setId_empleado(String no_empleado) {
 		this.id_empleado = no_empleado;
+	}
+	public String getElegido() {
+		return elegido;
+	}
+	public void setElegido(String elegido) {
+		this.elegido = elegido;
 	}
 }

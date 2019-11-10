@@ -83,8 +83,8 @@
 					<b>Usuario: </b><s:property value="usuario.usuarioID"/><br>
 					<b>Password: </b><s:property value="usuario.password"/><br>
 					<b>Confirmación Password: </b> <s:property value="usuario.confirmar_password"/><br>
-					<b>ID_empleado_FK: </b> <s:property value="usuario.id_empleado_FK"/><br>
-					<b>Grupo: </b><s:property value="usuario.grupo"/><br>
+					
+	
 					<b>Estado: </b><s:property value="usuario.estado"/><br>
 					<h4><a href="${regresar}">Regresar</a> </h4>
 				

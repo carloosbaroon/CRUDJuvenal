@@ -1,6 +1,9 @@
 package itesm.action_support;
 
 import java.util.ArrayList;
+
+import org.apache.commons.lang.StringUtils;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import itesm.business.EmpleadoBean;
@@ -14,9 +17,12 @@ public class UsuarioAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private UsuarioBean usuario;
 	private EmpleadoBean empleadoBean;
-	private String mensajeError, qs_user_id;//Query String to get the url from the previous action
+	private String mensajeError, qs_user_id, empleado_id;//Query String to get the url from the previous action
+	
+	public String getEmpleado_id() {return empleado_id;}
 
-	private ArrayList<EmpleadoBean> buffer_empleado;
+	public void setEmpleado_id(String empleado_id) {this.empleado_id = empleado_id;}
+	
 	private ArrayList<UsuarioBean> buffer_usuarios;
 	
 	public void setUsuario(UsuarioBean usuario) {this.usuario = usuario;}
@@ -111,11 +117,13 @@ public class UsuarioAction extends ActionSupport {
 	
 	public String eliminarUsuario() {
 		//1. Verificamos que el usuario que nos estan pidiendo eliminar existe
+		DAOEmpleado daoEmpleado = new DAOEmpleadoImpl();
 		DAOUsuario daoUsuario = new DAOUsuarioImpl();
 		UsuarioBean usuario = new UsuarioBean();
 		usuario.setUsuarioID(this.qs_user_id);
 		
 		try {
+			daoEmpleado.editarDisponibilidad(this.empleado_id, 0);
 			daoUsuario.eliminarUsuario(usuario);
 			return SUCCESS;
 		} catch (Exception e) {
@@ -133,7 +141,6 @@ public class UsuarioAction extends ActionSupport {
 			this.setBuffer_usuarios(daoUsuario.consultar());
 			return SUCCESS;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return ERROR;
 		}
@@ -145,7 +152,6 @@ public class UsuarioAction extends ActionSupport {
 			this.usuario = daoUsuario.buscar(usuario.getUsuarioID());
 			return SUCCESS;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			mensajeError = "Usuario no encontrado";
 			return ERROR;

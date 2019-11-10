@@ -153,4 +153,27 @@ public class DAOEmpleadoImpl extends Conexion implements DAOEmpleado{
 		return null;
 	}
 
+	@Override
+	public void editarDisponibilidad(String id_empleado, int disponibilidad) throws Exception {
+		Connection conn = null;
+	      
+   	 	establishConnection();
+        conn = getCon();
+        String sql = "UPDATE empleado SET elegido = ? WHERE id_empleado = ?";
+                
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, Integer.toString(disponibilidad));
+        ps.setString(2, id_empleado);
+        
+        ps.execute();
+
+        if (conn != null) {
+           try {
+              closeConnection();
+           } catch (Exception e) {
+				e.printStackTrace();
+           }
+        }
+	}
+
 }

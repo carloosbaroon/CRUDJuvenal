@@ -32,7 +32,7 @@
     	
     	<action name="validar_campos_empleado" class="itesm.action_support.EmpleadoAction" method="registrarEmpleado">
     		<result name="success">WEB-INF/admin/crud_usuarios/empleadoRegistrado.jsp</result>
-    		<result name="error"></result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	
     	<action name="goto_baja_jsp" >
@@ -51,6 +51,7 @@
     	
     	<action name="goto_editar_usuario">
     		<result>WEB-INF/admin/crud_usuarios/buscarUsuarioEditar.jsp</result>
+    		<result name="error">WEB-INF/admin/errorCrearEmpleado.jsp</result>
     	</action>
     	
    		<action name="detalle_editar_usuario" class="itesm.action_support.PopulateDropDownLists" method="buscarUsuario_Empleado">
