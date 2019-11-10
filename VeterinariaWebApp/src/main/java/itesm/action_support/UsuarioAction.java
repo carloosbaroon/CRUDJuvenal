@@ -130,6 +130,7 @@ public class UsuarioAction extends ActionSupport {
 			e.printStackTrace();
 			//En caso de que no encuentre el registro que se va eliminar se reedirige
 			//a un jsp indicando al usuario el error
+			mensajeError = "Error al eliminar usuario";
 			return ERROR;
 		}
 	}
@@ -142,6 +143,7 @@ public class UsuarioAction extends ActionSupport {
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
+			mensajeError = "Error al listar usuarios";
 			return ERROR;
 		}
 	}
@@ -169,6 +171,7 @@ public class UsuarioAction extends ActionSupport {
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
+			mensajeError = "Error al actualizar estado";
 			return ERROR;
 		}
 	}

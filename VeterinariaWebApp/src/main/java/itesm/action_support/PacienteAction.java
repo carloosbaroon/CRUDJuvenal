@@ -52,6 +52,7 @@ public class PacienteAction extends ActionSupport {
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
+			mensajeError = "Error al crear paciente";
 			return ERROR;
 		}
 	}
@@ -80,6 +81,7 @@ public class PacienteAction extends ActionSupport {
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
+			mensajeError = "Error al modificar paciente";
 			return ERROR;
 		}	
 	}
@@ -108,6 +110,7 @@ public class PacienteAction extends ActionSupport {
 			e.printStackTrace();
 			//En caso de que no encuentre el registro que se va eliminar se reedirige
 			//a un jsp indicando al usuario el error
+			mensajeError = "Error al encontrar paciente";
 			return ERROR;
 		}
 	}
