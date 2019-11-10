@@ -76,11 +76,7 @@
 				<div class="col-sm-4 top-content">
 					<s:url action="goto_admin_salas_jsp" var="regresar"/>
  
-					<s:form action="goto_detalles_sala">
-							<s:textfield name="sala.id_sala" label="ID de la sala" />
-							<a class="more"><s:submit value="Buscar"/> </a>
-							<br> <br>
-						</s:form>
+					
 					
 					<table border="1">
 						<tr>
