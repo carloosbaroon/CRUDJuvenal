@@ -79,7 +79,10 @@
 	<s:form action="actualizar_sala">		
 		<s:textfield name="sala.id_sala" label="ID sala" value="%{sala.id_sala}" readonly="true"/>
 		<s:textfield name="sala.nombre_sala" label="Nombre sala" value="%{sala.nombre_sala}"/>
-		<s:textfield name="sala.estado_sala" label="Estado sala" value="%{sala.estado_sala}"/>
+		<s:select label="Estado de la Sala"
+		list="list_sala_estado"
+		name="sala.estado_sala"
+		/>
 		
 		
 		<a class="more"> <s:submit value="Enviar"/> </a>

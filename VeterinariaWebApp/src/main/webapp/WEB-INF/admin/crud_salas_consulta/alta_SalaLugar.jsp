@@ -77,7 +77,11 @@
 					<s:form action="validar_campos_sala">
 						
 						<s:textfield name="sala.nombre_sala" label="Nombre de la Sala" />
-						<s:textfield name="sala.estado_sala" label="Estado de la Sala" />
+						
+						<s:select label="Estado de la Sala"
+						list="list_sala_estado"
+						name="sala.estado_sala"
+						/>
 				
 						<a class="more"> <s:submit value="Enviar"/> </a>
 					</s:form>

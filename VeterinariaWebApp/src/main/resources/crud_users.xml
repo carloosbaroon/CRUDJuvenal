@@ -95,8 +95,8 @@
     		<result>WEB-INF/admin/crud_salas_consulta/admin_salas.jsp</result>
     	</action>
     	
-    	<action name="goto_alta_sala_jsp" class="itesm.action_support.SalaAction">
-    		<result>WEB-INF/admin/crud_salas_consulta/alta_SalaLugar.jsp</result>
+    	<action name="goto_alta_sala_jsp" class="itesm.action_support.SalaAction" method="fill">
+    		<result name="success">WEB-INF/admin/crud_salas_consulta/alta_SalaLugar.jsp</result>
     	</action>
     	
     	<action name="validar_campos_sala" class="itesm.action_support.SalaAction" method="registrarSala">

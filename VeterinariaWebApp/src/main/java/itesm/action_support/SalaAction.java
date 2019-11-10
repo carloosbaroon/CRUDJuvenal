@@ -17,6 +17,7 @@ public class SalaAction extends ActionSupport {
 	private ArrayList<SalaBean> buffer_salas;
 	private String mensajeError;
 	private String qs_sala_id;
+	private ArrayList<String> list_sala_estado;
 	
 	public String getQs_sala_id() {
 		return qs_sala_id;
@@ -28,6 +29,21 @@ public class SalaAction extends ActionSupport {
 	public void setSala(SalaBean sala) {this.sala = sala;}
 	public ArrayList<SalaBean> getBuffer_salas() {return buffer_salas;}
 	public void setBuffer_salas(ArrayList<SalaBean> buffer_salas) {this.buffer_salas = buffer_salas;}
+	
+	public ArrayList<String> getList_sala_estado() {
+		return list_sala_estado;
+	}
+	public void setList_sala_estado(ArrayList<String> list_sala_estado) {
+		this.list_sala_estado = list_sala_estado;
+	}
+	
+	public String fill(){
+		this.list_sala_estado = new ArrayList<String>();
+		this.list_sala_estado.add("disponible");
+		this.list_sala_estado.add("no disponible");
+		
+		return SUCCESS;
+	}
 	
 	public String registrarSala() throws Exception {
 		
@@ -72,10 +88,20 @@ public class SalaAction extends ActionSupport {
 		}
 	}*/
 	public String buscarSala() {
+		this.list_sala_estado = new ArrayList<String>();
 		DAOSalas daoSala = new DAOSalasImpl();
 		try {
 			System.out.println(this.qs_sala_id);
 			this.sala = daoSala.buscar(this.qs_sala_id);
+			if(sala.getEstado_sala().equals("disponible"))
+			{
+				this.list_sala_estado.add("disponible");
+				this.list_sala_estado.add("no disponible");
+			}else
+			{
+				this.list_sala_estado.add("no disponible");
+				this.list_sala_estado.add("disponible");
+			}
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

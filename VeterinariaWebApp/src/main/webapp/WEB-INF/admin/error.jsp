@@ -81,7 +81,7 @@
 					
 					<s:url action="welcome" var="goto_welcome"/>
 					<b><s:property value="mensajeError"/></b>
-					<!-- <h4><a href="${regresar}">Regresar</a></h4> -->
+					<h4><a href="${regresar}">Regresar</a></h4>
 				
 				</div>
 				<div class="clearfix"> </div>
