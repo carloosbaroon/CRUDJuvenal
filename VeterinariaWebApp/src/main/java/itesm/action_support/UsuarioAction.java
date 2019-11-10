@@ -17,7 +17,8 @@ public class UsuarioAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private UsuarioBean usuario;
 	private EmpleadoBean empleadoBean;
-	private String mensajeError, qs_user_id, empleado_id;//Query String to get the url from the previous action
+	private String mensajeError, qs_user_id, empleado_id, qs_bloquear_desbloquear;//Query String to get the url from the previous action
+
 	private ArrayList<String> list_estado_usuario_frontend;
 	
 	public ArrayList<String> getList_estado_usuario_frontend() {return list_estado_usuario_frontend;}
@@ -42,6 +43,11 @@ public class UsuarioAction extends ActionSupport {
 	public String getMensajeError() {return mensajeError;}
 	
 	public void setQs_user_id(String qs_user_id) {this.qs_user_id = qs_user_id;}
+	
+	public String getQs_user_id() {return qs_user_id;}
+	
+	public String getQs_bloquear_desbloquear() {return qs_bloquear_desbloquear;}
+	public void setQs_bloquear_desbloquear(String qs_bloquear_desbloquear) {this.qs_bloquear_desbloquear = qs_bloquear_desbloquear;}
 	
 	
 	public String validarLogin() {
@@ -158,18 +164,13 @@ public class UsuarioAction extends ActionSupport {
 	
 	public String buscarUsuario() {
 		DAOUsuario daoUsuario = new DAOUsuarioImpl();
-		//Implemenatación Pesima pero ya no habia tiempo
-		this.list_estado_usuario_frontend = new ArrayList<String>();		
-		this.list_estado_usuario_frontend.add("Activo");
-		this.list_estado_usuario_frontend.add("Bloqueado");
-		this.list_estado_usuario_frontend.add("Inactivo");
-		//************//
 		
 		try {
-			UsuarioBean usuarioAux = daoUsuario.buscar(usuario.getUsuarioID());
-			if(usuarioAux != null)
+			UsuarioBean usuarioAux = daoUsuario.buscar(this.qs_user_id);
+			if(usuarioAux != null) {
+				this.usuario = usuarioAux;
 				return SUCCESS;
-			else
+			} else
 				return ERROR;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -182,6 +183,22 @@ public class UsuarioAction extends ActionSupport {
 		
 		try {
 			if(usuario.getEstado().equals("Activo")) {
+				if(usuario.getPassword().contentEquals(usuario.getConfirmar_password()) && (!usuario.getPassword().equals("") || !usuario.getConfirmar_password().equals(""))){
+				
+					daoUsuario.actualizarEstado(usuario);
+					usuario.setIntentos(Integer.toString(5));
+					daoUsuario.actualizarIntentos(usuario);
+					daoUsuario.editar(usuario);
+					return SUCCESS;
+				} else if(usuario.getPassword().equals("") || usuario.getConfirmar_password().equals("")) {
+					mensajeError = "Ningun campo puede estar vacio";
+					return ERROR;
+				}
+				else {
+					mensajeError = "Los passwords no coinciden";
+					return ERROR;
+				}
+			} else {
 				daoUsuario.actualizarEstado(usuario);
 				usuario.setIntentos(Integer.toString(5));
 				daoUsuario.actualizarIntentos(usuario);

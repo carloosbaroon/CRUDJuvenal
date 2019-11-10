@@ -16,7 +16,12 @@ public class PopulateDropDownLists extends ActionSupport{
 	private EmpleadoBean empleado;
 	private ArrayList<String> list_empleados_frontend, list_grupos_privilegios_frontend, list_estado_usuario_frontend, list_estado_empleado_frontend;
 	private ArrayList<EmpleadoBean> buffer_empleado;
+	private String qs_bloquear_desbloquear, qs_user_id;
 	
+	public String getQs_user_id() {return qs_user_id;}
+	public void setQs_user_id(String qs_user_id) {this.qs_user_id = qs_user_id;}
+	public String getQs_bloquear_desbloquear() {return qs_bloquear_desbloquear;}
+	public void setQs_bloquear_desbloquear(String qs_bloquear_desbloquear) {this.qs_bloquear_desbloquear = qs_bloquear_desbloquear;}
 	public ArrayList<String> getList_empleados_frontend() {return list_empleados_frontend;}
 	public ArrayList<String> getList_grupos_privilegios_frontend() {return list_grupos_privilegios_frontend;}
 	public ArrayList<String> getList_estado_usuario_frontend() {return list_estado_usuario_frontend;}
@@ -29,10 +34,14 @@ public class PopulateDropDownLists extends ActionSupport{
 	
 	public String fill() {
 		//Estado Usuario
-		this.list_estado_usuario_frontend = new ArrayList<String>();		
-		this.list_estado_usuario_frontend.add("Activo");
-		this.list_estado_usuario_frontend.add("Bloqueado");
-		this.list_estado_usuario_frontend.add("Inactivo");
+		if(this.qs_bloquear_desbloquear.equals("Bloquear")) {
+			this.list_estado_usuario_frontend = new ArrayList<String>();		
+			this.list_estado_usuario_frontend.add("Bloqueado");
+		} else {
+			//Implemenatación Pesima pero ya no habia tiempo
+			this.list_estado_usuario_frontend = new ArrayList<String>();		
+			this.list_estado_usuario_frontend.add("Activo");
+		}
 		//Estado Empleado
 		this.list_estado_empleado_frontend = new ArrayList<String>();
 		this.list_estado_empleado_frontend.add("Activo");

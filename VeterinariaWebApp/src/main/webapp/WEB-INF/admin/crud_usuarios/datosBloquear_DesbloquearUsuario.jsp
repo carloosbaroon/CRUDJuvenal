@@ -1,21 +1,22 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="sb" uri="/struts-bootstrap-tags" %>
+<!DOCTYPE html>
 <html>
 	<head>
-	    <title>Validar ID Status</title>
-	    <link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="js/jquery.min.js"></script>
-		<!-- Custom Theme files -->
-		<!--theme-style-->
-		<link href="styles/style.css" rel="stylesheet" type="text/css" media="all" />	
-		<!--//theme-style-->
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-		<!---->
-		<script src="js/menu_jquery.js"></script>
+		<title>Datos del empleado editar</title>
+		<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+				<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+				<script src="js/jquery.min.js"></script>
+				<!-- Custom Theme files -->
+				<!--theme-style-->
+				<link href="styles/style.css" rel="stylesheet" type="text/css" media="all" />	
+				<!--//theme-style-->
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+				<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+				<!---->
+				<script src="js/menu_jquery.js"></script>
 	</head>
 	<body>
 		<div class="header">
@@ -57,7 +58,7 @@
 	<div class="banner-1"> </div>
 		<div class="container">
 			<br>
-			<h1>AdministraciÃ³n Usuarios</h1>	
+			<h1>Administración Usuarios</h1>	
 		</div>
 </div>
 <!--content-->
@@ -69,16 +70,27 @@
 			<div class="why-top-top">
 			
 				<div class="col-sm-4 top-content">
-					<s:form action="finalMoficarStatus">
-					<s:textfield name="usuario.usuarioID" value="%{usuario.usuarioID}" readonly="true" label="ID Usuario"/>
-					   <s:select label="Estado"
-						headerValue="Elige un estado" 
-						headerKey="-1"
-						list="list_estado_usuario_frontend"
-						name="usuario.estado"
-						/>
-					    <s:submit value="Actualizar Estado" />
-					</s:form>			
+						
+						<s:textfield name="usuario.usuarioID" label="Usuario" value="%{usuario.usuarioID}" readonly="true"/>
+						<s:textfield name="usuario.password" label="Password" value="%{usuario.password}" readonly="true"/>
+						<s:textfield name="usuario.privilegios" label="Priviegios" value="%{usuario.privilegios}" readonly="true"/>
+						<s:textfield name="usuario.estado" label="Priviegios" value="%{usuario.estado}" readonly="true"/>
+					
+						<s:url action="bloquear" var="url_bloquear">
+							<s:param name="qs_user_id">${usuario.usuarioID}</s:param>							
+							<s:param name="qs_bloquear_desbloquear">Bloquear</s:param>
+						</s:url>
+						<s:url action="desbloquear" var="url_desbloquear">
+							<s:param name="qs_user_id">${usuario.usuarioID}</s:param>
+							<s:param name="qs_bloquear_desbloquear">Desbloquear</s:param>
+						</s:url>
+						<div>
+							<s:a href="%{url_bloquear}">Bloquear</s:a>
+						</div>
+						<div>
+							<s:a href="%{url_desbloquear}">Desbloquear</s:a>
+						</div>
+
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -94,7 +106,7 @@
 		<div class="container">
 		  <div class="footer_top">
 		  	<div class="col-md-3 footer-head">
-				<h4>NavegaciÃ³n</h4>
+				<h4>Navegación</h4>
 				  <ul class="list1">
 				  	  <li class="active"><a href="${goto_welcome}">Inicio</a></li>
 					   	 <li><a href="${goto_crear_admin}">Crear Administrador</a></li>
@@ -104,24 +116,14 @@
 		  	
 		
 			<div class="col-md-3 footer-head1">
-			  	<h4>UbicaciÃ³n</h4>
-             	<p>Avenida Eduardo Monroy CÃ¡rdenas 2000 San Antonio Buenavista, 50110 Toluca de Lerdo, MÃ©x</p>
+			  	<h4>Ubicación</h4>
+             	<p>Avenida Eduardo Monroy Cárdenas 2000 San Antonio Buenavista, 50110 Toluca de Lerdo, Méx</p>
               	
 			</div>
 			<div class="clearfix"> </div>
 	 	</div>
 		</div>
 </div>
+		
 	</body>
 </html>
-
-<!-- <s:form action="finalMoficarStatus">
-	<s:textfield name="usuario.usuarioID" value="%{usuario.usuarioID}" readonly="true" label="ID Usuario"/>
-   <s:select label="Estado"
-	headerValue="Elige un estado" 
-	headerKey="-1"
-	list="list_estado_usuario_frontend"
-	name="usuario.estado"
-	/>
-    <s:submit value="Actualizar Estado" />
-</s:form> -->
