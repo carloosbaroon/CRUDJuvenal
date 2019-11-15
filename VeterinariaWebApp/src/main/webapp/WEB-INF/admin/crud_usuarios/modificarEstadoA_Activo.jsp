@@ -71,8 +71,8 @@
 				<div class="col-sm-4 top-content">
 					<s:form action="finalMoficarStatus">
 					<s:textfield name="usuario.usuarioID" value="%{qs_user_id}" readonly="true" label="ID Usuario"/>
-						<s:textfield name="usuario.password"/>
-						<s:textfield name="usuario.confirmar_password"/>
+						<s:textfield name="usuario.password" label="Password"/>
+						<s:textfield name="usuario.confirmar_password" label="Confirmar Password"/>
 					   <s:select label="Estado"
 						list="list_estado_usuario_frontend"
 						name="usuario.estado"

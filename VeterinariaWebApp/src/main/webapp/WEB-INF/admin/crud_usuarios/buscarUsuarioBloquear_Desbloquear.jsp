@@ -72,10 +72,10 @@
 					<s:url action="goto_admin_usuarios_jsp" var="regresar"/>
 					<s:form action="detalle_usuario_bloquear_desbloquear">
 					    <s:textfield name="qs_user_id" label="Id Usuario"/>
-					    <s:submit value="Enviar" />
+					    <a class="more"> <s:submit value="Enviar"/> </a>
 					</s:form>
 					
-					<a href="${regresar}">Regresar</a> 
+					<h4><a href="${regresar}">Regresar</a> </h4>
 				</div>
 				<div class="clearfix"> </div>
 			</div>

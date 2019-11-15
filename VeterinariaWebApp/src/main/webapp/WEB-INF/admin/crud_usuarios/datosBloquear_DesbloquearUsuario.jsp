@@ -85,10 +85,10 @@
 							<s:param name="qs_bloquear_desbloquear">Desbloquear</s:param>
 						</s:url>
 						<div>
-							<s:a href="%{url_bloquear}">Bloquear</s:a>
+							<h4><s:a href="%{url_bloquear}">Bloquear</s:a></h4>
 						</div>
 						<div>
-							<s:a href="%{url_desbloquear}">Desbloquear</s:a>
+							<h4><s:a href="%{url_desbloquear}">Desbloquear</s:a></h4>
 						</div>
 
 				</div>
