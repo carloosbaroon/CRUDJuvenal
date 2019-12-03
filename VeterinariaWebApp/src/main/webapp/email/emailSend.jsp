@@ -12,8 +12,8 @@
       </em>
       
       <form action = "emailer" method = "post">
-         <label for = "to">To</label><br/>
-         <input type = "text" name = "to"/><br/>
+      
+       
          <label for = "subject">Subject</label><br/>
          <input type = "text" name = "subject"/><br/>
          <label for = "body">Body</label><br/>

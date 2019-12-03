@@ -79,7 +79,10 @@ public class EmailHelper {
 //	   String fileAttachment = "C:/TMP/Test.jsp";
 	   body = header + body;
 	   String estatus = "continue";
+	   System.out.println("Como se envia to:" + to);
+	   to = "carlostectol@gmail.com";
 	   String[] recipient = to.split(";");
+	   
 	   
 	    	InitialContext initContext = new InitialContext(); 
 	    	Session session = (Session) initContext.lookup("java:comp/env/mail/gmailSession");
