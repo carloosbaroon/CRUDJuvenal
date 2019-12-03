@@ -39,6 +39,12 @@
         	<result name="Usuario">WEB-INF/admin/menuUser.jsp</result>
         	<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
+    	<action name = "emailer" 
+         class = "com.util.Emailer"
+         method = "execute">
+         <result name = "success">success.jsp</result>
+         <result name = "error">error.jsp</result>
+      </action>
     	
     	
     </package>    
