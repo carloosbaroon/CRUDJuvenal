@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import itesm.business.ConsultaBean;
+import itesm.business.PacienteBean;
 import itesm.business.SalaBean;
 import itesm.database.Conexion;
 import itesm.database.DAO_Interfaces.DAOConsulta;
@@ -42,6 +43,49 @@ public class DAOConsultaImpl extends Conexion implements DAOConsulta{
 				e.printStackTrace();
            }
         }
+		
+	}
+	
+	public ArrayList<ConsultaBean> consultaGeneral() throws Exception{
+		ArrayList<ConsultaBean> bufferConsultas = new ArrayList<ConsultaBean>();
+		String sql = "";
+		
+	      Connection conn = null;
+	      
+	    	 establishConnection();
+	         conn = getCon();
+	        
+        	 sql = "SELECT * FROM consultas";
+	         PreparedStatement ps = conn.prepareStatement(sql);
+	
+	  
+	         ResultSet rs = ps.executeQuery();
+
+	         while (rs.next()) {
+	        	ConsultaBean consulta = new ConsultaBean();
+	        	
+	        	consulta.setId_consulta(rs.getString(1));
+	        	consulta.setFecha_consulta(rs.getString(2));
+	        	consulta.setHora_inicial(rs.getString(3));	            
+	        	consulta.setHora_final(rs.getString(4));
+	        	consulta.setId_empleado(rs.getString(5));
+	        	consulta.setId_sala(rs.getString(6));
+	        	consulta.setId_paciente(rs.getString(7));
+	        	consulta.setObservaciones(rs.getString(8));
+	        	consulta.setEstado_consulta(rs.getString(9));
+	        	
+	            bufferConsultas.add(consulta);
+	         }
+
+	         if (conn != null) {
+	            try {
+	               closeConnection();
+	            } catch (Exception e) {
+					e.printStackTrace();
+	            }
+	         }
+	      
+	      return bufferConsultas;
 		
 	}
 

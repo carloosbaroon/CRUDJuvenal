@@ -1,5 +1,8 @@
 package com.quartz;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import javax.mail.Message;
 import javax.mail.Multipart;
 import javax.mail.Session;
@@ -14,14 +17,34 @@ import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
+import itesm.business.ConsultaBean;
+import itesm.business.SalaBean;
+import itesm.database.DAO_Implementation.DAOConsultaImpl;
+import itesm.database.DAO_Implementation.DAOSalasImpl;
+import itesm.database.DAO_Interfaces.DAOSalas;
+
 public class SchedulerJob implements Job {
+	private ArrayList<ConsultaBean> bufferConsultas;
+	
 	public void execute(JobExecutionContext context) throws JobExecutionException {
 		try {
+			buscarConsultas();
 			sendHtmlMail();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public ArrayList<ConsultaBean> buscarConsultas() throws Exception{
+		DAOConsultaImpl daoConsulta = new DAOConsultaImpl();
+		
+		this.bufferConsultas = daoConsulta.consultaGeneral();
+		System.out.println(Arrays.toString(bufferConsultas.toArray()));
+		
+		return bufferConsultas;
+	
+		
 	}
 	
 	public void sendHtmlMail() throws Exception{
