@@ -87,6 +87,7 @@ Create table Cancelaciones (
 	id_consulta Int,
     id_sala Int NOT NULL,
     id_paciente Int NOT NULL,
+    fecha Date NOT NULL,
 	hora_entrada Time,
     hora_salida Time,
     detalle VARCHAR (500),

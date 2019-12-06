@@ -94,17 +94,17 @@ public class AtencionAction extends ActionSupport{
 	}
 	
 	
-	public String revisarDisponibilidad()
+	public String revisarDisponibilidadNow()
 	{
 		String datesyst = dateSystem();
 		String timesyst = timeSystem();
 		String timeaprox = timeAprox();
-		//DAOConsulta daoConsulta = new DAOConsultaImpl();
+		
+		DAOConsulta daoConsulta = new DAOConsultaImpl();
 		System.out.println(datesyst);
 		System.out.println(timesyst);
 		System.out.println(timeaprox);
-		return SUCCESS;
-		/*try {
+		try {
 			this.buffer_salas_disponibles = daoConsulta.consultarDisponibles(datesyst, timesyst, timesyst);
 			
 			if(buffer_salas_disponibles != null)
@@ -124,7 +124,11 @@ public class AtencionAction extends ActionSupport{
 			e.printStackTrace();
 			mensajeError = "Error al mostrar la lista de Salas";
 			return ERROR;
-		}*/
+		}
+	}
+	public String preRegistrarAtencion() {
+		System.out.println(atencion.getFecha());
+		return SUCCESS;
 	}
 
 }
