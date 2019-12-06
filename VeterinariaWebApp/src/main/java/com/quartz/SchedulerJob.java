@@ -51,10 +51,11 @@ public class SchedulerJob implements Job {
 	    	  String idPaciente = bean.getId_consulta();
 	    	  String observacion = bean.getObservaciones();
 	    	  String estado = bean.getEstado_consulta();
+	    	  String correo = bean.getCorreo();
 	    	  
 	    	  System.out.println(" " + bean.getId_paciente());
 	    	  System.out.println(" " + bean.getHora_inicial());
-	    	  sendHtmlMail(idConsulta, fechaConsulta, horaInicial, horaFinal, idEmpleado, idSala, idPaciente, observacion, estado);
+	    	  sendHtmlMail(idConsulta, fechaConsulta, horaInicial, horaFinal, idEmpleado, idSala, idPaciente, observacion, estado, correo);
 	      }
 		
 		
@@ -63,7 +64,7 @@ public class SchedulerJob implements Job {
 		
 	}
 	
-	public void sendHtmlMail(String idConsulta, String fechaConsulta, String horaInicial, String horaFinal, String idEmpleado, String idSala, String idPaciente, String observacion, String estado) throws Exception{
+	public void sendHtmlMail(String idConsulta, String fechaConsulta, String horaInicial, String horaFinal, String idEmpleado, String idSala, String idPaciente, String observacion, String estado, String correo) throws Exception{
 		//System.out.println("Struts 2 + Quartz 2");
 				String header = "<!DOCTYPE html><html><head><style>"+
 						  "/* Font Definitions */"+
@@ -131,7 +132,7 @@ public class SchedulerJob implements Job {
 				
 				
 				String body = "Su consulta No: " + idConsulta + "\nCon la fecha: " + fechaConsulta + "\nA la hora: "+ horaInicial + "\nY finaliza a las: " + horaFinal + "\nEn la sala No: " + idSala + "\nCon el paciente: " + idPaciente + "\nCon las siguientes observaciones: " + observacion;
-				String to = "carlostectol@gmail.com";
+				String to = correo;
 				String subject = "test";
 				body = header + body;
 				   String estatus = "continue";
