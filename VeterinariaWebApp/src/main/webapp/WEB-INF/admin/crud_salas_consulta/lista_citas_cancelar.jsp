@@ -94,7 +94,7 @@
 							<td><s:property value="hora_inicial"/></td>
 							<td><s:property value="id_sala"/></td>
 							<td><s:property value="id_paciente"/></td>
-							<td><s:property value="Estado"/></td>
+							<td><s:property value="estado_consulta"/></td>
 						
 							<td>
 								<s:url action="cancelar_cita" var="url_cancelar_cita">

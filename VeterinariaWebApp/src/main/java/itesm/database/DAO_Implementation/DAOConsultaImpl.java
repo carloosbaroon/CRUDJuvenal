@@ -66,9 +66,12 @@ public class DAOConsultaImpl extends Conexion implements DAOConsulta{
 	        	
 	        	consulta.setId_consulta(rs.getString(1));
 	        	consulta.setFecha_consulta(rs.getString(2));
-	        	consulta.setHora_inicial(rs.getString(3));
+	        	consulta.setHora_inicial(rs.getString(3));	            
+	        	consulta.setHora_final(rs.getString(4));
+	        	consulta.setId_empleado(rs.getString(5));
 	        	consulta.setId_sala(rs.getString(6));
 	        	consulta.setId_paciente(rs.getString(7));
+	        	consulta.setObservaciones(rs.getString(8));
 	        	consulta.setEstado_consulta(rs.getString(9));
 	        	
 	            bufferConsultas.add(consulta);
