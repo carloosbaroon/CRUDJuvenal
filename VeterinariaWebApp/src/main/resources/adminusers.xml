@@ -23,7 +23,7 @@
         
         <action name="bajaUsuario" class="com.users.BajaUsersAction">
             <result name="success">/WEB-INF/users/finBajaUsuario.jsp</result>
-            <result name="error">/WEB-INF/users/error.jsp</result>
+            <result name="error">/WEB-INF/users/errorBaja.jsp</result>
         </action>
         
         <action name="validarID" class="com.users.ValidarID" method="init">
@@ -50,7 +50,7 @@
         
         <action name="editarUsuarios" class="com.users.EditarUsersAction">
             <result name="success">/WEB-INF/users/finEditarUsuario.jsp</result>
-            <result name="error">/WEB-INF/users/error.jsp</result>
+            <result name="error">/WEB-INF/users/errorEditar.jsp</result>
         </action>
         
   

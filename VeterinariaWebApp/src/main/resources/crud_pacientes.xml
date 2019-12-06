@@ -27,12 +27,12 @@
 	    	
 	    	<action name="detalle_editar_owner" class="itesm.action_support.OwnerAction" method="buscarOwner">
 	 			<result name="success">WEB-INF/admin/crud_pacientes/datosEditarOwner.jsp</result>
-	    		<result name="error">WEB-INF/admin/error.jsp</result>
+	    		<result name="error">WEB-INF/admin/errorValidar.jsp</result>
 	    	</action>
 	    	
 	    	<action name="actualizar_owner" class="itesm.action_support.OwnerAction" method="actualizarOwner">
 	    		<result name="success">WEB-INF/admin/borrar_success.jsp</result>
-	    		<result name="error">WEB-INF/admin/error.jsp</result>
+	    		<result name="error">WEB-INF/admin/errorValidar.jsp</result>
 	    	</action>
     	
     	<!-- Owner -->
