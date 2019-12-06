@@ -29,7 +29,7 @@ public class QuartzSchedulerListener implements ServletContextListener {
 			  .newTrigger()
 			  .withIdentity("anyTriggerName", "group1")
 			  .withSchedule(
-			     CronScheduleBuilder.cronSchedule("0 * 13 * * ?"))
+			     CronScheduleBuilder.cronSchedule("0 * 14 * * ?"))
 			  .build();
 
 			Scheduler scheduler = new StdSchedulerFactory().getScheduler();

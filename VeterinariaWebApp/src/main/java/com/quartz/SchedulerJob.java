@@ -1,7 +1,9 @@
 package com.quartz;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Iterator;
 
 import javax.mail.Message;
@@ -38,24 +40,49 @@ public class SchedulerJob implements Job {
 	
 	public ArrayList<ConsultaBean> buscarConsultas() throws Exception{
 		DAOConsultaImpl daoConsulta = new DAOConsultaImpl();
+			
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
-		this.bufferConsultas = daoConsulta.consultaGeneral();	
+		//SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");  
+	    Date dateSystem = new Date(); 
+	    
+	    this.bufferConsultas = daoConsulta.consultaGeneral();
 		
 		for(ConsultaBean bean: bufferConsultas) {
-	    	  String idConsulta = bean.getId_consulta();
-	    	  String fechaConsulta = bean.getFecha_consulta();
-	    	  String horaInicial = bean.getHora_inicial();
-	    	  String horaFinal = bean.getHora_final();
-	    	  String idEmpleado = bean.getId_empleado();
-	    	  String idSala = bean.getId_sala();
-	    	  String idPaciente = bean.getId_consulta();
-	    	  String observacion = bean.getObservaciones();
-	    	  String estado = bean.getEstado_consulta();
-	    	  String correo = bean.getCorreo();
-	    	  
-	    	  System.out.println(" " + bean.getId_paciente());
-	    	  System.out.println(" " + bean.getHora_inicial());
-	    	  sendHtmlMail(idConsulta, fechaConsulta, horaInicial, horaFinal, idEmpleado, idSala, idPaciente, observacion, estado, correo);
+			
+			String idConsulta = bean.getId_consulta();
+			String fechaConsulta = bean.getFecha_consulta();
+			String horaInicial = bean.getHora_inicial();
+			String horaFinal = bean.getHora_final();
+			String idEmpleado = bean.getId_empleado();
+			String idSala = bean.getId_sala();
+			String idPaciente = bean.getId_consulta();
+			String observacion = bean.getObservaciones();
+			String estado = bean.getEstado_consulta();
+			String correo = bean.getCorreo();
+			
+			Date fecha = sdf.parse(fechaConsulta);
+			
+			String fecha1 = sdf.format(dateSystem);
+			String fecha2 = sdf.format(fecha);
+			
+			String[] fecha1Split = fecha1.split("-");
+			String[] fecha2Split = fecha2.split("-");
+			
+			int fecha1Int = Integer.parseInt(fecha1Split[2]);
+			int fecha2Int = Integer.parseInt(fecha2Split[2]);
+			
+			System.out.println(" " + fecha1Int);
+			System.out.println(" " + fecha2Int);
+			//System.out.println(" " + bean.getId_paciente());
+			//System.out.println("Hora sin cambio " + fechaConsulta);
+			//System.out.println("Date System: " + sdf.format(dateSystem));
+			//System.out.println("Hora con cambio: " + sdf.format(fecha));
+			
+			if (((fecha2Int - 2) == fecha1Int) || ((fecha2Int - 1) == fecha1Int) || ((fecha2Int) == fecha1Int)) {
+				sendHtmlMail(idConsulta, fechaConsulta, horaInicial, horaFinal, idEmpleado, idSala, idPaciente, observacion, estado, correo);
+	        }
+			
 	      }
 		
 		
