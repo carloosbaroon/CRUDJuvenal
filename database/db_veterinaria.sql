@@ -47,7 +47,6 @@ Create table Propietario (
 	direccion Varchar(30) NOT NULL,
 	telefono Varchar(20) NOT NULL,
 	rfc Varchar(20) NOT NULL,
-    correo Varchar(30) NOT NULL,
  Primary Key (id_propietario)) ENGINE = MyISAM;
 
 Create table Paciente (
@@ -73,6 +72,7 @@ Create table Consultas (
 	id_empleado Int NOT NULL,
 	id_sala Int NOT NULL,
 	id_paciente Int NOT NULL,
+    correo VARCHAR (30) NOT NULL,
     observaciones VARCHAR (100),
     estado VARCHAR (20) NOT NULL,
 Primary Key (id_consulta)) ENGINE = MyISAM;

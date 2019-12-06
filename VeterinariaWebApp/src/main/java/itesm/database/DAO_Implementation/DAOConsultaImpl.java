@@ -22,8 +22,8 @@ public class DAOConsultaImpl extends Conexion implements DAOConsulta{
    	 	establishConnection();
         conn = getCon();
         
-        String sql ="INSERT INTO consultas (fecha, hora_inicial, hora_final, id_empleado, id_sala, id_paciente, observaciones, estado)";
-        sql+="VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql ="INSERT INTO consultas (fecha, hora_inicial, hora_final, id_empleado, id_sala, id_paciente, correo, observaciones, estado)";
+        sql+="VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, consulta.getFecha_consulta());
         ps.setString(2, consulta.getHora_inicial());
@@ -31,8 +31,9 @@ public class DAOConsultaImpl extends Conexion implements DAOConsulta{
         ps.setString(4, consulta.getId_empleado());
         ps.setString(5, consulta.getId_sala());
         ps.setString(6, consulta.getId_paciente());
-        ps.setString(7, consulta.getObservaciones());
-        ps.setString(8, consulta.getEstado_consulta());
+        ps.setString(7, consulta.getCorreo());
+        ps.setString(8, consulta.getObservaciones());
+        ps.setString(9, consulta.getEstado_consulta());
 		
         ps.execute();
 
@@ -71,8 +72,9 @@ public class DAOConsultaImpl extends Conexion implements DAOConsulta{
 	        	consulta.setId_empleado(rs.getString(5));
 	        	consulta.setId_sala(rs.getString(6));
 	        	consulta.setId_paciente(rs.getString(7));
-	        	consulta.setObservaciones(rs.getString(8));
-	        	consulta.setEstado_consulta(rs.getString(9));
+	        	consulta.setCorreo(rs.getString(8));
+	        	consulta.setObservaciones(rs.getString(9));
+	        	consulta.setEstado_consulta(rs.getString(10));
 	        	
 	            bufferConsultas.add(consulta);
 	         }

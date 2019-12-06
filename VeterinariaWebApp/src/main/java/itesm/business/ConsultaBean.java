@@ -9,6 +9,7 @@ public class ConsultaBean {
 	private String id_empleado;
 	private String id_sala;
 	private String id_paciente;
+	private String correo;
 	private String observaciones;
 	private String estado_consulta;
 	
@@ -53,6 +54,12 @@ public class ConsultaBean {
 	}
 	public void setId_paciente(String id_paciente) {
 		this.id_paciente = id_paciente;
+	}
+	public String getCorreo() {
+		return correo;
+	}
+	public void setCorreo(String correo) {
+		this.correo = correo;
 	}
 	public String getObservaciones() {
 		return observaciones;

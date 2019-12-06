@@ -81,6 +81,7 @@
 		<s:textfield name="consulta.id_empleado" label="Id del empleado" />
 		<s:textfield name="consulta.id_sala" label="Id de la sala" value="%{consulta.id_sala}" readonly="true"/>
 		<s:textfield name="consulta.id_paciente" label="Id del paciente" />
+		<s:textfield name="consulta.correo" label="Correo " />
 		<s:textfield name="consulta.observaciones" label="Observaciones" />
 		<s:textfield name="consulta.estado_consulta" label="Estado" value="Programado"/>
 
