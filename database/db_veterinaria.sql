@@ -77,12 +77,18 @@ Create table Consultas (
     estado VARCHAR (20) NOT NULL,
 Primary Key (id_consulta)) ENGINE = MyISAM;
 
+Create table Cancelaciones (
+	id_consulta Int NOT NULL,
+	fecha Date NOT NULL,
+    motivo VARCHAR (100)) ENGINE = MyISAM;
+
 
 Alter table Usuario add Foreign Key (id_empleado) references Empleado (id_empleado);
 Alter table Consultas add Foreign Key (id_empleado) references Empleado (id_empleado);
 Alter table Paciente add Foreign Key (id_propietario) references Propietario (id_propietario);
 Alter table Consultas add Foreign Key (id_paciente) references Paciente (id_paciente);
 Alter table Consultas add Foreign Key (id_sala) references Sala (id_sala);
+Alter table Cancelaciones add Foreign Key (id_consulta) references Consultas (id_consulta);
 
 
 /* Users permissions */

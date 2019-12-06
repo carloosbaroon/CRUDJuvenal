@@ -77,8 +77,8 @@
 				<div class="col-sm-4 top-content">
 					
 	<s:form action="actualizar_cita">		
-		<s:textfield name="consulta.id_consulta" label="ID sala" value="%{qs_consulta_id}" readonly="true"/>
-		<s:textfield name="consulta.observaciones" label="Motivo" value="%{consulta.observaciones}"/>
+		<s:textfield name="qs_consulta_id" label="ID sala" value="%{qs_consulta_id}" readonly="true"/>
+		<s:textfield name="motivo" label="Motivo" value="%{consulta.observaciones}"/>
 		
 		
 		

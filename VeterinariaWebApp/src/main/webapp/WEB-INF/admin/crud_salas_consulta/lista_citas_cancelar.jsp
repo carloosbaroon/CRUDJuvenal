@@ -97,7 +97,7 @@
 							<td><s:property value="estado_consulta"/></td>
 						
 							<td>
-								<s:url action="cancelar_cita" var="url_cancelar_cita">
+								<s:url action="id_consulta" var="url_cancelar_cita">
 					       			<s:param name = "qs_consulta_id">${id_consulta}</s:param>
 								</s:url>
 								<a class="more" href="${url_cancelar_cita}">Cancelar</a>

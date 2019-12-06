@@ -31,7 +31,14 @@ public class ConsultaAction extends ActionSupport{
 	private String mensajeError;
 	private String qs_sala_id;
 	private String idPropietario;
+	private String qs_consulta_id;
 	
+	public String getQs_consulta_id() {
+		return qs_consulta_id;
+	}
+	public void setQs_consulta_id(String qs_consulta_id) {
+		this.qs_consulta_id = qs_consulta_id;
+	}
 	public String getIdPropietario() {
 		return idPropietario;
 	}
@@ -151,6 +158,10 @@ public class ConsultaAction extends ActionSupport{
 			mensajeError = "Error al mostrar la lista de Citas";
 			return ERROR;
 		}
+	}
+	public String interCancelar() {
+		System.out.println(qs_consulta_id);
+		return SUCCESS;
 	}
 
 }
