@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib prefix="sb" uri="/struts-bootstrap-tags" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>Menu Admin</title>
-		<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<title>Administración de Atenciones</title>
+	<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
 		<!-- Custom Theme files -->
@@ -19,7 +19,7 @@
 		<script src="js/menu_jquery.js"></script>
 	</head>
 	<body>
-	<div class="header">
+		<div class="header">
 	<div class="container">
 		 <div class="logo">
 		  	<a href="index.html"><img src="images/logof.jpeg" alt="" ></a>
@@ -58,7 +58,7 @@
 	<div class="banner-1"> </div>
 		<div class="container">
 			<br>
-			<h1>Menu Administrador</h1>	
+			<h1>Administración de salas</h1>	
 		</div>
 </div>
 <!--content-->
@@ -70,16 +70,13 @@
 			<div class="why-top-top">
 			
 				<div class="col-sm-4 top-content">
-					<s:url action="welcome" var="regresar"/>
-					<s:url action="goto_admin_usuarios_jsp" var="admin_usuarios"/>
-					<s:url action="goto_admin_pacientes_jsp" var="admin_pacientes"/>
-					<s:url action="goto_admin_salas_jsp" var="admin_sala"/>
-					<s:url action="goto_admin_atenciones_jsp" var="admin_atenciones"/>
+					<s:url action="goto_atencion_con_cita_jsp" var="aten_con_cita"/>
+					<s:url action="goto_atencion_sin_cita_jsp" var="aten_sin_cita"/>
+					<s:url action="goto_finalizar_atencion_jsp" var="fin_atencion"/>
 					
-					<h4><a href="${admin_usuarios}">Administración de Usuarios</a></h4>
-					<h4><a href="${admin_pacientes}">Administración de Pacientes</a></h4>
-					<h4><a href="${admin_sala}">Administración de Salas</a></h4> 
-					<h4><a href="${admin_atenciones}">Administración de Atenciones</a></h4> 
+					<h4><a href="${aten_con_cita}">Atender con Cita</a></h4>
+					<h4><a href="${aten_sin_cita}">Atender sin Cita</a></h4>
+					<h4><a href="${fin_atencion}">Finalizar Atencion</a></h4>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -113,17 +110,5 @@
 	 	</div>
 		</div>
 </div>
- 	<!--//footer-->
 	</body>
 </html>
-
-<!-- <h1>Menu</h1>
-		
-		<s:url action="goto_admin_usuarios_jsp" var="admin_usuarios"/>
-		<s:url action="goto_admin_pacientes_jsp" var="admin_pacientes"/>
-		<s:url action="goto_admin_salas_jsp" var="admin_sala"/>
-	
-		
-		<p><a href="${admin_usuarios}">Administración de Usuarios</a></p>
-		<p><a href="${admin_pacientes}">Administración de Pacientes</a></p>
-		<p><a href="${admin_sala}">Administración de Salas</a></p> -->

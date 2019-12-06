@@ -85,6 +85,7 @@ Create table Cancelaciones (
     Create table Atenciones (
     id_atencion Int NOT NULL AUTO_INCREMENT,
 	id_consulta Int,
+    id_sala Int NOT NULL,
     id_paciente Int NOT NULL,
 	hora_entrada Time,
     hora_salida Time,
@@ -101,6 +102,7 @@ Alter table Consultas add Foreign Key (id_sala) references Sala (id_sala);
 Alter table Cancelaciones add Foreign Key (id_consulta) references Consultas (id_consulta);
 Alter table Atenciones add Foreign Key (id_consulta) references Consultas (id_consulta);
 Alter table Atenciones add Foreign Key (id_paciente) references Paciente (id_paciente);
+Alter table Atenciones add Foreign Key (id_sala) references Sala (id_sala);
 
 
 /* Users permissions */
