@@ -99,7 +99,8 @@ Alter table Paciente add Foreign Key (id_propietario) references Propietario (id
 Alter table Consultas add Foreign Key (id_paciente) references Paciente (id_paciente);
 Alter table Consultas add Foreign Key (id_sala) references Sala (id_sala);
 Alter table Cancelaciones add Foreign Key (id_consulta) references Consultas (id_consulta);
-Alter table AtencionesConCita add Foreign Key (id_consulta) references Consultas (id_consulta);
+Alter table Atenciones add Foreign Key (id_consulta) references Consultas (id_consulta);
+Alter table Atenciones add Foreign Key (id_paciente) references Paciente (id_paciente);
 
 
 /* Users permissions */
