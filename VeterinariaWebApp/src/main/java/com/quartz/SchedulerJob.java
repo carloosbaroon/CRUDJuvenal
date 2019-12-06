@@ -2,6 +2,7 @@ package com.quartz;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 
 import javax.mail.Message;
 import javax.mail.Multipart;
@@ -29,9 +30,8 @@ public class SchedulerJob implements Job {
 	public void execute(JobExecutionContext context) throws JobExecutionException {
 		try {
 			buscarConsultas();
-			sendHtmlMail();
+			//sendHtmlMail();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -39,15 +39,19 @@ public class SchedulerJob implements Job {
 	public ArrayList<ConsultaBean> buscarConsultas() throws Exception{
 		DAOConsultaImpl daoConsulta = new DAOConsultaImpl();
 		
-		this.bufferConsultas = daoConsulta.consultaGeneral();
-		System.out.println(Arrays.toString(bufferConsultas.toArray()));
+		this.bufferConsultas = daoConsulta.consultaGeneral();	
+		
+		for(ConsultaBean bean: bufferConsultas) {
+	    	  System.out.println(" " + bean.getId_paciente());
+	    	  System.out.println(" " + bean.getHora_inicial());
+	      }
 		
 		return bufferConsultas;
 	
 		
 	}
 	
-	public void sendHtmlMail() throws Exception{
+	public void sendHtmlMail(ConsultaBean consulta) throws Exception{
 		//System.out.println("Struts 2 + Quartz 2");
 				String header = "<!DOCTYPE html><html><head><style>"+
 						  "/* Font Definitions */"+

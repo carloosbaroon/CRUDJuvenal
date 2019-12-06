@@ -62,6 +62,7 @@
 	    	
 	    	<action name="buscar_pacientes" class="itesm.action_support.PacienteAction" method="mostrarListaPacientes">
 	    		<result>WEB-INF/admin/crud_pacientes/listaPacientes.jsp</result>
+	    		<result name="error">/WEB-INF/admin/crud_pacientes/error.jsp</result>
 	    	</action>   	
 	    		 
     	   	<action name="mostrar_detalle_editar_paciente" class="itesm.action_support.PacienteAction" method="buscarPaciente">
