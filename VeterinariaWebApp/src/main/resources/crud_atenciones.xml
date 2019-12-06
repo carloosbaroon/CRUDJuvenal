@@ -16,7 +16,7 @@
     	<action name="goto_atencion_sin_cita_jsp" class="itesm.action_support.AtencionAction" method="revisarDisponibilidadNow">
     		<result name="success">WEB-INF/admin/crud_atenciones/lista_salas_disponibles.jsp</result>
     		<result name="none">WEB-INF/admin/crud_atenciones/lista_horario_disponible.jsp</result>
-    		<result name="error">WEB-INF/admin/error.jsp</result>
+    		<result name="error">WEB-INF/users/error.jsp</result>
     	</action>
     	
     	<action name="goto_pre_registrar_atencion" class="itesm.action_support.AtencionAction" method="preRegistrarAtencion">
