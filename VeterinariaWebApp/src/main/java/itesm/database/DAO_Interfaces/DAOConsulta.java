@@ -11,4 +11,6 @@ public interface DAOConsulta extends CRUD<ConsultaBean>{
 
 	ArrayList<ConsultaBean> consultabyPro(String idPropietario) throws Exception;
 
+	void cancelarCita(String idConsulta) throws Exception;
+
 }

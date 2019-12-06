@@ -76,10 +76,9 @@
 			
 				<div class="col-sm-4 top-content">
 					
-	<s:form action="actualizar_cita">		
-		<s:textfield name="qs_consulta_id" label="ID sala" value="%{qs_consulta_id}" readonly="true"/>
-		<s:textfield name="motivo" label="Motivo" value="%{consulta.observaciones}"/>
-		
+	<s:form action="registrar_cancelacion">		
+		<s:textfield name="cancelacion.id_consulta" label="ID consulta" value="%{consulta.id_consulta}" readonly="true"/>
+		<s:textfield name="cancelacion.motivo" label="Motivo"/>		
 		
 		
 		<a class="more"> <s:submit value="Enviar"/> </a>

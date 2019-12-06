@@ -1,6 +1,9 @@
 package itesm.action_support;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -8,14 +11,18 @@ import itesm.business.ConsultaBean;
 import itesm.business.EmpleadoBean;
 import itesm.business.PacienteBean;
 import itesm.business.SalaBean;
+import itesm.business.CancelacionBean;
 import itesm.database.DAO_Implementation.DAOConsultaImpl;
 import itesm.database.DAO_Implementation.DAOEmpleadoImpl;
 import itesm.database.DAO_Implementation.DAOPacienteImpl;
 import itesm.database.DAO_Implementation.DAOSalasImpl;
+import itesm.database.DAO_Implementation.DAOCancelacionImpl;
 import itesm.database.DAO_Interfaces.DAOConsulta;
 import itesm.database.DAO_Interfaces.DAOEmpleado;
 import itesm.database.DAO_Interfaces.DAOPaciente;
 import itesm.database.DAO_Interfaces.DAOSalas;
+import itesm.database.DAO_Interfaces.DAOCancelacion;
+
 
 public class ConsultaAction extends ActionSupport{
 	private static final long serialVersionUID = 1L;
@@ -23,6 +30,7 @@ public class ConsultaAction extends ActionSupport{
 	private SalaBean sala;
 	private PacienteBean paciente;
 	private EmpleadoBean empleado;
+	private CancelacionBean cancelacion;
 	
 	private ArrayList<SalaBean> buffer_salas_disponibles;
 	private ArrayList<ConsultaBean> buffer_citas;
@@ -57,6 +65,12 @@ public class ConsultaAction extends ActionSupport{
 	public ConsultaBean getConsulta() {return consulta;}
 	public void setConsulta(ConsultaBean consulta) {this.consulta = consulta;}
 	
+	public CancelacionBean getCancelacion() {
+		return cancelacion;
+	}
+	public void setCancelacion(CancelacionBean cancelacion) {
+		this.cancelacion = cancelacion;
+	}
 	public PacienteBean getPaciente() {
 		return paciente;
 	}
@@ -160,8 +174,28 @@ public class ConsultaAction extends ActionSupport{
 		}
 	}
 	public String interCancelar() {
-		System.out.println(qs_consulta_id);
+		//System.out.println(consulta.getId_consulta());
 		return SUCCESS;
+	}
+	
+	public String cancelarCita() throws Exception {
+		String datesyst = "";
+		Date dateObj = new Date();
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		System.out.println("Fecha: "+dateFormat.format(dateObj));
+		datesyst = dateFormat.format(dateObj);
+		cancelacion.setFecha(datesyst);
+		
+		DAOConsulta daoConsulta = new DAOConsultaImpl();
+		DAOCancelacion daoCancelacion = new DAOCancelacionImpl();
+		try {
+			daoCancelacion.insertar(cancelacion);
+			daoConsulta.cancelarCita(cancelacion.getId_consulta());
+			return SUCCESS;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ERROR;
+		}
 	}
 
 }
