@@ -42,16 +42,28 @@ public class SchedulerJob implements Job {
 		this.bufferConsultas = daoConsulta.consultaGeneral();	
 		
 		for(ConsultaBean bean: bufferConsultas) {
+	    	  String idConsulta = bean.getId_consulta();
+	    	  String fechaConsulta = bean.getFecha_consulta();
+	    	  String horaInicial = bean.getHora_inicial();
+	    	  String horaFinal = bean.getHora_final();
+	    	  String idEmpleado = bean.getId_empleado();
+	    	  String idSala = bean.getId_sala();
+	    	  String idPaciente = bean.getId_consulta();
+	    	  String observacion = bean.getObservaciones();
+	    	  String estado = bean.getEstado_consulta();
+	    	  
 	    	  System.out.println(" " + bean.getId_paciente());
 	    	  System.out.println(" " + bean.getHora_inicial());
+	    	  sendHtmlMail(idConsulta, fechaConsulta, horaInicial, horaFinal, idEmpleado, idSala, idPaciente, observacion, estado);
 	      }
+		
 		
 		return bufferConsultas;
 	
 		
 	}
 	
-	public void sendHtmlMail(ConsultaBean consulta) throws Exception{
+	public void sendHtmlMail(String idConsulta, String fechaConsulta, String horaInicial, String horaFinal, String idEmpleado, String idSala, String idPaciente, String observacion, String estado) throws Exception{
 		//System.out.println("Struts 2 + Quartz 2");
 				String header = "<!DOCTYPE html><html><head><style>"+
 						  "/* Font Definitions */"+
@@ -115,7 +127,10 @@ public class SchedulerJob implements Job {
 					 * @param body information to send on HTML format
 					 * @return continue=If everything works as planned, error=In case of any issue
 					 */
-				String body = "Esto es un test";
+				
+				
+				
+				String body = "Su consulta No: " + idConsulta + "\nCon la fecha: " + fechaConsulta + "\nA la hora: "+ horaInicial + "\nY finaliza a las: " + horaFinal + "\nEn la sala No: " + idSala + "\nCon el paciente: " + idPaciente + "\nCon las siguientes observaciones: " + observacion;
 				String to = "carlostectol@gmail.com";
 				String subject = "test";
 				body = header + body;
