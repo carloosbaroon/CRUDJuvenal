@@ -66,8 +66,16 @@ VALUES ('2019-11-06','10:00:00','13:00:00',2,2,2,'Cirugia','Programado');
 INSERT INTO consultas (fecha, hora_inicial, hora_final, id_empleado, id_sala, id_paciente, observaciones, estado) 
 VALUES ('2019-11-06','14:00:00','15:00:00',2,2,3,'Consulta','Programado');
 
-/*	El query de validacion de salas disponibles para hacer una reservacion
+/*	
+El query de validacion de salas disponibles para hacer una reservacion
+
 select sala.id_sala, sala.nombre from sala left join 
 (select * from consultas where fecha = '2019/11/05' and ((hora_inicial between '11:30' and '12:30') or (hora_final between '11:30' and '12:30'))) consultas
 on sala.id_sala = consultas.id_sala where sala.disponibilidad = 'disponible' consultas.id_sala is null;
+
+Query para filtrar citas por dueños
+
+select consultas.id_consulta, consultas.fecha, consultas.hora_inicial, consultas.hora_final, consultas.id_empleado, consultas.id_sala, consultas.id_paciente, consultas.observaciones, consultas.estado 
+from paciente inner join consultas 
+where paciente.id_propietario = 2 and paciente.id_paciente = consultas.id_paciente;
  */
