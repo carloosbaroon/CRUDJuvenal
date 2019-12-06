@@ -17,7 +17,7 @@
 	    	
 	    	<action name="capturar_datos_owner" class="itesm.action_support.OwnerAction" method="crearOwner">
 	    		<result name="success"> WEB-INF/admin/crud_pacientes/dueñoRegistrado.jsp</result>
-	    		<result name="error"> WEB-INF/admin/error.jsp</result>
+	    		<result name="error"> WEB-INF/admin/errorAlta.jsp</result>
 	    	</action>
    			
  			<!-- Editar/Modificar -->
@@ -47,12 +47,12 @@
 	    	
 	    	<action name="capturar_datos_paciente" class="itesm.action_support.OwnerAction" method="buscarOwner">
 	    		<result name="success">/WEB-INF/admin/crud_pacientes/altaPaciente.jsp</result>
-	            <result name="error">/WEB-INF/admin/crud_pacientes/error.jsp</result>
+	            <result name="error"> WEB-INF/admin/error.jsp</result>
 	    	</action>
 	    	
 	    	<action name="finalPaciente" class="itesm.action_support.PacienteAction" method="crearPaciente">
 	    		<result name="success">WEB-INF/admin/crud_pacientes/pacienteRegistrado.jsp</result>
-	    		<result name="error">/WEB-INF/admin/crud_pacientes/error.jsp</result>
+	    		<result name="error"> WEB-INF/admin/error.jsp</result>
 	    	</action>    	
     	
     		<!-- Editar -->
