@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import itesm.business.ConsultaBean;
+import itesm.business.CancelacionBean;
 import itesm.business.PacienteBean;
 import itesm.business.SalaBean;
 import itesm.database.Conexion;
@@ -184,6 +185,28 @@ public class DAOConsultaImpl extends Conexion implements DAOConsulta{
 	         }
 	      
 	      return bufferCitas;
+	}
+	
+	@Override
+	public void cancelarCita(String idConsulta) throws Exception{
+		Connection conn = null;
+	      
+   	 	establishConnection();
+        conn = getCon();
+                
+        String sql ="UPDATE consultas SET estado = 'Cancelado' WHERE id_consulta = ?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, idConsulta);
+        
+        ps.execute();
+
+        if (conn != null) {
+           try {
+              closeConnection();
+           } catch (Exception e) {
+				e.printStackTrace();
+           }
+        }
 	}
 	
 	@Override
