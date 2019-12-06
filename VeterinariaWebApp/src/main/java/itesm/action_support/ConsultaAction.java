@@ -25,9 +25,19 @@ public class ConsultaAction extends ActionSupport{
 	private EmpleadoBean empleado;
 	
 	private ArrayList<SalaBean> buffer_salas_disponibles;
+	private ArrayList<ConsultaBean> buffer_citas;
+	
+
 	private String mensajeError;
 	private String qs_sala_id;
+	private String idPropietario;
 	
+	public String getIdPropietario() {
+		return idPropietario;
+	}
+	public void setIdPropietario(String idPropietario) {
+		this.idPropietario = idPropietario;
+	}
 	public String getQs_sala_id() {
 		return qs_sala_id;
 	}
@@ -54,6 +64,14 @@ public class ConsultaAction extends ActionSupport{
 	}
 	public ArrayList<SalaBean> getBuffer_salas_disponibles() {return buffer_salas_disponibles;}
 	public void setBuffer_salas_disponibles(ArrayList<SalaBean> buffer_salas_disponibles) {this.buffer_salas_disponibles = buffer_salas_disponibles;}
+	
+	
+	public ArrayList<ConsultaBean> getBuffer_citas() {
+		return buffer_citas;
+	}
+	public void setBuffer_citas(ArrayList<ConsultaBean> buffer_citas) {
+		this.buffer_citas = buffer_citas;
+	}
 	
 	public String revisarDisponibilidad()
 	{
@@ -107,6 +125,30 @@ public class ConsultaAction extends ActionSupport{
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return ERROR;
+		}
+	}
+	
+	public String buscarCitas()
+	{
+		DAOConsulta daoConsulta = new DAOConsultaImpl();
+		try {
+			this.buffer_citas = daoConsulta.consultabyPro(idPropietario);
+			if(buffer_citas != null)
+			{
+				for(ConsultaBean item: buffer_citas) {
+					System.out.println(item.getId_consulta());
+				}
+				
+				return SUCCESS;
+			}else
+			{
+				return NONE;
+			}
+		}catch (Exception e)
+		{
+			e.printStackTrace();
+			mensajeError = "Error al mostrar la lista de Citas";
 			return ERROR;
 		}
 	}

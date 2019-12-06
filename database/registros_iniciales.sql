@@ -1,13 +1,13 @@
 use veterinaria;
 
-INSERT INTO empleado (nombre_completo, direccion, telefono, puesto, especialidad, turno, estado, elegido) 
-VALUES ("David", "Av de la vida", "7226483059", "puesto de prueba 1", "no se", "1", "Activo", 1);
+INSERT INTO empleado (id_empleado, nombre_completo, direccion, telefono, puesto, especialidad, turno, estado, elegido) 
+VALUES (1, "David", "Av de la vida", "7226483059", "puesto de prueba 1", "no se", "1", "Activo", 1);
 
-INSERT INTO empleado (nombre_completo, direccion, telefono, puesto, especialidad, turno, estado, elegido) 
-VALUES ("Mariana", "Av las torres", "123456789", "puesto de prueba 2", "no se 2", "2", "Baja", elegido, 1);
+INSERT INTO empleado (id_empleado, nombre_completo, direccion, telefono, puesto, especialidad, turno, estado, elegido) 
+VALUES (2, "Mariana", "Av las torres", "123456789", "puesto de prueba 2", "no se 2", "2", "Baja", 1);
 
-INSERT INTO empleado (nombre_completo, direccion, telefono, puesto, especialidad, turno, estado, elegido) 
-VALUES ("Paola", "CU", "987654321", "puesto de prueba 3", "no se 2", "3", "Activo", 1);
+INSERT INTO empleado (id_empleado, nombre_completo, direccion, telefono, puesto, especialidad, turno, estado, elegido) 
+VALUES (3, "Paola", "CU", "987654321", "puesto de prueba 3", "no se 2", "3", "Activo", 1);
 
 INSERT INTO usuario (id_empleado, password_user, confirmar_password, privilegios, estado, no_intentos) 
 VALUES (1, "hola", "hola", "Administrador", "activo", 5);
@@ -30,11 +30,11 @@ VALUES ("Sala 4", "disponible");
 INSERT INTO sala (nombre, disponibilidad) 
 VALUES ("Sala 5", "no disponible");
 
-INSERT INTO propietario (nombre, direccion, telefono, rfc) 
-VALUES ("Juan Martinez", "Toluca", "7223535654", "MASJ4534343");
+INSERT INTO propietario (nombre, direccion, telefono, rfc, correo) 
+VALUES ("Juan Martinez", "Toluca", "7223535654", "MASJ4534343", "example@gmail.com");
 
-INSERT INTO propietario (nombre, direccion, telefono, rfc) 
-VALUES ("Alejandra Sanchez", "Cd. de Mexico", "7227863654", "SAMA126paciente4343");
+INSERT INTO propietario (nombre, direccion, telefono, rfc, correo) 
+VALUES ("Alejandra Sanchez", "Cd. de Mexico", "7227863654", "SAMA126paciente4343", "example@gmail.com");
 
 INSERT INTO paciente (id_paciente, id_propietario, nombre, categoria, raza, edad)
 VALUES (1, 1, "Rambo", "perro", "Gran Danés", 4);

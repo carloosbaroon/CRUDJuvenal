@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
+<%@ taglib prefix="sb" uri="/struts-bootstrap-tags" %>
+
 <!DOCTYPE html>
 <html>
-	<head>
-	<title>Administración de salas</title>
-	<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<head>
+		<title>Programar consulta</title>
+		<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
 		<!-- Custom Theme files -->
@@ -18,8 +20,9 @@
 		<!---->
 		<script src="js/menu_jquery.js"></script>
 	</head>
-	<body>
-		<div class="header">
+<body> 
+<!--header-->	
+<div class="header">
 	<div class="container">
 		 <div class="logo">
 		  	<a href="index.html"><img src="images/logof.jpeg" alt="" ></a>
@@ -57,8 +60,7 @@
 <div class="banner-head">
 	<div class="banner-1"> </div>
 		<div class="container">
-			<br>
-			<h1>Administración de salas</h1>	
+			<h1>Buscar cita a cancelar</h1>	
 		</div>
 </div>
 <!--content-->
@@ -70,15 +72,14 @@
 			<div class="why-top-top">
 			
 				<div class="col-sm-4 top-content">
-					<s:url action="goto_alta_sala_jsp" var="alta_sala"/>
-					<s:url action="goto_editar_salas_jsp" var="editar_sala"/>
-					<s:url action="goto_programar_consulta_jsp" var="reservar_sala"/>
-					<s:url action="goto_cancelar_cita_jsp" var="cancelar_cita"/>
+					<s:url action="goto_admin_salas" var="regresar"/>
+	
+						<s:form action="lista_citas">
+							<s:textfield name="idPropietario" label="Propietario" />
 					
-					<h4><a href="${alta_sala}">Alta de Salas</a></h4>
-					<h4><a href="${editar_sala}">Editar Salas</a></h4>		
-					<h4><a href="${reservar_sala}">Reservar Salas</a></h4>
-					<h4><a href="${cancelar_cita}">Cancelar Cita</a></h4>
+							<a class="more"> <s:submit value="Buscar"/> </a>
+						</s:form>
+						<h4><a href="${regresar}">Regresar</a></h4>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -109,8 +110,9 @@
               	
 			</div>
 			<div class="clearfix"> </div>
-	 	</div>
-		</div>
+	 </div>
 </div>
-	</body>
+</div>
+ 	<!--//footer-->
+</body>
 </html>

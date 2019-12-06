@@ -9,4 +9,6 @@ public interface DAOConsulta extends CRUD<ConsultaBean>{
 
 	ArrayList<SalaBean> consultarDisponibles(String fecha, String hora_inicial, String hora_final) throws Exception;
 
+	ArrayList<ConsultaBean> consultabyPro(String idPropietario) throws Exception;
+
 }

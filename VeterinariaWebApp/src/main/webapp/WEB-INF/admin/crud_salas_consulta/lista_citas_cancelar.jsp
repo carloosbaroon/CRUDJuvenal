@@ -1,11 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+
+<%@ taglib prefix="sb" uri="/struts-bootstrap-tags" %>
 
 <!DOCTYPE html>
 <html>
-	<head>
-	<title>Administración de salas</title>
-	<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<head>
+		<title>Lista Salas</title>
+		<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
 		<!-- Custom Theme files -->
@@ -14,12 +16,15 @@
 		<!--//theme-style-->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="Fidele Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!---->
 		<script src="js/menu_jquery.js"></script>
 	</head>
-	<body>
-		<div class="header">
+<body> 
+<!--header-->	
+<div class="header">
 	<div class="container">
 		 <div class="logo">
 		  	<a href="index.html"><img src="images/logof.jpeg" alt="" ></a>
@@ -57,8 +62,7 @@
 <div class="banner-head">
 	<div class="banner-1"> </div>
 		<div class="container">
-			<br>
-			<h1>Administración de salas</h1>	
+			<h1>Lista Salas</h1>	
 		</div>
 </div>
 <!--content-->
@@ -70,24 +74,45 @@
 			<div class="why-top-top">
 			
 				<div class="col-sm-4 top-content">
-					<s:url action="goto_alta_sala_jsp" var="alta_sala"/>
-					<s:url action="goto_editar_salas_jsp" var="editar_sala"/>
-					<s:url action="goto_programar_consulta_jsp" var="reservar_sala"/>
-					<s:url action="goto_cancelar_cita_jsp" var="cancelar_cita"/>
+					<s:url action="goto_admin_salas_jsp" var="regresar"/>
+ 
+					<table border="1">
+						<tr>
+					       <td><b>ID Cita</b></td>
+					       <td><b>Fecha de la cita</b></td>
+					       <td><b>Hora de la cita</b></td>
+					       <td><b>Sala</b></td>
+					       <td><b>ID Paciente</b></td>
+					       <td><b>Estado</b></td>
+					       <td><b>Seleccionar</b></td>
+					    </tr>
 					
-					<h4><a href="${alta_sala}">Alta de Salas</a></h4>
-					<h4><a href="${editar_sala}">Editar Salas</a></h4>		
-					<h4><a href="${reservar_sala}">Reservar Salas</a></h4>
-					<h4><a href="${cancelar_cita}">Cancelar Cita</a></h4>
+					<s:iterator value="buffer_citas" status="i">
+						<tr>
+							<td><s:property value="id_consulta"/></td>
+							<td><s:property value="fecha_consulta"/></td>
+							<td><s:property value="hora_inicial"/></td>
+							<td><s:property value="id_sala"/></td>
+							<td><s:property value="id_paciente"/></td>
+							<td><s:property value="Estado"/></td>
+						
+							<td>
+								<s:url action="cancelar_cita" var="url_cancelar_cita">
+					       			<s:param name = "qs_consulta_id">${id_consulta}</s:param>
+								</s:url>
+								<a class="more" href="${url_cancelar_cita}">Cancelar</a>
+							</td>
+						</tr>
+					</s:iterator>
+					</table>
+					<h4><a href="${regresar}">Regresar</a></h4>
+				
 				</div>
 				<div class="clearfix"> </div>
 			</div>
 			
 		</div>
 	</div>
-	<!---->
-	
-</div>
 <!--footer-->
  	<div class="footer ">
  		<div class="footer-1"> </div>
@@ -109,8 +134,12 @@
               	
 			</div>
 			<div class="clearfix"> </div>
-	 	</div>
-		</div>
+		  
+		   <div class="footer-bottom">
+		<p> © 2015 Fidele. All rights reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a></p>
+    </div>
+	 </div>
 </div>
-	</body>
+ 	<!--//footer-->
+</body>
 </html>

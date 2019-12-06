@@ -66,12 +66,9 @@ public class DAOConsultaImpl extends Conexion implements DAOConsulta{
 	        	
 	        	consulta.setId_consulta(rs.getString(1));
 	        	consulta.setFecha_consulta(rs.getString(2));
-	        	consulta.setHora_inicial(rs.getString(3));	            
-	        	consulta.setHora_final(rs.getString(4));
-	        	consulta.setId_empleado(rs.getString(5));
+	        	consulta.setHora_inicial(rs.getString(3));
 	        	consulta.setId_sala(rs.getString(6));
 	        	consulta.setId_paciente(rs.getString(7));
-	        	consulta.setObservaciones(rs.getString(8));
 	        	consulta.setEstado_consulta(rs.getString(9));
 	        	
 	            bufferConsultas.add(consulta);
@@ -139,7 +136,51 @@ public class DAOConsultaImpl extends Conexion implements DAOConsulta{
 		return buffer_salas;
 	}
 	
+	@Override
+	public ArrayList<ConsultaBean> consultabyPro(String idPropietario) throws Exception{
+		ArrayList<ConsultaBean> bufferCitas = new ArrayList<ConsultaBean>();
+		String sql = "";
+		
+	      Connection conn = null;
+	      
+	    	 establishConnection();
+	         conn = getCon();
+	         sql = "SELECT consultas.id_consulta, consultas.fecha, consultas.hora_inicial, consultas.hora_final, consultas.id_empleado, consultas.id_sala, consultas.id_paciente, consultas.observaciones, consultas.estado ";
+	         sql += "FROM paciente INNER JOIN consultas ";
+	         sql += "WHERE paciente.id_propietario = ? AND paciente.id_paciente = consultas.id_paciente;";
+	         
+	         PreparedStatement ps = conn.prepareStatement(sql);
+	         ps.setString(1, idPropietario);
+	  
+	         ResultSet rs = ps.executeQuery();
 
+	         while (rs.next()) {
+	        	ConsultaBean consulta = new ConsultaBean();
+	        	
+	        	consulta.setId_consulta(rs.getString(1));
+	        	consulta.setFecha_consulta(rs.getString(2));
+	        	consulta.setHora_inicial(rs.getString(3));	            
+	        	consulta.setHora_final(rs.getString(4));
+	        	consulta.setId_empleado(rs.getString(5));
+	        	consulta.setId_sala(rs.getString(6));
+	        	consulta.setId_paciente(rs.getString(7));
+	        	consulta.setObservaciones(rs.getString(8));
+	        	consulta.setEstado_consulta(rs.getString(9));
+	        	
+	        	bufferCitas.add(consulta);
+	         }
+
+	         if (conn != null) {
+	            try {
+	               closeConnection();
+	            } catch (Exception e) {
+					e.printStackTrace();
+	            }
+	         }
+	      
+	      return bufferCitas;
+	}
+	
 	@Override
 	public void editar(ConsultaBean entidad) throws Exception {
 		// TODO Auto-generated method stub

@@ -14,7 +14,7 @@ En caso contrario, modificar la BD ó editar el archivo Conexion.java los parame
 src/main/java/itesm/database/Conexion.java.
 */
 
-
+drop database veterinaria;
 create database veterinaria;
 use veterinaria;
 
@@ -47,6 +47,7 @@ Create table Propietario (
 	direccion Varchar(30) NOT NULL,
 	telefono Varchar(20) NOT NULL,
 	rfc Varchar(20) NOT NULL,
+    correo Varchar(30) NOT NULL,
  Primary Key (id_propietario)) ENGINE = MyISAM;
 
 Create table Paciente (
