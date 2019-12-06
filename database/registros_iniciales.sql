@@ -71,7 +71,7 @@ El query de validacion de salas disponibles para hacer una reservacion
 
 select sala.id_sala, sala.nombre from sala left join 
 (select * from consultas where fecha = '2019/11/05' and ((hora_inicial between '11:30' and '12:30') or (hora_final between '11:30' and '12:30'))) consultas
-on sala.id_sala = consultas.id_sala where sala.disponibilidad = 'disponible' consultas.id_sala is null;
+on sala.id_sala = consultas.id_sala where sala.disponibilidad = 'disponible' and consultas.id_sala is null;
 
 Query para filtrar citas por dueños
 

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="crud_atenciones" namespace="/" extends="struts-default">
+    
+    	<action name="goto_admin_atenciones_jsp">
+    		<result>WEB-INF/admin/crud_atenciones/admin_atenciones.jsp</result><!-- Reedirige al jsp de administración de usuarios -->
+    	</action>
+    	
+		<action name="goto_atencion_con_cita_jsp">
+    		<result>WEB-INF/admin/crud_atenciones/atencioncita.jsp</result>
+    	</action>
+    	
+    	<action name="goto_atencion_sin_cita_jsp" class="itesm.action_support.AtencionAction" method="revisarDisponibilidadNow">
+    		<result name="success">WEB-INF/admin/crud_atenciones/lista_salas_disponibles.jsp</result>
+    		<result name="none">WEB-INF/admin/crud_atenciones/lista_horario_disponible.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+    	
+    	<action name="goto_terminar_atencion_jsp">
+    		<result>WEB-INF/admin/crud_atenciones/terminar.jsp</result>
+    	</action>
+    	<!-- 
+    	<action name="desbloquear" class="itesm.action_support.PopulateDropDownLists" method="fill">
+    		<result>WEB-INF/admin/crud_usuarios/modificarEstadoA_Activo.jsp</result>
+    	</action>
+    	
+    	<action name="lista_citas" class="itesm.action_support.ConsultaAction" method="buscarCitas">
+    		<result name="success">WEB-INF/admin/crud_salas_consulta/lista_citas_cancelar.jsp</result>
+    		<result name="none">WEB-INF/admin/crud_salas_consulta/no_salas_disponibles.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+    	
+    	<action name="cancelar_cita" class="itesm.action_support.ConsultaAction" method = "interCancelar">
+    		<result name="success">WEB-INF/admin/crud_salas_consulta/cancelar_cita.jsp</result>
+    	</action>
+    	<action name="registrar_cancelacion" class="itesm.action_support.ConsultaAction" method="cancelarCita">
+    		<result name="success">WEB-INF/admin/crud_salas_consulta/admin_salas.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+    	-->
+    </package>
+</struts>
