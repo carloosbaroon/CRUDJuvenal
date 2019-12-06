@@ -74,12 +74,13 @@
 			<div class="why-top-top">
 			
 				<div class="col-sm-4 top-content">
-					<s:url action="goto_consulta_usuario_jsp_global" var="consultar_usuarios"/>
-					<s:url action="welcome" var="regresar"/>
+					
+					<s:url action="welcome_pacientes" var="regresar"/>
 					<h4><a align=center >Error</a> </h4>
+					<b><a align=center >No es posible dar de alta</a> </b>
 					
 					
-					<s:url action="welcome" var="goto_welcome"/>
+	
 					<b><s:property value="mensajeError"/></b>
 					<h4><a href="${regresar}">Regresar</a></h4>
 				

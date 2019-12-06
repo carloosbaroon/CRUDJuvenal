@@ -33,6 +33,10 @@
     		<result name="success">WEB-INF/admin/usuarioRegistradoGlobal.jsp</result>
     		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
+    	
+    	<action name="welcome_pacientes">
+    		<result>WEB-INF/admin/crud_pacientes/adminPacientes.jsp</result>
+    	</action>
         
         <action name="validar_usuario" class="itesm.action_support.UsuarioAction" method="validarLogin">
         	<result name="Administrador">WEB-INF/admin/menuAdmin.jsp</result>
