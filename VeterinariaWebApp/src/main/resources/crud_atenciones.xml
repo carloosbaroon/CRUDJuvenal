@@ -53,6 +53,17 @@
     		<result name="success">WEB-INF/admin/crud_atenciones/admin_atenciones.jsp</result>
     		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
+    	
+    	<action name="goto_facturas">
+	    		<result>WEB-INF/admin/crud_atenciones/datosFacturas.jsp</result>
+	            <param name="date_start">${date_start}</param>
+	    		<param name="date_finish">${date_finish}</param>
+	    	</action>
+	    	
+	    	<action name="listado_facturas" class="com.reports.ReporteFacturas" method="mostrarListaFacturas">
+	    		<result>WEB-INF/admin/crud_atenciones/listaFacturas.jsp</result>
+				
+	    	</action>
     
     	
     </package>

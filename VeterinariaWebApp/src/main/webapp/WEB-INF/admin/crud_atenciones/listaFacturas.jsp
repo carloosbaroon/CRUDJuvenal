@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
+<%@ taglib prefix="sb" uri="/struts-bootstrap-tags" %>
+
 <!DOCTYPE html>
 <html>
-	<head>
-	<title>Administración de Atenciones</title>
-	<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<head>
+		<title>Facturación</title>
+		<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
 		<!-- Custom Theme files -->
@@ -14,12 +16,15 @@
 		<!--//theme-style-->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="Fidele Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!---->
 		<script src="js/menu_jquery.js"></script>
 	</head>
-	<body>
-		<div class="header">
+<body> 
+<!--header-->	
+<div class="header">
 	<div class="container">
 		 <div class="logo">
 		  	<a href="index.html"><img src="images/logof.jpeg" alt="" ></a>
@@ -57,8 +62,7 @@
 <div class="banner-head">
 	<div class="banner-1"> </div>
 		<div class="container">
-			<br>
-			<h1>Administración de salas</h1>	
+			<h1>Facturación</h1>	
 		</div>
 </div>
 <!--content-->
@@ -70,24 +74,40 @@
 			<div class="why-top-top">
 			
 				<div class="col-sm-4 top-content">
-					<s:url action="goto_atencion_con_cita_jsp" var="aten_con_cita"/>
-					<s:url action="goto_atencion_sin_cita_jsp" var="aten_sin_cita"/>
-					<s:url action="goto_finalizar_atencion_jsp" var="fin_atencion"/>
-					<s:url action="goto_facturas" var="facturas"/>
 					
-					<h4><a href="${aten_con_cita}">Atender con Cita</a></h4>
-					<h4><a href="${aten_sin_cita}">Atender sin Cita</a></h4>
-					<h4><a href="${fin_atencion}">Finalizar Atencion</a></h4>
-					<h4><a href="${facturas}">Listado Facturas</a></h4>
+<table border="1">
+	<tr>
+       <td><b>ID ATENCIÓN</b></td>
+       <td><b>ID PACIENTE</b></td>
+       <td><b>FECHA</b></td>
+       <td><b>HORA ENTRADA</b></td>
+       <td><b>HORA SALIDA</b></td>
+       <td><b>FACTURACIÓN</b></td>
+        <td><b>MONTO</b></td>
+   
+    </tr>
+
+<s:iterator value="buffer_facturas" status="i">
+	<tr>
+		<td><s:property value="id_atencion"/></td>
+		<td><s:property value="id_paciente"/></td>
+		<td><s:property value="fecha"/></td>
+		<td><s:property value="hora_entrada"/></td>
+		<td><s:property value="hora_salida"/></td>
+		<td><s:property value="factura"/></td>
+		<td><s:property value="monto"/></td>
+		
+	</tr>
+</s:iterator>
+</table>
+<h4><a href="${regresar}">Regresar</a></h4>
+				
 				</div>
 				<div class="clearfix"> </div>
 			</div>
 			
 		</div>
 	</div>
-	<!---->
-	
-</div>
 <!--footer-->
  	<div class="footer ">
  		<div class="footer-1"> </div>
@@ -109,8 +129,12 @@
               	
 			</div>
 			<div class="clearfix"> </div>
-	 	</div>
-		</div>
+		  
+		   <div class="footer-bottom">
+		<p> © 2015 Fidele. All rights reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a></p>
+    </div>
+	 </div>
 </div>
-	</body>
+ 	<!--//footer-->
+</body>
 </html>
