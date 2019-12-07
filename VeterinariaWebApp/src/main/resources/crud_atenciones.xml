@@ -37,8 +37,20 @@
     		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	
-    	<action name="goto_terminar_atencion_jsp">
-    		<result>WEB-INF/admin/crud_atenciones/seleccionar_atenciones.jsp</result>
+    	<action name="goto_finalizar_atencion_jsp" class="itesm.action_support.AtencionAction" method="buscarAtencionesToday">
+    		<result name="success">WEB-INF/admin/crud_atenciones/seleccionar_atenciones.jsp</result>
+    		<result name="none">WEB-INF/admin/crud_atenciones/error.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+    	
+    	<action name="goto_pre_terminar_atencion" class="itesm.action_support.AtencionAction" method="preTerminarAtencion">
+    		<result name="success">WEB-INF/admin/crud_atenciones/terminar_atencion.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+    	
+    	<action name="terminar_atencion" class="itesm.action_support.AtencionAction" method="terminarAtencion">
+    		<result name="success">WEB-INF/admin/crud_atenciones/admin_atenciones.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     
     	<!-- 

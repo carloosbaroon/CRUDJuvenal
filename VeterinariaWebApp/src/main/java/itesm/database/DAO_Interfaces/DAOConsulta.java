@@ -19,4 +19,6 @@ public interface DAOConsulta extends CRUD<ConsultaBean>{
 	
 	ArrayList<ConsultaBean> consultarCitasProgramadas(String id_propietario, String fecha, String hora_entrada) throws Exception;
 
+	void editarEstado(String id_consulta, String estado) throws Exception;
+
 }

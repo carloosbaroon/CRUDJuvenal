@@ -352,5 +352,30 @@ public class DAOConsultaImpl extends Conexion implements DAOConsulta{
 		        
 		return buffer_citas;		
 	}
+	
+	@Override
+	public void editarEstado(String id_consulta, String estado) throws Exception {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+	      
+   	 	establishConnection();
+        conn = getCon();
+                
+        String sql ="UPDATE consultas SET estado = ? WHERE id_consulta = ?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, estado);
+        ps.setString(2, id_consulta);
+		
+        ps.execute();
+
+        if (conn != null) {
+           try {
+              closeConnection();
+           } catch (Exception e) {
+				e.printStackTrace();
+           }
+        }
+		
+	}
 
 }

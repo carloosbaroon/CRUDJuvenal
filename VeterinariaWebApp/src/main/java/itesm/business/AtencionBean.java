@@ -9,7 +9,15 @@ public class AtencionBean {
 	private String hora_entrada;
 	private String hora_salida;
 	private String detalle;
+	private String factura;
 	private String monto;
+	
+	public String getFactura() {
+		return factura;
+	}
+	public void setFactura(String factura) {
+		this.factura = factura;
+	}	
 	
 	public String getId_atencion() {
 		return id_atencion;
