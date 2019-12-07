@@ -24,17 +24,14 @@
     		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	
-<<<<<<< Updated upstream
     	<action name="terminar_registro_atencion" class="itesm.action_support.AtencionAction" method="endRegistrarAtencion">
     		<result name="success">WEB-INF/admin/crud_atenciones/admin_atenciones.jsp</result>
-=======
     	<action name="lista_citas" class="itesm.action_support.ConsultaAction" method="mostrarListaCitas">
     		<result name="success">WEB-INF/admin/crud_atenciones/listaCitas.jsp</result>
     		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	
     	<action name="salida_cita">
->>>>>>> Stashed changes
     		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	
