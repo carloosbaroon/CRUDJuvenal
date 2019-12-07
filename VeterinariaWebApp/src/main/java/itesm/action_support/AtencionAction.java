@@ -130,7 +130,7 @@ public class AtencionAction extends ActionSupport{
 		System.out.println(timesyst);
 		System.out.println(timeaprox);
 		try {
-			this.buffer_salas_disponibles = daoConsulta.consultarDisponibles(datesyst, timesyst, timesyst);
+			this.buffer_salas_disponibles = daoConsulta.consultarDisponiblesAten(datesyst, timesyst, timesyst);
 			
 			if(buffer_salas_disponibles != null)
 			{
