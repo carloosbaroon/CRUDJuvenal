@@ -13,4 +13,8 @@ public interface DAOConsulta extends CRUD<ConsultaBean>{
 
 	void cancelarCita(String idConsulta) throws Exception;
 
+	ArrayList<SalaBean> consultarDisponiblesAten(String fecha, String hora_inicial, String hora_final) throws Exception;
+
+	ArrayList<ConsultaBean> consultarHorariosProximos(String fecha) throws Exception;
+
 }

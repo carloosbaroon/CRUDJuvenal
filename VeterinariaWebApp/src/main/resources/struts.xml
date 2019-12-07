@@ -9,7 +9,8 @@
 
    	<include file="crud_users.xml"/>
     <include file="crud_pacientes.xml"/>
-  
+     <include file="crud_atenciones.xml"/>
+
 
     <package name="default" namespace="/" extends="struts-default">
 
@@ -42,7 +43,7 @@
         <action name="validar_usuario" class="itesm.action_support.UsuarioAction" method="validarLogin">
         	<result name="Administrador">WEB-INF/admin/menuAdmin.jsp</result>
         	<result name="Usuario">WEB-INF/admin/menuUser.jsp</result>
-        	<result name="error">WEB-INF/admin/error.jsp</result>
+        	<result name="error">WEB-INF/admin/errorValidar.jsp</result>
     	</action>
     	<action name = "emailer" 
          class = "com.util.Emailer"

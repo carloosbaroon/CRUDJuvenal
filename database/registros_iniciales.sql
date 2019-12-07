@@ -16,16 +16,16 @@ INSERT INTO usuario (id_empleado, password_user, confirmar_password, privilegios
 VALUES (2, "cactus", "cactus", "Usuario", "activo", 5);
 
 INSERT INTO sala (nombre, disponibilidad) 
-VALUES ("Sala 1", "disponible");
+VALUES ("Sala 1", "no disponible");
 
 INSERT INTO sala (nombre, disponibilidad) 
-VALUES ("Sala 2", "disponible");
+VALUES ("Sala 2", "no disponible");
 
 INSERT INTO sala (nombre, disponibilidad) 
-VALUES ("Sala 3", "disponible");
+VALUES ("Sala 3", "no disponible");
 
 INSERT INTO sala (nombre, disponibilidad) 
-VALUES ("Sala 4", "disponible");
+VALUES ("Sala 4", "no disponible");
 
 INSERT INTO sala (nombre, disponibilidad) 
 VALUES ("Sala 5", "no disponible");
@@ -46,25 +46,25 @@ INSERT INTO paciente (id_paciente, id_propietario, nombre, categoria, raza, edad
 VALUES (3, 2, "Chapo", "perro", "Pug", 1);
 
 INSERT INTO consultas (fecha, hora_inicial, hora_final, id_empleado, id_sala, id_paciente, correo, observaciones, estado) 
-VALUES ('2019-11-05','13:00:00','15:00:00',1,2,1,"example@gmail.com",'Cirugia','Programado');
+VALUES ('2019-12-06','15:00:00','20:40:00',1,1,1,"example@gmail.com",'Cirugia','Programado');
 
 INSERT INTO consultas (fecha, hora_inicial, hora_final, id_empleado, id_sala, id_paciente, correo, observaciones, estado) 
-VALUES ('2019-11-06','10:00:00','11:00:00',1,1,3,"example@gmail.com",'Consulta','Programado');
+VALUES ('2019-12-06','10:00:00','21:00:00',1,2,3,"example@gmail.com",'Consulta','Programado');
 
 INSERT INTO consultas (fecha, hora_inicial, hora_final, id_empleado, id_sala, id_paciente, correo, observaciones, estado) 
-VALUES ('2019-11-06','12:00:00','13:00:00',3,2,1,"example@gmail.com",'Consulta','Programado');
+VALUES ('2019-12-06','12:00:00','21:20:00',3,3,1,"example@gmail.com",'Consulta','Programado');
 
 INSERT INTO consultas (fecha, hora_inicial, hora_final, id_empleado, id_sala, id_paciente, correo, observaciones, estado) 
-VALUES ('2019-11-05','12:00:00','13:00:00',3,1,2,"example@gmail.com",'Consulta','Programado');
+VALUES ('2019-12-06','12:00:00','21:10:00',3,4,2,"example@gmail.com",'Consulta','Programado');
 
 INSERT INTO consultas (fecha, hora_inicial, hora_final, id_empleado, id_sala, id_paciente, correo, observaciones, estado) 
-VALUES ('2019-11-05','12:00:00','15:00:00',2,3,3,"example@gmail.com",'Cirugia','Programado');
+VALUES ('2019-12-06','12:00:00','21:10:00',2,5,3,"example@gmail.com",'Cirugia','Programado');
 
 INSERT INTO consultas (fecha, hora_inicial, hora_final, id_empleado, id_sala, id_paciente, correo, observaciones, estado) 
-VALUES ('2019-11-06','10:00:00','13:00:00',2,2,2,"example@gmail.com",'Cirugia','Programado');
+VALUES ('2019-12-06','17:00:00','21:30:00',3,4,2,"example@gmail.com",'Consulta','Programado');
 
 INSERT INTO consultas (fecha, hora_inicial, hora_final, id_empleado, id_sala, id_paciente, correo, observaciones, estado) 
-VALUES ('2019-11-06','14:00:00','15:00:00',2,2,3,"example@gmail.com",'Consulta','Programado');
+VALUES ('2019-12-06','17:00:00','22:20:00',2,5,3,"example@gmail.com",'Cirugia','Programado');
 
 /*	
 El query de validacion de salas disponibles para hacer una reservacion
@@ -78,4 +78,7 @@ Query para filtrar citas por dueños
 select consultas.id_consulta, consultas.fecha, consultas.hora_inicial, consultas.hora_final, consultas.id_empleado, consultas.id_sala, consultas.id_paciente, consultas.observaciones, consultas.estado 
 from paciente inner join consultas 
 where paciente.id_propietario = 2 and paciente.id_paciente = consultas.id_paciente;
+
+Query para ultimo caso de Atencion
+select consultas.id_sala, consultas.hora_final from (select * from consultas order by consultas.hora_final desc) consultas group by consultas.id_sala;
  */

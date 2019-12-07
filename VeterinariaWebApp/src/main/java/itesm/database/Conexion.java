@@ -4,6 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 
 public class Conexion {
 	
@@ -37,7 +42,7 @@ public class Conexion {
 		this.con = con;
 	}
 
-	public void establishConnection(){
+	/*public void establishConnection(){
 		
 		if(con == null)
 		{
@@ -52,6 +57,21 @@ public class Conexion {
 				e.printStackTrace();
 			}
 		}
+	}*/
+	
+	public void establishConnection(){
+		
+		try {
+			InitialContext initContext = new InitialContext();
+			Context envContext = (Context)initContext.lookup("java:/comp/env");
+		    DataSource ds = (DataSource) initContext.lookup("jdbc/ConexionMySQL");
+		    con = ds.getConnection();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 	public void setAutoCommit(boolean type){

@@ -3,12 +3,13 @@ package itesm.business;
 public class AtencionBean {
 	private String id_atencion;
 	private String id_consulta;
+	private String id_sala;
 	private String id_paciente;
+	private String fecha;
 	private String hora_entrada;
 	private String hora_salida;
 	private String detalle;
 	private String monto;
-	
 	
 	public String getId_atencion() {
 		return id_atencion;
@@ -22,11 +23,23 @@ public class AtencionBean {
 	public void setId_consulta(String id_consulta) {
 		this.id_consulta = id_consulta;
 	}
+	public String getId_sala() {
+		return id_sala;
+	}
+	public void setId_sala(String id_sala) {
+		this.id_sala = id_sala;
+	}
 	public String getId_paciente() {
 		return id_paciente;
 	}
 	public void setId_paciente(String id_paciente) {
 		this.id_paciente = id_paciente;
+	}
+	public String getFecha() {
+		return fecha;
+	}
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
 	}
 	public String getHora_entrada() {
 		return hora_entrada;

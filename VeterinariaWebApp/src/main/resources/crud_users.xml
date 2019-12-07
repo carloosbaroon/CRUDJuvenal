@@ -18,7 +18,7 @@
     	
  	    <action name="validar_campos_usuario" class="itesm.action_support.UsuarioAction" method="crearUsuario">
     		<result name="success">WEB-INF/admin/crud_usuarios/usuarioRegistrado.jsp</result>
-    		<result name="error">WEB-INF/admin/error.jsp</result>
+    		<result name="error">WEB-INF/admin/errorAlta.jsp</result>
     	</action>
     	
     	<action name="goto_alta_empleado_jsp" class="itesm.action_support.PopulateDropDownLists" method="fill2">
@@ -27,12 +27,12 @@
     	
     	<action name="goto_consulta_empleado_jsp" class="itesm.action_support.EmpleadoAction" method="listarEmpleados">
     		<result name="success">WEB-INF/admin/crud_usuarios/listaEmpleado.jsp</result>
-    		<result name="error">WEB-INF/admin/error.jsp</result>
+    		<result name="error">WEB-INF/admin/errorEditar.jsp</result>
     	</action>
     	
     	<action name="validar_campos_empleado" class="itesm.action_support.EmpleadoAction" method="registrarEmpleado">
     		<result name="success">WEB-INF/admin/crud_usuarios/empleadoRegistrado.jsp</result>
-    		<result name="error">WEB-INF/admin/error.jsp</result>
+    		<result name="error">WEB-INF/admin/errorAlta.jsp</result>
     	</action>
     	
     	<action name="goto_baja_jsp" >
@@ -41,12 +41,12 @@
     	
     	<action name="detalle_baja_usuario" class="itesm.action_support.UsuarioEmpleadoAction" method="buscarUsuario_Empleado">
     		<result name="success">WEB-INF/admin/crud_usuarios/datosBajaUsuario.jsp</result>
-    		<result name="error">WEB-INF/admin/error.jsp</result>
+    		<result name="error">WEB-INF/admin/errorValidar.jsp</result>
     	</action>
     	
     	<action name="dar_baja_usuario" class="itesm.action_support.UsuarioAction" method="eliminarUsuario">
     		<result name="success">WEB-INF/admin/crud_usuarios/usuarioEliminado.jsp</result>
-    		<result name="error">WEB-INF/admin/error.jsp</result>
+    		<result name="error">WEB-INF/admin/errorBaja.jsp</result>
     	</action>
     	
     	<action name="goto_editar_usuario">
@@ -56,12 +56,12 @@
     	
    		<action name="detalle_editar_usuario" class="itesm.action_support.PopulateDropDownLists" method="buscarUsuario_Empleado">
  			<result name="success">WEB-INF/admin/crud_usuarios/datosEditarUsuario.jsp</result>
-    		<result name="error">WEB-INF/admin/error.jsp</result>
+    		<result name="error">WEB-INF/admin/errorValidar.jsp</result>
     	</action>
     	
     	<action name="actualizar_usuario" class="itesm.action_support.UsuarioEmpleadoAction" method="actualizarUsuarioEmpleado">
     		<result name="success">WEB-INF/admin/borrar_success.jsp</result>
-    		<result name="error">WEB-INF/admin/error.jsp</result>
+    		<result name="error">WEB-INF/admin/errorEditar.jsp</result>
     	</action>    	
     		
     	<action name="goto_bloqueo_desbloqueo_jsp" class="itesm.action_support.UsuarioAction">
@@ -70,7 +70,7 @@
     	
     	<action name="detalle_usuario_bloquear_desbloquear" class="itesm.action_support.UsuarioAction" method="buscarUsuario">
     		<result>WEB-INF/admin/crud_usuarios/datosBloquear_DesbloquearUsuario.jsp</result>
-    		<result name="error">/WEB-INF/admin/error.jsp</result>
+    		<result name="error">/WEB-INF/admin/errorValidar.jsp</result>
     	</action>
     	
     	<action name="bloquear" class="itesm.action_support.PopulateDropDownLists" method="fill">
@@ -83,12 +83,12 @@
     	
     	<action name="modificarEstado" class="itesm.action_support.UsuarioAction" method="buscarUsuario">
     		<result name="success">/WEB-INF/admin/crud_usuarios/modificarEstadoUsuario.jsp</result>
-            <result name="error">/WEB-INF/admin/error.jsp</result>
+            <result name="error">/WEB-INF/admin/errorValidar.jsp</result>
     	</action>	
     	
     	<action name="finalMoficarStatus" class="itesm.action_support.UsuarioAction" method="actualizarEstado">
     		<result name="success">WEB-INF/admin/crud_usuarios/finEditarStatus.jsp</result>
-    		<result name="error">/WEB-INF/admin/error.jsp</result>
+    		<result name="error">/WEB-INF/admin/errorEditar.jsp</result>
     	</action>
     	
     	<action name="goto_admin_salas_jsp">
@@ -101,27 +101,27 @@
     	
     	<action name="validar_campos_sala" class="itesm.action_support.SalaAction" method="registrarSala">
     		<result name="success">WEB-INF/admin/crud_salas_consulta/admin_salas.jsp</result>
-    		<result name="error">WEB-INF/admin/error.jsp</result>
+    		<result name="error">WEB-INF/admin/errorAlta.jsp</result>
     	</action>
     	
     	<action name="goto_editar_salas_jsp" class="itesm.action_support.SalaAction" method="listarSalas">
     		<result name="success">WEB-INF/admin/crud_salas_consulta/lista_salas.jsp</result>
-    		<result name="error">WEB-INF/admin/error.jsp</result>
+    		<result name="error">WEB-INF/admin/errorValidar.jsp</result>
     	</action>
     	
     	<action name="goto_detalles_sala" class="itesm.action_support.SalaAction" method="buscarSala">
     		<result name="success">WEB-INF/admin/crud_salas_consulta/detalles_sala.jsp</result>
-    		<result name="error">WEB-INF/admin/error.jsp</result>
+    		<result name="error">WEB-INF/admin/errorValidar.jsp</result>
     	</action>
     	
     	<action name="dar_baja_sala" class="itesm.action_support.SalaAction" method="buscarSala">
     		<result name="success">WEB-INF/admin/crud_salas_consulta/detalles_sala_baja.jsp</result>
-    		<result name="error">WEB-INF/admin/error.jsp</result>
+    		<result name="error">WEB-INF/admin/errorValidar.jsp</result>
     	</action>
     	
     	<action name="actualizar_sala" class="itesm.action_support.SalaAction" method="actualizarSala">
     		<result name="success">WEB-INF/admin/crud_salas_consulta/admin_salas.jsp</result>
-    		<result name="error">WEB-INF/admin/error.jsp</result>
+    		<result name="error">WEB-INF/admin/errorEditar.jsp</result>
     	</action>
     	
     	<action name="goto_programar_consulta_jsp" class="itesm.action_support.ConsultaAction">
@@ -131,17 +131,17 @@
     	<action name="revisar_disponibilidad" class="itesm.action_support.ConsultaAction" method="revisarDisponibilidad">
     		<result name="success">WEB-INF/admin/crud_salas_consulta/salas_disponibles.jsp</result>
     		<result name="none">WEB-INF/admin/crud_salas_consulta/no_salas_disponibles.jsp</result>
-    		<result name="error">WEB-INF/admin/error.jsp</result>
+    		<result name="error">WEB-INF/admin/errorValidar.jsp</result>
     	</action>
     	
     	<action name="goto_reservar_sala" class="itesm.action_support.ConsultaAction" method="interReservar">
     		<result name="success">WEB-INF/admin/crud_salas_consulta/reservar_sala.jsp</result>
-    		<result name="error">WEB-INF/admin/error.jsp</result>
+    		<result name="error">WEB-INF/admin/errorValidar.jsp</result>
     	</action>
     	
     	<action name="terminar_reservacion" class="itesm.action_support.ConsultaAction" method="reservarSala">
     		<result name="success">WEB-INF/admin/crud_salas_consulta/admin_salas.jsp</result>
-    		<result name="error">WEB-INF/admin/error.jsp</result>
+    		<result name="error">WEB-INF/admin/errorValidar.jsp</result>
     	</action>
     	
     	<action name="goto_cancelar_cita_jsp" class="itesm.action_support.ConsultaAction">
@@ -151,7 +151,7 @@
     	<action name="lista_citas" class="itesm.action_support.ConsultaAction" method="buscarCitas">
     		<result name="success">WEB-INF/admin/crud_salas_consulta/lista_citas_cancelar.jsp</result>
     		<result name="none">WEB-INF/admin/crud_salas_consulta/no_salas_disponibles.jsp</result>
-    		<result name="error">WEB-INF/admin/error.jsp</result>
+    		<result name="error">WEB-INF/admin/errorValidar.jsp</result>
     	</action>
     	
     	<action name="cancelar_cita" class="itesm.action_support.ConsultaAction" method = "interCancelar">
@@ -159,7 +159,7 @@
     	</action>
     	<action name="registrar_cancelacion" class="itesm.action_support.ConsultaAction" method="cancelarCita">
     		<result name="success">WEB-INF/admin/crud_salas_consulta/admin_salas.jsp</result>
-    		<result name="error">WEB-INF/admin/error.jsp</result>
+    		<result name="error">WEB-INF/admin/errorValidar.jsp</result>
     	</action>
     	
     	

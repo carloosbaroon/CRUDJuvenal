@@ -11,8 +11,12 @@ import com.opensymphony.xwork2.ActionSupport;
 import itesm.business.AtencionBean;
 import itesm.business.ConsultaBean;
 import itesm.business.SalaBean;
+import itesm.database.DAO_Implementation.DAOAtencionImpl;
 import itesm.database.DAO_Implementation.DAOConsultaImpl;
+import itesm.database.DAO_Implementation.DAOSalasImpl;
+import itesm.database.DAO_Interfaces.DAOAtencion;
 import itesm.database.DAO_Interfaces.DAOConsulta;
+import itesm.database.DAO_Interfaces.DAOSalas;
 
 public class AtencionAction extends ActionSupport{
 	private static final long serialVersionUID = 1L;
@@ -42,7 +46,7 @@ public class AtencionAction extends ActionSupport{
 	
 	//BUFFERS
 	private ArrayList<SalaBean> buffer_salas_disponibles;	
-	private ArrayList<SalaBean> buffer_horario_disponible;
+	private ArrayList<ConsultaBean> buffer_horario_disponible;
 	//GETTERS AND SETTERS BUFFERS	
 	public ArrayList<SalaBean> getBuffer_salas_disponibles() {
 		return buffer_salas_disponibles;
@@ -50,17 +54,38 @@ public class AtencionAction extends ActionSupport{
 	public void setBuffer_salas_disponibles(ArrayList<SalaBean> buffer_salas_disponibles) {
 		this.buffer_salas_disponibles = buffer_salas_disponibles;
 	}
-	public ArrayList<SalaBean> getBuffer_horario_disponible() {
+	public ArrayList<ConsultaBean> getBuffer_horario_disponible() {
 		return buffer_horario_disponible;
 	}
-	public void setBuffer_horario_disponible(ArrayList<SalaBean> buffer_horario_disponible) {
+	public void setBuffer_horario_disponible(ArrayList<ConsultaBean> buffer_horario_disponible) {
 		this.buffer_horario_disponible = buffer_horario_disponible;
 	}
 	
 	//Variables Auxiliares
 	private String mensajeError;
+	private String datesyst;
+	private String timesyst;
+	private String timeaprox;
 	//GETTERS AND SETTERS Auxiliares
 	
+	public String getDatesyst() {
+		return datesyst;
+	}
+	public void setDatesyst(String datesyst) {
+		this.datesyst = datesyst;
+	}
+	public String getTimesyst() {
+		return timesyst;
+	}
+	public void setTimesyst(String timesyst) {
+		this.timesyst = timesyst;
+	}
+	public String getTimeaprox() {
+		return timeaprox;
+	}
+	public void setTimeaprox(String timeaprox) {
+		this.timeaprox = timeaprox;
+	}
 	public String dateSystem()
 	{
 		String datesyst = "";
@@ -94,18 +119,18 @@ public class AtencionAction extends ActionSupport{
 	}
 	
 	
-	public String revisarDisponibilidad()
+	public String revisarDisponibilidadNow()
 	{
-		String datesyst = dateSystem();
-		String timesyst = timeSystem();
-		String timeaprox = timeAprox();
-		//DAOConsulta daoConsulta = new DAOConsultaImpl();
+		datesyst = dateSystem();
+		timesyst = timeSystem();
+		timeaprox = timeAprox();
+		
+		DAOConsulta daoConsulta = new DAOConsultaImpl();
 		System.out.println(datesyst);
 		System.out.println(timesyst);
 		System.out.println(timeaprox);
-		return SUCCESS;
-		/*try {
-			this.buffer_salas_disponibles = daoConsulta.consultarDisponibles(datesyst, timesyst, timesyst);
+		try {
+			this.buffer_salas_disponibles = daoConsulta.consultarDisponiblesAten(datesyst, timesyst, timesyst);
 			
 			if(buffer_salas_disponibles != null)
 			{
@@ -116,6 +141,10 @@ public class AtencionAction extends ActionSupport{
 				return SUCCESS;
 			}else
 			{
+				this.buffer_horario_disponible = daoConsulta.consultarHorariosProximos(datesyst);
+				for(ConsultaBean item: buffer_horario_disponible) {
+					System.out.println(item.getId_sala());
+				}
 				return NONE;
 			}
 			
@@ -124,7 +153,24 @@ public class AtencionAction extends ActionSupport{
 			e.printStackTrace();
 			mensajeError = "Error al mostrar la lista de Salas";
 			return ERROR;
-		}*/
+		}
+	}
+	public String preRegistrarAtencion() {
+		//System.out.println(this.atencion.getFecha());
+		return SUCCESS;
+	}
+	public String endRegistrarAtencion() {
+		DAOSalas daoSala = new DAOSalasImpl();
+		DAOAtencion daoAtencion = new DAOAtencionImpl();
+		try {
+			daoAtencion.insertar(atencion);
+			daoSala.editarEstado(atencion.getId_sala(), "no disponible");	
+			return SUCCESS;
+		} catch (Exception e) {
+			e.printStackTrace();
+			mensajeError = "Error al registrar la atencion";
+			return ERROR;
+		}
 	}
 
 }

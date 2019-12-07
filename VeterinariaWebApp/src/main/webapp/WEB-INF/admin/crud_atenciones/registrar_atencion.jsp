@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+		<title>Registrar Atencion</title>
 		<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
@@ -15,12 +16,9 @@
 		<!--//theme-style-->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="keywords" content="Fidele Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
-		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!---->
 		<script src="js/menu_jquery.js"></script>
-		<title>Error Alta</title>
 	</head>
 <body> 
 <!--header-->	
@@ -62,7 +60,7 @@
 <div class="banner-head">
 	<div class="banner-1"> </div>
 		<div class="container">
-			<h1>Error</h1>	
+			<h1>Reservar Sala</h1>	
 		</div>
 </div>
 <!--content-->
@@ -74,21 +72,29 @@
 			<div class="why-top-top">
 			
 				<div class="col-sm-4 top-content">
-					
-					<s:url action="welcome_pacientes" var="regresar"/>
-					<h4><a align=center >Error</a> </h4>
-					<b>No es posible dar de alta</b>
-					
-					<h4><a href="${regresar}">Regresar</a></h4>
-				
+					<s:url action="goto_admin_salas_jsp" var="regresar"/>
+	
+	<s:form action="terminar_registro_atencion">
+		<s:textfield name="atencion.id_consulta" label="ID de la cita" value="%{atencion.id_consulta}" readonly="true"/>
+		<s:textfield name="atencion.id_sala" label="ID de la sala" value="%{atencion.id_sala}" readonly="true"/>
+		<s:textfield name="atencion.id_paciente" label="ID del paciente" />
+		<s:textfield name="atencion.fecha" label="Fecha de entrada" value="%{atencion.fecha}" readonly="true"/>
+		<s:textfield name="atencion.hora_entrada" label="Hora de entrada (hh:mm)" value="%{atencion.hora_entrada}" readonly="true"/>
+
+		<a class="more"><s:submit value="Reservar"/></a>
+	</s:form>
+	<h4><a href="${regresar}">Regresar</a></h4>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
 			
 		</div>
 	</div>
+	<!---->
+	
+</div>
 <!--footer-->
- 	<div class="footer">
+ 	<div class="footer ">
  		<div class="footer-1"> </div>
 		<div class="container">
 		  <div class="footer_top">
@@ -108,11 +114,8 @@
               	
 			</div>
 			<div class="clearfix"> </div>
-		  
-		   <div class="footer-bottom">
-		<p> © 2015 Fidele. All rights reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a></p>
-    </div>
 	 </div>
+</div>
 </div>
  	<!--//footer-->
 </body>

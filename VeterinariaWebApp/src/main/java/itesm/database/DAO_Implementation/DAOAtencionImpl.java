@@ -1,5 +1,7 @@
 package itesm.database.DAO_Implementation;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 
 import itesm.business.AtencionBean;
@@ -9,8 +11,49 @@ import itesm.database.DAO_Interfaces.DAOAtencion;
 public class DAOAtencionImpl extends Conexion implements DAOAtencion {
 
 	@Override
-	public void insertar(AtencionBean entidad) throws Exception {
+	public void insertar(AtencionBean atencion) throws Exception {
 		// TODO Auto-generated method stub
+		Connection conn = null;
+		
+		establishConnection();
+		conn = getCon();
+		
+		if(atencion.getId_consulta() == "")
+		{
+			String sql = "INSERT INTO atenciones (id_sala, id_paciente, fecha, hora_entrada)";
+			sql+="VALUES ( ?, ?, ?, ?)";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, atencion.getId_sala());
+			ps.setString(2, atencion.getId_paciente());
+			ps.setString(3, atencion.getFecha());
+			ps.setString(4, atencion.getHora_entrada());
+			
+			ps.execute();
+
+		}
+		else
+		{
+			String sql = "INSERT INTO atenciones (id_consulta, id_sala, id_paciente, fecha, hora_entrada)";
+			sql+="VALUES (?, ?, ?, ?, ?)";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, atencion.getId_consulta());
+			ps.setString(2, atencion.getId_sala());
+			ps.setString(3, atencion.getId_paciente());
+			ps.setString(4, atencion.getFecha());
+			ps.setString(5, atencion.getHora_entrada());
+			
+			ps.execute();
+
+		}	
+		
+		
+		if (conn != null) {
+           try {
+              closeConnection();
+           } catch (Exception e) {
+				e.printStackTrace();
+           }
+        }
 		
 	}
 

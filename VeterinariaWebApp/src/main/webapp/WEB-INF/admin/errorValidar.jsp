@@ -20,7 +20,7 @@
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!---->
 		<script src="js/menu_jquery.js"></script>
-		<title>Error Alta</title>
+		<title>Error Validar</title>
 	</head>
 <body> 
 <!--header-->	
@@ -77,8 +77,7 @@
 					
 					<s:url action="welcome_pacientes" var="regresar"/>
 					<h4><a align=center >Error</a> </h4>
-					<b>No es posible dar de alta</b>
-					
+					<b> No se encontró el ID</b>
 					<h4><a href="${regresar}">Regresar</a></h4>
 				
 				</div>
