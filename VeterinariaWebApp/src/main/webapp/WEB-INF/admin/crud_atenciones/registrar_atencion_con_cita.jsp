@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<title>Lista Citas</title>
+		<title>Registrar Atencion</title>
 		<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
@@ -16,12 +16,9 @@
 		<!--//theme-style-->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="keywords" content="Fidele Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
-		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!---->
 		<script src="js/menu_jquery.js"></script>
-		<script src="js/moment.js"></script>
 	</head>
 <body> 
 <!--header-->	
@@ -63,7 +60,7 @@
 <div class="banner-head">
 	<div class="banner-1"> </div>
 		<div class="container">
-			<h1>Lista Pacientes</h1>	
+			<h1>Reservar Sala</h1>	
 		</div>
 </div>
 <!--content-->
@@ -75,67 +72,27 @@
 			<div class="why-top-top">
 			
 				<div class="col-sm-4 top-content">
-					
-<table border="1">
-	<tr>
-		<td><b>ID Atencion</b></td>
-       <td><b>ID Cita</b></td>
-       <td><b>Fecha</b></td>
-       <td><b>Hora Inicial</b></td>
-       <td><b>Hora Final</b></td>
-       <td><b>Id Empleado</b></td>
-       <td><b>ID Sala</b></td>	
-       <td><b>ID Paciente</b></td>
-       <td><b>Correo</b></td>
-       <td><b>Observaciones</b></td>
-       <td><b>Estado</b></td>       
-       <td><b>Tomar Cita</b></td>
-       <td><b>Salida Cita</b></td>
-    </tr>
+					<s:url action="goto_admin_salas_jsp" var="regresar"/>
+	
+	<s:form action="terminar_registro_atencion">
+		<s:textfield name="atencion.id_consulta" label="ID de la cita" value="%{atencion.id_consulta}" readonly="true"/>
+		<s:textfield name="atencion.id_sala" label="ID de la sala" value="%{atencion.id_sala}" readonly="true"/>
+		<s:textfield name="atencion.id_paciente" label="ID del paciente" />
+		<s:textfield name="atencion.fecha" label="Fecha de entrada" value="%{atencion.fecha}" readonly="true"/>
+		<s:textfield name="atencion.hora_entrada" label="Hora de entrada (hh:mm)" value="%{atencion.hora_entrada}" readonly="true"/>
 
-<s:iterator value="buffer_citas" status="i">
-	<tr>
-		<td><s:property value="id_atencion"/></td>
-		<td><s:property value="id_consulta"/></td>
-		<td><s:property value="fecha_consulta"/></td>
-		<td id="hora-inicial_${i.index}"><s:property value="hora_inicial"/></td>
-		<td id="hora-final_${i.index}"><s:property value="hora_final"/></td>
-		<td><s:property value="id_empleado"/></td>
-		<td><s:property value="id_sala"/></td>
-		<td><s:property value="id_paciente"/></td>
-		<td><s:property value="correo"/></td>
-		<td><s:property value="observaciones"/></td>
-		<td><s:property value="estado_consulta"/></td>
-		<td>
-			<s:url action="tomar_cita" var="tomar_cita">
-       			<s:param name = "atencion.id_consulta">${id_consulta}</s:param>
-       			<s:param name = "atencion.fecha">${fecha_consulta}</s:param>
-       			<s:param name = "atencion.id_sala">${id_sala}</s:param>
-       			<s:param name = "atencion.id_paciente">${id_paciente}</s:param>
-			</s:url>
-			<a style="" class="more" href="${tomar_cita}" id="entrar_${i.index}" onClick="disableIt(this);">Tomar Cita</a>
-		</td>
-		
-		<td>
-			<s:url action="salida_cita" var="salida_cita">
-       			<s:param name = "atencion.id_consulta">${id_consulta}</s:param>
-       			<s:param name = "atencion.fecha">${fecha_consulta}</s:param>
-       			<s:param name = "atencion.id_sala">${id_sala}</s:param>
-       			<s:param name = "atencion.id_paciente">${id_paciente}</s:param>
-			</s:url>
-			<a class="" href="${salida_cita}" id="salir_${i.index}">Salida Cita</a>
-		</td>
-	</tr>
-</s:iterator>
-</table>
-<h4><a href="${regresar}">Regresar</a></h4>
-				
+		<a class="more"><s:submit value="Reservar"/></a>
+	</s:form>
+	<h4><a href="${regresar}">Regresar</a></h4>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
 			
 		</div>
 	</div>
+	<!---->
+	
+</div>
 <!--footer-->
  	<div class="footer ">
  		<div class="footer-1"> </div>
@@ -157,24 +114,9 @@
               	
 			</div>
 			<div class="clearfix"> </div>
-		  
-		   <div class="footer-bottom">
-		<p> © 2015 Fidele. All rights reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a></p>
-    </div>
 	 </div>
 </div>
+</div>
  	<!--//footer-->
- 	
- 	<script type="text/javascript">
- 	
- 		function disableIt(e){
-			btnEntrar = document.getElementById(e.id);
-			btn.setAttribute("style", "pointer-events: none; ");
-		}
- 		//alert("Hola:" + moment().format('MMMM Do YYYY, h:mm:ss a'));
- 		//var salida_cita = document.getElementById("salida_cita");
- 		//salida_cita.setAttribute("onclick", "")
- 		
- 	</script>
 </body>
 </html>

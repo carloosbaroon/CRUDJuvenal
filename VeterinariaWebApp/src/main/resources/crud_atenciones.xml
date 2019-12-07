@@ -32,9 +32,22 @@
     	<action name="lista_citas" class="itesm.action_support.ConsultaAction" method="mostrarListaCitas">
     		<result name="success">WEB-INF/admin/crud_atenciones/listaCitas.jsp</result>
     		<result name="error">WEB-INF/admin/error.jsp</result>
+    		
     	</action>
     	
-    	<action name="salida_cita">
+    	<action name="tomar_cita" class="itesm.action_support.AtencionAction" method="endRegistrarAtencion">
+    		<result name="success">WEB-INF/admin/crud_atenciones/cita_tomada.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    		
+    	</action>
+    	
+    		
+    	<action name="cita_tomada" class="itesm.action_support.AtencionAction" method="endRegistrarAtencion">
+    		<result name="success">WEB-INF/admin/crud_atenciones/cita_tomada.jsp</result>
+    	</action>
+    	
+    	<action name="salida_cita" class="itesm.action_support.AtencionAction" method="registrarSalida">
+    		<result name="success">WEB-INF/admin/crud_atenciones/cita_terminada.jsp</result>
     		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	
