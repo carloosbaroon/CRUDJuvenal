@@ -126,7 +126,7 @@ public class AtencionAction extends ActionSupport{
 		
 		DateFormat timeFormat = new SimpleDateFormat("hh:mm");
 		Calendar ahora = Calendar.getInstance();
-		ahora.add(Calendar.HOUR, 1);
+		ahora.add(Calendar.HOUR, 2);
 		dateObj = ahora.getTime();		
 		//System.out.println("Fecha: "+dateFormat.format(dateObj));
 		timesyst = timeFormat.format(dateObj);
