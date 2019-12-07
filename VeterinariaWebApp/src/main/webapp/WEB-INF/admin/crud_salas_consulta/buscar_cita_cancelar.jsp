@@ -74,7 +74,7 @@
 				<div class="col-sm-4 top-content">
 					<s:url action="goto_admin_salas" var="regresar"/>
 	
-						<s:form action="lista_citas">
+						<s:form action="lista_citas_cancelar">
 							<s:textfield name="idPropietario" label="Propietario" />
 					
 							<a class="more"> <s:submit value="Buscar"/> </a>
