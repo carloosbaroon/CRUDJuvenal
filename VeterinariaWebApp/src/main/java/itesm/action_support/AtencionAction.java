@@ -162,10 +162,16 @@ public class AtencionAction extends ActionSupport{
 	}
 	public String endRegistrarAtencion() {
 		DAOSalas daoSala = new DAOSalasImpl();
+		DAOConsulta daoConsulta = new DAOConsultaImpl();
 		DAOAtencion daoAtencion = new DAOAtencionImpl();
 		try {
+			atencion.setHora_entrada(timeSystem());
 			daoAtencion.insertar(atencion);
-			daoSala.editarEstado(atencion.getId_sala(), "no disponible");	
+			daoSala.editarEstado(atencion.getId_sala(), "no disponible");
+			ConsultaBean datosConsulta = new ConsultaBean();
+			datosConsulta.setId_consulta(atencion.getId_consulta());
+			datosConsulta.setEstado_consulta("En curso");
+			daoConsulta.editar(datosConsulta);
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -173,5 +179,28 @@ public class AtencionAction extends ActionSupport{
 			return ERROR;
 		}
 	}
+	
+	public String registrarSalida() {
+		DAOSalas daoSala = new DAOSalasImpl();
+		DAOConsulta daoConsulta = new DAOConsultaImpl();
+		DAOAtencion daoAtencion = new DAOAtencionImpl();
+		try {
+			atencion.setHora_salida(timeSystem());
+			daoAtencion.editar(atencion);
+			daoSala.editarEstado(atencion.getId_sala(), "disponible");
+			
+			ConsultaBean datosConsulta = new ConsultaBean();
+			datosConsulta.setId_consulta(atencion.getId_consulta());
+			datosConsulta.setEstado_consulta("Finalizada");
+			daoConsulta.editar(datosConsulta);
+			return SUCCESS;
+		} catch (Exception e) {
+			e.printStackTrace();
+			mensajeError = "Error al registrar la atencion";
+			return ERROR;
+		}
+	}
+	
+	
 
 }

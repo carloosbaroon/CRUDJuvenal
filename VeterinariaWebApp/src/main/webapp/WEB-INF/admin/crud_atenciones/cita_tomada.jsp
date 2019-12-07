@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<title>Lista Citas</title>
+		<title>Cita Tomada</title>
 		<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
@@ -21,7 +21,7 @@
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!---->
 		<script src="js/menu_jquery.js"></script>
-		<script src="js/moment.js"></script>
+		<title>Cita Tomada</title>
 	</head>
 <body> 
 <!--header-->	
@@ -63,7 +63,7 @@
 <div class="banner-head">
 	<div class="banner-1"> </div>
 		<div class="container">
-			<h1>Lista Pacientes</h1>	
+			<h1>Cita Tomada</h1>	
 		</div>
 </div>
 <!--content-->
@@ -76,59 +76,11 @@
 			
 				<div class="col-sm-4 top-content">
 					
-<table border="1">
-	<tr>
-		<td><b>ID Atencion</b></td>
-       <td><b>ID Cita</b></td>
-       <td><b>Fecha</b></td>
-       <td><b>Hora Inicial</b></td>
-       <td><b>Hora Final</b></td>
-       <td><b>Id Empleado</b></td>
-       <td><b>ID Sala</b></td>	
-       <td><b>ID Paciente</b></td>
-       <td><b>Correo</b></td>
-       <td><b>Observaciones</b></td>
-       <td><b>Estado</b></td>       
-       <td><b>Tomar Cita</b></td>
-       <td><b>Salida Cita</b></td>
-    </tr>
-
-<s:iterator value="buffer_citas" status="i">
-	<tr>
-		<td><s:property value="id_atencion"/></td>
-		<td><s:property value="id_consulta"/></td>
-		<td><s:property value="fecha_consulta"/></td>
-		<td id="hora-inicial_${i.index}"><s:property value="hora_inicial"/></td>
-		<td id="hora-final_${i.index}"><s:property value="hora_final"/></td>
-		<td><s:property value="id_empleado"/></td>
-		<td><s:property value="id_sala"/></td>
-		<td><s:property value="id_paciente"/></td>
-		<td><s:property value="correo"/></td>
-		<td><s:property value="observaciones"/></td>
-		<td><s:property value="estado_consulta"/></td>
-		<td>
-			<s:url action="tomar_cita" var="tomar_cita">
-       			<s:param name = "atencion.id_consulta">${id_consulta}</s:param>
-       			<s:param name = "atencion.fecha">${fecha_consulta}</s:param>
-       			<s:param name = "atencion.id_sala">${id_sala}</s:param>
-       			<s:param name = "atencion.id_paciente">${id_paciente}</s:param>
-			</s:url>
-			<a style="" class="more" href="${tomar_cita}" id="entrar_${i.index}" onClick="disableIt(this);">Tomar Cita</a>
-		</td>
-		
-		<td>
-			<s:url action="salida_cita" var="salida_cita">
-       			<s:param name = "atencion.id_consulta">${id_consulta}</s:param>
-       			<s:param name = "atencion.fecha">${fecha_consulta}</s:param>
-       			<s:param name = "atencion.id_sala">${id_sala}</s:param>
-       			<s:param name = "atencion.id_paciente">${id_paciente}</s:param>
-			</s:url>
-			<a class="" href="${salida_cita}" id="salir_${i.index}">Salida Cita</a>
-		</td>
-	</tr>
-</s:iterator>
-</table>
-<h4><a href="${regresar}">Regresar</a></h4>
+					<h4><a align=center >Cita Tomada</a> </h4>
+					
+			
+					<b>Cita Tomada</b>
+				
 				
 				</div>
 				<div class="clearfix"> </div>
@@ -164,17 +116,5 @@
 	 </div>
 </div>
  	<!--//footer-->
- 	
- 	<script type="text/javascript">
- 	
- 		function disableIt(e){
-			btnEntrar = document.getElementById(e.id);
-			btn.setAttribute("style", "pointer-events: none; ");
-		}
- 		//alert("Hola:" + moment().format('MMMM Do YYYY, h:mm:ss a'));
- 		//var salida_cita = document.getElementById("salida_cita");
- 		//salida_cita.setAttribute("onclick", "")
- 		
- 	</script>
 </body>
 </html>

@@ -293,8 +293,25 @@ public class DAOConsultaImpl extends Conexion implements DAOConsulta{
 	
 	@Override
 	public void editar(ConsultaBean entidad) throws Exception {
-		// TODO Auto-generated method stub
-		
+		Connection conn = null;
+	      
+   	 	establishConnection();
+        conn = getCon();
+        String sql = "UPDATE consultas SET estado = ? WHERE id_consulta = ?";
+                
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, entidad.getEstado_consulta());
+        ps.setString(2, entidad.getId_consulta());
+        
+        ps.execute();
+
+        if (conn != null) {
+           try {
+              closeConnection();
+           } catch (Exception e) {
+				e.printStackTrace();
+           }
+        }		
 	}
 
 	@Override
@@ -316,13 +333,17 @@ public class DAOConsultaImpl extends Conexion implements DAOConsulta{
 		        String sql = "SELECT * FROM consultas WHERE id_paciente IN ";
 		        	sql +=	"(SELECT id_paciente FROM paciente WHERE id_propietario IN ";
 		        	sql += "(SELECT id_propietario FROM propietario WHERE id_propietario = ?))";
-		        	sql +=	"and fecha >= ?"; 
-		        	sql += 	"and hora_inicial >= ?";
+		        	sql +=	"and fecha = ?"; 
+		        	sql += 	"and hora_inicial < ?";
+		        	sql += "and hora_final > ?";		
+		        	sql += "and estado = ?";
 		        
 		        PreparedStatement ps = conn.prepareStatement(sql);
 		        ps.setString(1, id_propietario);
 		        ps.setString(2, fecha);		        
 		        ps.setString(3, hora_entrada);
+		        ps.setString(4, hora_entrada);
+		        ps.setString(5, "Programado");
 		        
 		        ResultSet rs = ps.executeQuery();
 

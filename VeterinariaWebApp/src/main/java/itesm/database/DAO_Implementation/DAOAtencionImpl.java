@@ -65,9 +65,30 @@ public class DAOAtencionImpl extends Conexion implements DAOAtencion {
 
 	@Override
 	public void editar(AtencionBean entidad) throws Exception {
-		// TODO Auto-generated method stub
-		
+		Connection conn = null;
+	      
+   	 	establishConnection();
+        conn = getCon();
+        String sql = "UPDATE atenciones SET hora_salida = ? WHERE fecha = ? AND id_paciente = ? AND id_sala = ? AND id_consulta = ?";
+                
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, entidad.getHora_salida());
+        ps.setString(2, entidad.getFecha());
+        ps.setString(3, entidad.getId_paciente());
+        ps.setString(4, entidad.getId_sala());
+        ps.setString(5, entidad.getId_consulta());
+        
+        ps.execute();
+
+        if (conn != null) {
+           try {
+              closeConnection();
+           } catch (Exception e) {
+				e.printStackTrace();
+           }
+        }
 	}
+		
 
 	@Override
 	public ArrayList<AtencionBean> consultar() throws Exception {

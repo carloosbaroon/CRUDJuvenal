@@ -12,6 +12,7 @@ public class ConsultaBean {
 	private String correo;
 	private String observaciones;
 	private String estado_consulta;
+	private String id_atencion;
 	
 	public String getId_consulta() {
 		return id_consulta;
@@ -72,6 +73,12 @@ public class ConsultaBean {
 	}
 	public void setEstado_consulta(String estado_consulta) {
 		this.estado_consulta = estado_consulta;
+	}
+	public String getId_atencion() {
+		return id_atencion;
+	}
+	public void setId_atencion(String id_atencion) {
+		this.id_atencion = id_atencion;
 	}
 	
 }
