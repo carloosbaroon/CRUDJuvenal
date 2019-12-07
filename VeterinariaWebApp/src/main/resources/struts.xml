@@ -10,6 +10,7 @@
    	<include file="crud_users.xml"/>
     <include file="crud_pacientes.xml"/>
      <include file="crud_atenciones.xml"/>
+      <include file="reportes.xml"/>
 
 
     <package name="default" namespace="/" extends="struts-default">
@@ -52,8 +53,9 @@
          <result name = "error">error.jsp</result>
       </action>
       
-       <action name="reporte_cancelaciones">
+       <action name="reporte_cancelaciones"> 
 	    		<result name="success">reports/listCancelaciones.jsp</result>
+	    		<param name="qs_cancelacion_date">${qs_cancelacion_date}</param>
 	    </action>
     	
     	

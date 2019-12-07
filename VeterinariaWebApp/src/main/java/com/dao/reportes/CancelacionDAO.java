@@ -27,7 +27,7 @@ public class CancelacionDAO {
 	}
 
 	
-	public ArrayList<CancelacionBean> listaCancelaciones() throws SQLException{
+	public ArrayList<CancelacionBean> listaCancelaciones(int date) throws SQLException{
 		
 		ArrayList<CancelacionBean> listina = new ArrayList<CancelacionBean>();
 		String ret = "error";
@@ -36,8 +36,11 @@ public class CancelacionDAO {
 	      
 		 conexion.establishConnection();
 	     conn = conexion.getCon();
-	     String sql = "SELECT * FROM Cancelaciones";
+	     String sql ="SELECT * FROM (Cancelaciones)";
+	      sql+= "WHERE EXTRACT(MONTH FROM fecha)= ?" ;
+	    // sql+=" id_propietario = ?"; "SELECT * FROM Cancelaciones";
 	     PreparedStatement ps = conn.prepareStatement(sql);
+	     ps.setInt(1,date);
 	     ResultSet rs = ps.executeQuery();
 	     while (rs.next()) {
 	    	 CancelacionBean cancelacion = new CancelacionBean();

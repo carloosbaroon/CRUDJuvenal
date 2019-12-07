@@ -30,7 +30,9 @@ public class ReporteCancelaciones extends ActionSupport{
 	private List<CancelacionBean> listCancelaciones;
 	private InputStream inputStream;
 	private String filename;
-	
+	private int qs_cancelacion_date;
+	public int getQs_cancelacion_date() {return qs_cancelacion_date;}
+	public void setQs_cancelacion_date(int qs_cancelacion_date) {this.qs_cancelacion_date = qs_cancelacion_date;}
 	public String getMessage() {
 		return message;
 	}
@@ -71,7 +73,7 @@ public class ReporteCancelaciones extends ActionSupport{
 		CancelacionBean cancelacion = new CancelacionBean();
 		cancelacionDao.setCancelacion(cancelacion);
 		try {
-			listCancelaciones = cancelacionDao.listaCancelaciones();
+			listCancelaciones = cancelacionDao.listaCancelaciones(qs_cancelacion_date);
 			
 			JasperReport jasperReport = null;
 		    JasperDesign jasperDesign = null;
