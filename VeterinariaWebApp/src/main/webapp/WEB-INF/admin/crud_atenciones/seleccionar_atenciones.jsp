@@ -62,7 +62,7 @@
 <div class="banner-head">
 	<div class="banner-1"> </div>
 		<div class="container">
-			<h1>Salas disponibles</h1>	
+			<h1>Atenciones de hoy</h1>	
 		</div>
 </div>
 <!--content-->
@@ -97,6 +97,9 @@
 		<td>
 			<s:url action="goto_pre_terminar_atencion" var="url_registrar_atencion">
        			<s:param name = "atencion.id_atencion">${id_atencion}</s:param>
+       			<s:param name = "atencion.id_consulta">${id_consulta}</s:param>
+       			<s:param name = "atencion.id_sala">${id_sala}</s:param>
+       			<s:param name = "atencion.id_paciente">${id_paciente}</s:param>
 			</s:url>
 			<a class="more" href="${url_registrar_atencion}">Seleccionar</a>
 		</td>

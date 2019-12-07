@@ -1,13 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-<%@ taglib prefix="sb" uri="/struts-bootstrap-tags" %>
-
 <!DOCTYPE html>
 <html>
-<head>
-		<title>Registrar Atencion</title>
-		<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<head>
+	<title>Administración de Atenciones</title>
+	<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
 		<!-- Custom Theme files -->
@@ -20,9 +18,8 @@
 		<!---->
 		<script src="js/menu_jquery.js"></script>
 	</head>
-<body> 
-<!--header-->	
-<div class="header">
+	<body>
+		<div class="header">
 	<div class="container">
 		 <div class="logo">
 		  	<a href="index.html"><img src="images/logof.jpeg" alt="" ></a>
@@ -60,11 +57,13 @@
 <div class="banner-head">
 	<div class="banner-1"> </div>
 		<div class="container">
-			<h1>Registrar Atencion</h1>	
+			<br>
+			<h1>No hay atenciones para finalizar hoy</h1>	
 		</div>
 </div>
 <!--content-->
 <div class="about">
+<s:url action="goto_admin_atenciones_jsp" var="regresar"/>
 	
 	<!---->
 	<div class="why">
@@ -72,23 +71,13 @@
 			<div class="why-top-top">
 			
 				<div class="col-sm-4 top-content">
-					<s:url action="goto_admin_salas_jsp" var="regresar"/>
-	
-	<s:form action="terminar_registro_atencion">
-		<s:textfield name="atencion.id_consulta" label="ID de la cita" value="%{atencion.id_consulta}" readonly="true"/>
-		<s:textfield name="atencion.id_sala" label="ID de la sala" value="%{atencion.id_sala}" readonly="true"/>
-		<s:textfield name="atencion.id_paciente" label="ID del paciente" />
-		<s:textfield name="atencion.fecha" label="Fecha de entrada" value="%{atencion.fecha}" readonly="true"/>
-		<s:textfield name="atencion.hora_entrada" label="Hora de entrada (hh:mm)" value="%{atencion.hora_entrada}" readonly="true"/>
-
-		<a class="more"><s:submit value="Reservar"/></a>
-	</s:form>
-	<h4><a href="${regresar}">Regresar</a></h4>
+					<h4>No hay atenciones para finalizar hoy</h4>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
 			
 		</div>
+		<h4> <a href="${regresar}">Regresar</a></h4>
 	</div>
 	<!---->
 	
@@ -114,9 +103,9 @@
               	
 			</div>
 			<div class="clearfix"> </div>
-	 </div>
+	 	</div>
+		</div>
 </div>
-</div>
- 	<!--//footer-->
-</body>
+	</body>
+
 </html>
