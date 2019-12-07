@@ -63,7 +63,8 @@
     	</action>
     	
     	<action name="terminar_atencion" class="itesm.action_support.AtencionAction" method="terminarAtencion">
-    		<result name="success">WEB-INF/admin/crud_atenciones/admin_atenciones.jsp</result>
+    		<result name="success">reports/ListRecibo.jsp</result>
+    		 <param name="id_atencion">${id_atencion}</param>
     		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	
@@ -77,7 +78,8 @@
 	    		<result>WEB-INF/admin/crud_atenciones/listaFacturas.jsp</result>
 				
 	    	</action>
-    
+	    	
+	    	
     	
     </package>
 </struts>
