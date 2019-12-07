@@ -148,7 +148,7 @@
     		<result>WEB-INF/admin/crud_salas_consulta/buscar_cita_cancelar.jsp</result>
     	</action>
     	
-    	<action name="lista_citas" class="itesm.action_support.ConsultaAction" method="buscarCitas">
+    	<action name="lista_citas_cancelar" class="itesm.action_support.ConsultaAction" method="buscarCitas">
     		<result name="success">WEB-INF/admin/crud_salas_consulta/lista_citas_cancelar.jsp</result>
     		<result name="none">WEB-INF/admin/crud_salas_consulta/no_salas_disponibles.jsp</result>
     		<result name="error">WEB-INF/admin/errorValidar.jsp</result>
