@@ -12,14 +12,11 @@ public interface DAOConsulta extends CRUD<ConsultaBean>{
 	ArrayList<ConsultaBean> consultabyPro(String idPropietario) throws Exception;
 	
 	void cancelarCita(String idConsulta) throws Exception;
-<<<<<<< Updated upstream
 
 	ArrayList<SalaBean> consultarDisponiblesAten(String fecha, String hora_inicial, String hora_final) throws Exception;
 
 	ArrayList<ConsultaBean> consultarHorariosProximos(String fecha) throws Exception;
-
-=======
 	
 	ArrayList<ConsultaBean> consultarCitasProgramadas(String id_propietario, String fecha, String hora_entrada) throws Exception;
->>>>>>> Stashed changes
+
 }

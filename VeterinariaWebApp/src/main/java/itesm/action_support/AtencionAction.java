@@ -68,7 +68,6 @@ public class AtencionAction extends ActionSupport{
 	private String timeaprox;
 	//GETTERS AND SETTERS Auxiliares
 	
-<<<<<<< Updated upstream
 	public String getDatesyst() {
 		return datesyst;
 	}
@@ -87,10 +86,8 @@ public class AtencionAction extends ActionSupport{
 	public void setTimeaprox(String timeaprox) {
 		this.timeaprox = timeaprox;
 	}
-	public String dateSystem()
-=======
+	//public String dateSystem()
 	public static String dateSystem()
->>>>>>> Stashed changes
 	{
 		String datesyst = "";
 		Date dateObj = new Date();
