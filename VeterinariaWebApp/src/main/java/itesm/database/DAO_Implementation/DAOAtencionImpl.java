@@ -108,7 +108,7 @@ public class DAOAtencionImpl extends Conexion implements DAOAtencion {
 		conn = getCon();
 		
 		String sql ="SELECT * FROM atenciones WHERE";
-        sql+=" fecha = ?";
+        sql+=" fecha = ? AND hora_salida IS NULL";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, datesyst);
         ResultSet rs = ps.executeQuery();

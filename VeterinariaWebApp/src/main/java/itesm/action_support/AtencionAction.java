@@ -126,7 +126,7 @@ public class AtencionAction extends ActionSupport{
 		
 		DateFormat timeFormat = new SimpleDateFormat("hh:mm");
 		Calendar ahora = Calendar.getInstance();
-		ahora.add(Calendar.HOUR, 2);
+		ahora.add(Calendar.HOUR, 1);
 		dateObj = ahora.getTime();		
 		//System.out.println("Fecha: "+dateFormat.format(dateObj));
 		timesyst = timeFormat.format(dateObj);
@@ -136,6 +136,9 @@ public class AtencionAction extends ActionSupport{
 	
 	public String revisarDisponibilidadNow()
 	{
+		/*
+		 * Se revisa la disponibilidad en base a que la atencion duré maximo dos horas
+		 */
 		datesyst = dateSystem();
 		timesyst = timeSystem();
 		timeaprox = timeAprox();
@@ -245,7 +248,7 @@ public class AtencionAction extends ActionSupport{
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
-			mensajeError = "Error al registrar la atencion";
+			mensajeError = "Error al terminar la atencion";
 			return ERROR;
 		}
 	}
