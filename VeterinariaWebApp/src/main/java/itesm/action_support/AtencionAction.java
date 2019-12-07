@@ -46,7 +46,7 @@ public class AtencionAction extends ActionSupport{
 	
 	//BUFFERS
 	private ArrayList<SalaBean> buffer_salas_disponibles;	
-	private ArrayList<SalaBean> buffer_horario_disponible;
+	private ArrayList<ConsultaBean> buffer_horario_disponible;
 	//GETTERS AND SETTERS BUFFERS	
 	public ArrayList<SalaBean> getBuffer_salas_disponibles() {
 		return buffer_salas_disponibles;
@@ -54,10 +54,10 @@ public class AtencionAction extends ActionSupport{
 	public void setBuffer_salas_disponibles(ArrayList<SalaBean> buffer_salas_disponibles) {
 		this.buffer_salas_disponibles = buffer_salas_disponibles;
 	}
-	public ArrayList<SalaBean> getBuffer_horario_disponible() {
+	public ArrayList<ConsultaBean> getBuffer_horario_disponible() {
 		return buffer_horario_disponible;
 	}
-	public void setBuffer_horario_disponible(ArrayList<SalaBean> buffer_horario_disponible) {
+	public void setBuffer_horario_disponible(ArrayList<ConsultaBean> buffer_horario_disponible) {
 		this.buffer_horario_disponible = buffer_horario_disponible;
 	}
 	
@@ -141,6 +141,10 @@ public class AtencionAction extends ActionSupport{
 				return SUCCESS;
 			}else
 			{
+				this.buffer_horario_disponible = daoConsulta.consultarHorariosProximos(datesyst);
+				for(ConsultaBean item: buffer_horario_disponible) {
+					System.out.println(item.getId_sala());
+				}
 				return NONE;
 			}
 			

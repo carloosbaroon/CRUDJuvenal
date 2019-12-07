@@ -101,7 +101,6 @@ public class DAOConsultaImpl extends Conexion implements DAOConsulta{
 	@Override
 	public ArrayList<SalaBean> consultarDisponibles(String fecha, String hora_inicial, String hora_final) throws Exception {
 		// TODO Auto-generated method stub
-		// NO ES CORRECTO LA IMPLEMENTACION
 		ArrayList<SalaBean> buffer_salas = new ArrayList<SalaBean>();
 		String ret = "error";
 		
@@ -145,7 +144,6 @@ public class DAOConsultaImpl extends Conexion implements DAOConsulta{
 	@Override
 	public ArrayList<SalaBean> consultarDisponiblesAten(String fecha, String hora_inicial, String hora_final) throws Exception {
 		// TODO Auto-generated method stub
-		// NO ES CORRECTO LA IMPLEMENTACION
 		ArrayList<SalaBean> buffer_salas = new ArrayList<SalaBean>();
 		String ret = "error";
 		
@@ -184,6 +182,46 @@ public class DAOConsultaImpl extends Conexion implements DAOConsulta{
         }
         
 		return buffer_salas;
+	}
+	
+	@Override
+	public ArrayList<ConsultaBean> consultarHorariosProximos(String fecha) throws Exception {
+		// TODO Auto-generated method stub
+		// NO ES CORRECTO LA IMPLEMENTACION
+		ArrayList<ConsultaBean> buffer_horarios = new ArrayList<ConsultaBean>();
+		String ret = "error";
+		
+		Connection conn = null;
+	      
+   	 	establishConnection();
+        conn = getCon();
+                
+        String sql ="select consultas.id_sala, consultas.hora_final ";
+        sql += "from (select * from consultas where consultas.fecha = ? order by consultas.hora_final desc) ";
+        sql += "consultas group by consultas.id_sala;";
+        
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, fecha);
+        
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+        	ConsultaBean salaAux = new ConsultaBean();
+        	salaAux.setId_sala(rs.getString(1));
+        	salaAux.setHora_final(rs.getString(2));
+           
+        	buffer_horarios.add(salaAux);
+        }
+        
+        if (conn != null) {
+            try {
+               closeConnection();
+            } catch (Exception e) {
+ 				e.printStackTrace();
+            }
+        }
+        
+		return buffer_horarios;
 	}
 	
 	@Override
