@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
+<%@ taglib prefix="sb" uri="/struts-bootstrap-tags" %>
+
 <!DOCTYPE html>
 <html>
-	<head>
-	<title>Administracion Pacientes</title>
-	<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<head>
+		<title>Historial Médico</title>
+		<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
 		<!-- Custom Theme files -->
@@ -14,12 +16,15 @@
 		<!--//theme-style-->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="Fidele Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!---->
 		<script src="js/menu_jquery.js"></script>
 	</head>
-	<body>
-		<div class="header">
+<body> 
+<!--header-->	
+<div class="header">
 	<div class="container">
 		 <div class="logo">
 		  	<a href="index.html"><img src="images/logof.jpeg" alt="" ></a>
@@ -57,8 +62,7 @@
 <div class="banner-head">
 	<div class="banner-1"> </div>
 		<div class="container">
-			<br>
-			<h1>Administracion Pacientes</h1>	
+			<h1>Historial Médico</h1>	
 		</div>
 </div>
 <!--content-->
@@ -70,33 +74,44 @@
 			<div class="why-top-top">
 			
 				<div class="col-sm-4 top-content">
-						<s:url action="goto_alta_owner_jsp" var="alta_owner"/>
-						<s:url action="goto_alta_paciente_jsp" var="alta_paciente"/>
-						<s:url action="goto_editar_owner" var="modificar_owner"/>
-						<s:url action="goto_editar_paciente_jsp" var="consulta_paciente"/>
-						<s:url action="goto_historial_medico" var="historial_paciente"/>
-						
-						<h4><a href="${alta_owner}">Dar de Alta Dueño</a></h4>	
-						<h4><a href="${alta_paciente}">Dar de Alta Paciente</a></h4>	
-						<h4><a href="${modificar_owner}">Modificar Dueño</a></h4>
-						<h4><a href="${consulta_paciente}">Modificar Paciente</a></h4>
-						<h4><a href="${historial_paciente}">Historial Médico Paciente</a></h4>
+					
+<table border="1">
+	<tr>
+       <td><b>FECHA</b></td>
+       <td><b>ID EMPLEADO</b></td>
+       <td><b>ID PACIENTE</b></td>
+       <td><b>OBSERVACIONES</b></td>
+       <td><b>ID SALA</b></td>
+   
+    </tr>
+
+<s:iterator value="buffer_consultas" status="i">
+	<tr>
+		<td><s:property value="fecha_consulta"/></td>
+		<td><s:property value="id_empleado"/></td>
+		<td><s:property value="id_paciente"/></td>
+		<td><s:property value="observaciones"/></td>
+		<td><s:property value="id_sala"/></td>
+		<td><s:property value="idOwner"/></td>
+		
+	</tr>
+</s:iterator>
+</table>
+<h4><a href="${regresar}">Regresar</a></h4>
+				
 				</div>
 				<div class="clearfix"> </div>
 			</div>
 			
 		</div>
 	</div>
-	<!---->
-	
-</div>
 <!--footer-->
  	<div class="footer ">
  		<div class="footer-1"> </div>
 		<div class="container">
 		  <div class="footer_top">
 		  	<div class="col-md-3 footer-head">
-				<h4>Navegacion</h4>
+				<h4>Navegación</h4>
 				  <ul class="list1">
 				  	  <li class="active"><a href="${goto_welcome}">Inicio</a></li>
 					   	 <li><a href="${goto_crear_admin}">Crear Administrador</a></li>
@@ -106,13 +121,17 @@
 		  	
 		
 			<div class="col-md-3 footer-head1">
-			  	<h4>Ubicacion</h4>
-             	<p>Avenida Eduardo Monroy Cardenas 2000 San Antonio Buenavista, 50110 Toluca de Lerdo, Mex</p>
+			  	<h4>Ubicación</h4>
+             	<p>Avenida Eduardo Monroy Cárdenas 2000 San Antonio Buenavista, 50110 Toluca de Lerdo, Méx</p>
               	
 			</div>
 			<div class="clearfix"> </div>
-	 	</div>
-		</div>
+		  
+		   <div class="footer-bottom">
+		<p> © 2015 Fidele. All rights reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a></p>
+    </div>
+	 </div>
 </div>
-	</body>
+ 	<!--//footer-->
+</body>
 </html>
