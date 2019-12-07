@@ -21,11 +21,12 @@
     	
     	<action name="goto_pre_registrar_atencion" class="itesm.action_support.AtencionAction" method="preRegistrarAtencion">
     		<result name="success">WEB-INF/admin/crud_atenciones/registrar_atencion.jsp</result>
-    		<result name="error">WEB-INF/admin/error.jsp</result>
+    		
     	</action>
     	
     	<action name="terminar_registro_atencion" class="itesm.action_support.AtencionAction" method="endRegistrarAtencion">
     		<result name="success">WEB-INF/admin/crud_atenciones/admin_atenciones.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     		
     	<action name="lista_citas" class="itesm.action_support.ConsultaAction" method="mostrarListaCitas">
@@ -39,7 +40,7 @@
     	
     	<action name="goto_finalizar_atencion_jsp" class="itesm.action_support.AtencionAction" method="buscarAtencionesToday">
     		<result name="success">WEB-INF/admin/crud_atenciones/seleccionar_atenciones.jsp</result>
-    		<result name="none">WEB-INF/admin/crud_atenciones/error.jsp</result>
+    		<result name="none">WEB-INF/admin/crud_atenciones/no_atenciones.jsp</result>
     		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	
@@ -53,24 +54,6 @@
     		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     
-    	<!-- 
-    	<action name="desbloquear" class="itesm.action_support.PopulateDropDownLists" method="fill">
-    		<result>WEB-INF/admin/crud_usuarios/modificarEstadoA_Activo.jsp</result>
-    	</action>
     	
-    	<action name="lista_citas" class="itesm.action_support.ConsultaAction" method="buscarCitas">
-    		<result name="success">WEB-INF/admin/crud_salas_consulta/lista_citas_cancelar.jsp</result>
-    		<result name="none">WEB-INF/admin/crud_salas_consulta/no_salas_disponibles.jsp</result>
-    		<result name="error">WEB-INF/admin/error.jsp</result>
-    	</action>
-    	
-    	<action name="cancelar_cita" class="itesm.action_support.ConsultaAction" method = "interCancelar">
-    		<result name="success">WEB-INF/admin/crud_salas_consulta/cancelar_cita.jsp</result>
-    	</action>
-    	<action name="registrar_cancelacion" class="itesm.action_support.ConsultaAction" method="cancelarCita">
-    		<result name="success">WEB-INF/admin/crud_salas_consulta/admin_salas.jsp</result>
-    		<result name="error">WEB-INF/admin/error.jsp</result>
-    	</action>
-    	-->
     </package>
 </struts>
