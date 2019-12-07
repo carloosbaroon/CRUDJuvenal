@@ -9,6 +9,7 @@
 
    	<include file="crud_users.xml"/>
     <include file="crud_pacientes.xml"/>
+    <include file="reportes.xml"/>
 
     <package name="default" namespace="/" extends="struts-default">
 
@@ -49,6 +50,10 @@
          <result name = "success">success.jsp</result>
          <result name = "error">error.jsp</result>
       </action>
+      
+       <action name="reporte_cancelaciones">
+	    		<result name="success">reports/listCancelaciones.jsp</result>
+	    </action>
     	
     	
     </package>    

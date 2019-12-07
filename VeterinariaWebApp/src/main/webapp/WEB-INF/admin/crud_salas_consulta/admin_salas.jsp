@@ -74,11 +74,13 @@
 					<s:url action="goto_editar_salas_jsp" var="editar_sala"/>
 					<s:url action="goto_programar_consulta_jsp" var="reservar_sala"/>
 					<s:url action="goto_cancelar_cita_jsp" var="cancelar_cita"/>
+					<s:url action="reporte_cancelaciones" var="cancelar_lista"/>
 					
 					<h4><a href="${alta_sala}">Alta de Salas</a></h4>
 					<h4><a href="${editar_sala}">Editar Salas</a></h4>		
 					<h4><a href="${reservar_sala}">Reservar Salas</a></h4>
 					<h4><a href="${cancelar_cita}">Cancelar Cita</a></h4>
+					<h4><a href="${cancelar_lista}">Reporte Cancelaciones</a></h4>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
