@@ -303,4 +303,54 @@ public class DAOConsultaImpl extends Conexion implements DAOConsulta{
 		return null;
 	}
 
+	@Override
+	public ArrayList<ConsultaBean> consultarCitasProgramadas(String id_propietario, String fecha, String hora_entrada) throws Exception{
+				ArrayList<ConsultaBean> buffer_citas = new ArrayList<ConsultaBean>();
+				String ret = "error";
+				
+				Connection conn = null;
+			      
+		   	 	establishConnection();
+		        conn = getCon();
+		                
+		        String sql = "SELECT * FROM consultas WHERE id_paciente IN ";
+		        	sql +=	"(SELECT id_paciente FROM paciente WHERE id_propietario IN ";
+		        	sql += "(SELECT id_propietario FROM propietario WHERE id_propietario = ?))";
+		        	sql +=	"and fecha >= ?"; 
+		        	sql += 	"and hora_inicial >= ?";
+		        
+		        PreparedStatement ps = conn.prepareStatement(sql);
+		        ps.setString(1, id_propietario);
+		        ps.setString(2, fecha);		        
+		        ps.setString(3, hora_entrada);
+		        
+		        ResultSet rs = ps.executeQuery();
+
+		        while (rs.next()) {
+		        	ConsultaBean consultaBean = new ConsultaBean();
+		        	consultaBean.setId_consulta(rs.getString(1));
+		        	consultaBean.setFecha_consulta(rs.getString(2));
+		        	consultaBean.setHora_inicial(rs.getString(3));
+		        	consultaBean.setHora_final(rs.getString(4));
+		        	consultaBean.setId_empleado(rs.getString(5));
+		        	consultaBean.setId_sala(rs.getString(6));
+		        	consultaBean.setId_paciente(rs.getString(7));
+		        	consultaBean.setCorreo(rs.getString(8));
+		        	consultaBean.setObservaciones(rs.getString(9));
+		        	consultaBean.setEstado_consulta(rs.getString(10));
+		           
+			       	buffer_citas.add(consultaBean);
+		        }
+		        
+		        if (conn != null) {
+		            try {
+		               closeConnection();
+		            } catch (Exception e) {
+		 				e.printStackTrace();
+		            }
+		        }
+		        
+		return buffer_citas;		
+	}
+
 }

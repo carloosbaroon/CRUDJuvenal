@@ -37,7 +37,20 @@ public class ConsultaAction extends ActionSupport{
 	
 
 	private String mensajeError;
-	private String qs_sala_id;
+	private String qs_sala_id, qs_owner_id;
+	public String getMensajeError() {
+		return mensajeError;
+	}
+	public void setMensajeError(String mensajeError) {
+		this.mensajeError = mensajeError;
+	}
+	public String getQs_owner_id() {
+		return qs_owner_id;
+	}
+	public void setQs_owner_id(String qs_owner_id) {
+		this.qs_owner_id = qs_owner_id;
+	}
+
 	private String idPropietario;
 	private String qs_consulta_id;
 	
@@ -194,6 +207,20 @@ public class ConsultaAction extends ActionSupport{
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return ERROR;
+		}
+	}
+	
+	public String mostrarListaCitas() {
+		//1. Obtener la tabla empleados con todos sus registros
+		DAOConsulta daoConsulta = new DAOConsultaImpl();
+		try {
+			this.buffer_citas = daoConsulta.consultarCitasProgramadas(this.qs_owner_id, AtencionAction.dateSystem(), AtencionAction.timeSystem());
+			return SUCCESS;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			this.mensajeError = "Error al mostrar la lista de citas programadas";
 			return ERROR;
 		}
 	}
