@@ -84,7 +84,7 @@ Create table Cancelaciones (
     
     Create table Atenciones (
     id_atencion Int NOT NULL AUTO_INCREMENT,
-	id_consulta Int,
+	id_consulta Int NULL,
     id_sala Int NOT NULL,
     id_paciente Int NOT NULL,
     fecha Date NOT NULL,
@@ -92,6 +92,7 @@ Create table Cancelaciones (
     hora_salida Time,
     detalle VARCHAR (500),
     monto Int,
+    factura VARCHAR (20),
 Primary Key (id_atencion)) ENGINE = MyISAM;
 
 

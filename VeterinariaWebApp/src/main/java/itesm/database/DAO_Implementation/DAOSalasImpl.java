@@ -21,12 +21,6 @@ public class DAOSalasImpl extends Conexion implements DAOSalas{
    	 	establishConnection();
         conn = getCon();
         
-        /*String sql ="INSERT INTO sala (id_sala, nombre, disponibilidad)";
-        sql+="VALUES (?, ?, ?)";
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, sala.getId_sala());
-        ps.setString(2, sala.getNombre_sala());
-        ps.setString(3, sala.getEstado_sala());*/
         
         String sql ="INSERT INTO sala (nombre, disponibilidad)";
         sql+="VALUES ( ?, ?)";
@@ -91,6 +85,31 @@ public class DAOSalasImpl extends Conexion implements DAOSalas{
         ps.setString(1, sala.getNombre_sala());
         ps.setString(2, sala.getEstado_sala());
         ps.setString(3, sala.getId_sala());
+		
+        ps.execute();
+
+        if (conn != null) {
+           try {
+              closeConnection();
+           } catch (Exception e) {
+				e.printStackTrace();
+           }
+        }
+		
+	}
+	
+	@Override
+	public void editarEstado(String id_sala, String estado) throws Exception {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+	      
+   	 	establishConnection();
+        conn = getCon();
+                
+        String sql ="UPDATE sala SET disponibilidad = ? WHERE id_sala = ?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, estado);
+        ps.setString(2, id_sala);
 		
         ps.execute();
 

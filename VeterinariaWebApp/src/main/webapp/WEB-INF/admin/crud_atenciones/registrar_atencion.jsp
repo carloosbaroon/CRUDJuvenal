@@ -74,7 +74,7 @@
 				<div class="col-sm-4 top-content">
 					<s:url action="goto_admin_salas_jsp" var="regresar"/>
 	
-	<s:form action="terminar_reservacion">
+	<s:form action="terminar_registro_atencion">
 		<s:textfield name="atencion.id_consulta" label="ID de la cita" value="%{atencion.id_consulta}" readonly="true"/>
 		<s:textfield name="atencion.id_sala" label="ID de la sala" value="%{atencion.id_sala}" readonly="true"/>
 		<s:textfield name="atencion.id_paciente" label="ID del paciente" />

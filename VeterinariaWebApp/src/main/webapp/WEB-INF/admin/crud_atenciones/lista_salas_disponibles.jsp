@@ -90,9 +90,9 @@
 		<td><s:property value="id_sala"/></td>
 		<td><s:property value="nombre_sala"/></td>
 		<td>
-			<s:url action="goto_registrar_atencion" var="url_registrar_atencion">
-       			<s:param name = "atencion.fecha">${fecha_system}</s:param>
-       			<s:param name = "atencion.hora_entrada">${hora_consulta}</s:param>
+			<s:url action="goto_pre_registrar_atencion" var="url_registrar_atencion">
+       			<s:param name = "atencion.fecha">${datesyst}</s:param>
+       			<s:param name = "atencion.hora_entrada">${timesyst}</s:param>
        			<s:param name = "atencion.id_sala">${id_sala}</s:param>
 			</s:url>
 			<a class="more" href="${url_registrar_atencion}">Seleccionar</a>

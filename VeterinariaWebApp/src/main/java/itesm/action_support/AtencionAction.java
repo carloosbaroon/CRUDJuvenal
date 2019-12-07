@@ -11,8 +11,12 @@ import com.opensymphony.xwork2.ActionSupport;
 import itesm.business.AtencionBean;
 import itesm.business.ConsultaBean;
 import itesm.business.SalaBean;
+import itesm.database.DAO_Implementation.DAOAtencionImpl;
 import itesm.database.DAO_Implementation.DAOConsultaImpl;
+import itesm.database.DAO_Implementation.DAOSalasImpl;
+import itesm.database.DAO_Interfaces.DAOAtencion;
 import itesm.database.DAO_Interfaces.DAOConsulta;
+import itesm.database.DAO_Interfaces.DAOSalas;
 
 public class AtencionAction extends ActionSupport{
 	private static final long serialVersionUID = 1L;
@@ -59,8 +63,29 @@ public class AtencionAction extends ActionSupport{
 	
 	//Variables Auxiliares
 	private String mensajeError;
+	private String datesyst;
+	private String timesyst;
+	private String timeaprox;
 	//GETTERS AND SETTERS Auxiliares
 	
+	public String getDatesyst() {
+		return datesyst;
+	}
+	public void setDatesyst(String datesyst) {
+		this.datesyst = datesyst;
+	}
+	public String getTimesyst() {
+		return timesyst;
+	}
+	public void setTimesyst(String timesyst) {
+		this.timesyst = timesyst;
+	}
+	public String getTimeaprox() {
+		return timeaprox;
+	}
+	public void setTimeaprox(String timeaprox) {
+		this.timeaprox = timeaprox;
+	}
 	public String dateSystem()
 	{
 		String datesyst = "";
@@ -96,9 +121,9 @@ public class AtencionAction extends ActionSupport{
 	
 	public String revisarDisponibilidadNow()
 	{
-		String datesyst = dateSystem();
-		String timesyst = timeSystem();
-		String timeaprox = timeAprox();
+		datesyst = dateSystem();
+		timesyst = timeSystem();
+		timeaprox = timeAprox();
 		
 		DAOConsulta daoConsulta = new DAOConsultaImpl();
 		System.out.println(datesyst);
@@ -127,8 +152,21 @@ public class AtencionAction extends ActionSupport{
 		}
 	}
 	public String preRegistrarAtencion() {
-		System.out.println(atencion.getFecha());
+		//System.out.println(this.atencion.getFecha());
 		return SUCCESS;
+	}
+	public String endRegistrarAtencion() {
+		DAOSalas daoSala = new DAOSalasImpl();
+		DAOAtencion daoAtencion = new DAOAtencionImpl();
+		try {
+			daoAtencion.insertar(atencion);
+			daoSala.editarEstado(atencion.getId_sala(), "no disponible");	
+			return SUCCESS;
+		} catch (Exception e) {
+			e.printStackTrace();
+			mensajeError = "Error al registrar la atencion";
+			return ERROR;
+		}
 	}
 
 }
