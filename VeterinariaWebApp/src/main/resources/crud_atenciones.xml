@@ -30,7 +30,7 @@
     	</action>
     	
     	<action name="goto_terminar_atencion_jsp">
-    		<result>WEB-INF/admin/crud_atenciones/terminar.jsp</result>
+    		<result>WEB-INF/admin/crud_atenciones/seleccionar_atenciones.jsp</result>
     	</action>
     	<!-- 
     	<action name="desbloquear" class="itesm.action_support.PopulateDropDownLists" method="fill">
