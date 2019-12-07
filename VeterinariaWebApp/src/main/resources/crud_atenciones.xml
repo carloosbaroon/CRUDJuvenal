@@ -10,7 +10,7 @@
     	</action>
     	
 		<action name="goto_atencion_con_cita_jsp">
-    		<result>WEB-INF/admin/crud_atenciones/atencioncita.jsp</result>
+    		<result>WEB-INF/admin/crud_atenciones/atender_con_cita.jsp</result>
     	</action>
     	
     	<action name="goto_atencion_sin_cita_jsp" class="itesm.action_support.AtencionAction" method="revisarDisponibilidadNow">
@@ -24,14 +24,24 @@
     		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	
+<<<<<<< Updated upstream
     	<action name="terminar_registro_atencion" class="itesm.action_support.AtencionAction" method="endRegistrarAtencion">
     		<result name="success">WEB-INF/admin/crud_atenciones/admin_atenciones.jsp</result>
+=======
+    	<action name="lista_citas" class="itesm.action_support.ConsultaAction" method="mostrarListaCitas">
+    		<result name="success">WEB-INF/admin/crud_atenciones/listaCitas.jsp</result>
+    		<result name="error">WEB-INF/admin/error.jsp</result>
+    	</action>
+    	
+    	<action name="salida_cita">
+>>>>>>> Stashed changes
     		<result name="error">WEB-INF/admin/error.jsp</result>
     	</action>
     	
     	<action name="goto_terminar_atencion_jsp">
     		<result>WEB-INF/admin/crud_atenciones/terminar.jsp</result>
     	</action>
+    
     	<!-- 
     	<action name="desbloquear" class="itesm.action_support.PopulateDropDownLists" method="fill">
     		<result>WEB-INF/admin/crud_usuarios/modificarEstadoA_Activo.jsp</result>
