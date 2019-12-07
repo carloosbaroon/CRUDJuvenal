@@ -86,7 +86,6 @@ public class AtencionAction extends ActionSupport{
 	public void setTimeaprox(String timeaprox) {
 		this.timeaprox = timeaprox;
 	}
-
 	public static String dateSystem()
 	{
 		String datesyst = "";

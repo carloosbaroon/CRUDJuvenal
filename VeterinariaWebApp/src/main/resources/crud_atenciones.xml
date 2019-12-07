@@ -26,6 +26,8 @@
     	
     	<action name="terminar_registro_atencion" class="itesm.action_support.AtencionAction" method="endRegistrarAtencion">
     		<result name="success">WEB-INF/admin/crud_atenciones/admin_atenciones.jsp</result>
+    	</action>
+    		
     	<action name="lista_citas" class="itesm.action_support.ConsultaAction" method="mostrarListaCitas">
     		<result name="success">WEB-INF/admin/crud_atenciones/listaCitas.jsp</result>
     		<result name="error">WEB-INF/admin/error.jsp</result>
@@ -36,7 +38,7 @@
     	</action>
     	
     	<action name="goto_terminar_atencion_jsp">
-    		<result>WEB-INF/admin/crud_atenciones/terminar.jsp</result>
+    		<result>WEB-INF/admin/crud_atenciones/seleccionar_atenciones.jsp</result>
     	</action>
     
     	<!-- 
