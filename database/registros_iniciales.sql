@@ -16,19 +16,19 @@ INSERT INTO usuario (id_empleado, password_user, confirmar_password, privilegios
 VALUES (2, "cactus", "cactus", "Usuario", "activo", 5);
 
 INSERT INTO sala (nombre, disponibilidad) 
-VALUES ("Sala 1", "no disponible");
+VALUES ("Sala 1", "disponible");
 
 INSERT INTO sala (nombre, disponibilidad) 
-VALUES ("Sala 2", "no disponible");
+VALUES ("Sala 2", "disponible");
 
 INSERT INTO sala (nombre, disponibilidad) 
-VALUES ("Sala 3", "no disponible");
+VALUES ("Sala 3", "disponible");
 
 INSERT INTO sala (nombre, disponibilidad) 
 VALUES ("Sala 4", "no disponible");
 
 INSERT INTO sala (nombre, disponibilidad) 
-VALUES ("Sala 5", "no disponible");
+VALUES ("Sala 5", "disponible");
 
 INSERT INTO propietario (nombre, direccion, telefono, rfc) 
 VALUES ("Juan Martinez", "Toluca", "7223535654", "MASJ4534343");
@@ -80,5 +80,5 @@ from paciente inner join consultas
 where paciente.id_propietario = 2 and paciente.id_paciente = consultas.id_paciente;
 
 Query para ultimo caso de Atencion
-select consultas.id_sala, consultas.hora_final from (select * from consultas order by consultas.hora_final desc) consultas group by consultas.id_sala;
+select consultas.id_sala, consultas.hora_final from (select * from consultas where consultas.fecha = '2019/12/06' order by consultas.hora_final desc) consultas group by consultas.id_sala;
  */

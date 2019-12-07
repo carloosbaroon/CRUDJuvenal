@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<title>Registrar Atencion</title>
+		<title>Buscar Cita</title>
 		<link href="styles/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="js/jquery.min.js"></script>
@@ -60,7 +60,7 @@
 <div class="banner-head">
 	<div class="banner-1"> </div>
 		<div class="container">
-			<h1>Registrar Atencion</h1>	
+			<h1>Validar Dueño</h1>	
 		</div>
 </div>
 <!--content-->
@@ -72,18 +72,16 @@
 			<div class="why-top-top">
 			
 				<div class="col-sm-4 top-content">
-					<s:url action="goto_admin_salas_jsp" var="regresar"/>
-	
-	<s:form action="terminar_registro_atencion">
-		<s:textfield name="atencion.id_consulta" label="ID de la cita" value="%{atencion.id_consulta}" readonly="true"/>
-		<s:textfield name="atencion.id_sala" label="ID de la sala" value="%{atencion.id_sala}" readonly="true"/>
-		<s:textfield name="atencion.id_paciente" label="ID del paciente" />
-		<s:textfield name="atencion.fecha" label="Fecha de entrada" value="%{atencion.fecha}" readonly="true"/>
-		<s:textfield name="atencion.hora_entrada" label="Hora de entrada (hh:mm)" value="%{atencion.hora_entrada}" readonly="true"/>
+					<s:form action="lista_citas">
+				    <s:textfield name="qs_owner_id" label="Id Dueño" />
+				   <a class="more"> <s:submit value="Enviar"/> </a>
+				</s:form>
+					
+				
 
-		<a class="more"><s:submit value="Reservar"/></a>
-	</s:form>
-	<h4><a href="${regresar}">Regresar</a></h4>
+
+						
+					
 				</div>
 				<div class="clearfix"> </div>
 			</div>

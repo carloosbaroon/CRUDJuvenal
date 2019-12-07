@@ -47,7 +47,15 @@ public class AtencionAction extends ActionSupport{
 	//BUFFERS
 	private ArrayList<SalaBean> buffer_salas_disponibles;	
 	private ArrayList<ConsultaBean> buffer_horario_disponible;
+	private ArrayList<AtencionBean> buffer_atenciones_today;
 	//GETTERS AND SETTERS BUFFERS	
+	
+	public ArrayList<AtencionBean> getBuffer_atenciones_today() {
+		return buffer_atenciones_today;
+	}
+	public void setBuffer_atenciones_today(ArrayList<AtencionBean> buffer_atenciones_today) {
+		this.buffer_atenciones_today = buffer_atenciones_today;
+	}
 	public ArrayList<SalaBean> getBuffer_salas_disponibles() {
 		return buffer_salas_disponibles;
 	}
@@ -66,8 +74,15 @@ public class AtencionAction extends ActionSupport{
 	private String datesyst;
 	private String timesyst;
 	private String timeaprox;
+	private ArrayList<String> list_factura;
 	//GETTERS AND SETTERS Auxiliares
 	
+	public ArrayList<String> getList_factura() {
+		return list_factura;
+	}
+	public void setList_factura(ArrayList<String> list_factura) {
+		this.list_factura = list_factura;
+	}
 	public String getDatesyst() {
 		return datesyst;
 	}
@@ -86,7 +101,7 @@ public class AtencionAction extends ActionSupport{
 	public void setTimeaprox(String timeaprox) {
 		this.timeaprox = timeaprox;
 	}
-	public String dateSystem()
+	public static String dateSystem()
 	{
 		String datesyst = "";
 		Date dateObj = new Date();
@@ -95,7 +110,7 @@ public class AtencionAction extends ActionSupport{
 		datesyst = dateFormat.format(dateObj);
 		return datesyst;
 	}
-	public String timeSystem()
+	public static String timeSystem()
 	{
 		String timesyst = "";
 		Date dateObj = new Date();
@@ -104,7 +119,7 @@ public class AtencionAction extends ActionSupport{
 		timesyst = timeFormat.format(dateObj);
 		return timesyst;
 	}
-	public String timeAprox()
+	public static String timeAprox()
 	{
 		String timesyst = "";
 		Date dateObj = new Date();
@@ -132,20 +147,21 @@ public class AtencionAction extends ActionSupport{
 		try {
 			this.buffer_salas_disponibles = daoConsulta.consultarDisponiblesAten(datesyst, timesyst, timesyst);
 			
-			if(buffer_salas_disponibles != null)
+			if(buffer_salas_disponibles.isEmpty())
+			{
+				System.out.println("Entro al if de que es NULL");
+				this.buffer_horario_disponible = daoConsulta.consultarHorariosProximos(datesyst);
+				for(ConsultaBean item: buffer_horario_disponible) {
+					System.out.println("Sala :"+item.getId_sala()+" Horario: "+item.getHora_final());
+				}
+				return NONE;
+			}else
 			{
 				for(SalaBean item: buffer_salas_disponibles) {
 					System.out.println(item.getId_sala());
 				}
 				
 				return SUCCESS;
-			}else
-			{
-				this.buffer_horario_disponible = daoConsulta.consultarHorariosProximos(datesyst);
-				for(ConsultaBean item: buffer_horario_disponible) {
-					System.out.println(item.getId_sala());
-				}
-				return NONE;
 			}
 			
 		}catch (Exception e)
@@ -172,5 +188,65 @@ public class AtencionAction extends ActionSupport{
 			return ERROR;
 		}
 	}
-
+	
+	public String buscarAtencionesToday()
+	{
+		datesyst = dateSystem();
+		
+		//DAOConsulta daoConsulta = new DAOConsultaImpl();
+		DAOAtencion daoAtencion = new DAOAtencionImpl();
+		System.out.println(datesyst);
+		try {
+			this.buffer_atenciones_today = daoAtencion.consultarAtencionesToday(datesyst);
+			
+			if(buffer_atenciones_today.isEmpty())
+			{
+				System.out.println("Entro al if de que es NULL");
+				
+				return NONE;
+			}else
+			{
+				/*this.list_factura = new ArrayList<String>();
+				this.list_factura.add("facturada");
+				this.list_factura.add("no facturada");*/
+				
+				for(AtencionBean item: buffer_atenciones_today) {
+					System.out.println(item.getId_atencion());
+				}
+				
+				return SUCCESS;
+			}
+			
+		}catch (Exception e)
+		{
+			e.printStackTrace();
+			mensajeError = "Error al mostrar la lista de Atenciones";
+			return ERROR;
+		}
+	}
+	public String preTerminarAtencion() {
+		System.out.println(this.atencion.getFecha());
+		this.list_factura = new ArrayList<String>();
+		this.list_factura.add("facturada");
+		this.list_factura.add("no facturada");
+		return SUCCESS;
+	}
+	
+	public String terminarAtencion() {
+		timesyst = timeSystem();
+		atencion.setHora_salida(timesyst);
+		DAOSalas daoSala = new DAOSalasImpl();
+		DAOAtencion daoAtencion = new DAOAtencionImpl();
+		DAOConsulta daoConsulta = new DAOConsultaImpl();
+		try {
+			daoAtencion.editar(atencion);
+			daoSala.editarEstado(atencion.getId_sala(), "disponible");
+			daoConsulta.editarEstado(atencion.getId_consulta(), "terminada");
+			return SUCCESS;
+		} catch (Exception e) {
+			e.printStackTrace();
+			mensajeError = "Error al registrar la atencion";
+			return ERROR;
+		}
+	}
 }

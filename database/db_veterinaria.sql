@@ -91,7 +91,7 @@ Create table Cancelaciones (
 	hora_entrada Time,
     hora_salida Time,
     detalle VARCHAR (500),
-    monto Int,
+    monto float,
     factura VARCHAR (20),
 Primary Key (id_atencion)) ENGINE = MyISAM;
 
