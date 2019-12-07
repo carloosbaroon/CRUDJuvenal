@@ -83,6 +83,7 @@
 	<tr>
        <td><b>ID Sala</b></td>
        <td><b>Nombre de la sala</b></td>
+       <td><b>Seleccionar</b></td>
     </tr>
 
 <s:iterator value="buffer_salas_disponibles" status="i">

@@ -132,20 +132,21 @@ public class AtencionAction extends ActionSupport{
 		try {
 			this.buffer_salas_disponibles = daoConsulta.consultarDisponiblesAten(datesyst, timesyst, timesyst);
 			
-			if(buffer_salas_disponibles != null)
+			if(buffer_salas_disponibles.isEmpty())
+			{
+				System.out.println("Entro al if de que es NULL");
+				this.buffer_horario_disponible = daoConsulta.consultarHorariosProximos(datesyst);
+				for(ConsultaBean item: buffer_horario_disponible) {
+					System.out.println("Sala :"+item.getId_sala()+" Horario: "+item.getHora_final());
+				}
+				return NONE;
+			}else
 			{
 				for(SalaBean item: buffer_salas_disponibles) {
 					System.out.println(item.getId_sala());
 				}
 				
 				return SUCCESS;
-			}else
-			{
-				this.buffer_horario_disponible = daoConsulta.consultarHorariosProximos(datesyst);
-				for(ConsultaBean item: buffer_horario_disponible) {
-					System.out.println(item.getId_sala());
-				}
-				return NONE;
 			}
 			
 		}catch (Exception e)

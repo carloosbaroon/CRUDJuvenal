@@ -63,8 +63,8 @@ public class Conexion {
 		
 		try {
 			InitialContext initContext = new InitialContext();
-			Context envContext = (Context)initContext.lookup("java:/comp/env");
-		    DataSource ds = (DataSource) initContext.lookup("jdbc/ConexionMySQL");
+			//Context envContext = (Context)initContext.lookup("java:/comp/env");
+		    DataSource ds = (DataSource) initContext.lookup("java:/comp/env/jdbc/ConexionMySQL");
 		    con = ds.getConnection();
 		}catch (SQLException e) {
 			e.printStackTrace();
